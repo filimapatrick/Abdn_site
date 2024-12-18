@@ -1,0 +1,95 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Linkedin, Mail, Globe } from 'lucide-react';
+
+const coreTeam = [
+  {
+    name: "Dr. Damian Eke",
+    role: "Co-founder",
+    institution: "De Montfort University",
+    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Damian-Eke.jpg",
+    bio: "Leading expert in bioethics and responsible data sharing"
+  },
+  {
+    name: "Dr. Eberechi Wogu",
+    role: "Co-founder",
+    institution: "Neuroscience Society of Nigeria",
+    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Eberechi-Wogu.jpg",
+    bio: "Pioneer in neuroimaging research in Nigeria"
+  },
+  {
+    name: "Dr. Thomas Tagoe",
+    role: "Research Director",
+    institution: "University of Ghana",
+    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Thomas-Tagoe.jpg",
+    bio: "Expert in neuroscience education and research"
+  },
+  {
+    name: "Dr. Mahmoud Bukar Maina",
+    role: "Training Coordinator",
+    institution: "University of Sussex",
+    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Mahmoud-Maina.jpg",
+    bio: "Specialist in capacity building and research training"
+  }
+];
+
+export default function CoreTeam() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Core Team</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Meet the dedicated professionals leading ABDN's mission to advance neuroscience research in Africa
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {coreTeam.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div className="relative group">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                  <div className="flex space-x-4">
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                      <Linkedin className="h-5 w-5 text-white" />
+                    </a>
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                      <Mail className="h-5 w-5 text-white" />
+                    </a>
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                      <Globe className="h-5 w-5 text-white" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-blue-600 font-medium mb-2">{member.role}</p>
+                <p className="text-gray-500 text-sm mb-3">{member.institution}</p>
+                <p className="text-gray-600 text-sm">{member.bio}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
