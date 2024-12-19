@@ -2,34 +2,35 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Globe } from 'lucide-react';
 
+
 const coreTeam = [
   {
     name: "Dr. Damian Eke",
     role: "Co-founder",
     institution: "De Montfort University",
-    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Damian-Eke.jpg",
+    image: "../../../Assets/Damian.jpeg",
     bio: "Leading expert in bioethics and responsible data sharing"
   },
   {
     name: "Dr. Eberechi Wogu",
     role: "Co-founder",
     institution: "Neuroscience Society of Nigeria",
-    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Eberechi-Wogu.jpg",
+    image: "../../../Assets/ebere1.jpeg",
     bio: "Pioneer in neuroimaging research in Nigeria"
   },
   {
-    name: "Dr. Thomas Tagoe",
+    name: "Filima Patrick",
     role: "Research Director",
-    institution: "University of Ghana",
-    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Thomas-Tagoe.jpg",
+    institution: "University of Port-Harcourt",
+    image: "../../../Assets/filima.jpeg",
     bio: "Expert in neuroscience education and research"
   },
   {
-    name: "Dr. Mahmoud Bukar Maina",
-    role: "Training Coordinator",
-    institution: "University of Sussex",
-    image: "https://africanbraindatanetwork.com/wp-content/uploads/2023/07/Dr-Mahmoud-Maina.jpg",
-    bio: "Specialist in capacity building and research training"
+    name: "Barisua Nsanee",
+    role: "Community Manager",
+    institution: "University of Port-Harcourt",
+    image: "../../../Assets/barisua.jpeg",
+    bio: "Specialist in capacity building and community Building"
   }
 ];
 
