@@ -6,46 +6,128 @@ import { ArrowRight, Camera, ZoomIn } from 'lucide-react';
 
 const galleryImages = [
   // 2023 Images
+
+  
+    {
+      "src": "/Assets/lecture_with_pestilli_in_lagos.jpg",
+      "alt": "Lecture session with Pestilli in Lagos",
+      "title": "Lecture with Pestilli in Lagos",
+      "description": "Insightful lecture on brain imaging research",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/mattew_exposing_participants_to_INCF.jpg",
+      "alt": "Mattew introducing participants to INCF",
+      "title": "Introducing INCF with Mattew",
+      "description": "Introduction to INCF neuroscience frameworks",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/mri_with_pestilli.jpg",
+      "alt": "Pestilli demonstrating MRI imaging techniques",
+      "title": "MRI Imaging with Pestilli",
+      "description": "Live MRI demonstration session with Pestilli",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participant_at_Nigeria_researve.jpg",
+      "alt": "Participant at Nigeria Reserve center",
+      "title": "Interactive Session at Nigeria Reserve Center",
+      "description": "Fun and learning at Nigeria reserve",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_at_panel_discussion.jpg",
+      "alt": "Panel discussion with session participants",
+      "title": "Panel Discussion Insights",
+      "description": "Engaging panel on brain data science",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_at_the_art_gallery.jpg",
+      "alt": "Participants visiting an art gallery",
+      "title": "Exploring Art and Science",
+      "description": "Gallery visit blending art and science",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_at_the_beach.jpg",
+      "alt": "Participants enjoying time at the beach",
+      "title": "Beachside Networking",
+      "description": "Networking session by the ocean breeze",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_learning.jpg",
+      "alt": "Participants actively engaged in learning",
+      "title": "Active Learning Session",
+      "description": "Hands-on training in neuroscience methods",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_spare_time.jpg",
+      "alt": "Participants enjoying their spare time",
+      "title": "Relaxation and Interaction",
+      "description": "Participants bonding during spare moments",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/participants_still_at_the_beach.jpg",
+      "alt": "Participants still enjoying the beach",
+      "title": "Extended Beach Time",
+      "description": "Continued fun time by the beach",
+      "year": 2023
+    },
+    {
+      "src": "/Assets/thank_speach_to_Kavli_foundation.jpg",
+      "alt": "Thank you speech to the Kavli Foundation",
+      "title": "Gratitude to Kavli Foundation",
+      "description": "Appreciation speech to Kavli Foundation team",
+      "year": 2023
+    },
+  
+  
+   // 2024 Images
   {
     src: '/Assets/cross_section.jpeg',
     alt: 'Cross Section Training',
     title: 'Cross Section Analysis',
     description: 'Training session on cross-sectional imaging analysis',
-    year: 2023,
+    year: 2024,
   },
   {
     src: '/Assets/franco_structural.jpeg',
     alt: 'Structural Analysis',
     title: 'Structural Biology Workshop',
     description: 'Advanced workshop on structural biology techniques',
-    year: 2023,
+    year: 2024,
   },
   {
     src: '/Assets/Damian_nairobi.jpeg',
     alt: 'Nairobi Workshop',
     title: 'Nairobi Training Session',
     description: 'Specialized training workshop in Nairobi',
-    year: 2023,
+    year: 2024,
   },
   {
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (5).jpeg',
     alt: 'Research Meeting',
     title: 'Research Planning',
     description: 'Strategic research planning session with team members',
-    year: 2023,
+    year: 2024,
   },
   {
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (4).jpeg',
     alt: 'Team Collaboration',
     title: 'Team Building',
     description: 'Collaborative session fostering team spirit',
-    year: 2023,
+    year: 2024,
   },
-  // 2024 Images
+ 
   {
     src: '/Assets/lagos_group_picture.jpeg',
     alt: 'ABDN Workshop Group',
-    title: 'Lagos Workshop',
+    title: 'Kenya Workshop',
     description: 'Group photo of participants at the ABDN Workshop in Lagos',
     year: 2024,
   },

@@ -8,28 +8,28 @@ const coreTeam = [
     name: "Dr. Damian Eke",
     role: "Co-founder",
     institution: "De Montfort University",
-    image: "../../../Assets/Damian.jpeg",
+    image: "/Assets/Damian.jpeg",
     bio: "Leading expert in bioethics and responsible data sharing"
   },
   {
     name: "Dr. Eberechi Wogu",
     role: "Co-founder",
     institution: "Neuroscience Society of Nigeria",
-    image: "../../../Assets/ebere1.jpeg",
+    image: "/Assets/ebere1.jpeg",
     bio: "Pioneer in neuroimaging research in Nigeria"
   },
   {
     name: "Filima Patrick",
-    role: "Research Director",
+    role: "Technical Lead & Developer",
     institution: "University of Port-Harcourt",
-    image: "../../../Assets/filima.jpeg",
-    bio: "Expert in neuroscience education and research"
+    image: "/Assets/filima.jpeg",
+    bio: "Tech-savvy developer integrating digital solutions in neuroscience"
   },
   {
     name: "Barisua Nsanee",
     role: "Community Manager",
     institution: "University of Port-Harcourt",
-    image: "../../../Assets/barisua.jpeg",
+    image: "/Assets/barisua.jpeg",
     bio: "Specialist in capacity building and community Building"
   }
 ];

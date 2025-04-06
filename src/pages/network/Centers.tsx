@@ -76,11 +76,14 @@ const coordinators: Coordinator[] = [
   { country: "Tanzania", institution: "University of Dar es Salaam", region: "East", flag: "🇹🇿" },
   { country: "Uganda", institution: "Makerere University", region: "East", flag: "🇺🇬" },
   { country: "Morocco", institution: "Mohammed V University", region: "North", flag: "🇲🇦" },
-  { country: "Cameroon", institution: "University of Yaoundé", region: "Central", flag: "��🇲" },
+  { country: "Cameroon", institution: "University of Yaoundé", region: "Central", flag: "🇨🇲" },
   { country: "Zimbabwe", institution: "University of Zimbabwe", region: "South", flag: "🇿🇼" },
   { country: "Sudan", institution: "University of Khartoum", region: "North", flag: "🇸🇩" },
   { country: "Rwanda", institution: "University of Rwanda", region: "East", flag: "🇷🇼" },
-  { country: "Mozambique", institution: "Eduardo Mondlane University", region: "South", flag: "🇲🇿" }
+  { country: "Tunisia", institution: "University of Tunis", region: "North", flag: "🇹🇳" },
+  { country: "Democratic Republic of Congo", institution: "University of Kinshasa", region: "Central", flag: "🇨🇩" },
+  { country: "Mali", institution: "University of Bamako", region: "West", flag: "🇲🇱" },
+  { country: "Zambia", institution: "University of Zambia", region: "South", flag: "🇿🇲" },
 ];
 
 export default function Centers() {

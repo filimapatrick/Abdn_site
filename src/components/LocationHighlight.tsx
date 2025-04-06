@@ -32,8 +32,8 @@ export default function LocationHighlight() {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img
-                src="../../Assets/cross_section.jpeg"
+              <img 
+                src="/Assets/cross_section.jpeg"
                 alt="Research Laboratory"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />

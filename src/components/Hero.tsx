@@ -36,7 +36,7 @@ export default function Hero() {
         style={{ opacity }}
       >
         <img
-          src="../../Assets/lagos_group_picture.jpeg"
+          src="/Assets/lagos_group_picture.jpeg"
           alt="Background"
           className="w-full h-full object-cover"
         />

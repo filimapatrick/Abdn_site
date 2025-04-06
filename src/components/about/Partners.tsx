@@ -1,27 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import t from '../../../Assets/Partners/brain_wellness_initative.jpg'
 
 const partners = [
   {
-    name: "Society for Neuroscientist Africa (SONA)",
-    logo: "../../../Assets/Partners/Sona.jpg",
-    description: "Leading African neuroscience society promoting research excellence"
+    name: "Sona",
+    logo: "/Assets/Partners/Sona.jpg",
+    description: "Supporting research and innovation in neuroscience"
   },
   {
-    name: "Neuroscience Society of Nigeria (NSN)",
-    logo: "../../../Assets/Partners/nsn.jpg",
-    description: "Advancing neuroscience research and education in Nigeria"
+    name: "NSN",
+    logo: "/Assets/Partners/nsn.jpg",
+    description: "Advancing neuroscience education and research in Nigeria"
   },
   {
     name: "Brainlife",
-    logo: "../../../Assets/Partners/brainlife.jpg",
-    description: "World-class research center fostering scientific innovation"
+    logo: "/Assets/Partners/brainlife.jpg",
+    description: "Providing cutting-edge neuroimaging data processing tools"
   },
   {
-    name: "University of Nothgham",
-    logo: "../../../Assets/Partners/Nottingham.jpg",
-    description: "Leading institution in neuroscience education and research"
+    name: "University of Nottingham",
+    logo: "/Assets/Partners/Nottingham.jpg",
+    description: "Fostering international collaboration in brain science"
   }
 ];
 
