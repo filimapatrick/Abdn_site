@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Clock, Award, Brain, Star } from 'lucide-react';
+import { BookOpen, Users, Clock, Award, Brain, Star, ChevronRight, ArrowRight, Target, Beaker, Globe, Video, Laptop, MessageSquare } from 'lucide-react';
+import Layout from '../../components/Layout';
 
 const courses = [
   {
@@ -10,7 +11,9 @@ const courses = [
     students: 120,
     rating: 4.8,
     level: "Intermediate",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
+    description: "Master the fundamentals of neuroimaging techniques and analysis methods.",
+    topics: ["MRI Basics", "fMRI Analysis", "Brain Mapping", "Data Processing"]
   },
   {
     title: "Data Science in Neuroscience",
@@ -19,7 +22,9 @@ const courses = [
     students: 85,
     rating: 4.9,
     level: "Advanced",
-    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80",
+    description: "Apply advanced data science techniques to neuroscience research.",
+    topics: ["Neural Data Analysis", "Machine Learning", "Statistical Methods", "Python Programming"]
   },
   {
     title: "Clinical Neuroscience",
@@ -28,142 +33,276 @@ const courses = [
     students: 150,
     rating: 4.7,
     level: "Beginner",
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80",
+    description: "Understand the clinical aspects of neuroscience and neurological disorders.",
+    topics: ["Neurological Disorders", "Clinical Assessment", "Treatment Approaches", "Case Studies"]
+  }
+];
+
+const upcomingWorkshops = [
+  {
+    title: "EEG Training Workshop",
+    date: "March 15-17, 2024",
+    location: "Port Harcourt, Nigeria",
+    instructor: "Dr. Sarah Mwangi",
+    icon: Brain,
+    description: "Hands-on training in EEG data acquisition, processing, and analysis techniques."
+  },
+  {
+    title: "fMRI Analysis Workshop",
+    date: "March 18-20, 2024",
+    location: "Port Harcourt, Nigeria",
+    instructor: "Dr. Mohammed Ahmed",
+    icon: Target,
+    description: "Advanced techniques in functional MRI data analysis and interpretation."
+  },
+  {
+    title: "MRI Fundamentals Workshop",
+    date: "March 21-23, 2024",
+    location: "Port Harcourt, Nigeria",
+    instructor: "Dr. Grace Okonjo",
+    icon: Beaker,
+    description: "Essential principles and practices of MRI in neuroscience research."
+  }
+];
+
+const trainingFeatures = [
+  {
+    title: "Expert-Led Sessions",
+    description: "Learn directly from leading African neuroscience researchers and practitioners",
+    icon: Brain
+  },
+  {
+    title: "Interactive Learning",
+    description: "Engage in hands-on exercises and real-world case studies",
+    icon: Users
+  },
+  {
+    title: "Flexible Learning",
+    description: "Access course materials anytime, anywhere with our hybrid learning approach",
+    icon: Clock
+  },
+  {
+    title: "Professional Certification",
+    description: "Earn recognized certificates upon successful course completion",
+    icon: Award
+  },
+  {
+    title: "Online Resources",
+    description: "Access comprehensive digital learning materials and resources",
+    icon: BookOpen
+  },
+  {
+    title: "Live Sessions",
+    description: "Participate in regular live sessions with instructors and peers",
+    icon: Video
   }
 ];
 
 export default function Training() {
   return (
-    <main className="pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-900 to-blue-700">
-        <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              Training Programs
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-xl text-blue-100 max-w-3xl mx-auto"
-            >
-              Comprehensive neuroscience training programs designed for African researchers
-            </motion.p>
+    <Layout>
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />
+            <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-amber-500/10 rounded-full blur-3xl" />
           </div>
-        </div>
-      </section>
-
-      {/* Featured Courses */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Featured Courses</h2>
-            <p className="mt-4 text-xl text-gray-600">Learn from leading experts in neuroscience</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course, index) => (
-              <motion.div
-                key={index}
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-6xl font-bold mb-6"
               >
-                <div className="relative h-48">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-600">
-                    {course.level}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-4">by {course.instructor}</p>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                      <span className="font-semibold">{course.rating}</span>
+                <span className="bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text text-transparent">
+                  Training Programs
+                </span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-xl text-amber-100 max-w-3xl mx-auto mb-8"
+              >
+                Comprehensive neuroscience training programs designed for African researchers and practitioners
+              </motion.p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center"
+                >
+                  Browse Courses
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white/10 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 flex items-center backdrop-blur-sm"
+                >
+                  View Schedule
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Courses */}
+        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">Featured Courses</h2>
+              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+                Learn from leading experts in neuroscience through our specialized courses
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {courses.map((course, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-600">
+                      {course.level}
                     </div>
-                    <div className="flex items-center text-gray-500 space-x-4">
-                      <div className="flex items-center">
-                        <Users className="h-4 w-4 mr-1" />
-                        <span>{course.students}</span>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-amber-900 mb-2">{course.title}</h3>
+                    <p className="text-amber-600 mb-2">by {course.instructor}</p>
+                    <p className="text-amber-700 mb-4">{course.description}</p>
+                    <div className="space-y-2 mb-4">
+                      {course.topics.map((topic, i) => (
+                        <div key={i} className="flex items-center text-amber-700">
+                          <ChevronRight className="h-4 w-4 mr-2 text-amber-500" />
+                          <span>{topic}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-1">
+                        <Star className="h-5 w-5 text-amber-400 fill-current" />
+                        <span className="font-semibold text-amber-900">{course.rating}</span>
                       </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        <span>{course.duration}</span>
+                      <div className="flex items-center text-amber-600 space-x-4">
+                        <div className="flex items-center">
+                          <Users className="h-4 w-4 mr-1" />
+                          <span>{course.students}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="h-4 w-4 mr-1" />
+                          <span>{course.duration}</span>
+                        </div>
                       </div>
                     </div>
+                    <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                      Enroll Now
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
                   </div>
-                  <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
-                    Enroll Now
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Upcoming Workshops */}
+        <section className="py-24 bg-gradient-to-br from-white to-amber-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">Upcoming Workshops</h2>
+              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+                Join our intensive hands-on workshops led by industry experts
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {upcomingWorkshops.map((workshop, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-6"
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-amber-100 rounded-lg">
+                      <workshop.icon className="h-6 w-6 text-amber-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-amber-900 ml-4">{workshop.title}</h3>
+                  </div>
+                  <p className="text-amber-700 mb-4">{workshop.description}</p>
+                  <div className="space-y-2 text-amber-700">
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-2 text-amber-500" />
+                      <span>{workshop.date}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Globe className="h-4 w-4 mr-2 text-amber-500" />
+                      <span>{workshop.location}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 mr-2 text-amber-500" />
+                      <span>{workshop.instructor}</span>
+                    </div>
+                  </div>
+                  <button className="mt-4 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                    Register Now
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
-                <Brain className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Instructors</h3>
-              <p className="text-gray-600">Learn from leading neuroscience researchers and practitioners</p>
-            </motion.div>
+        {/* Training Features */}
+        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">Training Features</h2>
+              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+                What makes our training programs unique and effective
+              </p>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
-                <BookOpen className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Comprehensive Curriculum</h3>
-              <p className="text-gray-600">Structured learning paths designed for all skill levels</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
-                <Award className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Certification</h3>
-              <p className="text-gray-600">Earn recognized certificates upon course completion</p>
-            </motion.div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {trainingFeatures.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
+                    <feature.icon className="h-8 w-8 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">{feature.title}</h3>
+                  <p className="text-amber-700">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </Layout>
   );
 }

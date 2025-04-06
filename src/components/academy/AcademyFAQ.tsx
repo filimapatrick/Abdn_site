@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
@@ -29,7 +29,7 @@ export default function AcademyFAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,8 +38,8 @@ export default function AcademyFAQ() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-amber-900 mb-6">Frequently Asked Questions</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto">
             Find answers to common questions about ABDN Academy's programs and opportunities
           </p>
         </motion.div>
@@ -48,33 +48,35 @@ export default function AcademyFAQ() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-sm overflow-hidden"
+              className="bg-gradient-to-br from-amber-50 to-white border border-amber-100 rounded-lg shadow-sm"
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="w-full flex justify-between items-center p-6 text-left"
               >
-                <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
-                {activeIndex === index ? (
-                  <Minus className="h-5 w-5 text-blue-600" />
-                ) : (
-                  <Plus className="h-5 w-5 text-blue-600" />
-                )}
+                <span className="text-lg font-semibold text-amber-900">{faq.question}</span>
+                <ChevronDown
+                  className={`w-5 h-5 text-amber-600 transform transition-transform duration-300 ${
+                    activeIndex === index ? 'rotate-180' : ''
+                  }`}
+                />
               </button>
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
+                    animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="px-6 pb-6"
+                    className="overflow-hidden"
                   >
-                    <p className="text-gray-600">{faq.answer}</p>
+                    <div className="p-6 pt-0 text-amber-700">
+                      {faq.answer}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

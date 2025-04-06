@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import Layout from '../components/Layout';
 import AboutHero from '../components/about/AboutHero';
 import MissionImpact from '../components/about/MissionImpact';
 import AboutContent from '../components/about/AboutContent';
@@ -7,18 +9,18 @@ import CoreTeam from '../components/about/CoreTeam';
 import Partners from '../components/about/Partners';
 import AboutTestimonials from '../components/about/AboutTestimonials';
 
-function About() {
+export default function About() {
   return (
-    <main className="pt-20">
-      <AboutHero />
-      <MissionImpact />
-      <AboutContent />
-      <Timeline />
-      <CoreTeam />
-      <Partners />
-      <AboutTestimonials />
-    </main>
+    <Layout>
+      <main className="pt-20">
+        <AboutHero />
+        <MissionImpact />
+        <AboutContent />
+        <Timeline />
+        <CoreTeam />
+        <Partners />
+        <AboutTestimonials />
+      </main>
+    </Layout>
   );
 }
-
-export default About;

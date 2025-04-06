@@ -14,7 +14,9 @@ import Centers from './pages/network/Centers';
 import Collaborations from './pages/network/Collaborations';
 import DataSharing from './pages/network/DataSharing';
 import Publications from './pages/network/Publications';
+import People from './pages/network/People';
 import ContactDrawer from './components/ContactDrawer';
+import CookiePolicy from './pages/CookiePolicy';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -32,10 +34,12 @@ function App() {
         <Route path="/academy/infrastructure" element={<Infrastructure />} />
         <Route path="/academy/research-groups" element={<ResearchGroups />} />
         <Route path="/academy/events" element={<Events />} />
+        <Route path="/network/people" element={<People />} />
         <Route path="/network/centers" element={<Centers />} />
         <Route path="/network/collaborations" element={<Collaborations />} />
         <Route path="/network/data" element={<DataSharing />} />
         <Route path="/network/publications" element={<Publications />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
       </Routes>
       <ContactDrawer isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>

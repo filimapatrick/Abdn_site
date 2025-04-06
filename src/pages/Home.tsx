@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import LocationHighlight from '../components/LocationHighlight';
@@ -7,20 +9,22 @@ import PopularCourses from '../components/PopularCourses';
 import Stats from '../components/Stats';
 import ResearchStories from '../components/ResearchStories';
 import CallToAction from '../components/CallToAction';
+import SupportABDN from '../components/SupportABDN';
 
-function Home() {
+export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Features />
-      <LocationHighlight />
-      <FeaturedClass />
-      <PopularCourses />
-      <Stats />
-      <ResearchStories />
-      <CallToAction />
-    </main>
+    <Layout>
+      <main className="pt-20">
+        <Hero />
+        <Features />
+        <LocationHighlight />
+        <FeaturedClass />
+        <PopularCourses />
+        <Stats />
+        <ResearchStories />
+        <SupportABDN />
+        <CallToAction />
+      </main>
+    </Layout>
   );
 }
-
-export default Home;

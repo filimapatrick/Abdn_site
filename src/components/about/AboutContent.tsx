@@ -27,7 +27,7 @@ const objectives = [
 
 export default function AboutContent() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-br from-amber-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,8 +36,8 @@ export default function AboutContent() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission & Vision</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-amber-900 mb-6">Our Mission & Vision</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto">
             ABDN is dedicated to advancing neuroscience research in Africa through collaboration, 
             data sharing, and capacity building. We envision a future where African researchers 
             lead groundbreaking discoveries in brain science.
@@ -54,13 +54,13 @@ export default function AboutContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 p-6 rounded-xl hover:shadow-lg transition-shadow duration-300"
+                className="bg-gradient-to-br from-amber-50 to-white p-6 rounded-xl hover:shadow-lg transition-all duration-300 border border-amber-100"
               >
-                <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="h-6 w-6 text-blue-600" />
+                <div className="bg-gradient-to-br from-amber-100 to-amber-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <Icon className="h-6 w-6 text-amber-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{objective.title}</h3>
-                <p className="text-gray-600">{objective.description}</p>
+                <h3 className="text-xl font-semibold text-amber-900 mb-2">{objective.title}</h3>
+                <p className="text-amber-700">{objective.description}</p>
               </motion.div>
             );
           })}

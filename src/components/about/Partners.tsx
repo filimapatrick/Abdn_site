@@ -27,7 +27,7 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,8 +36,8 @@ export default function Partners() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Partners</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-amber-900 mb-6">Our Partners</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto">
             Collaborating with leading institutions and organizations to advance neuroscience research in Africa
           </p>
         </motion.div>
@@ -50,7 +50,7 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+              className="bg-gradient-to-br from-amber-50 to-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-amber-100"
             >
               <div className="h-24 flex items-center justify-center mb-6">
                 <img
@@ -59,10 +59,10 @@ export default function Partners() {
                   className="max-h-full max-w-full object-contain"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+              <h3 className="text-lg font-semibold text-amber-900 mb-2 text-center">
                 {partner.name}
               </h3>
-              <p className="text-gray-600 text-center text-sm">
+              <p className="text-amber-700 text-center text-sm">
                 {partner.description}
               </p>
             </motion.div>

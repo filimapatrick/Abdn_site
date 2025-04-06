@@ -4,12 +4,12 @@ import { ArrowRight } from 'lucide-react';
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-amber-900 to-amber-700 overflow-hidden">
       {/* Animated background shapes */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-72 h-72 bg-white/5 rounded-full"
+          className="absolute w-72 h-72 bg-amber-500/5 rounded-full"
           initial={{ 
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight
@@ -35,16 +35,16 @@ export default function AboutHero() {
           transition={{ duration: 0.8 }}
           className="text-center text-white"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-100 to-amber-200 bg-clip-text text-transparent">
             About the African Brain Data Network
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-amber-100 mb-12 max-w-3xl mx-auto">
             Connecting minds across Africa for groundbreaking neuroscience research
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300 flex items-center mx-auto"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center mx-auto shadow-lg hover:shadow-xl"
           >
             Learn More About Our Mission
             <ArrowRight className="ml-2 h-5 w-5" />

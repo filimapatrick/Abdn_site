@@ -36,7 +36,7 @@ const coreTeam = [
 
 export default function CoreTeam() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,8 +45,8 @@ export default function CoreTeam() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Core Team</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-amber-900 mb-6">Our Core Team</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto">
             Meet the dedicated professionals leading ABDN's mission to advance neuroscience research in Africa
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ export default function CoreTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-br from-amber-50 to-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100"
             >
               <div className="relative group">
                 <img
@@ -67,25 +67,25 @@ export default function CoreTeam() {
                   alt={member.name}
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                   <div className="flex space-x-4">
-                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-amber-500/30 transition-colors">
                       <Linkedin className="h-5 w-5 text-white" />
                     </a>
-                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-amber-500/30 transition-colors">
                       <Mail className="h-5 w-5 text-white" />
                     </a>
-                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors">
+                    <a href="#" className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-amber-500/30 transition-colors">
                       <Globe className="h-5 w-5 text-white" />
                     </a>
                   </div>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-blue-600 font-medium mb-2">{member.role}</p>
-                <p className="text-gray-500 text-sm mb-3">{member.institution}</p>
-                <p className="text-gray-600 text-sm">{member.bio}</p>
+                <h3 className="text-xl font-semibold text-amber-900 mb-1">{member.name}</h3>
+                <p className="text-amber-600 font-medium mb-2">{member.role}</p>
+                <p className="text-amber-700 text-sm mb-3">{member.institution}</p>
+                <p className="text-amber-800 text-sm">{member.bio}</p>
               </div>
             </motion.div>
           ))}

@@ -1,71 +1,224 @@
 // src/components/Gallery.js
 
-import React from 'react';
-import t from '../../../Assets/partcipants1.jpeg'
-import b from '../../../Assets/participant5.jpeg'
-
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Camera, ZoomIn } from 'lucide-react';
 
 const galleryImages = [
+  // 2023 Images
   {
-    src: '../../../Assets/partcipants1.jpeg',
-    alt: 'Gallery Image 1',
+    src: '/Assets/cross_section.jpeg',
+    alt: 'Cross Section Training',
+    title: 'Cross Section Analysis',
+    description: 'Training session on cross-sectional imaging analysis',
+    year: 2023,
   },
   {
-    src: '../../../Assets/participant2.jpeg',
-    alt: 'Gallery Image 2',
+    src: '/Assets/franco_structural.jpeg',
+    alt: 'Structural Analysis',
+    title: 'Structural Biology Workshop',
+    description: 'Advanced workshop on structural biology techniques',
+    year: 2023,
   },
   {
-    src: '../../../Assets/participant4.jpeg',
-    alt: 'Gallery Image 3',
+    src: '/Assets/Damian_nairobi.jpeg',
+    alt: 'Nairobi Workshop',
+    title: 'Nairobi Training Session',
+    description: 'Specialized training workshop in Nairobi',
+    year: 2023,
   },
   {
-    src: '../../../Assets/participant5.jpeg',
-    alt: 'Gallery Image 4',
+    src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (5).jpeg',
+    alt: 'Research Meeting',
+    title: 'Research Planning',
+    description: 'Strategic research planning session with team members',
+    year: 2023,
   },
   {
-    src: '../../../Assets/participant6.jpeg',
-    alt: 'Gallery Image 5',
+    src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (4).jpeg',
+    alt: 'Team Collaboration',
+    title: 'Team Building',
+    description: 'Collaborative session fostering team spirit',
+    year: 2023,
+  },
+  // 2024 Images
+  {
+    src: '/Assets/lagos_group_picture.jpeg',
+    alt: 'ABDN Workshop Group',
+    title: 'Lagos Workshop',
+    description: 'Group photo of participants at the ABDN Workshop in Lagos',
+    year: 2024,
   },
   {
-    src: '../../../Assets/participant7.jpeg',
-    alt: 'Gallery Image 6',
+    src: '/Assets/project_report.jpeg',
+    alt: 'Project Presentation',
+    title: 'Research Symposium',
+    description: 'Researchers presenting their project findings',
+    year: 2024,
   },
   {
-    src: '../../../Assets/participant8.jpeg',
-    alt: 'Gallery Image 6',
+    src: '/Assets/participant4.jpeg',
+    alt: 'Laboratory Session',
+    title: 'Advanced Training',
+    description: 'Hands-on training session with researchers',
+    year: 2024,
   },
   {
-    src: '../../../Assets/participant9.jpeg',
-    alt: 'Gallery Image 6',
+    src: '/Assets/participant5.jpeg',
+    alt: 'Workshop Session',
+    title: 'Collaborative Workshop',
+    description: 'Interactive workshop session with participants',
+    year: 2024,
   },
   {
-    src: '../../../Assets/participant10.jpeg',
-    alt: 'Gallery Image 6',
+    src: '/Assets/participant6.jpeg',
+    alt: 'Group Discussion',
+    title: 'Team Discussion',
+    description: 'Research team engaged in collaborative discussion',
+    year: 2024,
   },
+  {
+    src: '/Assets/participant7.jpeg',
+    alt: 'Research Presentation',
+    title: 'Scientific Presentation',
+    description: 'Sharing research findings with the community',
+    year: 2024,
+  },
+  {
+    src: '/Assets/participant8.jpeg',
+    alt: 'Group Work',
+    title: 'Group Activity',
+    description: 'Participants working together on research projects',
+    year: 2024,
+  }
 ];
 
-export default function Gallery() {
-  return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Gallery</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore moments from our events, training programs, and workshops.
-          </p>
-        </div>
+export default function AcademyGalleryImages() {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number>(2024);
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {galleryImages.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+  const years = [2023, 2024];
+  const filteredImages = galleryImages.filter(image => image.year === selectedYear);
+
+  return (
+    <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-amber-900 mb-6">Gallery</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto mb-8">
+            Capturing moments of discovery, collaboration, and growth in our journey.
+          </p>
+          
+          <div className="flex justify-center gap-4 mb-12">
+            {years.map((year) => (
+              <motion.button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
+                  selectedYear === year
+                    ? 'bg-amber-500 text-white shadow-lg scale-105'
+                    : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
+                }`}
+                whileHover={{ scale: selectedYear === year ? 1.05 : 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {year}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredImages.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative overflow-hidden rounded-xl shadow-lg group bg-gradient-to-br from-amber-50 to-white border border-amber-100"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="aspect-w-16 aspect-h-9">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <motion.div 
+                  className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                  animate={hoveredIndex === index ? { y: 0 } : { y: 20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-xl font-bold text-white mb-2">{image.title}</h3>
+                  <p className="text-amber-200 text-sm mb-4">{image.description}</p>
+                  <motion.button
+                    whileHover={{ x: 5 }}
+                    onClick={() => setSelectedImage(index)}
+                    className="flex items-center text-amber-200 text-sm font-medium group/btn"
+                  >
+                    View Full Image
+                    <ZoomIn className="ml-2 h-4 w-4 transition-transform group-hover/btn:scale-110" />
+                  </motion.button>
+                </motion.div>
+              </div>
+            </motion.div>
           ))}
         </div>
+
+        {filteredImages.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
+            <p className="text-amber-700 text-lg">No images available for {selectedYear}.</p>
+          </motion.div>
+        )}
+
+        {/* Modal for full-size image view */}
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-7xl max-h-[90vh] overflow-hidden rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={filteredImages[selectedImage].src}
+                alt={filteredImages[selectedImage].alt}
+                className="w-full h-full object-contain"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white hover:text-amber-200 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
