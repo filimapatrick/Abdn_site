@@ -9,77 +9,77 @@ const galleryImages = [
 
   
     {
-      "src": "/Assets/lecture_with_pestilli_in_lagos.jpg",
+      "src": "/public/Assets/lecture_with_pestilli_in_lagos.jpg",
       "alt": "Lecture session with Pestilli in Lagos",
       "title": "Lecture with Pestilli in Lagos",
       "description": "Insightful lecture on brain imaging research",
       "year": 2023
     },
     {
-      "src": "/Assets/mattew_exposing_participants_to_INCF.jpg",
+      "src": "/public/Assets/mattew_exposing_participants_to_INCF.jpg",
       "alt": "Mattew introducing participants to INCF",
       "title": "Introducing INCF with Mattew",
       "description": "Introduction to INCF neuroscience frameworks",
       "year": 2023
     },
     {
-      "src": "/Assets/mri_with_pestilli.jpg",
+      "src": "/public/Assets/mri_with_pestilli.jpg",
       "alt": "Pestilli demonstrating MRI imaging techniques",
       "title": "MRI Imaging with Pestilli",
       "description": "Live MRI demonstration session with Pestilli",
       "year": 2023
     },
     {
-      "src": "/Assets/participant_at_Nigeria_researve.jpg",
+      "src": "/public/Assets/participant_at_Nigeria_researve.jpg",
       "alt": "Participant at Nigeria Reserve center",
       "title": "Interactive Session at Nigeria Reserve Center",
       "description": "Fun and learning at Nigeria reserve",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_at_panel_discussion.jpg",
+      "src": "/public/Assets/participants_at_panel_discussion.jpg",
       "alt": "Panel discussion with session participants",
       "title": "Panel Discussion Insights",
       "description": "Engaging panel on brain data science",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_at_the_art_gallery.jpg",
+      "src": "/public/Assets/participants_at_the_art_gallery.jpg",
       "alt": "Participants visiting an art gallery",
       "title": "Exploring Art and Science",
       "description": "Gallery visit blending art and science",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_at_the_beach.jpg",
+      "src": "/public/Assets/participants_at_the_beach.jpg",
       "alt": "Participants enjoying time at the beach",
       "title": "Beachside Networking",
       "description": "Networking session by the ocean breeze",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_learning.jpg",
+      "src": "/public/Assets/participants_learning.jpg",
       "alt": "Participants actively engaged in learning",
       "title": "Active Learning Session",
       "description": "Hands-on training in neuroscience methods",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_spare_time.jpg",
+      "src": "/public/Assets/participants_spare_time.jpg",
       "alt": "Participants enjoying their spare time",
       "title": "Relaxation and Interaction",
       "description": "Participants bonding during spare moments",
       "year": 2023
     },
     {
-      "src": "/Assets/participants_still_at_the_beach.jpg",
+      "src": "/public/Assets/participants_still_at_the_beach.jpg",
       "alt": "Participants still enjoying the beach",
       "title": "Extended Beach Time",
       "description": "Continued fun time by the beach",
       "year": 2023
     },
     {
-      "src": "/Assets/thank_speach_to_Kavli_foundation.jpg",
+      "src": "/public/Assets/thank_speach_to_Kavli_foundation.jpg",
       "alt": "Thank you speech to the Kavli Foundation",
       "title": "Gratitude to Kavli Foundation",
       "description": "Appreciation speech to Kavli Foundation team",
