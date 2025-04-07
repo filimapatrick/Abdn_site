@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
+import Introduction from '../components/Introduction';
 import Features from '../components/Features';
 import LocationHighlight from '../components/LocationHighlight';
 import FeaturedClass from '../components/FeaturedClass';
@@ -16,10 +17,11 @@ export default function Home() {
     <Layout>
       <main className="pt-20">
         <Hero />
+        <Introduction />
         <Features />
         <LocationHighlight />
         <FeaturedClass />
-        <PopularCourses />
+        {/* <PopularCourses /> */}
         <Stats />
         <ResearchStories />
         <SupportABDN />
