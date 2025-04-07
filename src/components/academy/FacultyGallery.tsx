@@ -154,15 +154,11 @@ export default function FacultyGallery() {
   const [visibleFaculty, setVisibleFaculty] = useState(6);
   const [showLessEnabled, setShowLessEnabled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedYear, setSelectedYear] = useState<number>(2024);
 
-  const categories = ['All', 'Computational', 'Biology', 'Imaging', 'Engineering'];
   const years = [2023, 2024];
 
-  const filteredFaculty = facultyData
-    .filter(faculty => selectedCategory === 'All' || faculty.category === selectedCategory)
-    .filter(faculty => faculty.year === selectedYear);
+  const filteredFaculty = facultyData.filter(faculty => faculty.year === selectedYear);
 
   const handleLoadMore = () => {
     setVisibleFaculty((prev) => prev + 6);
@@ -172,21 +168,6 @@ export default function FacultyGallery() {
   const handleShowLess = () => {
     setVisibleFaculty(6);
     setShowLessEnabled(false);
-  };
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Computational':
-        return '💻';
-      case 'Biology':
-        return '🧬';
-      case 'Imaging':
-        return '🔬';
-      case 'Engineering':
-        return '⚡';
-      default:
-        return '👥';
-    }
   };
 
   return (
@@ -223,26 +204,6 @@ export default function FacultyGallery() {
               </motion.button>
             ))}
           </div>
-
-          {/* Category Filter */}
-          <div className="flex justify-center gap-4 mb-12 flex-wrap">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 ${
-                  selectedCategory === category
-                    ? 'bg-amber-500 text-white shadow-lg scale-105'
-                    : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                }`}
-                whileHover={{ scale: selectedCategory === category ? 1.05 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>{getCategoryIcon(category)}</span>
-                {category}
-              </motion.button>
-            ))}
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -271,21 +232,20 @@ export default function FacultyGallery() {
                   animate={hoveredIndex === index ? { y: 0 } : { y: 20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span>{getCategoryIcon(faculty.category)}</span>
-                    <h3 className="text-xl font-bold text-white">{faculty.name}</h3>
-                  </div>
-                  <p className="text-amber-200 text-sm mb-2">{faculty.title}</p>
-                  <p className="text-amber-100 text-sm mb-4">{faculty.specialization}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{faculty.name}</h3>
+                  <p className="text-amber-100 text-sm mb-4">{faculty.Affiliation}</p>
                   <div className="flex justify-between items-center">
-                    <motion.button
+                    <motion.a
+                      href={faculty.profile}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ x: 5 }}
                       className="flex items-center text-amber-200 text-sm font-medium group/btn"
                     >
                       View Profile
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </motion.button>
-                    <span className="text-amber-200 text-sm">Joined {faculty.year}</span>
+                    </motion.a>
+                    <span className="text-amber-200 text-sm">{faculty.year}</span>
                   </div>
                 </motion.div>
               </div>
@@ -300,7 +260,7 @@ export default function FacultyGallery() {
             className="text-center py-12"
           >
             <p className="text-amber-700 text-lg">
-              No faculty members found for {selectedYear} in {selectedCategory === 'All' ? 'any category' : `the ${selectedCategory} category`}.
+              No faculty members found for {selectedYear}.
             </p>
           </motion.div>
         )}
