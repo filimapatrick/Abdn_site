@@ -9,7 +9,7 @@ const galleryImages = [
 
   
     {
-      "src": "/public/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
+      "src": "/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
       "alt": "Lecture session with Pestilli in Lagos",
       "title": "Lecture with Pestilli in Lagos",
       "description": "Insightful lecture on brain imaging research",
