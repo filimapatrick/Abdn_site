@@ -79,7 +79,7 @@ const galleryImages = [
       "year": 2023
     },
     {
-      "src": "/public/Assets/Academy_2023/thank_speach_to_Kavli_foundation.jpg",
+      "src": "/Assets/thank_speach_to_Kavli_foundation.jpg",
       "alt": "Thank you speech to the Kavli Foundation",
       "title": "Gratitude to Kavli Foundation",
       "description": "Appreciation speech to Kavli Foundation team",
