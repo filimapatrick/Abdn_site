@@ -3,32 +3,32 @@ import { motion } from 'framer-motion';
 import { BookOpen, Users, Brain, GraduationCap, Star, Clock, ChevronRight, Award, Target, Beaker, FileCheck, Globe, ArrowRight } from 'lucide-react';
 import Layout from '../../components/Layout';
 
-const modules = [
-  {
-    title: "Foundations of Neuroscience",
-    description: "Core concepts and principles of brain structure and function",
-    duration: "12 weeks",
-    topics: ["Neuroanatomy", "Cellular Neuroscience", "Synaptic Transmission", "Neural Development"],
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
-    outcomes: ["Understanding of brain structure and function", "Knowledge of cellular mechanisms", "Grasp of neural communication"]
-  },
-  {
-    title: "Research Methods",
-    description: "Essential research methodologies and techniques",
-    duration: "10 weeks",
-    topics: ["Experimental Design", "Data Collection", "Statistical Analysis", "Research Ethics"],
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80",
-    outcomes: ["Ability to design experiments", "Proficiency in data analysis", "Understanding of research ethics"]
-  },
-  {
-    title: "Advanced Topics",
-    description: "Specialized areas of neuroscience research",
-    duration: "8 weeks",
-    topics: ["Cognitive Neuroscience", "Neuroimaging", "Computational Methods", "Clinical Applications"],
-    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80",
-    outcomes: ["Advanced research capabilities", "Specialized technical skills", "Clinical research understanding"]
-  }
-];
+// const modules = [
+//   {
+//     title: "Foundations of Neuroscience",
+//     description: "Core concepts and principles of brain structure and function",
+//     duration: "12 weeks",
+//     topics: ["Neuroanatomy", "Cellular Neuroscience", "Synaptic Transmission", "Neural Development"],
+//     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80",
+//     outcomes: ["Understanding of brain structure and function", "Knowledge of cellular mechanisms", "Grasp of neural communication"]
+//   },
+//   {
+//     title: "Research Methods",
+//     description: "Essential research methodologies and techniques",
+//     duration: "10 weeks",
+//     topics: ["Experimental Design", "Data Collection", "Statistical Analysis", "Research Ethics"],
+//     image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80",
+//     outcomes: ["Ability to design experiments", "Proficiency in data analysis", "Understanding of research ethics"]
+//   },
+//   {
+//     title: "Advanced Topics",
+//     description: "Specialized areas of neuroscience research",
+//     duration: "8 weeks",
+//     topics: ["Cognitive Neuroscience", "Neuroimaging", "Computational Methods", "Clinical Applications"],
+//     image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80",
+//     outcomes: ["Advanced research capabilities", "Specialized technical skills", "Clinical research understanding"]
+//   }
+// ];
 
 const specializations = [
   {
@@ -62,7 +62,7 @@ export default function Curriculum() {
     <Layout>
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+        <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />
             <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-amber-500/10 rounded-full blur-3xl" />
@@ -100,7 +100,7 @@ export default function Curriculum() {
         </section>
 
         {/* Core Modules */}
-        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+        {/* <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-amber-900 mb-6">Core Modules</h2>
@@ -156,6 +156,50 @@ export default function Curriculum() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section> */}
+
+        {/* Data Science Integration */}
+        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative h-full min-h-[400px]">
+                  <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+                    alt="Data Science in Neuroscience"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+                </div>
+                <div className="p-8 flex flex-col justify-center">
+                  <h2 className="text-3xl font-bold text-amber-900 mb-6">Data Science Integration</h2>
+                  <p className="text-amber-700 mb-6">
+                    Integrating data science/data analytics as a taught module in relevant disciplines (such as Neuroscience and Psychology) is critical to a sustainable FAIR brain data ecosystem in Africa. ABDN is committed to building capacities for robust integration of data science into necessary courses and modules in academia.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <Target className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                      <span className="text-amber-600">Comprehensive data science modules integrated into neuroscience curriculum</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Brain className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                      <span className="text-amber-600">Practical applications in neuroimaging and behavioral data analysis</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Globe className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                      <span className="text-amber-600">Focus on FAIR principles and sustainable data practices</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 

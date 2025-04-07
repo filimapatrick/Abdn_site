@@ -32,7 +32,7 @@ const nationalCoordinators: Person[] = [
       country: "Cameroon",
       institution: "University of Buea",
       email: "danny.gamsmassi@gmail.com",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Gamsi.jpg",
       twitter: "@DrGamsMassi",
       linkedin: "https://linkedin.com/in/gamsmassidaniel",
       bio: "Lecturer and consultant neurologist specializing in cerebrovascular diseases, epilepsy, and movement disorders.",
@@ -56,7 +56,7 @@ const nationalCoordinators: Person[] = [
       country: "Uganda",
       institution: "Mbarara University of Science and Technology",
       email: "rkamoga@must.ac.ug",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Ronald.jpg",
       twitter: "@RonaldKamoga",
       linkedin: "https://linkedin.com/in/ronaldkamoga",
       bio: "Lecturer and dementia research fellow advancing neuroscience in East Africa.",
@@ -79,7 +79,7 @@ const nationalCoordinators: Person[] = [
       country: "Nigeria",
       institution: "University of Port Harcourt",
       email: "eberechi.wogu@uniport.edu.ng",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Ebere.png",
       twitter: "@DrEberechiWogu",
       linkedin: "https://linkedin.com/in/eberechiwogu",
       bio: "Global scholar and lecturer focusing on brain imaging and neurodegenerative diseases in Africa.",
@@ -104,7 +104,7 @@ const nationalCoordinators: Person[] = [
       country: "Ghana",
       institution: "University of Cape Coast",
       email: "fdjankpa@ucc.edu.gh",
-      image: "https://images.unsplash.com/photo-1603415526960-f8f6ad1520bd?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Francis.png",
       twitter: "@DrDjankpa",
       linkedin: "https://linkedin.com/in/francisdjankpa",
       bio: "Head of Physiology Department and advocate for medical science research in Ghana.",
@@ -125,7 +125,7 @@ const nationalCoordinators: Person[] = [
       country: "Democratic Republic of Congo",
       institution: "University of Kinshasa",
       email: "gracebilungula@gmail.com",
-      image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/GraceMashala.jpg",
       twitter: "@DrGraceBilungula",
       linkedin: "https://linkedin.com/in/gracebilungula",
       bio: "Researcher in neurodevelopment and neuropsychology at the University of Kinshasa.",
@@ -145,7 +145,7 @@ const nationalCoordinators: Person[] = [
       country: "Mali",
       institution: "Point G Teaching Hospital",
       email: "zeinab.kone@pointg.ml",
-      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Zeinab.png",
       twitter: "@DrZeinabKone",
       linkedin: "https://linkedin.com/in/zeinabkone",
       bio: "Specialist in epilepsy and neuropediatrics with a strong clinical and academic background.",
@@ -172,7 +172,7 @@ const nationalCoordinators: Person[] = [
       country: "Ethiopia",
       institution: "Arbaminch University",
       email: "tkeristu@gmail.com",
-      image: "https://images.unsplash.com/photo-1581090700227-1e8b5e51f27b?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Teketel.jpg",
       twitter: "@DrTeketel",
       linkedin: "https://linkedin.com/in/teketelkediso",
       bio: "Physiology professor with a focus on neural networks and neurodegeneration.",
@@ -196,7 +196,7 @@ const nationalCoordinators: Person[] = [
       country: "Tanzania",
       institution: "University of Dar es Salaam",
       email: "olaitan.asuquo@udsm.tz",
-      image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Olaitan.jpeg",
       twitter: "@DrOlaitanAsuquo",
       linkedin: "https://linkedin.com/in/olaitanasuquo",
       bio: "Expert in reproductive neuroendocrinology and herbal neurotoxicology.",
@@ -219,7 +219,7 @@ const nationalCoordinators: Person[] = [
       country: "Tunisia",
       institution: "Faculty of Medicine, Sfax",
       email: "oumayma.soula@gmail.com",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Oumayma.jpg",
       twitter: "@OumaymaSoula",
       linkedin: "https://linkedin.com/in/oumaymaSoula",
       bio: "Ph.D. candidate specializing in computational neuroscience and functional connectivity in neurodegenerative disorders.",
@@ -240,7 +240,7 @@ const nationalCoordinators: Person[] = [
       country: "Morocco",
       institution: "IBN ZOHR University",
       email: "n.elkadmiri@uiz.ac.ma",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Nadia.jpg",
       twitter: "@NadiaElKadmiri",
       linkedin: "https://linkedin.com/in/nadiaelkadmiri",
       bio: "Associate Professor focusing on research ethics and responsible conduct of research.",
@@ -265,7 +265,7 @@ const nationalCoordinators: Person[] = [
       country: "South Africa",
       institution: "Stellenbosch University",
       email: "preciousmatshabane@gmail.com",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/OliviaMatshabane.jpg",
       twitter: "@DrMatshabane",
       linkedin: "https://linkedin.com/in/oliviamatshabane",
       bio: "Faculty member specializing in neuroethics and implications of neuropsychiatric genomics.",
@@ -292,7 +292,7 @@ const nationalCoordinators: Person[] = [
       country: "Kenya",
       institution: "University of Nairobi",
       email: "gmwanderi@yahoo.com",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/George.jpg",
       twitter: "@DrWanderi",
       linkedin: "https://linkedin.com/in/georgewanderi",
       bio: "Medical doctor with expertise in neuroscience and healthcare entrepreneurship.",
@@ -315,7 +315,7 @@ const nationalCoordinators: Person[] = [
       country: "Rwanda",
       institution: "University of Rwanda",
       email: "olorunnados@gmail.com",
-      image: "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Olorunnado.jpg",
       twitter: "@DrEhindero",
       linkedin: "https://linkedin.com/in/olorunnadoehindero",
       bio: "Lecturer in Human Anatomy with specialization in computational neuroscience and metabolic syndrome.",
@@ -338,7 +338,7 @@ const nationalCoordinators: Person[] = [
       country: "Zambia",
       institution: "Lusaka Apex Medical University",
       email: "theresachikopela@yahoo.com",
-      image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Theresa.jpg",
       twitter: "@DrSikazwe",
       linkedin: "https://linkedin.com/in/theresasikazwe",
       bio: "Assistant Dean specializing in vascular physiology and cognitive function research.",
@@ -364,7 +364,7 @@ const nationalCoordinators: Person[] = [
       country: "Senegal",
       institution: "Cheikh Anta Diop University",
       email: "gracetsemo@gmail.com",
-      image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80",
+      image: "/Assets/NationalCordinators/Tsemo.jpeg",
       twitter: "@GraceTsemo",
       linkedin: "https://linkedin.com/in/gracetsemo",
       bio: "Neurologist and neurophysiologist specializing in nerve conduction mechanisms and neurodegenerative disease.",
@@ -395,7 +395,7 @@ const stakeholders: Person[] = [
     title: "Advisory Board",
     institution: "University of the Witwatersrand, South Africa",
     bio: "Head of Anatomical Sciences and SONA President",
-    image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80",
+    image: "/Assets/stakeholders/Amadi.png",
     email: "amadi.Ihunwo@wits.ac.za",
     linkedin: "https://linkedin.com", // placeholder, replace with actual if available
     website: "https://www.wits.ac.za", // placeholder, replace with actual if available
@@ -413,7 +413,7 @@ const stakeholders: Person[] = [
     title: "Advisory Board",
     institution: "University of Ilorin, Nigeria",
     bio: "Professor of Physiology with focus on pain and neuroinflammation",
-    image: "https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&q=80",
+    image: "/Assets/stakeholders/Bamidele.png",
     email: "deleyele@yahoo.com",
     twitter: "https://twitter.com", // placeholder, replace with actual if available
     linkedin: "https://linkedin.com", // placeholder, replace with actual if available
@@ -615,7 +615,7 @@ export default function People() {
     <Layout>
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+        <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />
             <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-amber-500/10 rounded-full blur-3xl" />
@@ -664,22 +664,22 @@ export default function People() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="md:flex">
-                    <div className="md:flex-shrink-0 h-64 md:h-auto md:w-64">
+                  <div className="md:flex h-full">
+                    <div className="md:flex-shrink-0 h-64 md:h-auto md:w-64 relative">
                       <img
                         src={founder.image}
                         alt={founder.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                       />
                     </div>
-                    <div className="p-8">
+                    <div className="p-8 flex flex-col flex-grow">
                       <div className="flex items-center mb-2">
                         <Star className="h-5 w-5 text-amber-500 mr-2" />
                         <h3 className="text-xl font-bold text-amber-900">{founder.name}</h3>
                       </div>
                       <p className="text-amber-600 mb-4">{founder.title}</p>
                       <p className="text-amber-700 mb-6">{founder.institution}</p>
-                      <div className="space-y-2">
+                      <div className="space-y-2 flex-grow">
                         {founder.achievements?.map((achievement, i) => (
                           <div key={i} className="flex items-center text-amber-700">
                             <ArrowRight className="h-4 w-4 mr-2 text-amber-500" />
@@ -687,9 +687,53 @@ export default function People() {
                           </div>
                         ))}
                       </div>
+                      <div className="flex items-center space-x-4 mt-6 mb-4">
+                        {founder.email && (
+                          <a
+                            href={`mailto:${founder.email}`}
+                            className="text-amber-600 hover:text-amber-700 transition-colors"
+                            title="Email"
+                          >
+                            <Mail className="h-5 w-5" />
+                          </a>
+                        )}
+                        {founder.linkedin && (
+                          <a
+                            href={founder.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber-600 hover:text-amber-700 transition-colors"
+                            title="LinkedIn"
+                          >
+                            <Linkedin className="h-5 w-5" />
+                          </a>
+                        )}
+                        {founder.twitter && (
+                          <a
+                            href={`https://twitter.com/${founder.twitter.replace('@', '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber-600 hover:text-amber-700 transition-colors"
+                            title="Twitter"
+                          >
+                            <Twitter className="h-5 w-5" />
+                          </a>
+                        )}
+                        {founder.website && (
+                          <a
+                            href={founder.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber-600 hover:text-amber-700 transition-colors"
+                            title="Website"
+                          >
+                            <LinkIcon className="h-5 w-5" />
+                          </a>
+                        )}
+                      </div>
                       <button
                         onClick={() => setSelectedPerson(founder)}
-                        className="mt-6 px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg font-semibold transition-colors flex items-center gap-2"
+                        className="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg font-semibold transition-colors flex items-center gap-2"
                       >
                         More Info
                         <ArrowRight className="h-4 w-4" />

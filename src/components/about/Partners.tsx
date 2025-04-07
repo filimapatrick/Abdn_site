@@ -21,6 +21,16 @@ const partners = [
     name: "University of Nottingham",
     logo: "/Assets/Partners/Nottingham.jpg",
     description: "Fostering international collaboration in brain science"
+  },
+  {
+    name: "Brain Wellness Initiative",
+    logo: "/Assets/Partners/brain_wellness_initative.jpg",
+    description: "Promoting brain health and well-being"
+  },
+  {
+    name: "De Montfort University",
+    logo: "/Assets/Partners/dmu-logo.png",
+    description: "Fostering international collaboration in brain science"
   }
 ];
 

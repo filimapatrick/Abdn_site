@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Clock, Award, Brain, Star, ChevronRight, ArrowRight, Target, Beaker, Globe, Video, Laptop, MessageSquare } from 'lucide-react';
+import { BookOpen, Users, Clock, Award, Brain, Star, ChevronRight, ArrowRight, Target, Beaker, Globe, Video, Laptop, MessageSquare, Calendar, GraduationCap } from 'lucide-react';
 import Layout from '../../components/Layout';
 
 const courses = [
@@ -102,207 +102,276 @@ const trainingFeatures = [
 export default function Training() {
   return (
     <Layout>
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />
-            <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-amber-500/10 rounded-full blur-3xl" />
+      {/* Hero Section */}
+      <section className="relative py-32 md:py-40 bg-gradient-to-br from-amber-950 to-amber-800">
+        <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center text-white">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8"
+            >
+              Training & Development
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-xl md:text-2xl text-amber-100 max-w-4xl mx-auto px-4"
+            >
+              Building capacity in neuroscience research across Africa
+            </motion.p>
           </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl md:text-6xl font-bold mb-6"
-              >
-                <span className="bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text text-transparent">
-                  Training Programs
-                </span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-xl text-amber-100 max-w-3xl mx-auto mb-8"
-              >
-                Comprehensive neuroscience training programs designed for African researchers and practitioners
-              </motion.p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center"
-                >
-                  Browse Courses
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/10 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 flex items-center backdrop-blur-sm"
-                >
-                  View Schedule
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.button>
+        </div>
+      </section>
+
+      {/* Overview Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative h-full min-h-[400px]">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80"
+                  alt="ABDN Training Session"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <h2 className="text-3xl font-bold text-amber-900 mb-6">Our Mission</h2>
+                <p className="text-amber-700 mb-6">
+                  The African Brain Data Network projects seeks to improve the landscape of brain research and innovation in Africa through responsible generation, application and use through a number of projects or workstreams.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Brain className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      The ABDN Network seeks to ensure that a sufficient number of experts are trained in the use of novel technical tools to collect, process and apply brain datasets.
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Globe className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      From neuroimages to behavioural datasets, this network hopes to cover the length and breadth of Africa and lead the African neuroscience ecosystem into the era of big data analytics.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Initiatives Section */}
+      <section className="py-24 bg-amber-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-8 flex flex-col justify-center order-2 md:order-1">
+                <h2 className="text-3xl font-bold text-amber-900 mb-6">Current Initiatives</h2>
+                <p className="text-amber-700 mb-6">
+                  ABDN initiatives and activities so far have included the organisation of workshops and webinars to identify FAIR data challenges and possible solutions.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <GraduationCap className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Kavli Foundation has kindly provided funds to ABDN to organise the first ABDN Academy – two-week workshop for capacity development on data science and neuroimaging data.
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Regular workshops and webinars focusing on FAIR data principles and neuroimaging techniques
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Building a community of skilled researchers across Africa
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative h-full min-h-[400px] order-1 md:order-2">
+                <img
+                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80"
+                  alt="ABDN Workshop Session"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/60" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Courses */}
+      {/* <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">Featured Courses</h2>
+            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+              Learn from leading experts in neuroscience through our specialized courses
+            </p>
           </div>
-        </section>
 
-        {/* Featured Courses */}
-        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Featured Courses</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Learn from leading experts in neuroscience through our specialized courses
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {courses.map((course, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
-                >
-                  <div className="relative h-48">
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-600">
-                      {course.level}
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {courses.map((course, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="relative h-48">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-600">
+                    {course.level}
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-amber-900 mb-2">{course.title}</h3>
-                    <p className="text-amber-600 mb-2">by {course.instructor}</p>
-                    <p className="text-amber-700 mb-4">{course.description}</p>
-                    <div className="space-y-2 mb-4">
-                      {course.topics.map((topic, i) => (
-                        <div key={i} className="flex items-center text-amber-700">
-                          <ChevronRight className="h-4 w-4 mr-2 text-amber-500" />
-                          <span>{topic}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-5 w-5 text-amber-400 fill-current" />
-                        <span className="font-semibold text-amber-900">{course.rating}</span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-amber-900 mb-2">{course.title}</h3>
+                  <p className="text-amber-600 mb-2">by {course.instructor}</p>
+                  <p className="text-amber-700 mb-4">{course.description}</p>
+                  <div className="space-y-2 mb-4">
+                    {course.topics.map((topic, i) => (
+                      <div key={i} className="flex items-center text-amber-700">
+                        <ChevronRight className="h-4 w-4 mr-2 text-amber-500" />
+                        <span>{topic}</span>
                       </div>
-                      <div className="flex items-center text-amber-600 space-x-4">
-                        <div className="flex items-center">
-                          <Users className="h-4 w-4 mr-1" />
-                          <span>{course.students}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          <span>{course.duration}</span>
-                        </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-1">
+                      <Star className="h-5 w-5 text-amber-400 fill-current" />
+                      <span className="font-semibold text-amber-900">{course.rating}</span>
+                    </div>
+                    <div className="flex items-center text-amber-600 space-x-4">
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-1" />
+                        <span>{course.students}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        <span>{course.duration}</span>
                       </div>
                     </div>
-                    <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
-                      Enroll Now
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Upcoming Workshops */}
-        <section className="py-24 bg-gradient-to-br from-white to-amber-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Upcoming Workshops</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Join our intensive hands-on workshops led by industry experts
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {upcomingWorkshops.map((workshop, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-6"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 bg-amber-100 rounded-lg">
-                      <workshop.icon className="h-6 w-6 text-amber-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-amber-900 ml-4">{workshop.title}</h3>
-                  </div>
-                  <p className="text-amber-700 mb-4">{workshop.description}</p>
-                  <div className="space-y-2 text-amber-700">
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{workshop.date}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Globe className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{workshop.location}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{workshop.instructor}</span>
-                    </div>
-                  </div>
-                  <button className="mt-4 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
-                    Register Now
+                  <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                    Enroll Now
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section> */}
 
-        {/* Training Features */}
-        <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Training Features</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                What makes our training programs unique and effective
-              </p>
-            </div>
+      {/* Upcoming Workshops */}
+      <section className="py-24 bg-gradient-to-br from-white to-amber-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">Upcoming Workshops</h2>
+            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+              Join our intensive hands-on workshops led by industry experts
+            </p>
+          </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {trainingFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
-                    <feature.icon className="h-8 w-8 text-amber-600" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {upcomingWorkshops.map((workshop, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 p-6"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-amber-100 rounded-lg">
+                    <workshop.icon className="h-6 w-6 text-amber-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">{feature.title}</h3>
-                  <p className="text-amber-700">{feature.description}</p>
-                </motion.div>
-              ))}
-            </div>
+                  <h3 className="text-xl font-bold text-amber-900 ml-4">{workshop.title}</h3>
+                </div>
+                <p className="text-amber-700 mb-4">{workshop.description}</p>
+                <div className="space-y-2 text-amber-700">
+                  <div className="flex items-center">
+                    <Clock className="h-4 w-4 mr-2 text-amber-500" />
+                    <span>{workshop.date}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Globe className="h-4 w-4 mr-2 text-amber-500" />
+                    <span>{workshop.location}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Users className="h-4 w-4 mr-2 text-amber-500" />
+                    <span>{workshop.instructor}</span>
+                  </div>
+                </div>
+                <button className="mt-4 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                  Register Now
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* Training Features */}
+      <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">Training Features</h2>
+            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+              What makes our training programs unique and effective
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {trainingFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="inline-block p-4 bg-amber-100 rounded-full mb-4">
+                  <feature.icon className="h-8 w-8 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-bold text-amber-900 mb-2">{feature.title}</h3>
+                <p className="text-amber-700">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }

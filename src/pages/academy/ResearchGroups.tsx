@@ -112,7 +112,7 @@ export default function ResearchGroups() {
     <Layout>
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+        <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-white">
@@ -139,6 +139,31 @@ export default function ResearchGroups() {
         {/* Research Groups Section */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-16"
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative h-full min-h-[300px]">
+                  <img
+                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80"
+                    alt="Brain Research"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+                </div>
+                <div className="p-8 flex flex-col justify-center">
+                  <h2 className="text-3xl font-bold text-amber-900 mb-6">Our Research Focus</h2>
+                  <p className="text-lg text-amber-700 leading-relaxed">
+                    ABDN research groups are engaged in brain data collection, curation, and analysis of Africans (both diseased and healthy) for clinical inquiries, population studies, and Neuroimaging analytics studies. Data being collected ranges from brain MRI data, Demographic data, EEG data, and other behavioral data.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+{/* 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {researchGroups.map((group, index) => (
                 <motion.div
@@ -205,7 +230,7 @@ export default function ResearchGroups() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </div>
         </section>
 

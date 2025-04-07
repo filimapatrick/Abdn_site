@@ -34,7 +34,7 @@ export default function LocationHighlight() {
             >
               <img 
                 src="/Assets/cross_section.jpeg"
-                alt="Research Laboratory"
+                alt="2024 Annual Program Participants"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-amber-900/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
@@ -50,8 +50,8 @@ export default function LocationHighlight() {
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-amber-900/60 font-medium">Main Hub</p>
-                  <p className="font-semibold text-amber-900">Nairobi, Kenya</p>
+                  <p className="text-sm text-amber-900/60 font-medium">2024 Annual Program</p>
+                  <p className="font-semibold text-amber-900">Brackenhurst, Kenya</p>
                 </div>
               </div>
             </motion.div>
@@ -69,16 +69,16 @@ export default function LocationHighlight() {
               whileHover={{ scale: 1.05 }}
             >
               <div className="px-4 py-2 bg-gradient-to-r from-amber-50 to-amber-100 rounded-full">
-                <p className="text-amber-900 font-medium">International Centre of Insect Physiology and Ecology</p>
+                <p className="text-amber-900 font-medium">ABDN Annual Program 2024</p>
               </div>
             </motion.div>
 
             <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-900">
-              ABDN Research Hub
+              Building Networks, Advancing Neuroscience
             </h2>
 
             <p className="text-xl text-amber-900/80 leading-relaxed">
-              Our state-of-the-art facilities in Nairobi serve as a central hub for neuroscience research and collaboration across Africa, fostering innovation and scientific excellence.
+              Our 2024 Annual Program at Brackenhurst, Nairobi brought together passionate researchers and practitioners from across Africa, fostering collaboration and knowledge exchange in neuroscience.
             </p>
 
             <motion.button 
@@ -86,7 +86,7 @@ export default function LocationHighlight() {
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              Explore our facilities
+              Learn about our programs
               <ChevronRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>

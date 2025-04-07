@@ -6,6 +6,18 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import Layout from '../../components/Layout';
 
+// Add interface before the upcomingEvents array
+interface Event {
+  title: string;
+  date: string;
+  location?: string;
+  description?: string;
+  type: string;
+  image: string;
+  time?: string;
+  isVirtual?: boolean;
+}
+
 const formatDate = (dateStr: string) => {
   // Handle date ranges (e.g., "June 9-14, 2025")
   if (dateStr.includes('-')) {
@@ -26,7 +38,7 @@ const formatDate = (dateStr: string) => {
   };
 };
 
-const upcomingEvents = [
+const upcomingEvents: Event[] = [
   {
     title: "African Brain Data Science Academy EEG Workshop",
     date: "June 9-14, 2025",
@@ -124,7 +136,7 @@ export default function Events() {
     <Layout>
     <main className="pt-20">
       {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800 overflow-hidden">
+        <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800 overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />

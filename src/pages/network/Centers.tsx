@@ -22,47 +22,20 @@ interface Coordinator {
 
 const centers: Center[] = [
   {
-    name: "ABDN Neuroimaging Hub",
+    name: "ABDN Neuroimaging Center",
     location: "Port Harcourt, Nigeria",
     specialization: "Advanced Brain Imaging",
-    researchers: 25,
+    researchers: 8,
     image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&q=80",
-    description: "Our primary neuroimaging facility equipped with state-of-the-art MRI technology and data processing capabilities.",
+    description: "Our emerging  facility, currently in its initial phase of development. We are establishing a foundation for advanced brain research in West Africa, with plans to expand our capabilities and research scope in the coming years.",
     facilities: [
-      "3T MRI Scanner",
-      "High-Performance Computing Cluster",
-      "Data Analysis Laboratory",
-      "Training Center"
+      "MRI Research",
+      "Initial Computing Infrastructure",
+      "Training Space",
+      "Research Planning Center"
     ]
   },
-  {
-    name: "Rivers State Neuroscience Center",
-    location: "Port Harcourt, Nigeria",
-    specialization: "Clinical Neuroscience Research",
-    researchers: 18,
-    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80",
-    description: "Specialized center focusing on clinical applications of neuroimaging research and biomarker development.",
-    facilities: [
-      "Clinical Research Unit",
-      "Biospecimen Repository",
-      "Neuropsychology Lab",
-      "Patient Assessment Facilities"
-    ]
-  },
-  {
-    name: "ABDN Data Science Center",
-    location: "Port Harcourt, Nigeria",
-    specialization: "Neuroinformatics",
-    researchers: 15,
-    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80",
-    description: "Advanced computing facility dedicated to neuroimaging data analysis and machine learning applications.",
-    facilities: [
-      "GPU Computing Cluster",
-      "Secure Data Storage",
-      "Virtual Reality Lab",
-      "Collaborative Workspace"
-    ]
-  }
+
 ];
 
 const coordinators: Coordinator[] = [
@@ -90,15 +63,15 @@ export default function Centers() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+      <section className="relative py-32 md:py-40 bg-gradient-to-br from-amber-950 to-amber-800">
         <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center text-white">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8"
             >
               Our Research Network
             </motion.h1>
@@ -106,7 +79,7 @@ export default function Centers() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-xl text-amber-100 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-amber-100 max-w-4xl mx-auto px-4"
             >
               Connecting leading neuroscience facilities in Port Harcourt with research partners across Africa
             </motion.p>
@@ -114,65 +87,116 @@ export default function Centers() {
         </div>
       </section>
 
-      {/* Port Harcourt Centers */}
+      {/* Port Harcourt Center */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-amber-900">Port Harcourt Research Centers</h2>
-            <p className="mt-2 text-lg text-amber-700">Our state-of-the-art facilities advancing African neuroscience</p>
+            <h2 className="text-3xl font-bold text-amber-900">Port Harcourt Research Center</h2>
+            <p className="mt-2 text-lg text-amber-700">Building the foundation for advanced neuroscience research in West Africa</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {centers.map((center, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative h-48">
+          
+          {centers.map((center, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative h-full min-h-[300px]">
                   <img
                     src={center.image}
                     alt={center.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">{center.name}</h3>
-                  <div className="space-y-2 text-sm text-amber-600 mb-4">
-                    <div className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{center.location}</span>
+                <div className="p-6 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-amber-900 mb-4">{center.name}</h3>
+                    <div className="space-y-3 text-sm text-amber-600 mb-4">
+                      <div className="flex items-center">
+                        <MapPin className="h-5 w-5 mr-2 text-amber-500" />
+                        <span>{center.location}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Microscope className="h-5 w-5 mr-2 text-amber-500" />
+                        <span>{center.specialization}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Users className="h-5 w-5 mr-2 text-amber-500" />
+                        <span>{center.researchers} Core Researchers</span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <Microscope className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{center.specialization}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-amber-500" />
-                      <span>{center.researchers} Researchers</span>
-                    </div>
+                    <p className="text-amber-700 mb-6">{center.description}</p>
+                    {center.facilities && (
+                      <div>
+                        <h4 className="font-semibold text-amber-900 mb-3">Initial Facilities:</h4>
+                        <ul className="list-disc list-inside space-y-2 text-sm text-amber-600">
+                          {center.facilities.map((facility, idx) => (
+                            <li key={idx}>{facility}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  <p className="text-amber-700 mb-4">{center.description}</p>
-                  {center.facilities && (
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-amber-900">Key Facilities:</h4>
-                      <ul className="grid grid-cols-2 gap-2">
-                        {center.facilities.map((facility, i) => (
-                          <li key={i} className="flex items-center text-sm text-amber-600">
-                            <Building2 className="h-3 w-3 mr-1 text-amber-500" />
-                            {facility}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+       {/* Student Research Opportunities */}
+       <section className="py-24 bg-amber-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative h-full min-h-[400px]">
+                <img
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80"
+                  alt="Students conducting research"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-amber-900 mb-4">Empowering Young Researchers</h3>
+                <p className="text-amber-700 mb-6">
+                  We are committed to nurturing the next generation of African neuroscientists. Our center provides unique opportunities for undergraduate students to engage in cutting-edge brain research, offering:
+                </p>
+                <ul className="space-y-4 text-amber-600">
+                  <li className="flex items-start">
+                    <GraduationCap className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <span>Hands-on research experience in neuroimaging and data analysis</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <span>Mentorship from experienced researchers and faculty members</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Brain className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <span>Participation in ongoing research projects and publications</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Globe className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <span>Connection to a network of African neuroscience institutions</span>
+                  </li>
+                </ul>
+                <button className="mt-8 self-start bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300">
+                  Join Our Research Program
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -218,6 +242,8 @@ export default function Centers() {
         </div>
       </section>
 
+     
+
       {/* Network Stats */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,8 +255,8 @@ export default function Centers() {
               className="bg-amber-50 p-6 rounded-xl"
             >
               <Building2 className="h-8 w-8 text-amber-600 mb-4" />
-              <div className="text-2xl font-bold text-amber-900 mb-2">3</div>
-              <div className="text-amber-700">Research Centers</div>
+              <div className="text-2xl font-bold text-amber-900 mb-2">1</div>
+              <div className="text-amber-700">Research Center</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -251,8 +277,8 @@ export default function Centers() {
               className="bg-amber-50 p-6 rounded-xl"
             >
               <GraduationCap className="h-8 w-8 text-amber-600 mb-4" />
-              <div className="text-2xl font-bold text-amber-900 mb-2">50+</div>
-              <div className="text-amber-700">Researchers</div>
+              <div className="text-2xl font-bold text-amber-900 mb-2">8</div>
+              <div className="text-amber-700">Core Researchers</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -262,8 +288,8 @@ export default function Centers() {
               className="bg-amber-50 p-6 rounded-xl"
             >
               <Brain className="h-8 w-8 text-amber-600 mb-4" />
-              <div className="text-2xl font-bold text-amber-900 mb-2">20+</div>
-              <div className="text-amber-700">Active Projects</div>
+              <div className="text-2xl font-bold text-amber-900 mb-2">5+</div>
+              <div className="text-amber-700">Initial Projects</div>
             </motion.div>
           </div>
         </div>

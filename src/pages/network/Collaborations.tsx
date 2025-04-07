@@ -31,7 +31,7 @@ const collaborators: Collaborator[] = [
     name: "De Montfort University",
     type: "academic",
     description: "A leading UK university partnering with ABDN to advance neuroimaging research and training in Africa.",
-    logo: "/images/collaborators/dmu-logo.png",
+    logo: "/Assets/Partners/dmu-logo.png",
     website: "https://www.dmu.ac.uk",
     focus: [
       "Research Methodology",
@@ -44,7 +44,7 @@ const collaborators: Collaborator[] = [
     name: "Neuroscience Society of Nigeria (NSN)",
     type: "society",
     description: "Nigeria's premier neuroscience organization collaborating on research initiatives and professional development.",
-    logo: "/images/collaborators/nsn-logo.png",
+    logo: "/Assets/Partners/nsn.jpg",
     website: "https://www.nsn.org.ng",
     focus: [
       "Local Research Network",
@@ -57,7 +57,7 @@ const collaborators: Collaborator[] = [
     name: "Brainlife.io",
     type: "platform",
     description: "A cloud platform for neuroscience data analysis and sharing, supporting ABDN's data processing needs.",
-    logo: "/images/collaborators/brainlife-logo.png",
+    logo: "/Assets/Partners/brainlife.jpg",
     website: "https://brainlife.io",
     focus: [
       "Data Processing",
@@ -70,7 +70,7 @@ const collaborators: Collaborator[] = [
     name: "Brain Wellness Initiative",
     type: "initiative",
     description: "A collaborative program focused on brain health awareness and research in African communities.",
-    logo: "/images/collaborators/bwi-logo.png",
+    logo: "/Assets/Partners/brain_wellness_initative.jpg",
     website: "https://brainwellness.org",
     focus: [
       "Community Engagement",
@@ -83,13 +83,26 @@ const collaborators: Collaborator[] = [
     name: "SONA",
     type: "society",
     description: "Society of Neuroscientists of Africa, partnering to promote neuroscience research across the continent.",
-    logo: "/images/collaborators/sona-logo.png",
+    logo: "/Assets/Partners/Sona.jpg",
     website: "https://www.sona.org",
     focus: [
       "Pan-African Network",
       "Research Collaboration",
       "Training Workshops",
       "Resource Sharing"
+    ]
+  },
+  {
+    name: "Nottingham University",
+    type: "academic",
+    description: "A leading UK university partnering with ABDN to advance neuroimaging research and training in Africa.",
+    logo: "/Assets/Partners/Nottingham.jpg",
+    website: "https://www.nottingham.ac.uk",
+    focus: [
+      "Research Methodology",
+      "Training Programs",
+      "Knowledge Exchange",
+      "Joint Publications"
     ]
   }
 ];
@@ -125,7 +138,7 @@ export default function Collaborations() {
     <Layout>
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-amber-950 to-amber-800">
+        <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-white">
