@@ -45,19 +45,20 @@ const upcomingEvents: Event[] = [
     location: "Nigeria",
     description: "Comprehensive workshop on EEG data analysis and interpretation techniques.",
     type: "Workshop",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80",
+    image: "/Assets/Events/eeg_workshop.jpeg",
     isVirtual: false
   }
 ];
 
 const pastEvents = [
+ 
   {
     title: "Brain Awareness Week",
     date: "March 11-15, 2024",
     location: "Port-Harcourt, Nigeria",
     description: "Engaging the public in brain science through interactive sessions, workshops, and educational activities.",
     type: "Outreach",
-    image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/brain_awareness.jpeg"
   },
   {
     title: "21st Annual Scientific Conference Of The Neuroscience Society Of Nigeria",
@@ -65,27 +66,27 @@ const pastEvents = [
     time: "3:00 PM",
     location: "Nassarawa State, Nigeria",
     type: "Conference",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/21_annual_conference.jpeg"
   },
   {
     title: "African Brain Data Science Academy 2024",
     date: "December 2-14, 2024",
     type: "Academy",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/abdsa_2024.jpeg"
   },
   {
     title: "FENS Forum 2024",
     date: "June 25-29, 2024",
     location: "Vienna, Austria",
     type: "Forum",
-    image: "https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/fern_2024.jpg"
   },
   {
     title: "Neuroinformatics Assembly",
     date: "September 26-27, 2024",
     location: "Austin, Texas",
     type: "Assembly",
-    image: "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/neuro_informatic_assembly.jpeg"
   },
   {
     title: "NeuroImaging For Research In Africa",
@@ -93,7 +94,7 @@ const pastEvents = [
     time: "9:30 AM - 12:30 PM",
     location: "Lagos, Nigeria",
     type: "Workshop",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80"
+    image: "/Assets/Events/neuro_imageing_research.jpeg"
   },
   {
     title: "Integrating Data Science Into Neuroscience Curriculum",
@@ -101,8 +102,52 @@ const pastEvents = [
     time: "1:30 PM - 3:30 PM",
     location: "Lagos, Nigeria",
     type: "Workshop",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80"
-  }
+    image: "/Assets/Events/datascience_into_neuroscience.jpeg"
+  },
+  
+
+  {
+    title: "Register to learn Decision Neuroscience (Imaging Brain Dopamine Systems) with Arif Hamid (PhD)",
+    date: "August 22, 2023",
+    time: "03:00 PM WAT",
+    location: "Virtual",
+    type: "Workshop",
+    image: "/Assets/Events/decision_neuroscience.jpeg"
+  },
+  {
+    title: "Sensitization talk on the need for incorporation of Data science into the University Curriculum",
+    date: "May 29, 2023",
+    type: "Talk",
+    image: "/Assets/Events/data_science_into_university_currriculum.jpg"
+  },
+  {
+    title: "ABDS Academy",
+    date: "November 2023",
+    type: "Academy",
+    image: "/Assets/Events/Abdsa_academy.jpeg"
+  },
+  {
+    title: "ABDN Webinar Series – FMRI Analytical Methods",
+    date: "November 21, 2022",
+    time: "4:00 PM WAT",
+    location: "Zoom",
+    type: "Webinar",
+    image: "/Assets/Events/fmri_analytic_method.png"
+  },
+  {
+    title: "ABDN Webinar Series",
+    date: "October 24-26, 2022",
+    time: "2:00 PM WAT",
+    type: "Webinar",
+    image: "/Assets/Events/mri_signal_image_information.png"
+  },
+  {
+    title: "19th Scientific Meeting of the Neuroscience Society of Nigeria",
+    date: "July 31 - August 3, 2022",
+    location: "Ibadan, Nigeria",
+    type: "Conference",
+    image: "/Assets/Events/19th_nsn.png"
+  },
 ];
 
 export default function Events() {

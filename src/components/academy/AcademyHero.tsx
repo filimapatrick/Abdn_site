@@ -26,7 +26,7 @@ export default function AcademyHero() {
             className="text-center text-white"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-amber-100 to-amber-50">
-              ABDN Academy: Empowering Africa's Next Neuroscience Leaders
+              ABDSA Academy: Empowering Africa's Next Neuroscience Leaders
             </h1>
             <p className="text-xl md:text-2xl text-amber-200/90 mb-12 max-w-3xl mx-auto">
               Training, mentorship, and research opportunities across the continent

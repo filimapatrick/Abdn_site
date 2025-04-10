@@ -140,7 +140,7 @@ export default function Training() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px]">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80"
+                  src="/Assets/Training/Training_lagos.jpg"
                   alt="ABDN Training Session"
                   className="w-full h-full object-cover"
                 />
@@ -210,7 +210,7 @@ export default function Training() {
               </div>
               <div className="relative h-full min-h-[400px] order-1 md:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80"
+                  src="/Assets/Training/kenya_group.jpg"
                   alt="ABDN Workshop Session"
                   className="w-full h-full object-cover"
                 />

@@ -41,7 +41,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Parkinson's Disease", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=PD&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/parkinsons",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -57,7 +57,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Healthy Controls", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=CTRL&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/controls",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -73,7 +73,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Dementia", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=DEM&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/dementia",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -89,7 +89,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Hydrocephalus", "T1w", "T2w", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=HYD&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/hydrocephalus",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -105,7 +105,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Stroke", "T1w", "DWI", "PWI", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=STROKE&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/stroke",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -121,7 +121,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Tumor", "T1w", "T2w", "FLAIR", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=TUM&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/tumor",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -137,7 +137,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Epilepsy", "T1w", "fMRI", "EEG", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=EPI&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/epilepsy",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -153,7 +153,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Multiple Sclerosis", "T1w", "T2w", "FLAIR", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=MS&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/ms",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -169,7 +169,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Alzheimer's Disease", "T1w", "fMRI", "PET", "Nigeria"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=ALZ&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/alzheimers",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -185,7 +185,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024-02-15",
     tags: ["T1w", "fMRI", "DTI", "resting-state"],
-    image: "https://api.dicebear.com/7.x/shapes/svg?seed=1K&backgroundColor=amber",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/abdn-1k",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -201,7 +201,7 @@ const datasets: Dataset[] = [
     access: "restricted",
     dateUpdated: "2024-01-20",
     tags: ["T1w", "T2w", "brain atlas", "morphometry"],
-    image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/abdn-struct"
   },
   {
@@ -212,7 +212,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024-03-01",
     tags: ["fMRI", "task-based", "resting-state", "BOLD"],
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80",
+    image: "/Assets/Academy_2023/data.png",
     documentation: "/docs/abdn-func",
     requirements: [
       "Research Protocol Approval",

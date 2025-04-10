@@ -40,7 +40,7 @@ export default function AcademyFAQ() {
         >
           <h2 className="text-4xl font-bold text-amber-900 mb-6">Frequently Asked Questions</h2>
           <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-            Find answers to common questions about ABDN Academy's programs and opportunities
+            Find answers to common questions about ABDSA Academy's programs and opportunities
           </p>
         </motion.div>
 

@@ -149,7 +149,7 @@ export default function ResearchGroups() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="relative h-full min-h-[300px]">
                   <img
-                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80"
+                    src="/Assets/Training/WhatsApp Image 2025-03-21 at 20.03.21 (1).jpeg"
                     alt="Brain Research"
                     className="w-full h-full object-cover"
                   />
@@ -344,9 +344,9 @@ export default function ResearchGroups() {
                 className="relative"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+                  src="/Assets/Training/researching.jpg"
                   alt="Research Team"
-                  className="rounded-xl shadow-lg"
+                  className="rounded-xl shadow-lg lg:w-[600px] lg:h-[500px]"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                   <p className="text-amber-900 font-semibold">

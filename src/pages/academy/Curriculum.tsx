@@ -172,7 +172,7 @@ export default function Curriculum() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="relative h-full min-h-[400px]">
                   <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+                    src="/Assets/Curricular_development/data_science.jpg"
                     alt="Data Science in Neuroscience"
                     className="w-full h-full object-cover"
                   />

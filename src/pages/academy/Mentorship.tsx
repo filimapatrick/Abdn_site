@@ -70,11 +70,11 @@ export default function Mentorship() {
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px]">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80"
-                  alt="Mentorship Program"
-                  className="w-full h-full object-cover"
-                />
+              <img
+  src="/Assets/Training/mentor_ship.jpg"
+  alt="Mentorship Program"
+  className="w-full h-full object-cover lg:w-[600px] lg:h-[500px]"
+/>
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
               </div>
               <div className="p-8 flex flex-col justify-center">

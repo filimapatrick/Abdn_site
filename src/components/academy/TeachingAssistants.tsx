@@ -4,7 +4,7 @@ import { ArrowRight, GraduationCap, Calendar } from 'lucide-react';
 
 const taData = [
   {
-    src: '/Assets/Teaching_Assistant/brad.png',
+    src: 'Assets/Teaching_Assistant/brad.png',
     alt: 'Bradley Caron PhD',
     name: 'Bradley Caron PhD',
     university: 'University of Texas, Austin, USA.',
@@ -12,7 +12,7 @@ const taData = [
     year: 2023,
   },
   {
-    src: '/Assets/Teaching_Assistant/Azeezat.jpg',
+    src: 'Assets/Teaching_Assistant/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD', 
     name: 'Azeezat Azeez PhD',
     university: 'Stanford University, California, USA.',
@@ -20,7 +20,7 @@ const taData = [
     year: 2023,
   },
   {
-    src: '/Assets/Teaching_Assistant/Anibal.png',
+    src: 'Assets/Teaching_Assistant/Anibal.png',
     alt: 'Annibal Heinsfeld PhD ',
     name: 'Annibal Heinsfeld PhD ',
     university: 'University of Texas, Austin, USA.',
@@ -28,7 +28,7 @@ const taData = [
     year: 2023,
   },
   {
-    src: '/Assets/participant7.jpeg',
+    src: 'Assets/participant7.jpeg',
     alt: 'Sarah Williams',
     name: 'Sarah Williams',
     university: 'University of Texas, Austin, USA.',
@@ -46,7 +46,7 @@ const taData = [
     year: 2024,
   },
   {
-    src: '/Assets/Teaching_Assistant/Azeezat.jpg',
+    src: 'Assets/Teaching_Assistant/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD', 
     name: 'Azeezat Azeez PhD',
     university: 'Stanford University, California, USA.',
@@ -54,7 +54,7 @@ const taData = [
     year: 2024,
   },
   {
-    src: '/Assets/Teaching_Assistant/Anibal.png',
+    src: 'Assets/Teaching_Assistant/Anibal.png',
     alt: 'Annibal Heinsfeld PhD ',
     name: 'Annibal Heinsfeld PhD ',
     university: 'University of Texas, Austin, USA.',
@@ -62,7 +62,7 @@ const taData = [
     year: 2024,
   },
   {
-    src: '/Assets/Teaching_Assistants/Sarah.png',
+    src: 'Assets/Teaching_Assistants/Sarah.png',
     alt: 'Sarah Williams',
     name: 'Sarah Williams',
     university: 'University of Texas, Austin, USA.',
