@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, Clock, ArrowRight, ExternalLink, Globe, Video, Book, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, MapPin, Users, Clock, ArrowRight, ExternalLink, Globe, Video, Book, ChevronRight, X } from 'lucide-react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -152,6 +152,7 @@ const pastEvents = [
 
 export default function Events() {
   const [showAllPastEvents, setShowAllPastEvents] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const displayedPastEvents = showAllPastEvents ? pastEvents : pastEvents.slice(0, 3);
 
   // Combine upcoming and past events for the calendar with proper date formatting
@@ -256,13 +257,18 @@ export default function Events() {
                       {event.type}
                     </span>
                   </div>
-                  <div className="relative h-48">
+                  <div className="relative h-48 bg-amber-50 flex items-center justify-center p-4">
                     <img
                       src={event.image}
                       alt={event.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
+                        {event.type}
+                      </span>
+                    </div>
                   </div>
                   <div className="p-6 relative">
                     <h3 className="text-xl font-semibold text-amber-900 mb-3 line-clamp-2">
@@ -372,7 +378,7 @@ export default function Events() {
               </p>
             </motion.div>
 
-            <div className="grid gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedPastEvents.map((event, index) => (
                 <motion.div
                   key={index}
@@ -382,53 +388,110 @@ export default function Events() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="relative h-full min-h-[200px] md:min-h-[unset]">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-900/80 via-amber-900/60 to-transparent md:bg-gradient-to-t md:from-amber-900/80 md:via-amber-900/60 md:to-transparent" />
-                      <div className="absolute bottom-4 left-4 md:top-4 md:left-4">
-                        <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
-                          {event.type}
-                        </span>
-                      </div>
+                  <div 
+                    className="relative h-48 bg-amber-50 flex items-center justify-center p-4 cursor-pointer"
+                    onClick={() => setSelectedEvent(event)}
+                  >
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
+                        {event.type}
+                      </span>
                     </div>
-                    <div className="p-6 md:col-span-2 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-xl font-semibold text-amber-900 mb-3">
-                          {event.title}
-                        </h3>
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-center text-amber-600">
-                            <Calendar className="h-5 w-5 mr-2" />
-                            <span>{event.date}</span>
-                            {event.time && (
-                              <>
-                                <Clock className="h-5 w-5 ml-4 mr-2" />
-                                <span>{event.time}</span>
-                              </>
-                            )}
-                          </div>
-                          {event.location && (
-                            <div className="flex items-center text-amber-600">
-                              <MapPin className="h-5 w-5 mr-2" />
-                              <span>{event.location}</span>
-                            </div>
-                          )}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-amber-900 mb-3 line-clamp-2">
+                      {event.title}
+                    </h3>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-amber-600">
+                        <Calendar className="h-5 w-5 mr-2" />
+                        <span>{event.date}</span>
+                        {event.time && (
+                          <>
+                            <Clock className="h-5 w-5 ml-4 mr-2" />
+                            <span>{event.time}</span>
+                          </>
+                        )}
+                      </div>
+                      {event.location && (
+                        <div className="flex items-center text-amber-600">
+                          <MapPin className="h-5 w-5 mr-2" />
+                          <span>{event.location}</span>
                         </div>
-                      </div>
-                      <button className="self-start bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center group">
-                        View Details
-                        <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
+                      )}
                     </div>
+                    <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                      View Details
+                      <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Image Modal */}
+            <AnimatePresence>
+              {selectedEvent && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+                  onClick={() => setSelectedEvent(null)}
+                >
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      onClick={() => setSelectedEvent(null)}
+                      className="absolute top-4 right-4 z-10 p-2 bg-white/80 rounded-full hover:bg-white transition-colors"
+                    >
+                      <X className="h-6 w-6 text-amber-900" />
+                    </button>
+                    <div className="relative h-[60vh] bg-amber-50 flex items-center justify-center p-8">
+                      <img
+                        src={selectedEvent.image}
+                        alt={selectedEvent.title}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-2xl font-semibold text-amber-900 mb-3">
+                        {selectedEvent.title}
+                      </h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center text-amber-600">
+                          <Calendar className="h-5 w-5 mr-2" />
+                          <span>{selectedEvent.date}</span>
+                          {selectedEvent.time && (
+                            <>
+                              <Clock className="h-5 w-5 ml-4 mr-2" />
+                              <span>{selectedEvent.time}</span>
+                            </>
+                          )}
+                        </div>
+                        {selectedEvent.location && (
+                          <div className="flex items-center text-amber-600">
+                            <MapPin className="h-5 w-5 mr-2" />
+                            <span>{selectedEvent.location}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {pastEvents.length > 3 && (
               <motion.div
