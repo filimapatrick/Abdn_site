@@ -137,7 +137,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                       <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-600/10 flex items-center justify-center group-hover:from-amber-600/10 group-hover:to-amber-700/10 transition-colors">
                         <MapPin className="h-5 w-5 text-amber-700" />
                       </div>
-                      <span className="ml-3">International Centre of Insect Physiology and Ecology, Nairobi, Kenya</span>
+                      <span className="ml-3">African Brain Data Network, Port-Harcourt,Nigeria</span>
                     </a>
                     
                     <a href="tel:+254700123456" className="flex items-center text-amber-700 hover:text-amber-800 group">
@@ -147,11 +147,11 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                       <span className="ml-3">+254 700 123 456</span>
                     </a>
                     
-                    <a href="mailto:contact@abdn.org" className="flex items-center text-amber-700 hover:text-amber-800 group">
+                    <a href="mailto:africanbraindatanetwork@gmail.com" className="flex items-center text-amber-700 hover:text-amber-800 group">
                       <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-600/10 flex items-center justify-center group-hover:from-amber-600/10 group-hover:to-amber-700/10 transition-colors">
                         <Mail className="h-5 w-5 text-amber-700" />
                       </div>
-                      <span className="ml-3">contact@abdn.org</span>
+                      <span className="ml-3">africanbraindatanetwork@gmail.com</span>
                     </a>
                   </div>
 

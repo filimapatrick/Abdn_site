@@ -273,8 +273,8 @@ export default function Infrastructure() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex items-center space-x-4 justify-center">
                 <Mail className="h-6 w-6 text-amber-600" />
-                <a href="mailto:contact@abdn.org" className="text-amber-700 hover:text-amber-900">
-                  contact@abdn.org
+                <a href="mailto:africanbraindatanetwork@gmail.com" className="text-amber-700 hover:text-amber-900">
+                  africanbraindatanetwork@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-4 justify-center">

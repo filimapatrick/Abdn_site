@@ -33,7 +33,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-amber-900 mb-1">Visit Us</h3>
-                <p className="text-amber-700/80">International Centre of Insect Physiology and Ecology, Nairobi, Kenya</p>
+                <p className="text-amber-700/80">African Brain Data Network, Port-Harcourt,Nigeria</p>
               </div>
             </div>
 
@@ -43,7 +43,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-amber-900 mb-1">Email Us</h3>
-                <a href="mailto:contact@abdn.org" className="text-amber-700 hover:text-amber-800">contact@abdn.org</a>
+                <a href="mailto:africanbraindatanetwork@gmail.com" className="text-amber-700 hover:text-amber-800">africanbraindatanetwork@gmail.com</a>
               </div>
             </div>
 

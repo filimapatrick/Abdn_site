@@ -20,18 +20,18 @@ const quickLinks = [
 const contactInfo = [
   { 
     icon: MapPin, 
-    text: 'International Centre of Insect Physiology and Ecology, Nairobi, Kenya',
+    text: 'African Brain Data Network, Port-Harcourt,Nigeria',
     href: 'https://goo.gl/maps/YOUR_LOCATION'
   },
   { 
     icon: Phone, 
-    text: '+254 (0) 20 123 4567',
-    href: 'tel:+254201234567'
+    text: '+234 810 412 5890',
+    href: 'tel:+2348104125890'
   },
   { 
     icon: Mail, 
-    text: 'info@abdn.org',
-    href: 'mailto:info@abdn.org'
+    text: 'africanbraindatanetwork@gmail.com',
+    href: 'mailto:africanbraindatanetwork@gmail.com'
   },
 ];
 
