@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Globe, ArrowRight, Handshake, GraduationCap, Target, Brain, BookOpen, BrainCircuit, Lightbulb, ChevronRight } from 'lucide-react';
 import Layout from '../../components/Layout';
+import MentorshipForm from '../../components/MentorshipForm';
 
 const mentorshipTracks = [
   {
     title: "Research Track",
     icon: BookOpen,
-    description: "For aspiring researchers and academics, focusing on research methodologies, paper writing, and grant applications.",
+    // description: "For aspiring researchers and academics, focusing on research methodologies, paper writing, and grant applications.",
     benefits: ["Research methodology guidance", "Paper writing support", "Grant application assistance", "Academic career planning"]
   },
   {
     title: "Industry Track",
     icon: BrainCircuit,
-    description: "For those pursuing industry careers, focusing on applied neuroscience and practical skills development.",
+    // description: "For those pursuing industry careers, focusing on applied neuroscience and practical skills development.",
     benefits: ["Industry exposure", "Technical skill development", "Project management", "Professional networking"]
   },
   {
     title: "Leadership Track",
     icon: Target,
-    description: "Developing future science leaders in Africa, focusing on leadership skills and program management.",
+    // description: "Developing future science leaders in Africa, focusing on leadership skills and program management.",
     benefits: ["Leadership development", "Strategic planning", "Team management", "Decision-making skills"]
   },
   {
     title: "Technical Track",
     icon: Lightbulb,
-    description: "Specialized mentorship in technical skills like data analysis, neuroimaging, and computational neuroscience.",
+    // description: "Specialized mentorship in technical skills like data analysis, neuroimaging, and computational neuroscience.",
     benefits: ["Technical skill mastery", "Hands-on projects", "Tool proficiency", "Problem-solving skills"]
   }
 ];
 
 export default function Mentorship() {
+  const [isMentorshipFormOpen, setIsMentorshipFormOpen] = useState(false);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -70,11 +73,11 @@ export default function Mentorship() {
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px]">
-              <img
-  src="/Assets/Training/mentor_ship.jpg"
-  alt="Mentorship Program"
-  className="w-full h-full object-cover lg:w-[600px] lg:h-[500px]"
-/>
+                <img
+                  src="/Assets/Training/mentor_ship.jpg"
+                  alt="Mentorship Program"
+                  className="w-full h-full object-cover lg:w-[600px] lg:h-[500px]"
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
               </div>
               <div className="p-8 flex flex-col justify-center">
@@ -99,6 +102,7 @@ export default function Mentorship() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsMentorshipFormOpen(true)}
                   className="self-start bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center group"
                 >
                   Volunteer to become a mentor
@@ -125,17 +129,17 @@ export default function Mentorship() {
               {
                 icon: Users,
                 title: "Network Growth",
-                description: "Connect with leading researchers and expand your professional network"
+                // description: "Connect with leading researchers and expand your professional network"
               },
               {
                 icon: Handshake,
                 title: "Personalized Guidance",
-                description: "Receive one-on-one mentorship tailored to your research interests"
+                // description: "Receive one-on-one mentorship tailored to your research interests"
               },
               {
                 icon: GraduationCap,
                 title: "Career Development",
-                description: "Get support for your academic and research career progression"
+                // description: "Get support for your academic and research career progression"
               }
             ].map((benefit, index) => (
               <motion.div
@@ -150,7 +154,7 @@ export default function Mentorship() {
                   <benefit.icon className="h-8 w-8 text-amber-600" />
                 </div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2">{benefit.title}</h3>
-                <p className="text-amber-700">{benefit.description}</p>
+                {/* <p className="text-amber-700">{benefit.description}</p> */}
               </motion.div>
             ))}
           </div>
@@ -169,7 +173,7 @@ export default function Mentorship() {
           >
             <h2 className="text-4xl font-bold text-amber-900 mb-6">Mentorship Tracks</h2>
             <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-              Choose the mentorship track that best aligns with your career goals and aspirations
+            Our mentorship program connects our alumni experts that align with their career goals and aspirations
             </p>
           </motion.div>
 
@@ -203,6 +207,11 @@ export default function Mentorship() {
           </div>
         </div>
       </section>
+
+      <MentorshipForm 
+        isOpen={isMentorshipFormOpen}
+        onClose={() => setIsMentorshipFormOpen(false)}
+      />
     </Layout>
   );
 }

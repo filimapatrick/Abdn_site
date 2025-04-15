@@ -15,8 +15,8 @@ export default function About() {
       <main className="pt-20">
         <AboutHero />
         <MissionImpact />
-        <AboutContent />
-        <Timeline />
+        {/* <AboutContent /> */}
+        {/* <Timeline /> */}
         <CoreTeam />
         <Partners />
         <AboutTestimonials />

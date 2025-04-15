@@ -119,36 +119,36 @@ export default function Publications() {
 
   return (
     <Layout>
-      <main className="pt-20">
-        {/* Hero Section */}
+    <main className="pt-20">
+      {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl" />
             <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-amber-500/10 rounded-full blur-3xl" />
           </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
                 className="text-4xl md:text-6xl font-bold mb-6"
-              >
+            >
                 <span className="bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text text-transparent">
-                  Research Publications
+              Research Publications
                 </span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl text-amber-100 max-w-3xl mx-auto"
-              >
+            >
                 Explore groundbreaking neuroscience research from ABDN and our network members
-              </motion.p>
-            </div>
+            </motion.p>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Search and Filter Section */}
         <section className="py-8 bg-amber-50">
@@ -203,15 +203,15 @@ export default function Publications() {
 
         {/* Publications List */}
         <section className="py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-8">
               {filteredPublications.map((publication, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
                   <div className="p-6">
@@ -241,7 +241,7 @@ export default function Publications() {
                           <p className="text-amber-600">
                             {publication.authors.join(', ')}
                           </p>
-                        </div>
+                </div>
                         <p className="text-amber-700 mb-4">
                           {publication.abstract}
                         </p>
@@ -254,7 +254,7 @@ export default function Publications() {
                               {keyword}
                             </span>
                           ))}
-                        </div>
+                    </div>
                         <div className="flex items-center gap-4 flex-wrap">
                           <p className="text-amber-600 italic">
                             {publication.journal}
@@ -283,16 +283,16 @@ export default function Publications() {
                               <ArrowUpRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
                           )}
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                    </div>
+                    </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
     </Layout>
   );
 }

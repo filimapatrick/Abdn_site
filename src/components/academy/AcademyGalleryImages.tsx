@@ -4,6 +4,19 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Camera, ZoomIn } from 'lucide-react';
 
+const yearDescriptions = {
+  '2023': `The year 2023 marked a significant milestone for the African Brain Data Network (ABDN) as we successfully launched our inaugural ABDS Academy. This pioneering initiative brought together 30 talented African scientists from diverse backgrounds, creating a vibrant community of neuroscience researchers.
+
+The academy focused on building essential skills in neuroimaging, data science, and computational neuroscience, with a strong emphasis on FAIR (Findable, Accessible, Interoperable, and Reusable) data principles. Through hands-on workshops, expert-led sessions, and collaborative projects, participants gained practical experience in handling complex brain data and applying cutting-edge analytical techniques.
+
+A highlight of 2023 was the establishment of our first cohort of African neuroscience researchers who are now equipped to lead brain data initiatives across the continent. The success of this program has laid a strong foundation for future capacity-building efforts in African neuroscience.`,
+  '2024': `Building on the success of 2023, the ABDS Academy in 2024 expanded its reach and impact, welcoming an even larger cohort of 45 African scientists. This year's program introduced advanced topics in neuroimaging modalities, structural neuroscience, and social neuroscience, reflecting the growing sophistication of our curriculum.
+
+The 2024 academy placed particular emphasis on practical applications of neuroimaging datasets and the integration of digital tools into teaching and research. Participants engaged in hands-on projects that addressed real-world challenges in African neuroscience research, fostering innovation and collaboration.
+
+A significant achievement of 2024 was the establishment of stronger connections between African researchers and international neuroscience communities, creating new opportunities for collaboration and knowledge exchange. The program also saw the development of region-specific neuroimaging protocols tailored to African contexts, marking an important step towards more inclusive and representative brain research.`
+};
+
 const galleryImages = [
   // 2023 Images
 
@@ -178,10 +191,10 @@ const galleryImages = [
 export default function AcademyGalleryImages() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedYear, setSelectedYear] = useState<number>(2024);
+  const [selectedYear, setSelectedYear] = useState<'2023' | '2024'>('2024');
 
-  const years = [2023, 2024];
-  const filteredImages = galleryImages.filter(image => image.year === selectedYear);
+  const years = ['2023', '2024'] as const;
+  const filteredImages = galleryImages.filter(image => image.year === Number(selectedYear));
 
   return (
     <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
@@ -202,7 +215,7 @@ export default function AcademyGalleryImages() {
             {years.map((year) => (
               <motion.button
                 key={year}
-                onClick={() => setSelectedYear(year)}
+                onClick={() => setSelectedYear(year as '2023' | '2024')}
                 className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
                   selectedYear === year
                     ? 'bg-amber-500 text-white shadow-lg scale-105'
@@ -215,6 +228,26 @@ export default function AcademyGalleryImages() {
               </motion.button>
             ))}
           </div>
+
+          {/* Year Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-amber-900 mb-6">ABDN {selectedYear}</h3>
+              <div className="prose prose-amber max-w-none">
+                {yearDescriptions[selectedYear].split('\n\n').map((paragraph: string, index: number) => (
+                  <p key={index} className="text-amber-700 mb-4">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -230,9 +263,9 @@ export default function AcademyGalleryImages() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="aspect-w-16 aspect-h-9">
-                <img
-                  src={image.src}
-                  alt={image.alt}
+              <img
+                src={image.src}
+                alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -254,7 +287,7 @@ export default function AcademyGalleryImages() {
                     <ZoomIn className="ml-2 h-4 w-4 transition-transform group-hover/btn:scale-110" />
                   </motion.button>
                 </motion.div>
-              </div>
+            </div>
             </motion.div>
           ))}
         </div>

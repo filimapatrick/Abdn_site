@@ -23,14 +23,14 @@ export default function AcademyHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center text-white max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-amber-100 to-amber-50">
-              ABDSA Academy: Empowering Africa's Next Neuroscience Leaders
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-amber-100 to-amber-50">
+              African Brain Data Science Academy (ABDSA)
             </h1>
-            <p className="text-xl md:text-2xl text-amber-200/90 mb-12 max-w-3xl mx-auto">
-              Training, mentorship, and research opportunities across the continent
-            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-amber-100/90">
+              Empowering the next generation of African neuroscientists with required data and digital skills
+            </h2>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

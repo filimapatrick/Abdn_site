@@ -57,12 +57,12 @@ const upcomingWorkshops = [
     description: "Advanced techniques in functional MRI data analysis and interpretation."
   },
   {
-    title: "MRI Fundamentals Workshop",
-    date: "March 21-23, 2024",
-    location: "Port Harcourt, Nigeria",
-    instructor: "Dr. Grace Okonjo",
-    icon: Beaker,
-    description: "Essential principles and practices of MRI in neuroscience research."
+    title: "ABDS Academy 2025",
+    date: "December 8-21, 2025",
+    location: "Lagos, Nigeria",
+    instructor: "Multiple Experts",
+    icon: GraduationCap,
+    description: "Comprehensive training in brain data science, covering MRI, fMRI, MEG, EEG, and fNIRS modalities for African neuroscience research."
   }
 ];
 
@@ -127,49 +127,7 @@ export default function Training() {
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="relative h-full min-h-[400px]">
-                <img
-                  src="/Assets/Training/Training_lagos.jpg"
-                  alt="ABDN Training Session"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-              </div>
-              <div className="p-8 flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-amber-900 mb-6">Our Mission</h2>
-                <p className="text-amber-700 mb-6">
-                  The African Brain Data Network projects seeks to improve the landscape of brain research and innovation in Africa through responsible generation, application and use through a number of projects or workstreams.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <Brain className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
-                    <p className="text-amber-600">
-                      The ABDN Network seeks to ensure that a sufficient number of experts are trained in the use of novel technical tools to collect, process and apply brain datasets.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <Globe className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
-                    <p className="text-amber-600">
-                      From neuroimages to behavioural datasets, this network hopes to cover the length and breadth of Africa and lead the African neuroscience ecosystem into the era of big data analytics.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+ 
 
       {/* Initiatives Section */}
       <section className="py-24 bg-amber-50">
@@ -221,76 +179,6 @@ export default function Training() {
         </div>
       </section>
 
-      {/* Featured Courses */}
-      {/* <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-6">Featured Courses</h2>
-            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-              Learn from leading experts in neuroscience through our specialized courses
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-48">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-amber-600">
-                    {course.level}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-amber-900 mb-2">{course.title}</h3>
-                  <p className="text-amber-600 mb-2">by {course.instructor}</p>
-                  <p className="text-amber-700 mb-4">{course.description}</p>
-                  <div className="space-y-2 mb-4">
-                    {course.topics.map((topic, i) => (
-                      <div key={i} className="flex items-center text-amber-700">
-                        <ChevronRight className="h-4 w-4 mr-2 text-amber-500" />
-                        <span>{topic}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-5 w-5 text-amber-400 fill-current" />
-                      <span className="font-semibold text-amber-900">{course.rating}</span>
-                    </div>
-                    <div className="flex items-center text-amber-600 space-x-4">
-                      <div className="flex items-center">
-                        <Users className="h-4 w-4 mr-1" />
-                        <span>{course.students}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        <span>{course.duration}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
-                    Enroll Now
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Upcoming Workshops */}
       <section className="py-24 bg-gradient-to-br from-white to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -339,6 +227,214 @@ export default function Training() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Previous Events Section */}
+      <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-amber-900 mb-6">Previous Events</h2>
+            <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+              Our past workshops, webinars, and events
+            </p>
+          </div>
+
+          {/* ABDS Academy 2023 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-12"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-8 flex flex-col justify-center order-2 md:order-1">
+                <div className="flex items-center mb-6">
+                  <GraduationCap className="w-8 h-8 text-amber-600 mr-4" />
+                  <h3 className="text-2xl font-bold text-amber-900">ABDS Academy 2023</h3>
+                </div>
+                <p className="text-amber-700 mb-6">
+                  The first ABDS Academy workshop was a two-week intensive program focused on capacity development in data science and neuroimaging data analysis.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Held in Lagos, Nigeria, bringing together researchers from across Africa
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Featured hands-on training in neuroimaging data analysis and FAIR data principles
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <BookOpen className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Covered topics including MRI basics, data processing, and statistical analysis
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative h-full min-h-[400px] order-1 md:order-2">
+                <img
+                  src="/Assets/Training/Training_lagos.jpg"
+                  alt="ABDS Academy 2023 Workshop"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/60" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ABDS Academy 2024 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-12"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative h-full min-h-[400px] order-1">
+                <img
+                  src="/Assets/Training/kenya_group.jpg"
+                  alt="ABDS Academy 2024 Workshop"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/60" />
+              </div>
+              <div className="p-8 flex flex-col justify-center order-2">
+                <div className="flex items-center mb-6">
+                  <GraduationCap className="w-8 h-8 text-amber-600 mr-4" />
+                  <h3 className="text-2xl font-bold text-amber-900">ABDS Academy 2024</h3>
+                </div>
+                <p className="text-amber-700 mb-6">
+                  Building on the success of 2023, the second ABDS Academy workshop expanded its curriculum and reach.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Advanced training in neuroimaging techniques and data analysis
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Expanded participant base with researchers from more African countries
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <BookOpen className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Focused on practical applications and real-world case studies
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Webinars */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-12"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-8 flex flex-col justify-center order-2 md:order-1">
+                <div className="flex items-center mb-6">
+                  <Video className="w-8 h-8 text-amber-600 mr-4" />
+                  <h3 className="text-2xl font-bold text-amber-900">Webinar Series</h3>
+                </div>
+                <p className="text-amber-700 mb-6">
+                  Our regular webinar series brings together experts and researchers to discuss cutting-edge topics in neuroscience and data science.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Webinar A: "FAIR Data Principles in Neuroscience Research"
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Webinar B: "Decision Neuroscience:Imaging Brain Dopamine Systems"
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Interactive sessions with Q&A and practical demonstrations
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative h-full min-h-[400px] order-1 md:order-2">
+                <img
+                  src="/Assets/Events/decision_neuroscience.jpeg"
+                  alt="ABDN Webinar Series"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/60" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Brain Awareness Week */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative h-full min-h-[400px] order-1">
+                <img
+                  src="/Assets/Training/WhatsApp Image 2025-03-21 at 20.03.21 (1).jpeg"
+                  alt="Brain Awareness Week"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/60" />
+              </div>
+              <div className="p-8 flex flex-col justify-center order-2">
+                <div className="flex items-center mb-6">
+                  <Brain className="w-8 h-8 text-amber-600 mr-4" />
+                  <h3 className="text-2xl font-bold text-amber-900">Brain Awareness Week</h3>
+                </div>
+                <p className="text-amber-700 mb-6">
+                  Our annual Brain Awareness Week events bring neuroscience to the public through engaging activities and educational programs.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      2024: "Understanding the Brain: From Cells to Behavior"
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Calendar className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      2025: "The Future of Neuroscience in Africa"
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Users className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
+                    <p className="text-amber-600">
+                      Public lectures, school visits, and community outreach programs
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

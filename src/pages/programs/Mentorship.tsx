@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, Target, BookOpen, Network, Calendar, ChevronRight, GraduationCap, BrainCircuit, Lightbulb, UserPlus, CheckCircle2, Clock, MessageSquare, Award, Plus, Minus } from 'lucide-react';
+import MentorshipForm from '../../components/MentorshipForm';
 
 const mentorshipTracks = [
   {
@@ -100,6 +101,7 @@ const faqs = [
 export default function Mentorship() {
   const [activeTrack, setActiveTrack] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isMentorshipFormOpen, setIsMentorshipFormOpen] = useState(false);
 
   return (
     <main className="pt-20">
@@ -138,6 +140,7 @@ export default function Mentorship() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMentorshipFormOpen(true)}
                 className="bg-white/10 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300 flex items-center backdrop-blur-sm"
               >
                 Become a Mentor
@@ -496,7 +499,10 @@ export default function Mentorship() {
               <p className="text-amber-700 mb-6">
                 Share your expertise and help shape the future of neuroscience in Africa. Apply to become a mentor.
               </p>
-              <button className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center">
+              <button 
+                onClick={() => setIsMentorshipFormOpen(true)}
+                className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center"
+              >
                 Apply Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -504,6 +510,11 @@ export default function Mentorship() {
           </div>
         </div>
       </section>
+
+      <MentorshipForm 
+        isOpen={isMentorshipFormOpen}
+        onClose={() => setIsMentorshipFormOpen(false)}
+      />
     </main>
   );
 } 

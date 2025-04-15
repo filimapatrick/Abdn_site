@@ -399,31 +399,31 @@ export default function DataSharing() {
 
   return (
     <Layout>
-      <main className="pt-20">
-        {/* Hero Section */}
+    <main className="pt-20">
+      {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
-          <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
                 className="text-4xl md:text-6xl font-bold mb-6"
-              >
+            >
                 <span className="bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text text-transparent">
                   African Brain Imaging Data Network
                 </span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl text-amber-100 max-w-3xl mx-auto"
-              >
-                Access and contribute to Africa's premier collection of brain imaging and neuroscience research data
-              </motion.p>
-              <motion.div
+            >
+                Contribute to Africa's premier collection of brain imaging and neuroscience research data
+            </motion.p>
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -437,14 +437,14 @@ export default function DataSharing() {
                   <span className="text-amber-100">Including:</span>
                   <span className="ml-2 font-semibold text-white">MRI, fMRI, DTI, EEG</span>
                 </div>
-              </motion.div>
-            </div>
+              </motion.div> */}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Stats Section */}
-        <section className="py-12 bg-amber-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* <section className="py-12 bg-amber-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-amber-900">Comprehensive Neuroimaging Resources</h2>
               <p className="mt-2 text-amber-700">Advancing African neuroscience through data-driven research</p>
@@ -495,14 +495,14 @@ export default function DataSharing() {
               </motion.div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Search and Filter Section */}
         <section className="py-8 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-amber-900">Explore Our Datasets</h2>
-              <p className="mt-2 text-amber-700">From brain imaging to clinical assessments</p>
+              <h2 className="text-2xl font-bold text-amber-900">Datasets in development</h2>
+              {/* <p className="mt-2 text-amber-700">From brain imaging to clinical assessments</p> */}
             </div>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
               <div className="relative flex-1 max-w-2xl">
@@ -555,14 +555,14 @@ export default function DataSharing() {
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-duration-300"
                 >
                   <div className="relative h-48 bg-amber-50">
-                    <img
-                      src={dataset.image}
+                  <img
+                    src={dataset.image}
                       alt={dataset.name}
                       className="w-full h-full object-contain p-4"
-                    />
+                  />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
-                  </div>
-                  <div className="p-6">
+                </div>
+                <div className="p-6">
                     <h3 className="text-xl font-bold text-amber-900 mb-2">{dataset.name}</h3>
                     <p className="text-amber-700 mb-4">{dataset.description}</p>
                     
@@ -589,10 +589,10 @@ export default function DataSharing() {
                           'text-red-600'
                         }`}
                       >
-                        {dataset.access.charAt(0).toUpperCase() + dataset.access.slice(1)} Access
+                        {/* {dataset.access.charAt(0).toUpperCase() + dataset.access.slice(1)} Access
                         <ChevronDown className={`h-4 w-4 transition-transform ${
                           expandedDataset === dataset.id ? 'rotate-180' : ''
-                        }`} />
+                        }`} /> */}
                       </button>
                     </div>
 
@@ -614,7 +614,7 @@ export default function DataSharing() {
                                 </li>
                               ))}
                             </ul>
-                          </div>
+                    </div>
                         )}
                         <div className="flex justify-end">
                           <button 
@@ -623,32 +623,32 @@ export default function DataSharing() {
                           >
                             <Download className="h-4 w-4 mr-2" />
                             <span>Request Access</span>
-                          </button>
+                  </button>
                         </div>
                       </motion.div>
                     )}
 
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Data Sharing Policy Section */}
         <section className="py-16 bg-amber-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-amber-900 mb-4">Data Sharing Policy</h2>
               <p className="text-xl text-amber-700 max-w-3xl mx-auto">
                 Our commitment to advancing African neuroimaging research through open science
               </p>
-            </div>
+          </div>
             <div className="grid md:grid-cols-3 gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
                 <Lock className="h-8 w-8 text-amber-600 mb-4" />
@@ -656,12 +656,12 @@ export default function DataSharing() {
                 <p className="text-amber-700">
                   Enterprise-grade security for sensitive neuroimaging data, with strict access controls and regular audits.
                 </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
                 <Shield className="h-8 w-8 text-amber-600 mb-4" />
@@ -669,12 +669,12 @@ export default function DataSharing() {
                 <p className="text-amber-700">
                   GDPR-compliant data handling with comprehensive participant privacy protection and ethical guidelines.
                 </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
                 <Share2 className="h-8 w-8 text-amber-600 mb-4" />
@@ -682,10 +682,10 @@ export default function DataSharing() {
                 <p className="text-amber-700">
                   Foster international collaboration while ensuring proper attribution and standardized data formats.
                 </p>
-              </motion.div>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Add the AccessRequestForm */}
         <AnimatePresence>
@@ -697,7 +697,7 @@ export default function DataSharing() {
             />
           )}
         </AnimatePresence>
-      </main>
+    </main>
     </Layout>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
   Calendar, 
@@ -13,9 +13,11 @@ import {
   Mail,
   Phone,
   FileText,
-  Send
+  Send,
+  CheckCircle2
 } from 'lucide-react';
 import Layout from '../../components/Layout';
+import { submitCollaborationProposal } from '../../services/supportService';
 
 interface Collaborator {
   name: string;
@@ -26,89 +28,13 @@ interface Collaborator {
   focus: string[];
 }
 
-const collaborators: Collaborator[] = [
-  {
-    name: "De Montfort University",
-    type: "academic",
-    description: "A leading UK university partnering with ABDN to advance neuroimaging research and training in Africa.",
-    logo: "/Assets/Partners/dmu-logo.png",
-    website: "https://www.dmu.ac.uk",
-    focus: [
-      "Research Methodology",
-      "Training Programs",
-      "Knowledge Exchange",
-      "Joint Publications"
-    ]
-  },
-  {
-    name: "Neuroscience Society of Nigeria (NSN)",
-    type: "society",
-    description: "Nigeria's premier neuroscience organization collaborating on research initiatives and professional development.",
-    logo: "/Assets/Partners/nsn.jpg",
-    website: "https://www.nsn.org.ng",
-    focus: [
-      "Local Research Network",
-      "Scientific Meetings",
-      "Policy Advocacy",
-      "Capacity Building"
-    ]
-  },
-  {
-    name: "Brainlife.io",
-    type: "platform",
-    description: "A cloud platform for neuroscience data analysis and sharing, supporting ABDN's data processing needs.",
-    logo: "/Assets/Partners/brainlife.jpg",
-    website: "https://brainlife.io",
-    focus: [
-      "Data Processing",
-      "Cloud Computing",
-      "Analysis Pipeline",
-      "Open Science"
-    ]
-  },
-  {
-    name: "Brain Wellness Initiative",
-    type: "initiative",
-    description: "A collaborative program focused on brain health awareness and research in African communities.",
-    logo: "/Assets/Partners/brain_wellness_initative.jpg",
-    website: "https://brainwellness.org",
-    focus: [
-      "Community Engagement",
-      "Health Education",
-      "Research Translation",
-      "Public Outreach"
-    ]
-  },
-  {
-    name: "SONA",
-    type: "society",
-    description: "Society of Neuroscientists of Africa, partnering to promote neuroscience research across the continent.",
-    logo: "/Assets/Partners/Sona.jpg",
-    website: "https://www.sona.org",
-    focus: [
-      "Pan-African Network",
-      "Research Collaboration",
-      "Training Workshops",
-      "Resource Sharing"
-    ]
-  },
-  {
-    name: "Nottingham University",
-    type: "academic",
-    description: "A leading UK university partnering with ABDN to advance neuroimaging research and training in Africa.",
-    logo: "/Assets/Partners/Nottingham.jpg",
-    website: "https://www.nottingham.ac.uk",
-    focus: [
-      "Research Methodology",
-      "Training Programs",
-      "Knowledge Exchange",
-      "Joint Publications"
-    ]
-  }
-];
+
 
 export default function Collaborations() {
   const [showForm, setShowForm] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     institution: '',
@@ -118,20 +44,30 @@ export default function Collaborations() {
     type: 'research'
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    setShowForm(false);
-    // Reset form
-    setFormData({
-      name: '',
-      institution: '',
-      email: '',
-      phone: '',
-      projectIdea: '',
-      type: 'research'
-    });
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      await submitCollaborationProposal(formData);
+      setShowForm(false);
+      setShowThankYou(true);
+      // Reset form
+      setFormData({
+        name: '',
+        institution: '',
+        email: '',
+        phone: '',
+        projectIdea: '',
+        type: 'research'
+      });
+    } catch (error) {
+      setError('Failed to submit proposal. Please try again.');
+      console.error('Error submitting proposal:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -162,62 +98,691 @@ export default function Collaborations() {
           </div>
         </section>
 
-        {/* Current Collaborators */}
-        <section className="py-24 bg-white">
+
+        {/* Institutional Collaborators Section */}
+        <section className="py-24 bg-gradient-to-br from-white to-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-amber-900">Current Partners</h2>
-              <p className="mt-2 text-lg text-amber-700">Working together to advance neuroscience in Africa</p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {collaborators.map((collaborator, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">Institutional Collaborators</h2>
+              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+                Our network of collaborating institutions and organizations
+              </p>
+            </motion.div>
+
+            {/* Technology Partners */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Technology Partners</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <motion.div
-                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src={collaborator.logo}
-                        alt={collaborator.name}
+                        src="/Assets/Partners/incf.jpeg"
+                        alt="INCF"
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>
                     <div className="space-y-4">
-                      <h3 className="text-xl font-bold text-amber-900 text-center">{collaborator.name}</h3>
-                      <p className="text-amber-700">{collaborator.description}</p>
+                      <h3 className="text-xl font-bold text-amber-900 text-center">INCF</h3>
+                      <p className="text-amber-700">International Neuroinformatics Coordinating Facility, supporting global neuroscience data sharing and analysis.</p>
                       <div className="space-y-2">
                         <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
                         <div className="grid grid-cols-2 gap-2">
-                          {collaborator.focus.map((area, i) => (
-                            <div
-                              key={i}
-                              className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full"
-                            >
-                              {area}
-                            </div>
-                          ))}
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Data Standards</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Open Science</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Infrastructure</div>
                         </div>
                       </div>
-                      {collaborator.website && (
-                        <a
-                          href={collaborator.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-amber-600 hover:text-amber-800"
-                        >
-                          <Globe className="h-4 w-4 mr-2" />
-                          Visit Website
-                        </a>
-                      )}
+                      <a
+                        href="https://www.incf.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
                     </div>
                   </div>
                 </motion.div>
-              ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/CatalystNeuro.png"
+                        alt="Catalyst Neuro"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Catalyst Neuro</h3>
+                      <p className="text-amber-700">A platform for neuroscience data sharing and collaboration, enabling researchers to work together effectively.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Data Sharing</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Collaboration</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Tools</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Community</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.catalystneuro.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/BrainLife.png"
+                        alt="Brain Life"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Brain Life</h3>
+                      <p className="text-amber-700">A cloud platform for neuroscience data analysis and sharing, supporting ABDN's data processing needs.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Data Processing</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Cloud Computing</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Analysis Pipeline</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Open Science</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://brainlife.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/math.jpeg"
+                        alt="MathWorks"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">MathWorks</h3>
+                      <p className="text-amber-700">Provider of MATLAB and Simulink software, supporting computational neuroscience research and education.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Software Tools</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.mathworks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Imaging Centers */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Imaging Centers</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/LifeBridge.png"
+                        alt="Life Bridge Diagnostics"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Life Bridge Diagnostics</h3>
+                      <p className="text-amber-700">A leading diagnostic imaging center providing advanced neuroimaging services and research support.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Clinical Imaging</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research Support</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Technology</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.lifebridgediagnostics.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Universities */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Universities</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/uniport.jpeg"
+                        alt="University of Port Harcourt"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">University of Port Harcourt</h3>
+                      <p className="text-amber-700">A leading Nigerian university collaborating on neuroscience research and education initiatives.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Outreach</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.uniport.edu.ng"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/luberk.png"
+                        alt="University of Lübeck"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">University of Lübeck</h3>
+                      <p className="text-amber-700">A German university known for its excellence in medical research and neuroimaging studies.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Medical Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Neuroimaging</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Collaboration</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.uni-luebeck.de"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/University_of_Texas_at_Austin_seal.svg.png"
+                        alt="University of Texas"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">University of Texas</h3>
+                      <p className="text-amber-700">A leading US university collaborating on neuroscience research and educational programs.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Technology</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Innovation</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.utexas.edu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/Nottingham-Logo.jpg"
+                        alt="University of Nottingham"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">University of Nottingham</h3>
+                      <p className="text-amber-700">A UK university known for its excellence in neuroscience research and medical imaging.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Neuroscience</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Medical Imaging</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Training</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.nottingham.ac.uk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/De_Montfort_University.png"
+                        alt="De Montfort University"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">De Montfort University</h3>
+                      <p className="text-amber-700">A UK university collaborating on neuroimaging research and educational initiatives.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Technology</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Innovation</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.dmu.ac.uk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/Lawrence-Technological-University.jpg"
+                        alt="Lawrence Technological University"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Lawrence Technological University</h3>
+                      <p className="text-amber-700">A US university known for its expertise in technology and engineering, collaborating on neuroimaging research.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Technology</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Engineering</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Innovation</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.ltu.edu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/Radboud_University.avif"
+                        alt="Radboud University"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Radboud University</h3>
+                      <p className="text-amber-700">A Dutch university known for its excellence in neuroscience and medical research.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Neuroscience</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Medical Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Collaboration</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.ru.nl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Organizations */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Organizations</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/NSN.jpeg"
+                        alt="NSN"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">NSN</h3>
+                      <p className="text-amber-700">Neuroscience Society of Nigeria, promoting neuroscience research and education in Nigeria.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Advocacy</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Community</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.nsn.org.ng"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/SONA.jpeg"
+                        alt="SONA"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">SONA</h3>
+                      <p className="text-amber-700">Society of Neuroscientists of Africa, promoting neuroscience research and education across the continent.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Advocacy</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Community</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.sona.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Funders */}
+            <div>
+              <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Funders</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/the_kavli_logo.jpg"
+                        alt="Kavli Foundation"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">Kavli Foundation</h3>
+                      <p className="text-amber-700">A foundation supporting scientific research, particularly in neuroscience and astrophysics.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research Funding</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Science Advocacy</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Innovation</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.kavlifoundation.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="p-6">
+                    <div className="h-24 flex items-center justify-center mb-6">
+                      <img
+                        src="/Assets/Partners/IBRO_logo_main.svg"
+                        alt="IBRO"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-amber-900 text-center">IBRO</h3>
+                      <p className="text-amber-700">International Brain Research Organization, supporting neuroscience research and education worldwide.</p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-amber-900">Focus Areas:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Research Funding</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Education</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Advocacy</div>
+                          <div className="text-sm text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Global Network</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.ibro.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-800"
+                      >
+                        <Globe className="h-4 w-4 mr-2" />
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -243,7 +808,7 @@ export default function Collaborations() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-amber-900">Access to Resources</h3>
-                      <p className="text-amber-700">State-of-the-art neuroimaging facilities and data</p>
+                      <p className="text-amber-700">Access to Active and willing researchers all over Africa</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -280,7 +845,7 @@ export default function Collaborations() {
                 className="relative"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80"
+                  src="/Assets/Academy_2023/mri_with_pestilli.jpg"
                   alt="Collaboration"
                   className="rounded-xl shadow-lg"
                 />
@@ -410,18 +975,63 @@ export default function Collaborations() {
                       </div>
                     </div>
                   </div>
+
+                  {error && (
+                    <div className="text-red-500 text-sm mt-2">
+                      {error}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors flex items-center justify-center"
+                    disabled={isSubmitting}
+                    className="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-5 w-5 mr-2" />
-                    Submit Proposal
+                    {isSubmitting ? (
+                      'Submitting...'
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Submit Proposal
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
             </motion.div>
           </div>
         )}
+
+        {/* Thank You Popup */}
+        <AnimatePresence>
+          {showThankYou && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 p-8 text-center"
+              >
+                <div className="flex justify-center mb-6">
+                  <CheckCircle2 className="h-16 w-16 text-green-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-amber-900 mb-4">
+                  Thank You for Your Proposal!
+                </h3>
+                <p className="text-amber-700 mb-6">
+                  Your collaboration proposal has been submitted successfully. 
+                  Our team will review your proposal and get back to you soon.
+                </p>
+                <button
+                  onClick={() => setShowThankYou(false)}
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center text-lg font-semibold"
+                >
+                  Close
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </main>
     </Layout>
   );

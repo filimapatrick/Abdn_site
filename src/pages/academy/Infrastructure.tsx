@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Database, 
@@ -14,42 +14,9 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import Layout from '../../components/Layout';
-
-interface DonationFormData {
-  name: string;
-  email: string;
-  organization: string;
-  donationType: 'equipment' | 'financial' | 'infrastructure' | 'other';
-  amount?: string;
-  message: string;
-}
+import InfrastructureContributionForm from '../../components/InfrastructureContributionForm';
 
 export default function Infrastructure() {
-  const [showThankYou, setShowThankYou] = useState(false);
-  const [formData, setFormData] = useState<DonationFormData>({
-    name: '',
-    email: '',
-    organization: '',
-    donationType: 'financial',
-    amount: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically handle the form submission
-    setShowThankYou(true);
-    setTimeout(() => setShowThankYou(false), 5000);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   return (
     <Layout>
       <main className="pt-20">
@@ -146,116 +113,17 @@ export default function Infrastructure() {
                       <p className="text-amber-700">Provide essential research equipment and computing resources</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-amber-100 rounded-lg mt-1">
-                      <Heart className="h-6 w-6 text-amber-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-amber-900">Financial Support</h3>
-                      <p className="text-amber-700">Make a financial contribution to support our initiatives</p>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
 
-              {/* Donation Form */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg p-8"
+                className="bg-white rounded-xl p-8 shadow-lg"
               >
                 <h3 className="text-2xl font-bold text-amber-900 mb-6">Make a Contribution</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-amber-700 mb-2" htmlFor="name">Full Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-amber-700 mb-2" htmlFor="email">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-amber-700 mb-2" htmlFor="organization">Organization</label>
-                    <input
-                      type="text"
-                      id="organization"
-                      name="organization"
-                      value={formData.organization}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-amber-700 mb-2" htmlFor="donationType">Type of Contribution</label>
-                    <select
-                      id="donationType"
-                      name="donationType"
-                      value={formData.donationType}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    >
-                      <option value="financial">Financial Support</option>
-                      <option value="equipment">Equipment Donation</option>
-                      <option value="infrastructure">Infrastructure Support</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  {formData.donationType === 'financial' && (
-                    <div>
-                      <label className="block text-amber-700 mb-2" htmlFor="amount">Amount (USD)</label>
-                      <input
-                        type="text"
-                        id="amount"
-                        name="amount"
-                        value={formData.amount}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                      />
-                    </div>
-                  )}
-                  <div>
-                    <label className="block text-amber-700 mb-2" htmlFor="message">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-amber-600 text-white px-6 py-3 rounded-lg hover:bg-amber-700 transition-colors flex items-center justify-center"
-                  >
-                    Submit Contribution Request
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </button>
-                </form>
-                {showThankYou && (
-                  <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center">
-                    <CheckCircle2 className="h-5 w-5 mr-2" />
-                    Thank you for your support! We'll be in touch soon.
-                  </div>
-                )}
+                <InfrastructureContributionForm />
               </motion.div>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Users, BookOpen, Globe, Award } from 'lucide-react';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
 
 const stats = [
   {
@@ -34,15 +33,13 @@ const stats = [
   }
 ];
 
-const CountUp = ({ end, duration = 2000 }) => {
+const CountUp = ({ end, duration = 2000 }: { end: number; duration?: number }) => {
   const [count, setCount] = React.useState(0);
   const countRef = useRef(null);
-  const inView = useInView(countRef);
-  const hasAnimated = useRef(false);
+  const inView = useInView(countRef, { once: true });
 
   useEffect(() => {
-    if (inView && !hasAnimated.current) {
-      hasAnimated.current = true;
+    if (inView) {
       let start = 0;
       const increment = end / (duration / 16);
       const timer = setInterval(() => {
@@ -62,15 +59,15 @@ const CountUp = ({ end, duration = 2000 }) => {
 };
 
 export default function Stats() {
-  const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
+  const controls = useAnimation();
 
   useEffect(() => {
-    if (inView) {
+    if (isInView) {
       controls.start("visible");
     }
-  }, [controls, inView]);
+  }, [isInView, controls]);
 
   return (
     <section className="py-20 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
@@ -81,56 +78,64 @@ export default function Stats() {
         }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Header Section */}
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
-          initial="hidden"
-          animate={controls}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.6,
-                staggerChildren: 0.1
-              }
-            }
-          }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
+          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-900 mb-4">
+            ABDN Impact
+          </h2>
+          <p className="text-xl text-amber-900/80 max-w-2xl mx-auto">
+            Our network's reach and influence in advancing neuroscience research across Africa
+          </p>
+        </motion.div>
+
+        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <ScrollReveal 
-                key={index} 
-                direction="up" 
-                delay={index * 0.1}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={controls}
+                variants={{
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.6,
+                      delay: index * 0.1
+                    }
+                  }
+                }}
+                className="relative group"
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <motion.div 
-                  className="relative group"
-                  whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className={`text-center p-6 bg-white rounded-2xl shadow-lg ${stat.shadowColor} hover:shadow-xl transition-all duration-300`}>
-                    <div className={`inline-block p-4 rounded-xl bg-gradient-to-br ${stat.gradient} mb-4 transform group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="h-8 w-8 text-white" />
-                    </div>
-                    <div className={`text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient} mb-2`}>
-                      <CountUp end={parseInt(stat.value)} />
-                      {stat.value.includes('+') && '+'}
-                    </div>
-                    <div className="text-amber-900/80 font-medium">{stat.label}</div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-2 -right-2 w-12 h-12 opacity-10">
-                      <div className={`w-full h-full rounded-full bg-gradient-to-br ${stat.gradient}`} />
-                    </div>
+                <div className={`text-center p-6 bg-white rounded-2xl shadow-lg ${stat.shadowColor} hover:shadow-xl transition-all duration-300`}>
+                  <div className={`inline-block p-4 rounded-xl bg-gradient-to-br ${stat.gradient} mb-4 transform group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="h-8 w-8 text-white" />
                   </div>
-                </motion.div>
-              </ScrollReveal>
+                  <div className={`text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient} mb-2`}>
+                    <CountUp end={parseInt(stat.value)} />
+                    {stat.value.includes('+') && '+'}
+                  </div>
+                  <div className="text-amber-900/80 font-medium">{stat.label}</div>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute -top-2 -right-2 w-12 h-12 opacity-10">
+                    <div className={`w-full h-full rounded-full bg-gradient-to-br ${stat.gradient}`} />
+                  </div>
+                </div>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,182 +1,90 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, Users, Clock, ArrowRight, ExternalLink, Globe, Video, Book, ChevronRight, X } from 'lucide-react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import Layout from '../../components/Layout';
+import { Event } from '../../services/eventsService';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config';
+import { Link } from 'react-router-dom';
 
-// Add interface before the upcomingEvents array
-interface Event {
-  title: string;
-  date: string;
-  location?: string;
-  description?: string;
-  type: string;
-  image: string;
-  time?: string;
-  isVirtual?: boolean;
-}
-
-const formatDate = (dateStr: string) => {
-  // Handle date ranges (e.g., "June 9-14, 2025")
-  if (dateStr.includes('-')) {
-    const [start, end] = dateStr.split('-');
-    const [month, day] = start.trim().split(' ');
-    const [endDay, year] = end.trim().split(', ');
-    return {
-      start: `${year}-${String(new Date(`${month} 1, 2000`).getMonth() + 1).padStart(2, '0')}-${day.padStart(2, '0')}`,
-      end: `${year}-${String(new Date(`${month} 1, 2000`).getMonth() + 1).padStart(2, '0')}-${endDay.padStart(2, '0')}`
-    };
-  }
-  
-  // Handle single dates (e.g., "September 5, 2024")
-  const date = new Date(dateStr);
+const formatDate = (startDate: string, endDate: string) => {
   return {
-    start: date.toISOString().split('T')[0],
-    end: date.toISOString().split('T')[0]
+    start: startDate,
+    end: endDate
   };
 };
-
-const upcomingEvents: Event[] = [
-  {
-    title: "African Brain Data Science Academy EEG Workshop",
-    date: "June 9-14, 2025",
-    location: "Nigeria",
-    description: "Comprehensive workshop on EEG data analysis and interpretation techniques.",
-    type: "Workshop",
-    image: "/Assets/Events/eeg_workshop.jpeg",
-    isVirtual: false
-  }
-];
-
-const pastEvents = [
- 
-  {
-    title: "Brain Awareness Week",
-    date: "March 11-15, 2024",
-    location: "Port-Harcourt, Nigeria",
-    description: "Engaging the public in brain science through interactive sessions, workshops, and educational activities.",
-    type: "Outreach",
-    image: "/Assets/Events/brain_awareness.jpeg"
-  },
-  {
-    title: "21st Annual Scientific Conference Of The Neuroscience Society Of Nigeria",
-    date: "September 5, 2024",
-    time: "3:00 PM",
-    location: "Nassarawa State, Nigeria",
-    type: "Conference",
-    image: "/Assets/Events/21_annual_conference.jpeg"
-  },
-  {
-    title: "African Brain Data Science Academy 2024",
-    date: "December 2-14, 2024",
-    type: "Academy",
-    image: "/Assets/Events/abdsa_2024.jpeg"
-  },
-  {
-    title: "FENS Forum 2024",
-    date: "June 25-29, 2024",
-    location: "Vienna, Austria",
-    type: "Forum",
-    image: "/Assets/Events/fern_2024.jpg"
-  },
-  {
-    title: "Neuroinformatics Assembly",
-    date: "September 26-27, 2024",
-    location: "Austin, Texas",
-    type: "Assembly",
-    image: "/Assets/Events/neuro_informatic_assembly.jpeg"
-  },
-  {
-    title: "NeuroImaging For Research In Africa",
-    date: "December 2, 2023",
-    time: "9:30 AM - 12:30 PM",
-    location: "Lagos, Nigeria",
-    type: "Workshop",
-    image: "/Assets/Events/neuro_imageing_research.jpeg"
-  },
-  {
-    title: "Integrating Data Science Into Neuroscience Curriculum",
-    date: "December 2, 2023",
-    time: "1:30 PM - 3:30 PM",
-    location: "Lagos, Nigeria",
-    type: "Workshop",
-    image: "/Assets/Events/datascience_into_neuroscience.jpeg"
-  },
-  
-
-  {
-    title: "Register to learn Decision Neuroscience (Imaging Brain Dopamine Systems) with Arif Hamid (PhD)",
-    date: "August 22, 2023",
-    time: "03:00 PM WAT",
-    location: "Virtual",
-    type: "Workshop",
-    image: "/Assets/Events/decision_neuroscience.jpeg"
-  },
-  {
-    title: "Sensitization talk on the need for incorporation of Data science into the University Curriculum",
-    date: "May 29, 2023",
-    type: "Talk",
-    image: "/Assets/Events/data_science_into_university_currriculum.jpg"
-  },
-  {
-    title: "ABDS Academy",
-    date: "November 2023",
-    type: "Academy",
-    image: "/Assets/Events/Abdsa_academy.jpeg"
-  },
-  {
-    title: "ABDN Webinar Series – FMRI Analytical Methods",
-    date: "November 21, 2022",
-    time: "4:00 PM WAT",
-    location: "Zoom",
-    type: "Webinar",
-    image: "/Assets/Events/fmri_analytic_method.png"
-  },
-  {
-    title: "ABDN Webinar Series",
-    date: "October 24-26, 2022",
-    time: "2:00 PM WAT",
-    type: "Webinar",
-    image: "/Assets/Events/mri_signal_image_information.png"
-  },
-  {
-    title: "19th Scientific Meeting of the Neuroscience Society of Nigeria",
-    date: "July 31 - August 3, 2022",
-    location: "Ibadan, Nigeria",
-    type: "Conference",
-    image: "/Assets/Events/19th_nsn.png"
-  },
-];
 
 export default function Events() {
   const [showAllPastEvents, setShowAllPastEvents] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const eventsRef = collection(db, 'events');
+        const q = query(eventsRef, orderBy('startDate', 'desc'));
+        const querySnapshot = await getDocs(q);
+        
+        const events = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as Event[];
+
+        const now = new Date();
+        
+        // Split events into past and upcoming based on endDate
+        const past = events.filter(event => new Date(event.endDate) < now);
+        const upcoming = events.filter(event => new Date(event.endDate) >= now);
+        
+        setPastEvents(past);
+        setUpcomingEvents(upcoming);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
   const displayedPastEvents = showAllPastEvents ? pastEvents : pastEvents.slice(0, 3);
 
-  // Combine upcoming and past events for the calendar with proper date formatting
+  // Update calendar events mapping
   const allEvents = [...upcomingEvents, ...pastEvents].map(event => {
-    const dates = formatDate(event.date);
+    const dates = formatDate(event.startDate, event.endDate);
     return {
       title: event.title,
       start: dates.start,
       end: dates.end,
-      allDay: !event.time,
-      backgroundColor: event.type === 'Workshop' ? '#d97706' : // amber-600
-                      event.type === 'Conference' ? '#b45309' : // amber-700
-                      event.type === 'Academy' ? '#92400e' : // amber-800
-                      '#78350f', // amber-900
+      allDay: true,
+      backgroundColor: '#d97706', // amber-600
       borderColor: 'transparent',
       textColor: '#ffffff',
       extendedProps: {
         location: event.location,
-        type: event.type,
         description: event.description,
-        time: event.time
+        descriptionTitle: event.descriptionTitle,
+        registrationLink: event.registrationLink
       }
     };
   });
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -252,33 +160,23 @@ export default function Events() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
-                      {event.type}
-                    </span>
-                  </div>
                   <div className="relative h-48 bg-amber-50 flex items-center justify-center p-4">
                     <img
-                      src={event.image}
+                      src={event.imageUrl}
                       alt={event.title}
                       className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
-                        {event.type}
-                      </span>
-                    </div>
                   </div>
                   <div className="p-6 relative">
                     <h3 className="text-xl font-semibold text-amber-900 mb-3 line-clamp-2">
                       {event.title}
                     </h3>
-                    <p className="text-amber-700 mb-4 line-clamp-2">{event.description}</p>
+                    <p className="text-amber-700 mb-4 line-clamp-2">{event.descriptionTitle}</p>
                     <div className="space-y-2">
                       <div className="flex items-center text-amber-600">
                         <Calendar className="h-5 w-5 mr-2" />
-                        <span>{event.date}</span>
+                        <span>{event.startDate === event.endDate ? event.startDate : `${event.startDate} - ${event.endDate}`}</span>
                       </div>
                       {event.location && (
                         <div className="flex items-center text-amber-600">
@@ -287,10 +185,13 @@ export default function Events() {
                         </div>
                       )}
                     </div>
-                    <button className="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                    <Link 
+                      to={`/academy/events/${event.id}`}
+                      className="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group"
+                    >
                       Learn More
-                      <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -393,16 +294,11 @@ export default function Events() {
                     onClick={() => setSelectedEvent(event)}
                   >
                     <img
-                      src={event.image}
+                      src={event.imageUrl}
                       alt={event.title}
                       className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-amber-500 text-white rounded-full text-sm font-medium">
-                        {event.type}
-                      </span>
-                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-amber-900 mb-3 line-clamp-2">
@@ -411,13 +307,12 @@ export default function Events() {
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-amber-600">
                         <Calendar className="h-5 w-5 mr-2" />
-                        <span>{event.date}</span>
-                        {event.time && (
-                          <>
-                            <Clock className="h-5 w-5 ml-4 mr-2" />
-                            <span>{event.time}</span>
-                          </>
-                        )}
+                        <span>
+                          {event.startDate === event.endDate 
+                            ? event.startDate 
+                            : `${event.startDate} - ${event.endDate}`
+                          }
+                        </span>
                       </div>
                       {event.location && (
                         <div className="flex items-center text-amber-600">
@@ -426,10 +321,13 @@ export default function Events() {
                         </div>
                       )}
                     </div>
-                    <button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                    <Link
+                      to={`/academy/events/${event.id}`}
+                      className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group"
+                    >
                       View Details
-                      <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -460,7 +358,7 @@ export default function Events() {
                     </button>
                     <div className="relative h-[60vh] bg-amber-50 flex items-center justify-center p-8">
                       <img
-                        src={selectedEvent.image}
+                        src={selectedEvent.imageUrl}
                         alt={selectedEvent.title}
                         className="max-w-full max-h-full object-contain"
                       />
@@ -472,13 +370,12 @@ export default function Events() {
                       <div className="space-y-2">
                         <div className="flex items-center text-amber-600">
                           <Calendar className="h-5 w-5 mr-2" />
-                          <span>{selectedEvent.date}</span>
-                          {selectedEvent.time && (
-                            <>
-                              <Clock className="h-5 w-5 ml-4 mr-2" />
-                              <span>{selectedEvent.time}</span>
-                            </>
-                          )}
+                          <span>
+                            {selectedEvent.startDate === selectedEvent.endDate 
+                              ? selectedEvent.startDate 
+                              : `${selectedEvent.startDate} - ${selectedEvent.endDate}`
+                            }
+                          </span>
                         </div>
                         {selectedEvent.location && (
                           <div className="flex items-center text-amber-600">
@@ -486,6 +383,9 @@ export default function Events() {
                             <span>{selectedEvent.location}</span>
                           </div>
                         )}
+                        <div className="mt-4">
+                          <p className="text-amber-800">{selectedEvent.description}</p>
+                        </div>
                       </div>
                     </div>
                   </motion.div>

@@ -1,181 +1,248 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Phone, MapPin, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { X, Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { submitContactForm } from '../services/supportService';
 
 interface ContactDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
+const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const result = await submitContactForm(formData);
+      if (result) {
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
-          />
-
-          {/* Drawer */}
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed right-0 top-0 h-full bg-white z-50 w-full md:w-[40%] shadow-2xl"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="relative max-w-2xl w-full bg-white rounded-xl overflow-hidden"
           >
-            <div className="h-full overflow-y-auto">
-              {/* Header */}
-              <div className="relative h-48 bg-gradient-to-r from-amber-800 to-amber-700 flex items-center justify-center">
-                <button
-                  onClick={onClose}
-                  className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors text-white"
-                  aria-label="Close drawer"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-                <div className="text-center text-white">
-                  <h2 className="text-3xl font-bold mb-2">Get in Touch</h2>
-                  <p className="text-amber-100">We'd love to hear from you</p>
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 p-2 bg-amber-50 rounded-full hover:bg-amber-100 transition-colors"
+            >
+              <X className="h-5 w-5 text-amber-900" />
+            </button>
+
+            <div className="grid md:grid-cols-2">
+              {/* Contact Information */}
+              <div className="bg-gradient-to-br from-amber-600 to-amber-700 p-8 text-white">
+                <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 bg-white/10 rounded-lg">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Email</h3>
+                      <p className="text-amber-100">info@abdn.org</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 bg-white/10 rounded-lg">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Phone</h3>
+                      <p className="text-amber-100">+234 123 456 7890</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-3 bg-white/10 rounded-lg">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Location</h3>
+                      <p className="text-amber-100">University of Port Harcourt, Nigeria</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-8 space-y-8">
-                {/* Contact Form */}
-                <form className="space-y-6">
+              {/* Contact Form */}
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-amber-900 mb-6">Send us a Message</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-amber-900">
+                    <label htmlFor="name" className="block text-sm font-medium text-amber-900 mb-2">
                       Full Name
                     </label>
                     <input
                       type="text"
                       id="name"
-                      placeholder="Your Full Name"
-                      className="mt-1 block w-full rounded-lg border-amber-200 shadow-sm focus:border-amber-500 focus:ring-amber-500 py-3 px-4"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="block w-full px-4 py-3 rounded-md border border-amber-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                     />
+                    {errors.name && (
+                      <p className="mt-2 text-sm text-red-600">{errors.name}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-amber-900">
-                      Email
+                    <label htmlFor="email" className="block text-sm font-medium text-amber-900 mb-2">
+                      Email Address
                     </label>
                     <input
                       type="email"
                       id="email"
-                      placeholder="Your Email Address"
-                      className="mt-1 block w-full rounded-lg border-amber-200 shadow-sm focus:border-amber-500 focus:ring-amber-500 py-3 px-4"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="block w-full px-4 py-3 rounded-md border border-amber-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                     />
+                    {errors.email && (
+                      <p className="mt-2 text-sm text-red-600">{errors.email}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-amber-900">
+                    <label htmlFor="subject" className="block text-sm font-medium text-amber-900 mb-2">
                       Subject
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="subject"
-                      className="mt-1 block w-full rounded-lg border-amber-200 shadow-sm focus:border-amber-500 focus:ring-amber-500 py-3 px-4"
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="collaboration">Collaboration Request</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="other">Other</option>
-                    </select>
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="block w-full px-4 py-3 rounded-md border border-amber-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                    />
+                    {errors.subject && (
+                      <p className="mt-2 text-sm text-red-600">{errors.subject}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-amber-900">
+                    <label htmlFor="message" className="block text-sm font-medium text-amber-900 mb-2">
                       Message
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
-                      placeholder="Your Message"
-                      className="mt-1 block w-full rounded-lg border-amber-200 shadow-sm focus:border-amber-500 focus:ring-amber-500 py-3 px-4"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="block w-full px-4 py-3 rounded-md border border-amber-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                     />
+                    {errors.message && (
+                      <p className="mt-2 text-sm text-red-600">{errors.message}</p>
+                    )}
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 px-4 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-4 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
 
-                {/* Contact Information */}
-                <div className="space-y-6 pt-6 border-t border-amber-100">
-                  <h3 className="text-lg font-semibold text-amber-900">Contact Information</h3>
-                  
-                  <div className="space-y-4">
-                    <a href="https://maps.google.com" className="flex items-center text-amber-700 hover:text-amber-800 group">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-600/10 flex items-center justify-center group-hover:from-amber-600/10 group-hover:to-amber-700/10 transition-colors">
-                        <MapPin className="h-5 w-5 text-amber-700" />
-                      </div>
-                      <span className="ml-3">African Brain Data Network, Port-Harcourt,Nigeria</span>
-                    </a>
-                    
-                    <a href="tel:+254700123456" className="flex items-center text-amber-700 hover:text-amber-800 group">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-600/10 flex items-center justify-center group-hover:from-amber-600/10 group-hover:to-amber-700/10 transition-colors">
-                        <Phone className="h-5 w-5 text-amber-700" />
-                      </div>
-                      <span className="ml-3">+254 700 123 456</span>
-                    </a>
-                    
-                    <a href="mailto:africanbraindatanetwork@gmail.com" className="flex items-center text-amber-700 hover:text-amber-800 group">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/10 to-amber-600/10 flex items-center justify-center group-hover:from-amber-600/10 group-hover:to-amber-700/10 transition-colors">
-                        <Mail className="h-5 w-5 text-amber-700" />
-                      </div>
-                      <span className="ml-3">africanbraindatanetwork@gmail.com</span>
-                    </a>
-                  </div>
-
-                  {/* Social Media Links */}
-                  <div className="pt-6 border-t border-amber-100">
-                    <h3 className="text-lg font-semibold text-amber-900 mb-4">Connect With Us</h3>
-                    <div className="flex space-x-4">
-                      <a href="#" className="w-10 h-10 bg-gradient-to-br from-amber-500/10 to-amber-600/10 rounded-lg flex items-center justify-center hover:from-amber-600/10 hover:to-amber-700/10 transition-colors">
-                        <Twitter className="h-5 w-5 text-amber-700" />
-                      </a>
-                      <a href="#" className="w-10 h-10 bg-gradient-to-br from-amber-500/10 to-amber-600/10 rounded-lg flex items-center justify-center hover:from-amber-600/10 hover:to-amber-700/10 transition-colors">
-                        <Linkedin className="h-5 w-5 text-amber-700" />
-                      </a>
-                      <a href="#" className="w-10 h-10 bg-gradient-to-br from-amber-500/10 to-amber-600/10 rounded-lg flex items-center justify-center hover:from-amber-600/10 hover:to-amber-700/10 transition-colors">
-                        <Facebook className="h-5 w-5 text-amber-700" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                {showSuccess && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center"
+                  >
+                    <CheckCircle2 className="h-5 w-5 mr-2" />
+                    Thank you for your message! We'll get back to you soon.
+                  </motion.div>
+                )}
               </div>
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default ContactDrawer;

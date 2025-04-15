@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Coins, Calendar, Users, Brain, Microscope } from 'lucide-react';
+import { Coins, Brain, Microscope, Calendar, Users } from 'lucide-react';
+import SupportForm from './SupportForm';
 
 const fundingCategories = [
   {
@@ -30,28 +31,6 @@ const fundingCategories = [
 ];
 
 export default function SupportABDN() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    organization: '',
-    fundingCategory: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
-
   return (
     <section className="py-24 bg-gradient-to-br from-amber-50 to-white relative overflow-hidden">
       {/* Decorative Elements */}
@@ -121,98 +100,7 @@ export default function SupportABDN() {
             className="bg-white rounded-xl p-8 shadow-lg border border-amber-100"
           >
             <h3 className="text-2xl font-bold text-amber-900 mb-6">Express Your Interest</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-amber-700 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-amber-700 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-amber-700 mb-2">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  id="organization"
-                  name="organization"
-                  value={formData.organization}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="fundingCategory" className="block text-sm font-medium text-amber-700 mb-2">
-                  Area of Interest
-                </label>
-                <select
-                  id="fundingCategory"
-                  name="fundingCategory"
-                  value={formData.fundingCategory}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
-                  required
-                >
-                  <option value="">Select a category</option>
-                  {fundingCategories.map(category => (
-                    <option key={category.id} value={category.id}>
-                      {category.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-amber-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group"
-              >
-                Submit Interest
-                <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </form>
+            <SupportForm />
           </motion.div>
         </div>
       </div>

@@ -436,6 +436,9 @@ const founders: Person[] = [
     institution: "De Montfort University, Leicester, UK",
     bio: "Dr. Damian Okaibedi Eke is a Research Fellow in the EU Human Brain Project at DMU in the Centre for Computing and Social Responsibility. He is the secretary of the Data Governance Working Group for the Human Brain Project. With a Philosophy background and a Ph.D. in Computer Ethics from DMU, his research interests include responsible governance of biomedical data, neurodata governance, critical ICT research, RRI, technology ethics, data ethics, neuroethics, and ethics of AI systems.",
     image: "/Assets/Founders/Damian.jpeg",
+    email: "damian.eke@dmu.ac.uk",
+    linkedin: "https://linkedin.com/in/damianeke",
+    twitter: "@DamianEke",
     achievements: []
   },
   {
@@ -444,9 +447,33 @@ const founders: Person[] = [
     institution: "University of Port Harcourt, Nigeria",
     bio: "Dr. Eberechi Wogu is a Neuroscientist and Lecturer in the Department of Anatomy at UNIPORT. She is the secretary of the Neuroscience Society of Nigeria and treasurer of Women in Neuroscience Nigeria. With a background in Human Anatomy (BSc and MSc) and a Ph.D. in Neurobiology from the University of Calabar, her interests include African human brain imaging, open science, African neuroanthropology, and biological mechanisms of neurodegenerative diseases.",
     image: "/Assets/Founders/ebere1.jpeg",
+    email: "eberechi.wogu@uniport.edu.ng",
+    linkedin: "https://linkedin.com/in/eberechiwogu",
+    twitter: "@DrEberechiWogu",
+    achievements: []
+  },
+  {
+    name: "Filima Patrick",
+    title: "Secretary",
+    institution: "ABDN Secretariat",
+    bio: "Filima Patrick is a key member of the ABDN Secretariat, contributing to the organization's administrative and operational functions. With expertise in project management and coordination, he plays a vital role in ensuring the smooth operation of ABDN's initiatives across Africa.",
+    image: "/Assets/Founders/Patrick.jpg",
+    email: "patrick.filima@abdn.org",
+    linkedin: "https://linkedin.com/in/patrickfilima",
+    twitter: "@PatrickFilima",
+    achievements: []
+  },
+  {
+    name: "Barisua Nsaanee",
+    title: "Administrative Officer",
+    institution: "ABDN Secretariat",
+    bio: "Barisua Nsaanee serves as an Administrative Officer in the ABDN Secretariat, providing crucial support in managing the organization's day-to-day operations. Her role involves coordinating various administrative tasks and ensuring effective communication within the network.",
+    image: "/Assets/Founders/Barisua.jpg",
+    email: "barisua.nsaanee@abdn.org",
+    linkedin: "https://linkedin.com/in/barisua-nsaanee",
+    twitter: "@BarisuaNsaanee",
     achievements: []
   }
-  
 ];
 
 const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => void; person: Person }) => {
@@ -648,13 +675,13 @@ export default function People() {
         <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Our Founders</h2>
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">ABDN Secretariat</h2>
               <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Visionary leaders who established ABDN
+                The dedicated team managing ABDN's operations and initiatives
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {founders.map((founder, index) => (
                 <motion.div
                   key={index}
@@ -664,70 +691,37 @@ export default function People() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="md:flex h-full">
-                    <div className="md:flex-shrink-0 h-64 md:h-auto md:w-64 relative">
-                      <img
-                        src={founder.image}
-                        alt={founder.name}
-                        className="w-full h-full object-cover object-center"
-                      />
+                  <div className="h-64 relative">
+                    <img
+                      src={founder.image}
+                      alt={founder.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-amber-900 mb-2">{founder.name}</h3>
+                    <p className="text-amber-600 mb-4">{founder.title}</p>
+                    <div className="flex items-center text-amber-700 mb-4">
+                      <Building2 className="h-4 w-4 mr-1" />
+                      <span>{founder.institution}</span>
                     </div>
-                    <div className="p-8 flex flex-col flex-grow">
-                      <div className="flex items-center mb-2">
-                        <Star className="h-5 w-5 text-amber-500 mr-2" />
-                        <h3 className="text-xl font-bold text-amber-900">{founder.name}</h3>
-                      </div>
-                      <p className="text-amber-600 mb-4">{founder.title}</p>
-                      <p className="text-amber-700 mb-6">{founder.institution}</p>
-                      <div className="space-y-2 flex-grow">
-                        {founder.achievements?.map((achievement, i) => (
-                          <div key={i} className="flex items-center text-amber-700">
-                            <ArrowRight className="h-4 w-4 mr-2 text-amber-500" />
-                            <span>{achievement}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex items-center space-x-4 mt-6 mb-4">
+                    <p className="text-amber-700 mb-6 line-clamp-3">{founder.bio}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex space-x-4">
                         {founder.email && (
-                          <a
-                            href={`mailto:${founder.email}`}
-                            className="text-amber-600 hover:text-amber-700 transition-colors"
-                            title="Email"
-                          >
+                          <a href={`mailto:${founder.email}`} className="text-amber-600 hover:text-amber-800">
                             <Mail className="h-5 w-5" />
                           </a>
                         )}
                         {founder.linkedin && (
-                          <a
-                            href={founder.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-amber-600 hover:text-amber-700 transition-colors"
-                            title="LinkedIn"
-                          >
+                          <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800">
                             <Linkedin className="h-5 w-5" />
                           </a>
                         )}
                         {founder.twitter && (
-                          <a
-                            href={`https://twitter.com/${founder.twitter.replace('@', '')}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-amber-600 hover:text-amber-700 transition-colors"
-                            title="Twitter"
-                          >
+                          <a href={`https://twitter.com/${founder.twitter.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800">
                             <Twitter className="h-5 w-5" />
-                          </a>
-                        )}
-                        {founder.website && (
-                          <a
-                            href={founder.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-amber-600 hover:text-amber-700 transition-colors"
-                            title="Website"
-                          >
-                            <LinkIcon className="h-5 w-5" />
                           </a>
                         )}
                       </div>
@@ -830,10 +824,10 @@ export default function People() {
                       <MapPin className="h-4 w-4 mr-1" />
                       <span>{coordinator.country}</span>
                     </div>
-                    <div className="flex items-center text-amber-700 mb-4">
+                    {/* <div className="flex items-center text-amber-700 mb-4">
                       <Building2 className="h-4 w-4 mr-1" />
                       <span>{coordinator.institution}</span>
-                    </div>
+                    </div> */}
                     <p className="text-amber-700 mb-6">{coordinator.bio}</p>
                     <button
                       onClick={() => setSelectedPerson(coordinator)}

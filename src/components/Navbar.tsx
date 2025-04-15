@@ -78,14 +78,14 @@ const networkItems = [
     icon: Users2,
     gradient: "from-amber-500/10 to-amber-600/10"
   },
-  {
-    title: "Research Centers",
-    description: "Explore our network of neuroscience research centers across Africa",
-    buttonText: "View Centers",
-    path: "/network/centers",
-    icon: Building2,
-    gradient: "from-amber-500/10 to-amber-600/10"
-  },
+  // {
+  //   title: "Research Centers",
+  //   description: "Explore our network of neuroscience research centers across Africa",
+  //   buttonText: "View Centers",
+  //   path: "/network/centers",
+  //   icon: Building2,
+  //   gradient: "from-amber-500/10 to-amber-600/10"
+  // },
   {
     title: "Collaborations",
     description: "Discover ongoing research collaborations and partnership opportunities",
@@ -163,7 +163,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
           {/* Navigation Items */}
           <div className="flex-none hidden md:flex items-center ml-10 space-x-10">
             <Link to="/academy" className="text-lg font-medium text-amber-900 hover:text-amber-600 transition-colors">
-              Academy
+              ABDS Academy
             </Link>
 
             <div
@@ -239,9 +239,9 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-[1000px] bg-white rounded-2xl shadow-xl mt-2 overflow-hidden border border-amber-100/50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-[1000px] bg-white rounded-2xl shadow-xl mt-2 overflow-hidden border border-amber-100/50 ml-[-10rem]"
                   >
-                    <div className="p-6 bg-gradient-to-br from-amber-50 to-white border-b border-amber-100/50">
+                    <div className="p-6 bg-gradient-to-br from-amber-50 to-white border-b border-amber-100/50 ">
                       <h2 className="text-2xl font-bold text-amber-900 mb-2">Our Network</h2>
                       <p className="text-amber-700">Connect with research centers and access shared resources across Africa</p>
                     </div>
@@ -326,7 +326,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                 className="block text-lg font-medium text-amber-900 hover:text-amber-600"
                 onClick={closeMobileMenu}
               >
-                Academy
+                ABDS Academy
               </Link>
 
               <div>

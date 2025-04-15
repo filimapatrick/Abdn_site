@@ -10,6 +10,7 @@ import Mentorship from './pages/academy/Mentorship';
 import Infrastructure from './pages/academy/Infrastructure';
 import ResearchGroups from './pages/academy/ResearchGroups';
 import Events from './pages/academy/Events';
+import EventDetail from './pages/academy/EventDetail';
 import Centers from './pages/network/Centers';
 import Collaborations from './pages/network/Collaborations';
 import DataSharing from './pages/network/DataSharing';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/academy/infrastructure" element={<Infrastructure />} />
         <Route path="/academy/research-groups" element={<ResearchGroups />} />
         <Route path="/academy/events" element={<Events />} />
+        <Route path="/academy/events/:id" element={<EventDetail />} />
         <Route path="/network/people" element={<People />} />
         <Route path="/network/centers" element={<Centers />} />
         <Route path="/network/collaborations" element={<Collaborations />} />

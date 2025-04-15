@@ -32,28 +32,90 @@ import Layout from '../../components/Layout';
 
 const specializations = [
   {
-    title: "Clinical Neuroscience",
+    title: "Data Science/Analytics",
     icon: Brain,
-    description: "Focus on neurological disorders and therapeutic approaches",
-    courses: ["Neurological Disorders", "Clinical Trial Design", "Therapeutic Interventions"]
+    description: "Comprehensive training in data science and analytics for neuroscience research",
+    courses: [
+      "Data Processing and Analysis",
+      "Statistical Methods",
+      "Data Visualization"
+    ]
   },
   {
-    title: "Research & Academia",
-    icon: Beaker,
-    description: "Prepare for academic research and teaching careers",
-    courses: ["Advanced Research Methods", "Grant Writing", "Academic Publishing"]
-  },
-  {
-    title: "Computational Neuroscience",
+    title: "MRI Modalities",
     icon: Target,
-    description: "Apply computational methods to understand brain function",
-    courses: ["Neural Data Analysis", "Computational Modeling", "Machine Learning in Neuroscience"]
+    description: "In-depth study of various MRI techniques and their applications",
+    courses: [
+      "Structural MRI",
+      "Functional MRI",
+      "Diffusion MRI"
+    ]
   },
   {
-    title: "Global Health",
+    title: "MRI Physics & Analysis",
+    icon: Beaker,
+    description: "Understanding the physics behind MRI and advanced analysis techniques",
+    courses: [
+      "MRI Physics Fundamentals",
+      "Image Processing",
+      "Quantitative Analysis",
+     
+    ]
+  },
+  {
+    title: "Neuroimaging Modalities",
     icon: Globe,
-    description: "Address neurological health challenges in African contexts",
-    courses: ["Public Health Neuroscience", "Community Health", "Health Policy"]
+    description: "Comprehensive coverage of various neuroimaging techniques",
+    courses: [
+      "MRI and fMRI",
+      "EEG and fNIRS",
+      "PET Imaging",
+    
+    ]
+  },
+  {
+    title: "Structural Neuroscience",
+    icon: Brain,
+    description: "Study of brain structure and its relationship to function",
+    courses: [
+      "Neuroanatomy",
+      "Brain Mapping",
+      "Connectomics",
+      "Structural Development"
+    ]
+  },
+  {
+    title: "Social Neuroscience",
+    icon: Users,
+    description: "Understanding the neural basis of social behavior and cognition",
+    courses: [
+      "Social Cognition",
+      "Emotion Processing",
+      "Social Decision Making",
+      "Group Dynamics"
+    ]
+  },
+  {
+    title: "Neuroethics",
+    icon: BookOpen,
+    description: "Ethical considerations in neuroscience research and applications",
+    courses: [
+      "Research Ethics",
+      "Data Privacy",
+      "Neurotechnology Ethics",
+      "Informed Consent"
+    ]
+  },
+  {
+    title: "Metadata Standards",
+    icon: FileCheck,
+    description: "Implementation of standardized metadata practices in neuroscience",
+    courses: [
+      "FAIR Principles",
+      "Data Documentation",
+      "Standardized Protocols",
+      "Data Sharing Guidelines"
+    ]
   }
 ];
 
@@ -87,14 +149,14 @@ export default function Curriculum() {
               >
                 Innovative neuroscience education tailored for African institutions and research needs
               </motion.p>
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center mx-auto"
               >
                 Download Curriculum Guide
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.button>
+              </motion.button> */}
             </div>
           </div>
         </section>
@@ -181,20 +243,20 @@ export default function Curriculum() {
                 <div className="p-8 flex flex-col justify-center">
                   <h2 className="text-3xl font-bold text-amber-900 mb-6">Data Science Integration</h2>
                   <p className="text-amber-700 mb-6">
-                    Integrating data science/data analytics as a taught module in relevant disciplines (such as Neuroscience and Psychology) is critical to a sustainable FAIR brain data ecosystem in Africa. ABDN is committed to building capacities for robust integration of data science into necessary courses and modules in academia.
+                    ABDN is working toward integrating data science/data analytics as a taught module in relevant disciplines (such as Neuroscience and Psychology) which is critical to a sustainable FAIR brain data ecosystem in Africa. ABDN is committed to building necessary capacities for scientists of the future in Africa. Interested stakeholders in academia and industry can reach us for:
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-start">
                       <Target className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
-                      <span className="text-amber-600">Comprehensive data science modules integrated into neuroscience curriculum</span>
+                      <span className="text-amber-600">Guidance on possible ways of curriculum revisions</span>
                     </div>
                     <div className="flex items-start">
                       <Brain className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
-                      <span className="text-amber-600">Practical applications in neuroimaging and behavioral data analysis</span>
+                      <span className="text-amber-600">Practical applications of neuroimaging datasets and available digital tools into teaching</span>
                     </div>
                     <div className="flex items-start">
                       <Globe className="h-6 w-6 mr-3 text-amber-500 flex-shrink-0 mt-1" />
-                      <span className="text-amber-600">Focus on FAIR principles and sustainable data practices</span>
+                      <span className="text-amber-600">Align with the focus on FAIR principles and sustainable data practices</span>
                     </div>
                   </div>
                 </div>
@@ -207,9 +269,9 @@ export default function Curriculum() {
         <section className="py-24 bg-gradient-to-br from-white to-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-amber-900 mb-6">Specialization Tracks</h2>
+              <h2 className="text-4xl font-bold text-amber-900 mb-6">Focus Areas</h2>
               <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Choose your path and develop expertise in specific areas of neuroscience
+                Key areas of concentration in our neuroscience curriculum
               </p>
             </div>
 
@@ -254,7 +316,7 @@ export default function Curriculum() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   icon: Brain,
@@ -270,11 +332,6 @@ export default function Curriculum() {
                   icon: FileCheck,
                   title: "Comprehensive",
                   description: "Covers fundamental to advanced topics with practical applications"
-                },
-                {
-                  icon: Award,
-                  title: "Accredited",
-                  description: "Internationally recognized qualifications and certifications"
                 }
               ].map((feature, index) => (
                 <motion.div
