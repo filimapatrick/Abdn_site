@@ -332,7 +332,7 @@ export default function FacultyGallery() {
                 {year}
               </motion.button>
             ))}
-          </div>
+        </div>
         </motion.div>
 
      

@@ -36,11 +36,28 @@ export default function Events() {
           ...doc.data()
         })) as Event[];
 
+        console.log('Raw Events Data:', events.map(event => ({
+          id: event.id,
+          title: event.title,
+          startDate: event.startDate,
+          endDate: event.endDate,
+          hasRegistrationLink: !!event.registrationLink
+        })));
+
         const now = new Date();
         
-        // Split events into past and upcoming based on endDate
-        const past = events.filter(event => new Date(event.endDate) < now);
-        const upcoming = events.filter(event => new Date(event.endDate) >= now);
+        // Split events into past and upcoming based on endDate or startDate (for single-day events)
+        const past = events.filter(event => {
+          const eventDate = event.endDate ? new Date(event.endDate) : new Date(event.startDate);
+          return eventDate < now;
+        });
+        const upcoming = events.filter(event => {
+          const eventDate = event.endDate ? new Date(event.endDate) : new Date(event.startDate);
+          return eventDate >= now;
+        });
+        
+        console.log('Past Events:', past);
+        console.log('Upcoming Events:', upcoming);
         
         setPastEvents(past);
         setUpcomingEvents(upcoming);
@@ -71,10 +88,12 @@ export default function Events() {
         location: event.location,
         description: event.description,
         descriptionTitle: event.descriptionTitle,
-        registrationLink: event.registrationLink
+        ...(event.registrationLink && { registrationLink: event.registrationLink })
       }
     };
   });
+
+  console.log('All Events for Calendar:', allEvents);
 
   if (loading) {
     return (
@@ -176,7 +195,14 @@ export default function Events() {
                     <div className="space-y-2">
                       <div className="flex items-center text-amber-600">
                         <Calendar className="h-5 w-5 mr-2" />
-                        <span>{event.startDate === event.endDate ? event.startDate : `${event.startDate} - ${event.endDate}`}</span>
+                        <span>
+                          {!event.endDate 
+                            ? event.startDate 
+                            : event.startDate === event.endDate 
+                              ? event.startDate 
+                              : `${event.startDate} - ${event.endDate}`
+                          }
+                        </span>
                       </div>
                       {event.location && (
                         <div className="flex items-center text-amber-600">
@@ -308,9 +334,11 @@ export default function Events() {
                       <div className="flex items-center text-amber-600">
                         <Calendar className="h-5 w-5 mr-2" />
                         <span>
-                          {event.startDate === event.endDate 
+                          {!event.endDate 
                             ? event.startDate 
-                            : `${event.startDate} - ${event.endDate}`
+                            : event.startDate === event.endDate 
+                              ? event.startDate 
+                              : `${event.startDate} - ${event.endDate}`
                           }
                         </span>
                       </div>
@@ -371,9 +399,11 @@ export default function Events() {
                         <div className="flex items-center text-amber-600">
                           <Calendar className="h-5 w-5 mr-2" />
                           <span>
-                            {selectedEvent.startDate === selectedEvent.endDate 
+                            {!selectedEvent.endDate 
                               ? selectedEvent.startDate 
-                              : `${selectedEvent.startDate} - ${selectedEvent.endDate}`
+                              : selectedEvent.startDate === selectedEvent.endDate 
+                                ? selectedEvent.startDate 
+                                : `${selectedEvent.startDate} - ${selectedEvent.endDate}`
                             }
                           </span>
                         </div>
