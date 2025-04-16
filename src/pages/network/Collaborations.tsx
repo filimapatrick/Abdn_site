@@ -94,6 +94,7 @@ export default function Collaborations() {
               >
                 Building strong partnerships to advance African neuroimaging research
               </motion.p>
+             
             </div>
           </div>
         </section>

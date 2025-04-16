@@ -107,7 +107,7 @@ export default function Training() {
         <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center text-white">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -115,7 +115,7 @@ export default function Training() {
             >
               Training & Development
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -210,12 +210,12 @@ export default function Training() {
                   <div className="flex items-center">
                     <Clock className="h-4 w-4 mr-2 text-amber-500" />
                     <span>{workshop.date}</span>
-                  </div>
-                  <div className="flex items-center">
+                    </div>
+                      <div className="flex items-center">
                     <Globe className="h-4 w-4 mr-2 text-amber-500" />
                     <span>{workshop.location}</span>
-                  </div>
-                  <div className="flex items-center">
+                      </div>
+                      <div className="flex items-center">
                     <Users className="h-4 w-4 mr-2 text-amber-500" />
                     <span>{workshop.instructor}</span>
                   </div>
@@ -290,10 +290,10 @@ export default function Training() {
           </motion.div>
 
           {/* ABDS Academy 2024 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-12"
           >
@@ -336,13 +336,13 @@ export default function Training() {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
 
           {/* Webinars */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-12"
           >
@@ -385,13 +385,13 @@ export default function Training() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/60" />
               </div>
             </div>
-          </motion.div>
+            </motion.div>
 
           {/* Brain Awareness Week */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
@@ -463,7 +463,7 @@ export default function Training() {
                 </div>
                 <h3 className="text-xl font-bold text-amber-900 mb-2">{feature.title}</h3>
                 <p className="text-amber-700">{feature.description}</p>
-              </motion.div>
+            </motion.div>
             ))}
           </div>
         </div>

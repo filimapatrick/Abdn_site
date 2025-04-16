@@ -227,7 +227,7 @@ export default function AcademyGalleryImages() {
                 {year}
               </motion.button>
             ))}
-          </div>
+        </div>
 
           {/* Year Description */}
           <motion.div

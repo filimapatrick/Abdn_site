@@ -36,13 +36,22 @@ export default function FeaturedClass() {
               </p>
             </div>
 
-            <motion.button 
-              className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Join Our Network
-            </motion.button>
+            <div className="grid grid-cols-2 gap-6">
+              <motion.div 
+                className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ y: -5 }}
+              >
+                <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">15+</div>
+                <div className="text-amber-700">African Countries</div>
+              </motion.div>
+              <motion.div 
+                className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ y: -5 }}
+              >
+                <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">50+</div>
+                <div className="text-amber-700">Active Projects</div>
+              </motion.div>
+            </div>
           </motion.div>
 
           <motion.div 
@@ -156,23 +165,6 @@ export default function FeaturedClass() {
                   <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">200+</div>
                   <div className="text-amber-700">Publications</div>
                 </motion.div>
-              </div>
-
-              <div className="flex space-x-4">
-                <motion.button 
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Research Projects
-                </motion.button>
-                <motion.button 
-                  className="border-2 border-amber-600 text-amber-600 px-6 py-3 rounded-full font-semibold hover:bg-amber-50 transition"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
               </div>
             </div>
           </motion.div>

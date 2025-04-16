@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -9,6 +10,8 @@ const fadeInUp = {
 };
 
 export default function LocationHighlight() {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-24 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -82,6 +85,7 @@ export default function LocationHighlight() {
             </p>
 
             <motion.button 
+              onClick={() => navigate('/academy')}
               className="group inline-flex items-center px-6 py-3 text-amber-700 font-semibold hover:text-amber-800 focus:outline-none"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
