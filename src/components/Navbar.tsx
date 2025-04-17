@@ -78,14 +78,14 @@ const networkItems = [
     icon: Users2,
     gradient: "from-amber-500/10 to-amber-600/10"
   },
-  // {
-  //   title: "Research Centers",
-  //   description: "Explore our network of neuroscience research centers across Africa",
-  //   buttonText: "View Centers",
-  //   path: "/network/centers",
-  //   icon: Building2,
-  //   gradient: "from-amber-500/10 to-amber-600/10"
-  // },
+  {
+    title: "Alumni",
+    description: "Discover the achievements and current work of our alumni network",
+    buttonText: "View Alumni",
+    path: "/network/alumni",
+    icon: GraduationCap,
+    gradient: "from-amber-500/10 to-amber-600/10"
+  },
   {
     title: "Collaborations",
     description: "Discover ongoing research collaborations and partnership opportunities",

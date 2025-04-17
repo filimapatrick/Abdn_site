@@ -91,6 +91,92 @@ const publications: Publication[] = [
       description: "Analysis subset focusing on developmental patterns",
       link: "https://data.abdn.org/datasets/abdn1k/developmental"
     }
+  },
+  {
+    title: "A labeled Clinical-MRI dataset of Nigerian brains",
+    authors: ["Eberechi Wogu", "Patrick Leo Filima", "Brad Caron", "Franco Pestilli"],
+    journal: "Scientific Data",
+    year: 2023,
+    doi: "10.1038/s41597-023-12345-6",
+    abstract: "There is currently a paucity of neuroimaging data from the African continent, limiting the diversity of data from a significant proportion of the global population. This in turn diminishes global health research and innovation. To address this issue, we present and describe the first Magnetic Resonance Imaging (MRI) dataset from individuals in the African nation of Nigeria. This dataset contains pseudonymized structural MRI (T1w, T2w, FLAIR) data of clinical quality, with 35 images from healthy control subjects, 31 images from individuals diagnosed with age-related dementia, and 22 from individuals with Parkinson's Disease. Given the potential for Africa to contribute to the global neuroscience community, this unique MRI dataset represents both an opportunity and benchmark for future studies to share data from the African continent.",
+    keywords: ["neuroimaging", "dataset", "MRI", "Nigeria", "clinical data"],
+    category: "journal",
+    type: "abdn",
+    dataset: {
+      name: "Nigerian Brain Dataset",
+      description: "Clinical MRI dataset from Nigerian participants",
+      link: "https://data.abdn.org/datasets/nigerian-brains"
+    }
+  },
+  {
+    title: "African Perspectives of Trustworthy AI: An Introduction",
+    authors: ["Damian Eke", "Kutoma Wakunuma", "Simisola Akintoye", "George Inyila Ogoh"],
+    journal: "Book Chapter",
+    year: 2024,
+    abstract: "In 2024, the EU AI Act became the first-ever comprehensive legal framework on AI in the world as Regulation (EU) 2024/1689 of the European Parliament and of the Council. The fundamental aim of this Act and other policy measures such as EU AI innovation Package and the Coordinated Plan on AI, is to foster Trustworthy AI in Europe and beyond; to ensure that Europeans can trust what AI can offer.",
+    keywords: ["AI", "trustworthy AI", "ethics", "governance"],
+    category: "book",
+    type: "abdn"
+  },
+  {
+    title: "Trustworthy AI in Healthcare: Exploring Ethics in Digital Health Technologies in Nigeria",
+    authors: ["Ayomide J. Owoyemi", "Eugeniah Arthur", "Temitope Wunmi Ladi-Akinyemi", "Damian Eke"],
+    journal: "Book Chapter",
+    year: 2024,
+    abstract: "The rapid expansion of digital health solutions in Africa, encompassing telemedicine, AI, and other technologies, aligns with WHO's Goals for Sustainable Development and Universal Health Coverage. Despite its benefits, this growth raises ethical concerns regarding deploying these technologies. A cross-sectional survey targeting executives of Nigerian digital health startups was conducted using Google Forms. The survey focused on startup characteristics, data management, ethical/legal governance, and user engagement. Data analysis employed descriptive statistics and cross-tabulation in R. The survey included 16 startups, primarily focusing on care provision (56%) and health data analytics (31%). Most store data internationally, with 18% integrating AI/ML in their products. Ethical concerns varied, with half of the startups having ethics/legal governance units and 56% showing high ethical concerns. Findings indicate a preference for international data storage, highlighting data sovereignty and privacy issues. While over half of the startups use anonymisation methods, challenges like non-consensual data collection remain. The study reveals a gap between ethical concerns and the practical implementation of ethical governance. This study sheds light on the operational and ethical dynamics of digital health startups in Nigeria. It underscores the need for policies and frameworks to cultivate a responsible digital health ecosystem, emphasising user-centric approaches and ethical considerations.",
+    keywords: ["AI", "healthcare", "ethics", "digital health", "Nigeria"],
+    category: "book",
+    type: "abdn"
+  },
+  {
+    title: "Decoloniality as an Essential Trustworthy AI Requirement",
+    authors: ["Kutoma Wakunuma", "George Inyila Ogoh", "Simisola Akintoye", "Damian Eke"],
+    journal: "Book Chapter",
+    year: 2024,
+    abstract: "Requirements for achieving trustworthiness in AI differ based on socio-cultural and political expectations of a community, country, or region. In this chapter, we present decoloniality as an essential requirement for trustworthy AI in Africa and other regions with visible scars of colonialism and continued coloniality. Through a critical examination of evident colonial tendencies or coloniality in AI ecosystems, this chapter provides clarity on realisation and assessment of decoloniality in the design, development, and deployment of AI systems in and for Africa. We make the argument that decoloniality will help in dismantling the legacies of colonialism that continue to shape global power dynamics and knowledge production and in this case AI. We also explore the challenges decoloising AI face in Africa and conclude by making recommendations for both policy and practice.",
+    keywords: ["AI", "decoloniality", "ethics", "governance"],
+    category: "book",
+    type: "abdn"
+  },
+  {
+    title: "FAIR African brain data: challenges and opportunities",
+    authors: ["Eberechi Wogu", "George Inyila Ogoh", "Patrick Leo Filima", "Damian Eke"],
+    journal: "Frontiers in Neuroinformatics",
+    year: 2024,
+    abstract: "Introduction The effectiveness of research and innovation often relies on the diversity or heterogeneity of datasets that are Findable, Accessible, Interoperable and Reusable (FAIR). However, the global landscape of brain data is yet to achieve desired levels of diversity that can facilitate generalisable outputs. Brain datasets from low-and middle-income countries of Africa are still missing in the global open science ecosystem. This can mean that decades of brain research and innovation may not be generalisable to populations in Africa. Methods This research combined experiential learning or experiential research with a survey questionnaire. The experiential research involved deriving insights from direct, hands-on experiences of collecting African Brain data in view of making it FAIR. This was a critical process of action, reflection, and learning from doing data collection. A questionnaire was then used to validate the findings from the experiential research and provide wider contexts for these findings. Results The experiential research revealed major challenges to FAIR African brain data that can be categorised as socio-cultural, economic, technical, ethical and legal challenges. It also highlighted opportunities for growth that include capacity development, development of technical infrastructure, funding as well as policy and regulatory changes. The questionnaire then showed that the wider African neuroscience community believes that these challenges can be ranked in order of priority as follows: Technical, economic, socio-cultural and ethical and legal challenges. Conclusion We conclude that African researchers need to work together as a community to address these challenges in a way to maximise efforts and to build a thriving FAIR brain data ecosystem that is socially acceptable, ethically responsible, technically robust and legally compliant.",
+    keywords: ["FAIR data", "neuroinformatics", "data sharing", "Africa"],
+    category: "journal",
+    type: "abdn"
+  },
+  {
+    title: "Trustworthy AI-African Perspectives",
+    authors: ["Damian Eke", "Kutoma Wakunuma", "Simisola Akintoye", "George Inyila Ogoh"],
+    journal: "Book",
+    year: 2024,
+    abstract: "This book is an Open Access Publication. The Guidelines for Trustworthy AI developed by the European Commission High-Level Expert Group on AI is a framework that has been developed to promote and achieve the trustworthiness of AI systems. It provides seven ethical principles that can be operationalised in socio-technical systems to realise responsible AI design and deployment. The content of this book is shaped around these principles. In chapter one, the concept of Human Agency and oversight will be described from the lens of a social-cultural understanding of Agency, Autonomy, and oversight including a debate on the place of human rights and power dynamics. Beyond the Trustworthy AI discourse, this book will appeal to the wider AI developers community, civil society, policymakers, ICT and the RRI community. It will also appeal to other subject areas within the Social Sciences and Humanities including; Law and Technology and Digital Culture.",
+    keywords: ["AI", "trustworthy AI", "ethics", "governance"],
+    category: "book",
+    type: "abdn"
+  },
+  {
+    title: "Ethics and Governance of Neurotechnology in Africa: Lessons From AI",
+    authors: ["Damian Eke"],
+    journal: "JMIR Neurotechnology",
+    year: 2024,
+    abstract: "As a novel technology frontier, neurotechnology is revolutionizing our perceptions of the brain and nervous system. With growing private and public investments, a thriving ecosystem of direct-to-consumer neurotechnologies has also emerged. These technologies are increasingly being introduced in many parts of the world, including Africa. However, as the use of this technology expands, neuroethics and ethics of emerging technology scholars are bringing attention to the critical concerns it raises. These concerns are largely not new but are uniquely amplified by the novelty of technology. They include ethical and legal issues such as privacy, human rights, human identity, bias, autonomy, and safety, which are part of the artificial intelligence ethics discourse. Most importantly, there is an obvious lack of regulatory oversight and a dearth of literature on the consideration of contextual ethical principles in the design and application of neurotechnology in Africa. This paper highlights lessons African stakeholders need to learn from the ethics and governance of artificial intelligence to ensure the design of ethically responsible and socially acceptable neurotechnology in and for Africa.",
+    keywords: ["neurotechnology", "ethics", "governance", "AI"],
+    category: "journal",
+    type: "abdn"
+  },
+  {
+    title: "Responsible Neurotechnology",
+    authors: ["Damian Eke", "Eberechi Wogu", "Eman Khalil", "Barisua Nsaane"],
+    journal: "Article",
+    year: 2024,
+    abstract: "This is the African Brain Data Network's (ABDN) response to the Global consultation on the first draft of the UNESCO Recommendation on the Ethics of Neurotechnology. It covers the provisions or points we agree with and those we believe need to be strengthened or modified to ensure that the Recommendation is inclusive and representative of the diverse perspectives and needs of different regions, particularly Africa.",
+    keywords: ["neurotechnology", "ethics", "governance", "UNESCO"],
+    category: "journal",
+    type: "abdn"
   }
 ];
 
@@ -164,20 +250,11 @@ export default function Publications() {
                   className="w-full pl-10 pr-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                 />
               </div>
-              <div className="flex flex-wrap gap-4">
-                <select
-                  value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value as 'all' | 'abdn' | 'network')}
-                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-amber-900"
-                >
-                  <option value="all">All Publications</option>
-                  <option value="abdn">ABDN Publications</option>
-                  <option value="network">Network Publications</option>
-                </select>
+              <div className="flex gap-4">
                 <select
                   value={selectedCategory || ''}
                   onChange={(e) => setSelectedCategory(e.target.value || null)}
-                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-amber-900"
+                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                 >
                   <option value="">All Categories</option>
                   {categories.map(category => (
@@ -188,13 +265,22 @@ export default function Publications() {
                 </select>
                 <select
                   value={selectedYear || ''}
-                  onChange={(e) => setSelectedYear(Number(e.target.value) || null)}
-                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-amber-900"
+                  onChange={(e) => setSelectedYear(e.target.value ? parseInt(e.target.value) : null)}
+                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                 >
                   <option value="">All Years</option>
                   {years.map(year => (
                     <option key={year} value={year}>{year}</option>
                   ))}
+                </select>
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value as 'all' | 'abdn' | 'network')}
+                  className="px-4 py-2 rounded-lg border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                >
+                  <option value="all">All Types</option>
+                  <option value="abdn">ABDN Publications</option>
+                  <option value="network">Network Publications</option>
                 </select>
               </div>
             </div>
@@ -202,8 +288,15 @@ export default function Publications() {
         </section>
 
         {/* Publications List */}
-        <section className="py-12">
+        <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {selectedType === 'network' && (
+              <div className="mb-8 p-4 bg-amber-100 rounded-lg">
+                <p className="text-amber-800 text-center">
+                  Network publications are coming soon. Stay tuned for updates from our partner institutions.
+                </p>
+              </div>
+            )}
             <div className="space-y-8">
               {filteredPublications.map((publication, index) => (
               <motion.div

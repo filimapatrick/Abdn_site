@@ -16,6 +16,7 @@ import Collaborations from './pages/network/Collaborations';
 import DataSharing from './pages/network/DataSharing';
 import Publications from './pages/network/Publications';
 import People from './pages/network/People';
+import Alumni from './pages/network/Alumni';
 import ContactDrawer from './components/ContactDrawer';
 import CookiePolicy from './pages/CookiePolicy';
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/network/collaborations" element={<Collaborations />} />
         <Route path="/network/data" element={<DataSharing />} />
         <Route path="/network/publications" element={<Publications />} />
+        <Route path="/network/alumni" element={<Alumni />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
       </Routes>
       <ContactDrawer isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />

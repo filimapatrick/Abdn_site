@@ -157,7 +157,7 @@ export default function Curriculum() {
                 Download Curriculum Guide
                 <ArrowRight className="ml-2 h-5 w-5" />
               </motion.button> */}
-            </div>
+          </div>
         </div>
       </section>
 
@@ -211,9 +211,9 @@ export default function Curriculum() {
                         <div key={i} className="flex items-center text-amber-700">
                           <Star className="h-4 w-4 mr-2 text-amber-500" />
                           <span>{outcome}</span>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -349,7 +349,7 @@ export default function Curriculum() {
                   <p className="text-amber-700">{feature.description}</p>
             </motion.div>
               ))}
-            </div>
+          </div>
         </div>
       </section>
     </main>

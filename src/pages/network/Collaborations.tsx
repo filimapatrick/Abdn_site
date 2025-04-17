@@ -72,37 +72,37 @@ export default function Collaborations() {
 
   return (
     <Layout>
-      <main className="pt-20">
-        {/* Hero Section */}
+    <main className="pt-20">
+      {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
-          <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center text-white">
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
-              >
+        <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
                 Our Collaborators
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl text-amber-100 max-w-3xl mx-auto"
-              >
+            >
                 Building strong partnerships to advance African neuroimaging research
-              </motion.p>
+            </motion.p>
              
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
 
         {/* Institutional Collaborators Section */}
         <section className="py-24 bg-gradient-to-br from-white to-amber-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -617,11 +617,11 @@ export default function Collaborations() {
             {/* Organizations */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-amber-900 mb-8 text-center">Organizations</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
@@ -631,8 +631,8 @@ export default function Collaborations() {
                         src="/Assets/Partners/NSN.jpeg"
                         alt="NSN"
                         className="max-h-full max-w-full object-contain"
-                      />
-                    </div>
+                  />
+                </div>
                     <div className="space-y-4">
                       <h3 className="text-xl font-bold text-amber-900 text-center">NSN</h3>
                       <p className="text-amber-700">Neuroscience Society of Nigeria, promoting neuroscience research and education in Nigeria.</p>
@@ -665,7 +665,7 @@ export default function Collaborations() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="p-6">
+                <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
                         src="/Assets/Partners/SONA.jpeg"
@@ -781,33 +781,33 @@ export default function Collaborations() {
                         Visit Website
                       </a>
                     </div>
-                  </div>
-                </motion.div>
+                </div>
+              </motion.div>
               </div>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
         {/* Collaboration Benefits */}
         <section className="py-24 bg-amber-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
                 <h2 className="text-3xl font-bold text-amber-900">Why Collaborate with ABDN?</h2>
                 <p className="text-xl text-amber-700">
                   Join our network to contribute to groundbreaking neuroimaging research in Africa
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
                     <div className="p-3 bg-amber-100 rounded-lg">
                       <Brain className="h-6 w-6 text-amber-600" />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                       <h3 className="text-lg font-semibold text-amber-900">Access to Resources</h3>
                       <p className="text-amber-700">Access to Active and willing researchers all over Africa</p>
                     </div>
@@ -819,13 +819,13 @@ export default function Collaborations() {
                     <div>
                       <h3 className="text-lg font-semibold text-amber-900">Expert Network</h3>
                       <p className="text-amber-700">Connect with leading researchers across Africa</p>
-                    </div>
+                </div>
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-amber-100 rounded-lg">
                       <GraduationCap className="h-6 w-6 text-amber-600" />
-                    </div>
-                    <div>
+                  </div>
+                  <div>
                       <h3 className="text-lg font-semibold text-amber-900">Training Opportunities</h3>
                       <p className="text-amber-700">Access to workshops and skill development programs</p>
                     </div>
@@ -836,29 +836,29 @@ export default function Collaborations() {
                   className="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors"
                 >
                   Start Collaboration
-                </button>
-              </motion.div>
+              </button>
+            </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <img
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <img
                   src="/Assets/Academy_2023/mri_with_pestilli.jpg"
-                  alt="Collaboration"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                alt="Collaboration"
+                className="rounded-xl shadow-lg"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                   <p className="text-amber-900 font-semibold">
                     "Join our mission to advance neuroscience research and training in Africa."
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+                </p>
+              </div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Collaboration Form Modal */}
         {showForm && (
@@ -1033,7 +1033,7 @@ export default function Collaborations() {
             </div>
           )}
         </AnimatePresence>
-      </main>
+    </main>
     </Layout>
   );
 }
