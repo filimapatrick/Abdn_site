@@ -44,7 +44,7 @@ const upcomingWorkshops = [
     title: "EEG Training Workshop",
     date: "March 15-17, 2024",
     location: "Port Harcourt, Nigeria",
-    instructor: "Dr. Sarah Mwangi",
+    instructor: "Dr. Robert",
     icon: Brain,
     description: "Hands-on training in EEG data acquisition, processing, and analysis techniques."
   },
@@ -52,7 +52,7 @@ const upcomingWorkshops = [
     title: "fMRI Analysis Workshop",
     date: "March 18-20, 2024",
     location: "Port Harcourt, Nigeria",
-    instructor: "Dr. Mohammed Ahmed",
+    instructor: "Dr. Silke Ander",
     icon: Target,
     description: "Advanced techniques in functional MRI data analysis and interpretation."
   },
@@ -220,10 +220,10 @@ export default function Training() {
                     <span>{workshop.instructor}</span>
                   </div>
                 </div>
-                <button className="mt-4 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
+                {/* <button className="mt-4 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center group">
                   Register Now
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </button> */}
               </motion.div>
             ))}
           </div>
