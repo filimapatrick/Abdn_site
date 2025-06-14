@@ -150,21 +150,21 @@ export default function Hero() {
             <div className="flex items-center justify-center mb-4">
               <Users className="h-8 w-8 text-amber-300" />
             </div>
-            <h3 className="text-2xl font-bold mb-2">100+</h3>
+            <h3 className="text-2xl font-bold mb-2">10+</h3>
             <p className="text-amber-100">Active Researchers</p>
           </div>
           <div className="text-center backdrop-blur-sm bg-white/5 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-center mb-4">
               <Star className="h-8 w-8 text-amber-300" />
             </div>
-            <h3 className="text-2xl font-bold mb-2">15+</h3>
+            <h3 className="text-2xl font-bold mb-2">20+</h3>
             <p className="text-amber-100">African Countries</p>
           </div>
           <div className="text-center md:col-span-1 col-span-2 backdrop-blur-sm bg-white/5 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-center mb-4">
               <Play className="h-8 w-8 text-amber-300" />
             </div>
-            <h3 className="text-2xl font-bold mb-2">50+</h3>
+            <h3 className="text-2xl font-bold mb-2">20+</h3>
             <p className="text-amber-100">Research Projects</p>
           </div>
         </motion.div>

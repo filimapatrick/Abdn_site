@@ -20,7 +20,7 @@ const timelineEvents = [
   {
     year: 2024,
     title: "Network Expansion",
-    description: "Expanded to 25+ African countries and introduced cutting-edge brain imaging tools"
+    description: "Expanded to 20+ African countries and introduced cutting-edge brain imaging tools"
   }
 ];
 

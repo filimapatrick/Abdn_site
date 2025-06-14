@@ -166,6 +166,7 @@ const alumniData: Alumni[] = [
       "Python"
     ]
   },
+
   {
     id: 6,
     name: "Smart Chidi Oparaugo",
