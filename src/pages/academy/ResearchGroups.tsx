@@ -260,7 +260,7 @@ export default function ResearchGroups() {
                 className="bg-white p-6 rounded-xl shadow-md"
               >
                 <Target className="h-8 w-8 text-amber-600 mb-4" />
-                <div className="text-2xl font-bold text-amber-900 mb-2">6+</div>
+                <div className="text-2xl font-bold text-amber-900 mb-2">10+</div>
                 <div className="text-amber-700">Active Projects</div>
               </motion.div>
               <motion.div
@@ -271,7 +271,7 @@ export default function ResearchGroups() {
                 className="bg-white p-6 rounded-xl shadow-md"
               >
                 <BookOpen className="h-8 w-8 text-amber-600 mb-4" />
-                <div className="text-2xl font-bold text-amber-900 mb-2">35+</div>
+                <div className="text-2xl font-bold text-amber-900 mb-2">10+</div>
                 <div className="text-amber-700">Publications</div>
               </motion.div>
               <motion.div

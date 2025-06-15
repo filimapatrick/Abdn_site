@@ -48,7 +48,7 @@ export default function FeaturedClass() {
                 className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                 whileHover={{ y: -5 }}
               >
-                <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">50+</div>
+                <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">10+</div>
                 <div className="text-amber-700">Active Projects</div>
               </motion.div>
             </div>
@@ -126,7 +126,7 @@ export default function FeaturedClass() {
                 </div>
                 <div className="flex items-center">
                   <Star className="h-4 w-4 text-amber-500 fill-current mr-1" />
-                  <span>50+</span>
+                  <span>20+</span>
                 </div>
               </div>
             </motion.div>
@@ -162,7 +162,7 @@ export default function FeaturedClass() {
                   className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                   whileHover={{ y: -5 }}
                 >
-                  <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">200+</div>
+                  <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">10+</div>
                   <div className="text-amber-700">Publications</div>
                 </motion.div>
               </div>

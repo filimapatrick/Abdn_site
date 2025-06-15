@@ -12,7 +12,7 @@ const stats = [
   },
   {
     icon: BookOpen,
-    value: "200+",
+    value: "10+",
     label: "Publications",
     gradient: "from-amber-600 to-amber-700",
     shadowColor: "shadow-amber-600/20"
@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: Award,
-    value: "50+",
+    value: "20+",
     label: "Research Projects",
     gradient: "from-amber-800 to-amber-900",
     shadowColor: "shadow-amber-800/20"

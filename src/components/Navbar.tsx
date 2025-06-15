@@ -109,7 +109,15 @@ const networkItems = [
     path: "/network/publications",
     icon: BookText,
     gradient: "from-amber-500/10 to-amber-600/10"
-  }
+  },
+    {
+    title: "learning",
+    description: "Browse research publications from our network members",
+    buttonText: "Read Papers",
+    path: "/network/learning",
+    icon: BookText,
+    gradient: "from-amber-500/10 to-amber-600/10"
+  },
 ];
 
 interface NavbarProps {
