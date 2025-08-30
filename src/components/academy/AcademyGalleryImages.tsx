@@ -111,22 +111,22 @@ const galleryImages = [
   {
     src: '/Assets/franco_structural.jpeg',
     alt: 'Structural Analysis',
-    title: 'Structural Biology Workshop',
-    description: 'Advanced workshop on structural biology techniques',
+    title: 'Introduction to MRI Physics',
+    description: 'Advanced workshop on MRI physics techniques',
     year: 2024,
   },
   {
     src: '/Assets/Damian_nairobi.jpeg',
-    alt: 'Nairobi Workshop',
-    title: 'Nairobi Training Session',
-    description: 'Specialized training workshop in Nairobi',
+    alt: 'NeuroEthics Training',
+    title: 'Ethics and Data Governance Training Session',
+    description: 'Comprehensive training on neuroethics and data governance by Damian Eke',
     year: 2024,
   },
   {
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (5).jpeg',
-    alt: 'Research Meeting',
-    title: 'Research Planning',
-    description: 'Strategic research planning session with team members',
+    alt: 'Group presentation',
+    title: 'Research Presentation',
+    description: 'Showcasing innovative research findings from the team',
     year: 2024,
   },
   {
@@ -138,7 +138,7 @@ const galleryImages = [
   },
  
   {
-    src: '/Assets/lagos_group_picture.jpeg',
+    src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (2).jpeg',
     alt: 'ABDN Workshop Group',
     title: 'Kenya Workshop',
     description: 'Group photo of participants at the ABDN Workshop in Lagos',
