@@ -175,8 +175,8 @@ const combinedData = [
   },
   {
     src: '/Assets/Faculty/susane.avif',
-    alt: 'Susanne Ressler',
-    name: 'Susanne Ressler',
+    alt: 'Susanne Ressl',
+    name: 'Susanne Ressl',
     role: 'Faculty',
     Affiliation: 'University of Texas at Austin, USA',
     profile: 'https://neuroscience.utexas.edu/directory/susanne-ressl',
