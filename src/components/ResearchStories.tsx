@@ -29,7 +29,7 @@ const stories = [
 export default function ResearchStories() {
   const [expandedStory, setExpandedStory] = useState<number | null>(null);
 
-  const truncateText = (text: string, maxLength: number = 200) => {
+  const truncateText = (text: string, maxLength: number = 120) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + '...';
   };
