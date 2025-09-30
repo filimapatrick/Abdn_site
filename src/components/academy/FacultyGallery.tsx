@@ -91,10 +91,10 @@ const combinedData = [
   },
   {
     src: '/Assets/Faculty/franco_delogu.jpg',
-    alt: 'Dr. Franco Delogu PhD',
-    name: 'Dr. Franco Delogu PhD',
+    alt: 'Prof. Franco Delogu PhD',
+    name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
-    Affiliation: 'University of Texas at Austin, USA',
+    Affiliation: 'Lawrence Technological University',
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2023,
   },

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const stories = [
   {
-    quote: "ABDN's research infrastructure has revolutionized how we conduct neuroscience studies in Africa. The collaborative environment has enabled groundbreaking discoveries.",
-    author: "Dr. Sarah Mwangi",
-    role: "Principal Investigator",
-    institution: "University of Nairobi",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80"
+    quote: "Since joining ABDN in 2023 as a faculty member, I’ve had the privilege of connecting with exceptional students and colleagues. Mentoring students, co-authoring research papers, and collaborating on grant proposals have not only enriched my academic journey but also highlighted the vibrant, collaborative spirit of ABDN.",
+    author: "Dr Moses Sokunbi",
+    role: "Senior Lecturer",
+    institution: "De Montfort University",
+    image: "./Assets/moses.png"
   },
   {
     quote: "The network's support has been instrumental in establishing state-of-the-art neuroimaging facilities and advancing our understanding of brain disorders.",
@@ -27,6 +27,13 @@ const stories = [
 ];
 
 export default function ResearchStories() {
+  const [expandedStory, setExpandedStory] = useState<number | null>(null);
+
+  const truncateText = (text: string, maxLength: number = 200) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
   return (
     <section className="py-24 bg-gradient-to-b from-amber-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -62,10 +69,17 @@ export default function ResearchStories() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col group"
             >
-              <div className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative">
+              <div 
+                className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative cursor-pointer"
+                onMouseEnter={() => setExpandedStory(index)}
+                onMouseLeave={() => setExpandedStory(null)}
+                onFocus={() => setExpandedStory(index)}
+                onBlur={() => setExpandedStory(null)}
+                tabIndex={0}
+              >
                 <Quote className="absolute text-amber-500/10 h-16 w-16 -top-2 -left-2" />
-                <p className="text-amber-900/80 relative z-10 text-lg leading-relaxed">
-                  "{story.quote}"
+                <p className="text-amber-900/80 relative z-10 text-lg leading-relaxed transition-all duration-300">
+                  "{expandedStory === index ? story.quote : truncateText(story.quote)}"
                 </p>
               </div>
               

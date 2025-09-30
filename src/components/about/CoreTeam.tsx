@@ -6,14 +6,14 @@ import { Linkedin, Mail, Globe } from 'lucide-react';
 const coreTeam = [
   {
     name: "Dr. Damian Eke",
-    role: "Co-founder",
+    role: "Director",
     institution: "De Montfort University",
     image: "/Assets/Damian.jpeg",
     bio: "Leading expert in bioethics and responsible data sharing"
   },
   {
     name: "Dr. Eberechi Wogu",
-    role: "Co-founder",
+    role: "Deputy Director",
     institution: "Neuroscience Society of Nigeria",
     image: "/Assets/ebere1.jpeg",
     bio: "Pioneer in neuroimaging research in Nigeria"
@@ -26,8 +26,8 @@ const coreTeam = [
     bio: "Tech-savvy developer integrating digital solutions in neuroscience"
   },
   {
-    name: "Barisua Nsanee",
-    role: "Community Manager",
+    name: "Barisua Nsaanee",
+    role: "Community & Communications Lead",
     institution: "University of Port-Harcourt",
     image: "/Assets/barisua.jpeg",
     bio: "Specialist in capacity building and community Building"

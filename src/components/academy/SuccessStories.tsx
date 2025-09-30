@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const stories = [
   {
-    quote: "ABDN Academy's training programs have transformed my research capabilities and opened new opportunities for collaboration.",
-    author: "Dr. Sarah Mwangi",
+    quote: "My life has not been the same after ABDSN. The things I learnt coupled with the connections I made have propagated my career growth. Through ABDSN, I now have a wonderful mentor (my first since the beginning of my career) whom I've been working with for some time now. I have been featured as a co-author in a paper which will be published very soon. My project colleague and I are also continuing with the project we started in other to publish it. Much is there to be said, but let me just keep that for another day",
+    author: "Anita Esi Esun",
     role: "Research Fellow",
-    institution: "University of Nairobi",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80"
+    institution: "Kumasi Centre for Collaborative Research in Tropical Medicine",
+    image: "./Assets/Anita_Esun.JPG"
   },
   {
-    quote: "The mentorship program connected me with leading experts who have guided my research journey and career development.",
-    author: "Dr. Mohammed Ahmed",
-    role: "Neuroscience Researcher",
-    institution: "University of Ghana",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80"
+    quote: "My story with ABDN is short and inspiring. I was among the lucky few selected to join the inaugural ABDN school in Nigeria in November 2023. I remember being surrounded by people from diverse backgrounds -- medicine, neuroscience, biology, and computer science - - and at first feeling a little lost. Then, the organizers asked me to give a 30-minute presentation about my career journey and what inspires me in neuroscience. That moment turned out to be the presentation that opened doors I never imagined would exist. I began discussing with professors and researchers how my skills in machine learning could be applied in neuroimaging. One professor whose work particularly interested me was Franco Pestilli. His lab applies computational methods to study the human brain, and I immediately felt that my skills and interests aligned with his research. After a highly competitive process, I was fortunate to be accepted into his lab at The University of Texas at Austin in the Department of Psychology. Through ABDN, I am now conducting research in areas I am truly passionate about, applying machine learning methods to better understand the brain. In 2024, I had the privilege of returning as a TA for the second edition of ABDN in Nairobi. In one word, ABDN connects African talent to global opportunities.",
+    author: "Stephen Kiilu",
+    role: "PhD Student",
+    institution: "University of Texas at Austin",
+    image: "./Assets/stephen_kiilu.JPG"
   }
 ];
 
 export default function SuccessStories() {
+  const [expandedStory, setExpandedStory] = useState<number | null>(null);
+
+  const truncateText = (text: string, maxLength: number = 240) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
   return (
     <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,10 +51,17 @@ export default function SuccessStories() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-amber-100/50"
+              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border border-amber-100/50 cursor-pointer"
+              onMouseEnter={() => setExpandedStory(index)}
+              onMouseLeave={() => setExpandedStory(null)}
+              onFocus={() => setExpandedStory(index)}
+              onBlur={() => setExpandedStory(null)}
+              tabIndex={0}
             >
               <Quote className="absolute top-6 right-6 h-8 w-8 text-amber-200" />
-              <p className="text-lg text-amber-800 mb-6 relative z-10">"{story.quote}"</p>
+              <p className="text-lg text-amber-800 mb-6 relative z-10 transition-all duration-300">
+                "{expandedStory === index ? story.quote : truncateText(story.quote)}"
+              </p>
               <div className="flex items-center">
                 <div className="relative">
                   <img
