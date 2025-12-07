@@ -16,6 +16,25 @@ const combinedData = [
     profile: 'https://liberalarts.utexas.edu/psychology/faculty/fp4834/',
     year: 2023,
   },
+   {
+    src: '/Assets/Faculty/silke.jpg',
+    alt: 'Silke Anders PhD',
+    name: 'Silke Anders PhD',
+    role: 'Faculty',
+    Affiliation: 'University of Luberk, Germany',
+    profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
+    year: 2023,
+  },
+    {
+    src: '/Assets/Faculty/Melanie.jpg',
+    alt: 'Melanie Ganz-Benjaminsen',
+    name: 'Melanie Ganz-Benjaminsen',
+    role: 'Faculty',
+    Affiliation: 'University of Copenhagen, Denmark',
+    profile: 'https://nru.dk/index.php/staff-list/post-docs/62-melanie-ganz-benjaminsen',
+    year: 2023,
+  },
+  
   {
     src: '/Assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
@@ -30,7 +49,7 @@ const combinedData = [
     alt: 'Lyuba Zehl PhD',
     name: 'Lyuba Zehl PhD',
     role: 'Faculty',
-    Affiliation: 'nstitute For Neuroscience & Medicine (INM-1) of the Julich Research Centre Germany',
+    Affiliation: 'Institute For Neuroscience & Medicine (INM-1) of the Julich Research Centre Germany',
     profile: 'https://www.fz-juelich.de/profile/zehl_l',
     year: 2023,
   },
@@ -43,16 +62,7 @@ const combinedData = [
     profile: 'https://www.incf.org/team/mathew-birdsall-abrams',
     year: 2023,
   },
-  {
-    src: '/Assets/Faculty/Melanie.jpg',
-    alt: 'Melanie Ganz-Benjaminsen',
-    name: 'Melanie Ganz-Benjaminsen',
-    role: 'Faculty',
-    Affiliation: 'University of Copenhagen, Denmark',
-    profile: 'https://nru.dk/index.php/staff-list/post-docs/62-melanie-ganz-benjaminsen',
-    year: 2023,
-  },
-  
+
   {
     src: '/Assets/Faculty/miller.jpg',
     alt: 'Karla L.Miller',
@@ -98,16 +108,7 @@ const combinedData = [
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2023,
   },
-  {
-    src: '/Assets/Faculty/silke.jpg',
-    alt: 'Silke Anders PhD',
-    name: 'Silke Anders PhD',
-    role: 'Faculty',
-    Affiliation: 'University of Luberk, Germany',
-    profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
-    year: 2023,
-  },
-
+ 
   {
     src: '/Assets/Faculty/Russ.jpg',
     alt: 'Russ Poldrack PhD',
@@ -137,6 +138,15 @@ const combinedData = [
     profile: 'https://liberalarts.utexas.edu/psychology/faculty/fp4834/',
     year: 2024,
   },
+    {
+    src: '/Assets/Faculty/silke.jpg',
+    alt: 'Silke Anders PhD',
+    name: 'Silke Anders PhD',
+    role: 'Faculty',
+    Affiliation: 'University of Luberk, Germany',
+    profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
+    year: 2024,
+  },
   {
     src: '/Assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
@@ -164,15 +174,7 @@ const combinedData = [
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2024,
   },
-  {
-    src: '/Assets/Faculty/silke.jpg',
-    alt: 'Silke Anders PhD',
-    name: 'Silke Anders PhD',
-    role: 'Faculty',
-    Affiliation: 'University of Luberk, Germany',
-    profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
-    year: 2024,
-  },
+
   {
     src: '/Assets/Faculty/susane.avif',
     alt: 'Susanne Ressl',

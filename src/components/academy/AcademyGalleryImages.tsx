@@ -77,18 +77,19 @@ const galleryImages = [
       "description": "Hands-on training in neuroscience methods",
       "year": 2023
     },
-    {
-      "src": "/Assets/Academy_2023/participants_spare_time.jpg",
-      "alt": "Participants enjoying their spare time",
-      "title": "Relaxation and Interaction",
-      "description": "Participants bonding during spare moments",
-      "year": 2023
-    },
+   
     {
       "src": "/Assets/Academy_2023/participants_still_at_the_beach.jpg",
       "alt": "Participants still enjoying the beach",
       "title": "Extended Beach Time",
       "description": "Continued fun time by the beach",
+      "year": 2023
+    },
+     {
+      "src": "/Assets/Academy_2023/participants_spare_time.jpg",
+      "alt": "Participants enjoying their spare time",
+      "title": "Relaxation and Interaction",
+      "description": "Participants bonding during spare moments",
       "year": 2023
     },
     {
@@ -132,37 +133,38 @@ const galleryImages = [
   {
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (4).jpeg',
     alt: 'Team Collaboration',
-    title: 'Team Building',
-    description: 'Collaborative session fostering team spirit',
+    title: 'Capacity Building among Participants',
+    description: 'Team presentation session during the workshop',
     year: 2024,
   },
  
-  {
-    src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (2).jpeg',
-    alt: 'ABDN Workshop Group',
-    title: 'Kenya Workshop',
-    description: 'Group photo of participants at the ABDN Workshop in Lagos',
-    year: 2024,
-  },
+ 
   {
     src: '/Assets/project_report.jpeg',
     alt: 'Project Presentation',
     title: 'Research Symposium',
-    description: 'Researchers presenting their project findings',
+    description: 'Participants presenting their project findings',
+    year: 2024,
+  },
+   {
+    src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (2).jpeg',
+    alt: 'ABDN Workshop Group',
+    title: 'Kenya Workshop',
+    description: 'Introduction to python for neuroimaging analysis by Anita Esun',
     year: 2024,
   },
   {
     src: '/Assets/participant4.jpeg',
     alt: 'Laboratory Session',
-    title: 'Advanced Training',
-    description: 'Hands-on training session with researchers',
+    title: 'Participants’ Group Photo',
+    description: 'A vibrant gathering of participants reflecting engagement, collaboration, and shared enthusiasm for learning',
     year: 2024,
   },
   {
     src: '/Assets/participant5.jpeg',
     alt: 'Workshop Session',
-    title: 'Collaborative Workshop',
-    description: 'Interactive workshop session with participants',
+    title: 'Group Photo at Workshop',
+    description: 'A vibrant gathering of participants reflecting engagement, collaboration, and shared enthusiasm for learning',
     year: 2024,
   },
   {
@@ -175,15 +177,15 @@ const galleryImages = [
   {
     src: '/Assets/participant7.jpeg',
     alt: 'Research Presentation',
-    title: 'Scientific Presentation',
-    description: 'Sharing research findings with the community',
+    title: 'Faculty Support & Guidance',
+    description: 'Instructors providing hands-on assistance and expert guidance to participants',
     year: 2024,
   },
   {
     src: '/Assets/participant8.jpeg',
     alt: 'Group Work',
-    title: 'Group Activity',
-    description: 'Participants working together on research projects',
+    title: 'Fmri lecture session',
+    description: 'Participants engaging attentively throughout the session',
     year: 2024,
   }
 ];
