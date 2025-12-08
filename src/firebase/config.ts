@@ -9,8 +9,8 @@ const firebaseConfig = {
   projectId: "abdndashboard",
   storageBucket: "abdndashboard.firebasestorage.app",
   messagingSenderId: "827418799318",
-  appId: "1:827418799318:web:fdd7c6a0f140c10523ed77",
-  measurementId: "G-TQ1H2Z7FYM"
+  appId: "1:827418799318:web:36bd5ee71922463323ed77",
+  measurementId: "G-YFGCBVEDXJ"
 };
 
 // Initialize Firebase
