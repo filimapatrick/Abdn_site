@@ -5,8 +5,8 @@ import { motion, useInView, useAnimation } from 'framer-motion';
 const stats = [
   {
     icon: Users,
-    value: "10+",
-    label: "Active Researchers",
+    value: "300+",
+    label: "Trained Researchers",
     gradient: "from-amber-500 to-amber-600",
     shadowColor: "shadow-amber-500/20"
   },

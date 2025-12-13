@@ -155,8 +155,8 @@ export default function FeaturedClass() {
                   className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                   whileHover={{ y: -5 }}
                 >
-                  <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">10+</div>
-                  <div className="text-amber-700">Active Researchers</div>
+                  <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800 mb-1">300+</div>
+                  <div className="text-amber-700">Trained Researchers</div>
                 </motion.div>
                 <motion.div 
                   className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow"

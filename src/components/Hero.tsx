@@ -150,8 +150,8 @@ export default function Hero() {
             <div className="flex items-center justify-center mb-4">
               <Users className="h-8 w-8 text-amber-300" />
             </div>
-            <h3 className="text-2xl font-bold mb-2">10+</h3>
-            <p className="text-amber-100">Active Researchers</p>
+            <h3 className="text-2xl font-bold mb-2">300+</h3>
+            <p className="text-amber-100">Trained Researchers</p>
           </div>
           <div className="text-center backdrop-blur-sm bg-white/5 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-center mb-4">

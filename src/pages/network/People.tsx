@@ -25,368 +25,368 @@ interface Person {
 }
 
 const nationalCoordinators: Person[] = [
-  
-    {
-      name: "Dr. Gams Massi Daniel",
-      title: "National Coordinator",
-      country: "Cameroon",
-      institution: "University of Buea",
-      email: "danny.gamsmassi@gmail.com",
-      image: "/Assets/NationalCordinators/Gamsi.jpg",
-      twitter: "@DrGamsMassi",
-      linkedin: "https://linkedin.com/in/gamsmassidaniel",
-      bio: "Lecturer and consultant neurologist specializing in cerebrovascular diseases, epilepsy, and movement disorders.",
-      details: {
-        interests: [
-          "Stroke/Cerebrovascular diseases",
-          "Neuroinfections",
-          "Epilepsy",
-          "Movement disorders"
-        ],
-        affiliations: [
-          "Lecturer, Neurology Department, Faculty of Health Sciences, University of Buea, Cameroon",
-          "Consultant neurologist, Douala General Hospital, Cameroon",
-          "Secretary General, Cameroon Academy of Neurology"
-        ]
-      }
-    },
-    {
-      name: "Ronald Kamoga",
-      title: "National Coordinator",
-      country: "Uganda",
-      institution: "Mbarara University of Science and Technology",
-      email: "rkamoga@must.ac.ug",
-      image: "/Assets/NationalCordinators/Ronald.jpg",
-      twitter: "@RonaldKamoga",
-      linkedin: "https://linkedin.com/in/ronaldkamoga",
-      bio: "Lecturer and dementia research fellow advancing neuroscience in East Africa.",
-      details: {
-        interests: [
-          "Alzheimer's Disease",
-          "Dementia related disorders"
-        ],
-        affiliations: [
-          "Lecturer, Anatomy Department, Faculty of Medicine, Mbarara University of Science and Technology, Uganda",
-          "SONA representative for East Africa",
-          "Treasurer, Neuroscience Society of Uganda",
-          "Fellow, Mbarara Alzheimer's Disease and related Dementias Research Initiative (MADRI)"
-        ]
-      }
-    },
-    {
-      name: "Eberechi Wogu PhD",
-      title: "National Coordinator",
-      country: "Nigeria",
-      institution: "University of Port Harcourt",
-      email: "eberechi.wogu@uniport.edu.ng",
-      image: "/Assets/NationalCordinators/Ebere.png",
-      twitter: "@DrEberechiWogu",
-      linkedin: "https://linkedin.com/in/eberechiwogu",
-      bio: "Global scholar and lecturer focusing on brain imaging and neurodegenerative diseases in Africa.",
-      details: {
-        interests: [
-          "African Human brain Imaging",
-          "Open science",
-          "African Neuroanthropology",
-          "Biological mechanisms of neurodegenerative diseases"
-        ],
-        affiliations: [
-          "Lecturer, Anatomy Department, University of Port Harcourt, Rivers State, Nigeria",
-          "Secretary, Neuroscience Society of Nigeria",
-          "Treasurer, Women in Neuroscience, Nigeria",
-          "Global Scholar, Wellcome Center for Integrative Neuroimaging (WIN), University of Oxford, UK"
-        ]
-      }
-    },
-    {
-      name: "Dr. Francis Djankpa",
-      title: "National Coordinator",
-      country: "Ghana",
-      institution: "University of Cape Coast",
-      email: "fdjankpa@ucc.edu.gh",
-      image: "/Assets/NationalCordinators/Francis.png",
-      twitter: "@DrDjankpa",
-      linkedin: "https://linkedin.com/in/francisdjankpa",
-      bio: "Head of Physiology Department and advocate for medical science research in Ghana.",
-      details: {
-        interests: [
-          "Neurophysiology"
-        ],
-        affiliations: [
-          "Founder and Director at Nterm-Ghana (NGO)",
-          "Head, Department of Physiology, University of Cape Coast",
-          "Chairman, School of Medical Sciences Research Committee"
-        ]
-      }
-    },
-    {
-      name: "Grace Mashala Bilungula MD",
-      title: "National Coordinator",
-      country: "Democratic Republic of Congo",
-      institution: "University of Kinshasa",
-      email: "gracebilungula@gmail.com",
-      image: "/Assets/NationalCordinators/GraceMashala.jpg",
-      twitter: "@DrGraceBilungula",
-      linkedin: "https://linkedin.com/in/gracebilungula",
-      bio: "Researcher in neurodevelopment and neuropsychology at the University of Kinshasa.",
-      details: {
-        interests: [
-          "Neurodevelopment",
-          "Neuropsychology"
-        ],
-        affiliations: [
-          "Centre Neuropsychopathologique de Kinshasa, University of Kinshasa (CNPP/UNIKIN)"
-        ]
-      }
-    },
-    {
-      name: "Zeinab Koné MD",
-      title: "National Coordinator",
-      country: "Mali",
-      institution: "Point G Teaching Hospital",
-      email: "zeinab.kone@pointg.ml",
-      image: "/Assets/NationalCordinators/Zeinab.png",
-      twitter: "@DrZeinabKone",
-      linkedin: "https://linkedin.com/in/zeinabkone",
-      bio: "Specialist in epilepsy and neuropediatrics with a strong clinical and academic background.",
-      details: {
-        interests: [
-          "Epilepsy",
-          "Clinical Neurophysiology",
-          "Neuropediatrics",
-          "Language, learning and behavioral disorders",
-          "Brain development in health and disease",
-          "Brain plasticity"
-        ],
-        affiliations: [
-          "Neurology Department, Point G Teaching Hospital, Bamako, Mali",
-          "MD, Neurologist",
-          "MSc Neurobiology, Neuroscience",
-          "PGD in Clinical Paediatric Electrophysiology and Epilepsy"
-        ]
-      }
-    },
-    {
-      name: "Dr. Teketel Eristu Kediso",
-      title: "National Coordinator",
-      country: "Ethiopia",
-      institution: "Arbaminch University",
-      email: "tkeristu@gmail.com",
-      image: "/Assets/NationalCordinators/Teketel.jpg",
-      twitter: "@DrTeketel",
-      linkedin: "https://linkedin.com/in/teketelkediso",
-      bio: "Physiology professor with a focus on neural networks and neurodegeneration.",
-      details: {
-        interests: [
-          "Neurophysiology",
-          "Neural networks",
-          "In vitro and in vivo electrophysiology",
-          "Neurodegeneration"
-        ],
-        affiliations: [
-          "Assistant Professor of Physiology, Arbaminch University",
-          "President, Ethiopian Physiological Society (EPS)",
-          "Vice President, Ethiopian Neuroscience Society (ENS)"
-        ]
-      }
-    },
-    {
-      name: "Dr. Olaitan Ruth Asuquo",
-      title: "National Coordinator",
-      country: "Tanzania",
-      institution: "University of Dar es Salaam",
-      email: "olaitan.asuquo@udsm.tz",
-      image: "/Assets/NationalCordinators/Olaitan.jpeg",
-      twitter: "@DrOlaitanAsuquo",
-      linkedin: "https://linkedin.com/in/olaitanasuquo",
-      bio: "Expert in reproductive neuroendocrinology and herbal neurotoxicology.",
-      details: {
-        interests: [
-          "Herbal contraceptives",
-          "Neurotoxicity",
-          "Neuroscience"
-        ],
-        affiliations: [
-          "BSc Human Anatomy",
-          "MSc Histochemistry",
-          "PhD Reproductive Neuroendocrinology"
-        ]
-      }
-    },
-    {
-      name: "Oumayma Soula",
-      title: "National Coordinator",
-      country: "Tunisia",
-      institution: "Faculty of Medicine, Sfax",
-      email: "oumayma.soula@gmail.com",
-      image: "/Assets/NationalCordinators/Oumayma.jpg",
-      twitter: "@OumaymaSoula",
-      linkedin: "https://linkedin.com/in/oumaymaSoula",
-      bio: "Ph.D. candidate specializing in computational neuroscience and functional connectivity in neurodegenerative disorders.",
-      details: {
-        interests: [
-          "Fusion of biology and technology within computational neuroscience",
-          "Investigation of functional connectivity changes in neurodegenerative dementia"
-        ],
-        affiliations: [
-          "Teaching Assistant for Computational Neuroscience",
-          "Ph.D. candidate in the Faculty of Medicine, Sfax"
-        ]
-      }
-    },
-    {
-      name: "Nadia El Kadmiri",
-      title: "National Coordinator",
-      country: "Morocco",
-      institution: "IBN ZOHR University",
-      email: "n.elkadmiri@uiz.ac.ma",
-      image: "/Assets/NationalCordinators/Nadia.jpg",
-      twitter: "@NadiaElKadmiri",
-      linkedin: "https://linkedin.com/in/nadiaelkadmiri",
-      bio: "Associate Professor focusing on research ethics and responsible conduct of research.",
-      details: {
-        interests: [
-          "Responsible Conduct of Research",
-          "Research Ethics"
-        ],
-        affiliations: [
-          "Associate Professor at the Polydisciplinary Faculty of Taroudant, IBN ZOHR University",
-          "Regional Secretary of North Africa SONA_IBRO",
-          "Fellow in Responsible Conduct research at San Diego California University",
-          "Founder/President of Moroccan Association for Research and Ethics (MARE) www.association-mare.org",
-          "Founder/President of Research Ethics Committee (REC)",
-          "Editor in Chief of International Journal for Research and Ethics (IJRE)"
-        ]
-      }
-    },
-    {
-      name: "Dr. Olivia Matshabane",
-      title: "National Coordinator",
-      country: "South Africa",
-      institution: "Stellenbosch University",
-      email: "preciousmatshabane@gmail.com",
-      image: "/Assets/NationalCordinators/OliviaMatshabane.jpg",
-      twitter: "@DrMatshabane",
-      linkedin: "https://linkedin.com/in/oliviamatshabane",
-      bio: "Faculty member specializing in neuroethics and implications of neuropsychiatric genomics.",
-      details: {
-        interests: [
-          "Neuroethics",
-          "Ethical, legal, social, and cultural implications of neuropsychiatric genomics",
-          "Neuroethical implications of new and emerging neurotechnologies"
-        ],
-        affiliations: [
-          "Faculty member in the Department of Psychiatry at Stellenbosch University, South Africa",
-          "Member of the Psychiatric Genomics Consortium (PGC) Africa Ethics Working Group",
-          "Member of the International Brain Initiative (IBI) Cross-Cultural Neuroscience Working Group",
-          "Former Secretary and Chair of the Fellows Committee of the Human Heredity and Health in Africa (H3Africa) Consortium",
-          "Former Chair of the student-postdoc committee of the International Neuroethics Society",
-          "Participant in roundtable discussions held by the United Nations (UN) on neurotechnologies",
-          "Panellist for the BRAINshare: Sharing Data in BRAIN Initiative Studies project led by scientists at Baylor College of Medicine in the US"
-        ]
-      }
-    },
-    {
-      name: "Dr. George Wanderi",
-      title: "National Coordinator",
-      country: "Kenya",
-      institution: "University of Nairobi",
-      email: "gmwanderi@yahoo.com",
-      image: "/Assets/NationalCordinators/George.jpg",
-      twitter: "@DrWanderi",
-      linkedin: "https://linkedin.com/in/georgewanderi",
-      bio: "Medical doctor with expertise in neuroscience and healthcare entrepreneurship.",
-      details: {
-        interests: [
-          "Neuroscience",
-          "Regenerative Medicine",
-          "Healthcare Rights"
-        ],
-        affiliations: [
-          "Registered medical doctor based in Nairobi",
-          "Alumnus of the University of Nairobi and Strathmore University",
-          "Co-founder of three successful healthcare and allied brands in Nairobi, Kenya"
-        ]
-      }
-    },
-    {
-      name: "Olorunnado Samson Ehindero (PhD.)",
-      title: "National Coordinator",
-      country: "Rwanda",
-      institution: "University of Rwanda",
-      email: "olorunnados@gmail.com",
-      image: "/Assets/NationalCordinators/Olorunnado.jpg",
-      twitter: "@DrEhindero",
-      linkedin: "https://linkedin.com/in/olorunnadoehindero",
-      bio: "Lecturer in Human Anatomy with specialization in computational neuroscience and metabolic syndrome.",
-      details: {
-        interests: [
-          "Computational neuroscience",
-          "Metabolic syndrome",
-          "Medical education"
-        ],
-        affiliations: [
-          "Lecturer in the Department of Human Anatomy, School of Medicine and Pharmacy, University of Rwanda",
-          "Bachelor of Science degree in Human Anatomy from Ahmadu Bello University, Zaria, Nigeria",
-          "Master's and PhD degrees in Anatomy from the University of Ilorin, Nigeria"
-        ]
-      }
-    },
-    {
-      name: "Dr. Theresa Chikopela Sikazwe",
-      title: "National Coordinator",
-      country: "Zambia",
-      institution: "Lusaka Apex Medical University",
-      email: "theresachikopela@yahoo.com",
-      image: "/Assets/NationalCordinators/Theresa.jpg",
-      twitter: "@DrSikazwe",
-      linkedin: "https://linkedin.com/in/theresasikazwe",
-      bio: "Assistant Dean specializing in vascular physiology and cognitive function research.",
-      details: {
-        interests: [
-          "Vascular physiology",
-          "Arterial stiffness",
-          "Endothelial dysfunction",
-          "Relationship between vascular physiology and cognitive function"
-        ],
-        affiliations: [
-          "Assistant Dean – Basic Sciences, Faculty of Medicine, Lusaka Apex Medical University",
-          "Treasurer for the Zambia Neuroscience Society (ZANS)",
-          "In charge of Research in the Physiological Society of Zambia (PSZ)",
-          "Member of the Society of Neuroscientists of Africa (SONA)",
-          "Member of the Physiology Society of Southern Africa (PSSA)"
-        ]
-      }
-    },
-    {
-      name: "Tsemo Yimta Grace Maiva",
-      title: "National Coordinator",
-      country: "Senegal",
-      institution: "Cheikh Anta Diop University",
-      email: "gracetsemo@gmail.com",
-      image: "/Assets/NationalCordinators/Tsemo.jpeg",
-      twitter: "@GraceTsemo",
-      linkedin: "https://linkedin.com/in/gracetsemo",
-      bio: "Neurologist and neurophysiologist specializing in nerve conduction mechanisms and neurodegenerative disease.",
-      details: {
-        interests: [
-          "African Human Brain Imaging",
-          "Neurophysiological mechanisms of nerve conduction",
-          "Electrogenesis and epileptogenesis",
-          "Neurodegenerative disease"
-        ],
-        affiliations: [
-          "Neurologist and Neurophysiologist",
-          "National Coordinator of African Brain Data Network in Senegal",
-          "Member of the Movement Disorders Society (MDS)",
-          "Member of the International League Against Epilepsy (ILAE)",
-          "Member of the Cameroon Neurology Academy (CAN)",
-          "Member of the Senegal Neurology Society (ASN)"
-        ]
-      }
+
+  {
+    name: "Dr. Gams Massi Daniel",
+    title: "National Coordinator",
+    country: "Cameroon",
+    institution: "University of Buea",
+    email: "danny.gamsmassi@gmail.com",
+    image: "/Assets/NationalCordinators/Gamsi.jpg",
+    twitter: "@DrGamsMassi",
+    linkedin: "https://linkedin.com/in/gamsmassidaniel",
+    bio: "Lecturer and consultant neurologist specializing in cerebrovascular diseases, epilepsy, and movement disorders.",
+    details: {
+      interests: [
+        "Stroke/Cerebrovascular diseases",
+        "Neuroinfections",
+        "Epilepsy",
+        "Movement disorders"
+      ],
+      affiliations: [
+        "Lecturer, Neurology Department, Faculty of Health Sciences, University of Buea, Cameroon",
+        "Consultant neurologist, Douala General Hospital, Cameroon",
+        "Secretary General, Cameroon Academy of Neurology"
+      ]
     }
-  
-  
+  },
+  {
+    name: "Ronald Kamoga",
+    title: "National Coordinator",
+    country: "Uganda",
+    institution: "Mbarara University of Science and Technology",
+    email: "rkamoga@must.ac.ug",
+    image: "/Assets/NationalCordinators/Ronald.jpg",
+    twitter: "@RonaldKamoga",
+    linkedin: "https://linkedin.com/in/ronaldkamoga",
+    bio: "Lecturer and dementia research fellow advancing neuroscience in East Africa.",
+    details: {
+      interests: [
+        "Alzheimer's Disease",
+        "Dementia related disorders"
+      ],
+      affiliations: [
+        "Lecturer, Anatomy Department, Faculty of Medicine, Mbarara University of Science and Technology, Uganda",
+        "SONA representative for East Africa",
+        "Treasurer, Neuroscience Society of Uganda",
+        "Fellow, Mbarara Alzheimer's Disease and related Dementias Research Initiative (MADRI)"
+      ]
+    }
+  },
+  {
+    name: "Eberechi Wogu PhD",
+    title: "National Coordinator",
+    country: "Nigeria",
+    institution: "University of Port Harcourt",
+    email: "eberechi.wogu@uniport.edu.ng",
+    image: "/Assets/NationalCordinators/Ebere.png",
+    twitter: "@DrEberechiWogu",
+    linkedin: "https://linkedin.com/in/eberechiwogu",
+    bio: "Global scholar and lecturer focusing on brain imaging and neurodegenerative diseases in Africa.",
+    details: {
+      interests: [
+        "African Human brain Imaging",
+        "Open science",
+        "African Neuroanthropology",
+        "Biological mechanisms of neurodegenerative diseases"
+      ],
+      affiliations: [
+        "Lecturer, Anatomy Department, University of Port Harcourt, Rivers State, Nigeria",
+        "Secretary, Neuroscience Society of Nigeria",
+        "Treasurer, Women in Neuroscience, Nigeria",
+        "Global Scholar, Wellcome Center for Integrative Neuroimaging (WIN), University of Oxford, UK"
+      ]
+    }
+  },
+  {
+    name: "Dr. Francis Djankpa",
+    title: "National Coordinator",
+    country: "Ghana",
+    institution: "University of Cape Coast",
+    email: "fdjankpa@ucc.edu.gh",
+    image: "/Assets/NationalCordinators/Francis.png",
+    twitter: "@DrDjankpa",
+    linkedin: "https://linkedin.com/in/francisdjankpa",
+    bio: "Head of Physiology Department and advocate for medical science research in Ghana.",
+    details: {
+      interests: [
+        "Neurophysiology"
+      ],
+      affiliations: [
+        "Founder and Director at Nterm-Ghana (NGO)",
+        "Head, Department of Physiology, University of Cape Coast",
+        "Chairman, School of Medical Sciences Research Committee"
+      ]
+    }
+  },
+  {
+    name: "Grace Mashala Bilungula MD",
+    title: "National Coordinator",
+    country: "Democratic Republic of Congo",
+    institution: "University of Kinshasa",
+    email: "gracebilungula@gmail.com",
+    image: "/Assets/NationalCordinators/GraceMashala.jpg",
+    twitter: "@DrGraceBilungula",
+    linkedin: "https://linkedin.com/in/gracebilungula",
+    bio: "Researcher in neurodevelopment and neuropsychology at the University of Kinshasa.",
+    details: {
+      interests: [
+        "Neurodevelopment",
+        "Neuropsychology"
+      ],
+      affiliations: [
+        "Centre Neuropsychopathologique de Kinshasa, University of Kinshasa (CNPP/UNIKIN)"
+      ]
+    }
+  },
+  {
+    name: "Zeinab Koné MD",
+    title: "National Coordinator",
+    country: "Mali",
+    institution: "Point G Teaching Hospital",
+    email: "zeinab.kone@pointg.ml",
+    image: "/Assets/NationalCordinators/Zeinab.png",
+    twitter: "@DrZeinabKone",
+    linkedin: "https://linkedin.com/in/zeinabkone",
+    bio: "Specialist in epilepsy and neuropediatrics with a strong clinical and academic background.",
+    details: {
+      interests: [
+        "Epilepsy",
+        "Clinical Neurophysiology",
+        "Neuropediatrics",
+        "Language, learning and behavioral disorders",
+        "Brain development in health and disease",
+        "Brain plasticity"
+      ],
+      affiliations: [
+        "Neurology Department, Point G Teaching Hospital, Bamako, Mali",
+        "MD, Neurologist",
+        "MSc Neurobiology, Neuroscience",
+        "PGD in Clinical Paediatric Electrophysiology and Epilepsy"
+      ]
+    }
+  },
+  {
+    name: "Dr. Teketel Eristu Kediso",
+    title: "National Coordinator",
+    country: "Ethiopia",
+    institution: "Arbaminch University",
+    email: "tkeristu@gmail.com",
+    image: "/Assets/NationalCordinators/Teketel.jpg",
+    twitter: "@DrTeketel",
+    linkedin: "https://linkedin.com/in/teketelkediso",
+    bio: "Physiology professor with a focus on neural networks and neurodegeneration.",
+    details: {
+      interests: [
+        "Neurophysiology",
+        "Neural networks",
+        "In vitro and in vivo electrophysiology",
+        "Neurodegeneration"
+      ],
+      affiliations: [
+        "Assistant Professor of Physiology, Arbaminch University",
+        "President, Ethiopian Physiological Society (EPS)",
+        "Vice President, Ethiopian Neuroscience Society (ENS)"
+      ]
+    }
+  },
+  {
+    name: "Dr. Olaitan Ruth Asuquo",
+    title: "National Coordinator",
+    country: "Tanzania",
+    institution: "University of Dar es Salaam",
+    email: "olaitan.asuquo@udsm.tz",
+    image: "/Assets/NationalCordinators/Olaitan.jpeg",
+    twitter: "@DrOlaitanAsuquo",
+    linkedin: "https://linkedin.com/in/olaitanasuquo",
+    bio: "Expert in reproductive neuroendocrinology and herbal neurotoxicology.",
+    details: {
+      interests: [
+        "Herbal contraceptives",
+        "Neurotoxicity",
+        "Neuroscience"
+      ],
+      affiliations: [
+        "BSc Human Anatomy",
+        "MSc Histochemistry",
+        "PhD Reproductive Neuroendocrinology"
+      ]
+    }
+  },
+  {
+    name: "Oumayma Soula",
+    title: "National Coordinator",
+    country: "Tunisia",
+    institution: "Faculty of Medicine, Sfax",
+    email: "oumayma.soula@gmail.com",
+    image: "/Assets/NationalCordinators/Oumayma.jpg",
+    twitter: "@OumaymaSoula",
+    linkedin: "https://linkedin.com/in/oumaymaSoula",
+    bio: "Ph.D. candidate specializing in computational neuroscience and functional connectivity in neurodegenerative disorders.",
+    details: {
+      interests: [
+        "Fusion of biology and technology within computational neuroscience",
+        "Investigation of functional connectivity changes in neurodegenerative dementia"
+      ],
+      affiliations: [
+        "Teaching Assistant for Computational Neuroscience",
+        "Ph.D. candidate in the Faculty of Medicine, Sfax"
+      ]
+    }
+  },
+  {
+    name: "Nadia El Kadmiri",
+    title: "National Coordinator",
+    country: "Morocco",
+    institution: "IBN ZOHR University",
+    email: "n.elkadmiri@uiz.ac.ma",
+    image: "/Assets/NationalCordinators/Nadia.jpg",
+    twitter: "@NadiaElKadmiri",
+    linkedin: "https://linkedin.com/in/nadiaelkadmiri",
+    bio: "Associate Professor focusing on research ethics and responsible conduct of research.",
+    details: {
+      interests: [
+        "Responsible Conduct of Research",
+        "Research Ethics"
+      ],
+      affiliations: [
+        "Associate Professor at the Polydisciplinary Faculty of Taroudant, IBN ZOHR University",
+        "Regional Secretary of North Africa SONA_IBRO",
+        "Fellow in Responsible Conduct research at San Diego California University",
+        "Founder/President of Moroccan Association for Research and Ethics (MARE) www.association-mare.org",
+        "Founder/President of Research Ethics Committee (REC)",
+        "Editor in Chief of International Journal for Research and Ethics (IJRE)"
+      ]
+    }
+  },
+  {
+    name: "Dr. Olivia Matshabane",
+    title: "National Coordinator",
+    country: "South Africa",
+    institution: "Stellenbosch University",
+    email: "preciousmatshabane@gmail.com",
+    image: "/Assets/NationalCordinators/OliviaMatshabane.jpg",
+    twitter: "@DrMatshabane",
+    linkedin: "https://linkedin.com/in/oliviamatshabane",
+    bio: "Faculty member specializing in neuroethics and implications of neuropsychiatric genomics.",
+    details: {
+      interests: [
+        "Neuroethics",
+        "Ethical, legal, social, and cultural implications of neuropsychiatric genomics",
+        "Neuroethical implications of new and emerging neurotechnologies"
+      ],
+      affiliations: [
+        "Faculty member in the Department of Psychiatry at Stellenbosch University, South Africa",
+        "Member of the Psychiatric Genomics Consortium (PGC) Africa Ethics Working Group",
+        "Member of the International Brain Initiative (IBI) Cross-Cultural Neuroscience Working Group",
+        "Former Secretary and Chair of the Fellows Committee of the Human Heredity and Health in Africa (H3Africa) Consortium",
+        "Former Chair of the student-postdoc committee of the International Neuroethics Society",
+        "Participant in roundtable discussions held by the United Nations (UN) on neurotechnologies",
+        "Panellist for the BRAINshare: Sharing Data in BRAIN Initiative Studies project led by scientists at Baylor College of Medicine in the US"
+      ]
+    }
+  },
+  {
+    name: "Dr. George Wanderi",
+    title: "National Coordinator",
+    country: "Kenya",
+    institution: "University of Nairobi",
+    email: "gmwanderi@yahoo.com",
+    image: "/Assets/NationalCordinators/George.jpg",
+    twitter: "@DrWanderi",
+    linkedin: "https://linkedin.com/in/georgewanderi",
+    bio: "Medical doctor with expertise in neuroscience and healthcare entrepreneurship.",
+    details: {
+      interests: [
+        "Neuroscience",
+        "Regenerative Medicine",
+        "Healthcare Rights"
+      ],
+      affiliations: [
+        "Registered medical doctor based in Nairobi",
+        "Alumnus of the University of Nairobi and Strathmore University",
+        "Co-founder of three successful healthcare and allied brands in Nairobi, Kenya"
+      ]
+    }
+  },
+  {
+    name: "Olorunnado Samson Ehindero (PhD.)",
+    title: "National Coordinator",
+    country: "Rwanda",
+    institution: "University of Rwanda",
+    email: "olorunnados@gmail.com",
+    image: "/Assets/NationalCordinators/Olorunnado.jpg",
+    twitter: "@DrEhindero",
+    linkedin: "https://linkedin.com/in/olorunnadoehindero",
+    bio: "Lecturer in Human Anatomy with specialization in computational neuroscience and metabolic syndrome.",
+    details: {
+      interests: [
+        "Computational neuroscience",
+        "Metabolic syndrome",
+        "Medical education"
+      ],
+      affiliations: [
+        "Lecturer in the Department of Human Anatomy, School of Medicine and Pharmacy, University of Rwanda",
+        "Bachelor of Science degree in Human Anatomy from Ahmadu Bello University, Zaria, Nigeria",
+        "Master's and PhD degrees in Anatomy from the University of Ilorin, Nigeria"
+      ]
+    }
+  },
+  {
+    name: "Dr. Theresa Chikopela Sikazwe",
+    title: "National Coordinator",
+    country: "Zambia",
+    institution: "Lusaka Apex Medical University",
+    email: "theresachikopela@yahoo.com",
+    image: "/Assets/NationalCordinators/Theresa.jpg",
+    twitter: "@DrSikazwe",
+    linkedin: "https://linkedin.com/in/theresasikazwe",
+    bio: "Assistant Dean specializing in vascular physiology and cognitive function research.",
+    details: {
+      interests: [
+        "Vascular physiology",
+        "Arterial stiffness",
+        "Endothelial dysfunction",
+        "Relationship between vascular physiology and cognitive function"
+      ],
+      affiliations: [
+        "Assistant Dean – Basic Sciences, Faculty of Medicine, Lusaka Apex Medical University",
+        "Treasurer for the Zambia Neuroscience Society (ZANS)",
+        "In charge of Research in the Physiological Society of Zambia (PSZ)",
+        "Member of the Society of Neuroscientists of Africa (SONA)",
+        "Member of the Physiology Society of Southern Africa (PSSA)"
+      ]
+    }
+  },
+  {
+    name: "Tsemo Yimta Grace Maiva",
+    title: "National Coordinator",
+    country: "Senegal",
+    institution: "Cheikh Anta Diop University",
+    email: "gracetsemo@gmail.com",
+    image: "/Assets/NationalCordinators/Tsemo.jpeg",
+    twitter: "@GraceTsemo",
+    linkedin: "https://linkedin.com/in/gracetsemo",
+    bio: "Neurologist and neurophysiologist specializing in nerve conduction mechanisms and neurodegenerative disease.",
+    details: {
+      interests: [
+        "African Human Brain Imaging",
+        "Neurophysiological mechanisms of nerve conduction",
+        "Electrogenesis and epileptogenesis",
+        "Neurodegenerative disease"
+      ],
+      affiliations: [
+        "Neurologist and Neurophysiologist",
+        "National Coordinator of African Brain Data Network in Senegal",
+        "Member of the Movement Disorders Society (MDS)",
+        "Member of the International League Against Epilepsy (ILAE)",
+        "Member of the Cameroon Neurology Academy (CAN)",
+        "Member of the Senegal Neurology Society (ASN)"
+      ]
+    }
+  }
+
+
 ];
 
 const stakeholders: Person[] = [
@@ -426,7 +426,7 @@ const stakeholders: Person[] = [
       ]
     }
   }
-  
+
 ];
 
 const founders: Person[] = [
@@ -510,18 +510,18 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
                 <X className="h-6 w-6" />
               </button>
             </div>
-            
+
             <div className="p-6">
               <h3 className="text-2xl font-bold text-amber-900 mb-2">{person.name}</h3>
               <p className="text-amber-600 mb-4">{person.title}</p>
-              
+
               {person.country && (
                 <div className="flex items-center text-amber-700 mb-2">
                   <MapPin className="h-4 w-4 mr-1" />
                   <span>{person.country}</span>
                 </div>
               )}
-              
+
               <div className="flex items-center text-amber-700 mb-4">
                 <Building2 className="h-4 w-4 mr-1" />
                 <span>{person.institution}</span>
@@ -575,8 +575,8 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
                 <h4 className="text-lg font-semibold text-amber-900 mb-3">Connect</h4>
                 <div className="space-y-3">
                   {person.email && (
-                    <a 
-                      href={`mailto:${person.email}`} 
+                    <a
+                      href={`mailto:${person.email}`}
                       className="flex items-center text-amber-700 hover:text-amber-900 transition-colors"
                     >
                       <Mail className="h-5 w-5 mr-2" />
@@ -584,10 +584,10 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
                     </a>
                   )}
                   {person.linkedin && (
-                    <a 
-                      href={person.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={person.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center text-amber-700 hover:text-amber-900 transition-colors"
                     >
                       <Linkedin className="h-5 w-5 mr-2" />
@@ -595,10 +595,10 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
                     </a>
                   )}
                   {person.twitter && (
-                    <a 
-                      href={`https://twitter.com/${person.twitter}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={`https://twitter.com/${person.twitter}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center text-amber-700 hover:text-amber-900 transition-colors"
                     >
                       <Twitter className="h-5 w-5 mr-2" />
@@ -606,10 +606,10 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
                     </a>
                   )}
                   {person.website && (
-                    <a 
-                      href={person.website} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={person.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center text-amber-700 hover:text-amber-900 transition-colors"
                     >
                       <LinkIcon className="h-5 w-5 mr-2" />
@@ -632,10 +632,10 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
 export default function People() {
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
   const [showAllCoordinators, setShowAllCoordinators] = useState(false);
-  
+
   // Display initial 6 coordinators or all when showAllCoordinators is true
-  const displayedCoordinators = showAllCoordinators 
-    ? nationalCoordinators 
+  const displayedCoordinators = showAllCoordinators
+    ? nationalCoordinators
     : nationalCoordinators.slice(0, 6);
 
   return (
@@ -691,13 +691,13 @@ export default function People() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="h-64 relative">
+                  <div className="h-48 relative bg-amber-100">
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 via-transparent to-transparent" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-amber-900 mb-2">{founder.name}</h3>
@@ -760,13 +760,13 @@ export default function People() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-64">
+                  <div className="relative h-48 bg-amber-100">
                     <img
                       src={stakeholder.image}
                       alt={stakeholder.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 via-transparent to-transparent" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-amber-900 mb-2">{stakeholder.name}</h3>
@@ -810,13 +810,13 @@ export default function People() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-64">
+                  <div className="relative h-48 bg-amber-100">
                     <img
                       src={coordinator.image}
                       alt={coordinator.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 via-transparent to-transparent" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-amber-900 mb-2">{coordinator.name}</h3>
