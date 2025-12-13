@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Database, 
-  Server, 
-  Shield, 
-  Users, 
+import {
+  Database,
+  Server,
+  Shield,
+  Users,
   Heart,
   Building,
   Globe,
@@ -19,13 +19,13 @@ import InfrastructureContributionForm from '../../components/InfrastructureContr
 export default function Infrastructure() {
   return (
     <Layout>
-    <main className="pt-20">
-      {/* Hero Section */}
+      <main className="pt-20">
+        {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
           <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -33,13 +33,13 @@ export default function Infrastructure() {
               >
                 Research Infrastructure
               </motion.h1>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl text-amber-100 max-w-3xl mx-auto"
               >
-                Building the foundation for African neuroscience data sharing and research
+                Building the foundation for African neuroscience data sharing and research (Coming Soon)
               </motion.p>
             </div>
           </div>
@@ -78,10 +78,10 @@ export default function Infrastructure() {
               </div>
             </motion.div>
           </div>
-      </section>
+        </section>
 
         {/* Support Our Mission Section */}
-      <section className="py-24 bg-amber-50">
+        <section className="py-24 bg-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -127,7 +127,7 @@ export default function Infrastructure() {
               </motion.div>
             </div>
           </div>
-      </section>
+        </section>
 
         {/* Contact Section */}
         <section className="py-24 bg-white">
@@ -153,8 +153,8 @@ export default function Infrastructure() {
               </div>
             </div>
           </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </Layout>
   );
 }
