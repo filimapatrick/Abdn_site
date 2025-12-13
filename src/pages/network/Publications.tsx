@@ -108,16 +108,7 @@ const publications: Publication[] = [
       link: "https://data.abdn.org/datasets/nigerian-brains"
     }
   },
-  {
-    title: "African Perspectives of Trustworthy AI: An Introduction",
-    authors: ["Damian Eke", "Kutoma Wakunuma", "Simisola Akintoye", "George Inyila Ogoh"],
-    journal: "Book Chapter",
-    year: 2024,
-    abstract: "In 2024, the EU AI Act became the first-ever comprehensive legal framework on AI in the world as Regulation (EU) 2024/1689 of the European Parliament and of the Council. The fundamental aim of this Act and other policy measures such as EU AI innovation Package and the Coordinated Plan on AI, is to foster Trustworthy AI in Europe and beyond; to ensure that Europeans can trust what AI can offer.",
-    keywords: ["AI", "trustworthy AI", "ethics", "governance"],
-    category: "book",
-    type: "abdn"
-  },
+
   {
     title: "Trustworthy AI in Healthcare: Exploring Ethics in Digital Health Technologies in Nigeria",
     authors: ["Ayomide J. Owoyemi", "Eugeniah Arthur", "Temitope Wunmi Ladi-Akinyemi", "Damian Eke"],
@@ -128,16 +119,7 @@ const publications: Publication[] = [
     category: "book",
     type: "abdn"
   },
-  {
-    title: "Decoloniality as an Essential Trustworthy AI Requirement",
-    authors: ["Kutoma Wakunuma", "George Inyila Ogoh", "Simisola Akintoye", "Damian Eke"],
-    journal: "Book Chapter",
-    year: 2024,
-    abstract: "Requirements for achieving trustworthiness in AI differ based on socio-cultural and political expectations of a community, country, or region. In this chapter, we present decoloniality as an essential requirement for trustworthy AI in Africa and other regions with visible scars of colonialism and continued coloniality. Through a critical examination of evident colonial tendencies or coloniality in AI ecosystems, this chapter provides clarity on realisation and assessment of decoloniality in the design, development, and deployment of AI systems in and for Africa. We make the argument that decoloniality will help in dismantling the legacies of colonialism that continue to shape global power dynamics and knowledge production and in this case AI. We also explore the challenges decoloising AI face in Africa and conclude by making recommendations for both policy and practice.",
-    keywords: ["AI", "decoloniality", "ethics", "governance"],
-    category: "book",
-    type: "abdn"
-  },
+
   {
     title: "FAIR African brain data: challenges and opportunities",
     authors: ["Eberechi Wogu", "George Inyila Ogoh", "Patrick Leo Filima", "Damian Eke"],

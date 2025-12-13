@@ -18,10 +18,10 @@ const stories = [
     image: "./Assets/Faculty/Azeezat.jpg"
   },
   {
-    quote: "Through ABDN's mentorship program, we're developing the next generation of African neuroscientists and fostering innovation across the continent.",
-    author: "Dr. Grace Okonjo",
+    quote: "I have been collaborating with the African Brain Data Network since the Brain Data Academy in Kenya in 2024, and it has been a truly fascinating and rewarding experience. The network has created an exceptional space for connecting with researchers across many African countries, and facilitating meaningful exchanges of ideas and perspectives. Beyond the high-quality events organised by ABDN, these interactions have sparked new collaborations and important conversations around open, ethical, and more representative neuroscience datasets. Equally memorable have been the experiences surrounding the events themselves, working and learning in Kenya, Nigeria, and Rwanda has been both professionally inspiring and personally enriching. ABDN is not only advancing brain data science in Africa, but also building a vibrant, collaborative, and welcoming research community.",
+    author: "Dr Horia Maior",
     role: "Neuroscientist",
-    institution: "University of Ghana",
+    institution: "University of Nothingham",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80"
   }
 ];
