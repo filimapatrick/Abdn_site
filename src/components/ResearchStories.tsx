@@ -11,11 +11,11 @@ const stories = [
     image: "./Assets/moses.png"
   },
   {
-    quote: "The network's support has been instrumental in establishing state-of-the-art neuroimaging facilities and advancing our understanding of brain disorders.",
-    author: "Dr. Mohammed Ahmed",
-    role: "Research Director",
-    institution: "ICIPE",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80"
+    quote: "ABDN is a wonderful resource for young, vibrant,talented scientists from  across the continent. The workshop fosters and encourages an environment of collaboration and the development of new ideas. I truly believe that the  future of African neuroimaging is bright. I look forward to seeing what is to come from these brilliant scientists.",
+    author: "Azeezat Azeez, PhD",
+    role: "Imaging Research Scientist",
+    institution: "Stanford School of Medicine",
+    image: "./Assets/Faculty/Azeezat.jpg"
   },
   {
     quote: "Through ABDN's mentorship program, we're developing the next generation of African neuroscientists and fostering innovation across the continent.",
@@ -44,7 +44,7 @@ export default function ResearchStories() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function ResearchStories() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col group"
             >
-              <div 
+              <div
                 className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative cursor-pointer"
                 onMouseEnter={() => setExpandedStory(index)}
                 onMouseLeave={() => setExpandedStory(null)}
@@ -82,8 +82,8 @@ export default function ResearchStories() {
                   "{expandedStory === index ? story.quote : truncateText(story.quote)}"
                 </p>
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex items-center mt-6 transform transition-transform duration-300 group-hover:translate-x-2"
                 whileHover={{ scale: 1.02 }}
               >
