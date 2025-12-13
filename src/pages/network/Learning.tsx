@@ -23,11 +23,11 @@ export default function Learning() {
             <p className="text-amber-700 mb-4 text-center">Comprehensive resources for structural MRI, functional MRI, DTI, and advanced neuroimaging techniques.</p>
             <a href="#" className="text-amber-600 hover:underline font-medium">Browse MRI Tutorials</a>
           </div>
-              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
             <img src="/Assets/franco_structural.jpeg" alt="MRI Tutorial" className="w-32 h-32 object-cover rounded-full mb-4" />
-            <h2 className="text-2xl font-semibold text-amber-900 mb-2">Fnir Learning Space</h2>
+            <h2 className="text-2xl font-semibold text-amber-900 mb-2">FNIRS Learning Space</h2>
             <p className="text-amber-700 mb-4 text-center">Comprehensive resources for functional near-infrared spectroscopy (fNIRS).</p>
-            <a href="#" className="text-amber-600 hover:underline font-medium">Browse Fnir Tutorials</a>
+            <a href="#" className="text-amber-600 hover:underline font-medium">Browse FNIRS Tutorials</a>
           </div>
         </div>
         <div className="mt-16 text-center text-amber-700">
