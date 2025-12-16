@@ -22,7 +22,7 @@ const stories = [
     author: "Dr Horia Maior",
     role: "Neuroscientist",
     institution: "University of Nothingham",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80"
+    image: "./Assets/Faculty/Horia.jpeg"
   }
 ];
 

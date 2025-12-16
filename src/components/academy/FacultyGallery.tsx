@@ -16,7 +16,7 @@ const combinedData = [
     profile: 'https://liberalarts.utexas.edu/psychology/faculty/fp4834/',
     year: 2023,
   },
-   {
+  {
     src: '/Assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
@@ -25,7 +25,7 @@ const combinedData = [
     profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
     year: 2023,
   },
-    {
+  {
     src: '/Assets/Faculty/Melanie.jpg',
     alt: 'Melanie Ganz-Benjaminsen',
     name: 'Melanie Ganz-Benjaminsen',
@@ -34,7 +34,7 @@ const combinedData = [
     profile: 'https://nru.dk/index.php/staff-list/post-docs/62-melanie-ganz-benjaminsen',
     year: 2023,
   },
-  
+
   {
     src: '/Assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
@@ -95,7 +95,7 @@ const combinedData = [
     alt: 'Thomas Nicholas ',
     name: 'Thomas Nicholas',
     role: 'Faculty',
-    Affiliation: 'University Of Oxford,USA',
+    Affiliation: 'University Of Oxford,UK',
     profile: 'https://www.bdi.ox.ac.uk/Team/t-e-nichols',
     year: 2023,
   },
@@ -108,7 +108,7 @@ const combinedData = [
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2023,
   },
- 
+
   {
     src: '/Assets/Faculty/Russ.jpg',
     alt: 'Russ Poldrack PhD',
@@ -138,7 +138,7 @@ const combinedData = [
     profile: 'https://liberalarts.utexas.edu/psychology/faculty/fp4834/',
     year: 2024,
   },
-    {
+  {
     src: '/Assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
@@ -189,15 +189,15 @@ const combinedData = [
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
     role: 'Faculty',
-    Affiliation: 'University of Texas at Austin, USA',
+    Affiliation: 'De Montfort University, Leicester, UK',
     profile: 'https://www.researchgate.net/profile/Moses-Sokunbi',
     year: 2024,
   },
-  
+
   // Teaching Assistants 2023
   {
     src: 'Assets/Faculty/dheerajbhatia.jpeg',
-    
+
     alt: 'Dheeraj Bhatia',
     name: 'Dheeraj Bhatia',
     role: 'Teaching Assistant',
@@ -279,6 +279,116 @@ const combinedData = [
     profile: 'https://liberalarts.utexas.edu/cps/gradstudents/ash3454',
     year: 2024,
   },
+
+  {
+    src: '/Assets/Faculty/Horia.jpeg',
+    alt: 'Horia Maior',
+    name: 'Horia Maior',
+    role: 'Faculty',
+    university: 'University of Nottingham, UK.',
+    profile: 'https://www.nottingham.ac.uk/computerscience/people/horia.maior',
+    year: 2024,
+  },
+  {
+    src: '/Assets/Faculty/James_kent.jpeg',
+    alt: 'James Kent',
+    name: 'James Kent',
+    role: 'Faculty',
+    university: 'University of Texas, Austin, USA.',
+    profile: 'https://liberalarts.utexas.edu/psychology/researchers/jdk3232',
+    year: 2024,
+  },
+  {
+    src: '/Assets/Faculty/denisschluppeck.jpg',
+    alt: 'Denis Schluppeck',
+    name: 'Denis Schluppeck',
+    role: 'Faculty',
+    university: 'University of Nottingham, UK.',
+    profile: 'https://www.nottingham.ac.uk/psychology/people/denis.schluppeck',
+    year: 2024,
+  },
+  {
+    src: '/Assets/Faculty/franco_delogu.jpg',
+    alt: 'Dr. Franco Delogu PhD',
+    name: 'Dr. Franco Delogu PhD',
+    role: 'Faculty',
+    Affiliation: 'University of Texas at Austin, USA',
+    profile: 'https://www.researchgate.net/profile/Franco-Delogu',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/Moses3.jpeg',
+    alt: 'Moses Sokunbi PhD',
+    name: 'Moses Sokunbi PhD',
+    role: 'Faculty',
+    Affiliation: 'De Montfort University, Leicester, UK',
+    profile: 'https://www.researchgate.net/profile/Moses-Sokunbi',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/Azeezat.jpg',
+    alt: 'Azeezat Azeez PhD',
+    name: 'Azeezat Azeez PhD',
+    role: 'Faculty',
+    Affiliation: 'Stanford University, California, USA.',
+    profile: 'https://profiles.stanford.edu/azeezat-azeez',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/Horia.jpeg',
+    alt: 'Horia Maior',
+    name: 'Horia Maior',
+    role: 'Faculty',
+    Affiliation: 'University of Nottingham, UK.',
+    profile: 'https://www.nottingham.ac.uk/computerscience/people/horia.maior',
+    year: 2025,
+  },
+  {
+    src: '',
+    alt: 'Pepita Bernard',
+    name: 'Pepita Bernard',
+    role: 'Faculty',
+    Affiliation: '',
+    profile: '',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/silke.jpg',
+    alt: 'Silke Anders PhD',
+    name: 'Silke Anders PhD',
+    role: 'Faculty',
+    Affiliation: 'University of Luberk, Germany',
+    profile: 'https://www.neuro.uni-luebeck.de/mitarbeiter/anders-silke.html',
+    year: 2025,
+  },
+
+  {
+    src: '/Assets/Faculty/Mustapha.png',
+    alt: 'Mustafa S. Hamada',
+    name: 'Mustafa S. Hamada',
+    role: 'Faculty',
+    Affiliation: 'University of Nottingham, UK',
+    profile: 'https://www.linkedin.com/in/mustafashamada/',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/Ore.jpeg',
+    alt: 'Ore Ogundipe',
+    name: 'Ore Ogundipe',
+    role: 'Teaching Assistant',
+    Affiliation: 'NEUROFUSION',
+    profile: '',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Faculty/Gilgal.jpeg',
+    alt: 'Gilgal J. A.',
+    name: 'Gilgal J. A.',
+    role: 'Teaching Assistant',
+    Affiliation: 'University of Pittsburgh',
+    profile: 'https://www.linkedin.com/in/gilgaljusticeansah/',
+    year: 2025,
+  },
 ];
 
 export default function FacultyGallery() {
@@ -287,7 +397,7 @@ export default function FacultyGallery() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedYear, setSelectedYear] = useState<number>(2024);
 
-  const years = [2023, 2024];
+  const years = [2023, 2024, 2025];
 
   const filteredMembers = combinedData.filter(member => member.year === selectedYear);
 
@@ -322,11 +432,10 @@ export default function FacultyGallery() {
               <motion.button
                 key={year}
                 onClick={() => setSelectedYear(year)}
-                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 ${
-                  selectedYear === year
-                    ? 'bg-amber-500 text-white shadow-lg scale-105'
-                    : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                }`}
+                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 ${selectedYear === year
+                  ? 'bg-amber-500 text-white shadow-lg scale-105'
+                  : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
+                  }`}
                 whileHover={{ scale: selectedYear === year ? 1.05 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -334,10 +443,10 @@ export default function FacultyGallery() {
                 {year}
               </motion.button>
             ))}
-        </div>
+          </div>
         </motion.div>
 
-     
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredMembers.slice(0, visibleMembers).map((member, index) => (
@@ -358,8 +467,8 @@ export default function FacultyGallery() {
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <motion.div 
+
+                <motion.div
                   className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                   animate={hoveredIndex === index ? { y: 0 } : { y: 20 }}

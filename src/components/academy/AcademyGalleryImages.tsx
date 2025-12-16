@@ -14,94 +14,97 @@ A highlight of 2023 was the establishment of our first cohort of African neurosc
 
 The 2024 academy placed particular emphasis on practical applications of neuroimaging datasets and the integration of digital tools into teaching and research. Participants engaged in hands-on projects that addressed real-world challenges in African neuroscience research, fostering innovation and collaboration.
 
-A significant achievement of 2024 was the establishment of stronger connections between African researchers and international neuroscience communities, creating new opportunities for collaboration and knowledge exchange. The program also saw the development of region-specific neuroimaging protocols tailored to African contexts, marking an important step towards more inclusive and representative brain research.`
+A significant achievement of 2024 was the establishment of stronger connections between African researchers and international neuroscience communities, creating new opportunities for collaboration and knowledge exchange. The program also saw the development of region-specific neuroimaging protocols tailored to African contexts, marking an important step towards more inclusive and representative brain research.`,
+  '2025': `The 2025 ABDS Academy marked another successful chapter in our dedication to advancing neuroscience in Africa. We welcomed a vibrant new cohort of researchers, further expanding our curriculum with cutting-edge topics and collaborative opportunities.
+
+This year's program deepened our focus on interdisciplinary research and the application of AI in neuroscience, successfully preparing our participants for the future of brain data science. The academy fostered a dynamic environment for learning and innovation.`
 };
 
 const galleryImages = [
   // 2023 Images
 
-  
-    {
-      "src": "/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
-      "alt": "Lecture session with Pestilli in Lagos",
-      "title": "Lecture with Pestilli in Lagos",
-      "description": "Insightful lecture on brain imaging research",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/mattew_exposing_participants_to_INCF.jpg",
-      "alt": "Mattew introducing participants to INCF",
-      "title": "Introducing INCF with Mattew",
-      "description": "Introduction to INCF neuroscience frameworks",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/mri_with_pestilli.jpg",
-      "alt": "Pestilli demonstrating MRI imaging techniques",
-      "title": "MRI Imaging with Pestilli",
-      "description": "Live MRI demonstration session with Pestilli",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/participant_at_Nigeria_researve.jpg",
-      "alt": "Participant at Nigeria Reserve center",
-      "title": "Interactive Session at Nigeria Reserve Center",
-      "description": "Fun and learning at Nigeria reserve",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/participants_at_panel_discussion.jpg",
-      "alt": "Panel discussion with session participants",
-      "title": "Panel Discussion Insights",
-      "description": "Engaging panel on brain data science",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/participants_at_the_art_gallery.jpg",
-      "alt": "Participants visiting an art gallery",
-      "title": "Exploring Art and Science",
-      "description": "Gallery visit blending art and science",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/participants_at_the_beach.jpg",
-      "alt": "Participants enjoying time at the beach",
-      "title": "Beachside Networking",
-      "description": "Networking session by the ocean breeze",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/participants_learning.jpg",
-      "alt": "Participants actively engaged in learning",
-      "title": "Active Learning Session",
-      "description": "Hands-on training in neuroscience methods",
-      "year": 2023
-    },
-   
-    {
-      "src": "/Assets/Academy_2023/participants_still_at_the_beach.jpg",
-      "alt": "Participants still enjoying the beach",
-      "title": "Extended Beach Time",
-      "description": "Continued fun time by the beach",
-      "year": 2023
-    },
-     {
-      "src": "/Assets/Academy_2023/participants_spare_time.jpg",
-      "alt": "Participants enjoying their spare time",
-      "title": "Relaxation and Interaction",
-      "description": "Participants bonding during spare moments",
-      "year": 2023
-    },
-    {
-      "src": "/Assets/Academy_2023/thank_speach_to_Kavli_foundation.jpg",
-      "alt": "Thank you speech to the Kavli Foundation",
-      "title": "Gratitude to Kavli Foundation",
-      "description": "Appreciation speech to Kavli Foundation team",
-      "year": 2023
-    },
-  
-  
-   // 2024 Images
+
+  {
+    "src": "/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
+    "alt": "Lecture session with Pestilli in Lagos",
+    "title": "Lecture with Pestilli in Lagos",
+    "description": "Insightful lecture on brain imaging research",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/mattew_exposing_participants_to_INCF.jpg",
+    "alt": "Mattew introducing participants to INCF",
+    "title": "Introducing INCF with Mattew",
+    "description": "Introduction to INCF neuroscience frameworks",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/mri_with_pestilli.jpg",
+    "alt": "Pestilli demonstrating MRI imaging techniques",
+    "title": "MRI Imaging with Pestilli",
+    "description": "Live MRI demonstration session with Pestilli",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participant_at_Nigeria_researve.jpg",
+    "alt": "Participant at Nigeria Reserve center",
+    "title": "Interactive Session at Nigeria Reserve Center",
+    "description": "Fun and learning at Nigeria reserve",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participants_at_panel_discussion.jpg",
+    "alt": "Panel discussion with session participants",
+    "title": "Panel Discussion Insights",
+    "description": "Engaging panel on brain data science",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participants_at_the_art_gallery.jpg",
+    "alt": "Participants visiting an art gallery",
+    "title": "Exploring Art and Science",
+    "description": "Gallery visit blending art and science",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participants_at_the_beach.jpg",
+    "alt": "Participants enjoying time at the beach",
+    "title": "Beachside Networking",
+    "description": "Networking session by the ocean breeze",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participants_learning.jpg",
+    "alt": "Participants actively engaged in learning",
+    "title": "Active Learning Session",
+    "description": "Hands-on training in neuroscience methods",
+    "year": 2023
+  },
+
+  {
+    "src": "/Assets/Academy_2023/participants_still_at_the_beach.jpg",
+    "alt": "Participants still enjoying the beach",
+    "title": "Extended Beach Time",
+    "description": "Continued fun time by the beach",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/participants_spare_time.jpg",
+    "alt": "Participants enjoying their spare time",
+    "title": "Relaxation and Interaction",
+    "description": "Participants bonding during spare moments",
+    "year": 2023
+  },
+  {
+    "src": "/Assets/Academy_2023/thank_speach_to_Kavli_foundation.jpg",
+    "alt": "Thank you speech to the Kavli Foundation",
+    "title": "Gratitude to Kavli Foundation",
+    "description": "Appreciation speech to Kavli Foundation team",
+    "year": 2023
+  },
+
+
+  // 2024 Images
   {
     src: '/Assets/cross_section.jpeg',
     alt: 'Cross Section Training',
@@ -137,8 +140,8 @@ const galleryImages = [
     description: 'Team presentation session during the workshop',
     year: 2024,
   },
- 
- 
+
+
   {
     src: '/Assets/project_report.jpeg',
     alt: 'Project Presentation',
@@ -146,7 +149,7 @@ const galleryImages = [
     description: 'Participants presenting their project findings',
     year: 2024,
   },
-   {
+  {
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (2).jpeg',
     alt: 'ABDN Workshop Group',
     title: 'Kenya Workshop',
@@ -187,15 +190,86 @@ const galleryImages = [
     title: 'Fmri lecture session',
     description: 'Participants engaging attentively throughout the session',
     year: 2024,
-  }
+  },
+  {
+    src: '/Assets/Academy_2025/python_neuroimageing.JPG',
+    alt: 'Introduction to python for neuroimaging analysis',
+    title: 'Introduction to python for neuroimaging analysis',
+    description: 'Introduction to python for neuroimaging analysis',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/Anita_landscape.JPG',
+    alt: 'A landscape photo of Anita',
+    title: 'Cross section of students',
+    description: 'Cross section of students',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/fnir.jpg',
+    alt: 'A section on Fnir',
+    title: 'Introduction to Fnirs',
+    description: 'An introduction to neuroimaging data  collection using research grade equipment(Mendi)',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/franco_delogu2025.JPG',
+    alt: 'A section on Fnir',
+    title: 'Introduction to Fnirs',
+    description: 'An introduction to neuroimaging data  collection using research grade equipment(Mendi)',
+    year: 2025,
+  },
+    {
+    src: '/Assets/Academy_2025/group_photo_2025.jpg',
+    alt: 'Group photo of participants and Faculty at ABDSA',
+    title: 'Group photo of participants and Faculty at ABDSA',
+    description: 'Group photo of participants and Faculty at ABDSA',
+    year: 2025,
+  },
+      {
+    src: '/Assets/Academy_2025/kafi_landscape.HEIC',
+    alt: 'Group photo of participants and Faculty at ABDSA',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+        {
+    src: '/Assets/Academy_2025/mustapha_fnir.jpg',
+    alt: 'Mustapha fnir',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/pepita_fnir.jpg',
+    alt: 'Mustapha fnir',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/silke_fmri_2025.png',
+    alt: 'Silke presentation',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  {
+    src: '/Assets/Academy_2025/silke_fmri_2025.png',
+    alt: 'Silke presentation',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  
 ];
 
 export default function AcademyGalleryImages() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedYear, setSelectedYear] = useState<'2023' | '2024'>('2024');
+  const [selectedYear, setSelectedYear] = useState<'2023' | '2024' | '2025'>('2024');
 
-  const years = ['2023', '2024'] as const;
+  const years = ['2023', '2024', '2025'] as const;
   const filteredImages = galleryImages.filter(image => image.year === Number(selectedYear));
 
   return (
@@ -212,24 +286,23 @@ export default function AcademyGalleryImages() {
           <p className="text-xl text-amber-700 max-w-3xl mx-auto mb-8">
             Capturing moments of discovery, collaboration, and growth in our journey.
           </p>
-          
+
           <div className="flex justify-center gap-4 mb-12">
             {years.map((year) => (
               <motion.button
                 key={year}
-                onClick={() => setSelectedYear(year as '2023' | '2024')}
-                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
-                  selectedYear === year
-                    ? 'bg-amber-500 text-white shadow-lg scale-105'
-                    : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                }`}
+                onClick={() => setSelectedYear(year as '2023' | '2024' | '2025')}
+                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${selectedYear === year
+                  ? 'bg-amber-500 text-white shadow-lg scale-105'
+                  : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
+                  }`}
                 whileHover={{ scale: selectedYear === year ? 1.05 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {year}
               </motion.button>
             ))}
-        </div>
+          </div>
 
           {/* Year Description */}
           <motion.div
@@ -265,14 +338,14 @@ export default function AcademyGalleryImages() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="aspect-w-16 aspect-h-9">
-              <img
-                src={image.src}
-                alt={image.alt}
+                <img
+                  src={image.src}
+                  alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-amber-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <motion.div 
+
+                <motion.div
                   className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                   animate={hoveredIndex === index ? { y: 0 } : { y: 20 }}
@@ -289,7 +362,7 @@ export default function AcademyGalleryImages() {
                     <ZoomIn className="ml-2 h-4 w-4 transition-transform group-hover/btn:scale-110" />
                   </motion.button>
                 </motion.div>
-            </div>
+              </div>
             </motion.div>
           ))}
         </div>
