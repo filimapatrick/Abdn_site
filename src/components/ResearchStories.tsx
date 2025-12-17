@@ -7,7 +7,7 @@ const stories = [
     quote: "Since joining ABDN in 2023 as a faculty member, I’ve had the privilege of connecting with exceptional students and colleagues. Mentoring students, co-authoring research papers, and collaborating on grant proposals have not only enriched my academic journey but also highlighted the vibrant, collaborative spirit of ABDN.",
     author: "Dr Moses Sokunbi",
     role: "Senior Lecturer",
-    institution: "De Montfort University",
+    institution: "University of Nottingham",
     image: "./Assets/moses.png"
   },
   {

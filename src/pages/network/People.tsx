@@ -433,7 +433,7 @@ const founders: Person[] = [
   {
     name: "Damian Eke PhD",
     title: "Director",
-    institution: "De Montfort University, Leicester, UK",
+    institution: "University of Nottingham, UK",
     bio: "Dr. Damian Okaibedi Eke is a Research Fellow in the EU Human Brain Project at DMU in the Centre for Computing and Social Responsibility. He is the secretary of the Data Governance Working Group for the Human Brain Project. With a Philosophy background and a Ph.D. in Computer Ethics from DMU, his research interests include responsible governance of biomedical data, neurodata governance, critical ICT research, RRI, technology ethics, data ethics, neuroethics, and ethics of AI systems.",
     image: "/Assets/Founders/Damian.jpeg",
     email: "damian.eke@dmu.ac.uk",

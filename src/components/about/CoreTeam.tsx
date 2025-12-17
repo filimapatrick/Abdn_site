@@ -7,7 +7,7 @@ const coreTeam = [
   {
     name: "Dr. Damian Eke",
     role: "Director",
-    institution: "De Montfort University",
+    institution: "University of Nottingham",
     image: "/Assets/Damian.jpeg",
     bio: "Leading expert in bioethics and responsible data sharing",
     socials: {
