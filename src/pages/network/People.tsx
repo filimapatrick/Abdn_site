@@ -437,7 +437,7 @@ const founders: Person[] = [
     bio: "Dr. Damian Okaibedi Eke is a Research Fellow in the EU Human Brain Project at DMU in the Centre for Computing and Social Responsibility. He is the secretary of the Data Governance Working Group for the Human Brain Project. With a Philosophy background and a Ph.D. in Computer Ethics from DMU, his research interests include responsible governance of biomedical data, neurodata governance, critical ICT research, RRI, technology ethics, data ethics, neuroethics, and ethics of AI systems.",
     image: "/Assets/Founders/Damian.jpeg",
     email: "damian.eke@dmu.ac.uk",
-    linkedin: "https://linkedin.com/in/damianeke",
+    linkedin: "https://www.linkedin.com/in/damian-eke-80742290/",
     twitter: "@DamianEke",
     achievements: []
   },
@@ -448,30 +448,40 @@ const founders: Person[] = [
     bio: "Dr. Eberechi Wogu is a Neuroscientist and Lecturer in the Department of Anatomy at UNIPORT. She is the secretary of the Neuroscience Society of Nigeria and treasurer of Women in Neuroscience Nigeria. With a background in Human Anatomy (BSc and MSc) and a Ph.D. in Neurobiology from the University of Calabar, her interests include African human brain imaging, open science, African neuroanthropology, and biological mechanisms of neurodegenerative diseases.",
     image: "/Assets/Founders/ebere1.jpeg",
     email: "eberechi.wogu@uniport.edu.ng",
-    linkedin: "https://linkedin.com/in/eberechiwogu",
+    linkedin: "https://www.linkedin.com/in/eberechi-wogu-55293819a/",
     twitter: "@DrEberechiWogu",
     achievements: []
   },
   {
     name: "Filima Patrick",
-    title: "Secretary",
+    title: "Member",
     institution: "ABDN Secretariat",
     bio: "Filima Patrick is a key member of the ABDN Secretariat, contributing to the organization's administrative and operational functions. With expertise in project management and coordination, he plays a vital role in ensuring the smooth operation of ABDN's initiatives across Africa.",
-    image: "/Assets/Founders/Patrick.jpg",
-    email: "patrick.filima@abdn.org",
+    image: "/Assets/Team/filima.jpeg",
+    email: "filimapatrick@gmail.com",
     linkedin: "https://linkedin.com/in/patrickfilima",
     twitter: "@PatrickFilima",
     achievements: []
   },
   {
     name: "Barisua Nsaanee",
-    title: "Administrative Officer",
+    title: "Member",
     institution: "ABDN Secretariat",
     bio: "Barisua Nsaanee serves as an Administrative Officer in the ABDN Secretariat, providing crucial support in managing the organization's day-to-day operations. Her role involves coordinating various administrative tasks and ensuring effective communication within the network.",
-    image: "/Assets/Founders/Barisua.jpg",
+    image: "/Assets/Team/barisua.jpeg",
     email: "barisua.nsaanee@abdn.org",
     linkedin: "https://linkedin.com/in/barisua-nsaanee",
     twitter: "@BarisuaNsaanee",
+    achievements: []
+  },
+  {
+    name: "Chinyem Nkemjika Ighodaro",
+    title: "Member",
+    institution: "University of Benin",
+    bio: "Chinyem Nkemjika Ighodaro is a Lecturer in the Department of Physiology at the University of Benin and serves as the Research Director for the African Brain Data Network (ABDN). Her work focuses on African neuroimaging, EEG datasets, and elucidating the physiological mechanisms of neurodegenerative diseases. She is dedicated to making African brain data FAIR (Findable, Accessible, Interoperable, and Reusable) to advance neuroscience research across the continent. Additionally, she advocates for diversity in science as the State Coordinator for Women in Neuroscience Nigeria.",
+    image: "/Assets/Team/Chinyem.jpg",
+    email: "Chinyem.ighodaro@uniben.edu",
+    linkedin: "https://www.linkedin.com/in/chinyem-ighodaro-427768a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     achievements: []
   }
 ];
