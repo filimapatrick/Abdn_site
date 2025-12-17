@@ -456,7 +456,7 @@ const founders: Person[] = [
     name: "Filima Patrick",
     title: "Member",
     institution: "ABDN Secretariat",
-    bio: "Filima Patrick is a key member of the ABDN Secretariat, contributing to the organization's administrative and operational functions. With expertise in project management and coordination, he plays a vital role in ensuring the smooth operation of ABDN's initiatives across Africa.",
+    bio: "Filima Patrick is a key member of the African Brain Data Network (ABDN) Secretariat, where he contributes as a developer supporting the technical backbone of the organization’s research activities. He is involved in building and maintaining data-driven tools, research platforms, and workflows that enable efficient management, analysis, and dissemination of neuroscience data. His work supports the scalability and technical sustainability of ABDN’s initiatives across Africa.",
     image: "/Assets/Team/filima.jpeg",
     email: "filimapatrick@gmail.com",
     linkedin: "https://linkedin.com/in/patrickfilima",
