@@ -38,8 +38,8 @@ const alumniData: Alumni[] = [
     name: "Abdulhafiz Umar",
     location: "Nigeria",
     cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
+    photo: "/Assets/Alumni/Abdulhafiz.jpg",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/abdulrazaq-zubair-226746168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ const alumniData: Alumni[] = [
     name: "Abdulrazaq Abdulraheem Ganiyu",
     location: "Nigeria",
     cohort: 2025,
-    photo: "/Assets/Alumni/Zubair.jpg",
+    photo: "/Assets/Alumni/Zubair.png",
     socialLinks: { linkedin: "https://www.linkedin.com/in/abdulrazaq-zubair-226746168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
   },
   {
@@ -149,6 +149,16 @@ const alumniData: Alumni[] = [
   },
   {
     id: 14,
+    name: "Cynthia Kahari",
+    location: "Zimbabwe",
+    cohort: 2025,
+    photo: "/Assets/Alumni/Cynthia_Kahari.jpg",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/cynthia-kahari-phd-a7b33b37",
+    },
+  },
+  {
+    id: 15,
     name: "Daisy Chelangat",
     location: "Nairobi, Kenya",
     cohort: 2024,
@@ -158,7 +168,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 15,
+    id: 16,
     name: "Dorcas Khasowa",
     location: "Nairobi, Kenya",
     cohort: 2024,
@@ -168,7 +178,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 16,
+    id: 17,
     name: "Eman Khalil",
     location: "Cairo, Egypt",
     cohort: 2023,
@@ -178,7 +188,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 17,
+    id: 18,
     name: "Erica Azechum Akanko",
     location: "Accra, Ghana",
     cohort: 2023,
@@ -188,7 +198,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 18,
+    id: 19,
     name: "Ezra Kipngetich Too",
     location: "Nairobi, Kenya",
     cohort: 2024,
@@ -198,7 +208,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 19,
+    id: 20,
     name: "Fadiji Olatundun Oluwapelumi",
     location: "Lagos, Nigeria",
     cohort: 2024,
@@ -208,7 +218,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 20,
+    id: 21,
     name: "Falonne Tiffany NIAKAM MBOULEUP",
     location: "Sicap Baobab, Senegal",
     cohort: 2023,
@@ -218,7 +228,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 21,
+    id: 22,
     name: "Felix Chege Ng'ang'a",
     location: "10203 Kigumo, Kenya",
     cohort: 2023,
@@ -228,7 +238,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 22,
+    id: 23,
     name: "Felix Mburu Njoroge",
     location: "Nairobi, Kenya",
     cohort: 2023,
@@ -239,15 +249,16 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 23,
+    id: 24,
     name: "Francis Agbaraolorunpo",
     location: "Nigeria",
     cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
+    photo: "/Assets/Alumni/France - Francis Agbaraolorunpo.png",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/francis-agbaraolorunpo-b-sc-mb-bs-ph-d-437a83188/?originalSubdomain=ng" }
   },
+
   {
-    id: 24,
+    id: 25,
     name: "Dr Isa Hassan Muhammad ",
     location: "Nigeria",
     cohort: 2025,
@@ -255,7 +266,15 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "https://www.linkedin.com/in/dr-isa-hassan-muhammad-773981125?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0k63pGf2Q%2FCeZHDQ%2BtYptQ%3D%3D" }
   },
   {
-    id: 25,
+    id: 26,
+    name: "Happiness Inyang",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "/Assets/Alumni/Happiness_Inyang.jpg",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/happiness-inyang-a2a085254/" }
+  },
+  {
+    id: 27,
     name: "IBEACHU CHINAGOROM",
     location: "Port-Harcourt, Rivers State, Nigeria",
     cohort: 2023,
@@ -263,7 +282,7 @@ const alumniData: Alumni[] = [
     socialLinks: {},
   },
   {
-    id: 26,
+    id: 28,
     name: "Ibrahim Aliyu Lawal",
     location: "Nigeria",
     cohort: 2025,
@@ -271,7 +290,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 27,
+    id: 29,
     name: "Jacob Apibilla Ayembilla",
     location: "Ghana",
     cohort: 2025,
@@ -279,7 +298,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 28,
+    id: 30,
     name: "Jane Uchechi Obiako",
     location: "Ibadan, Oyo State, Nigeria",
     cohort: 2023,
@@ -289,7 +308,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 29,
+    id: 31,
     name: "Joan Mutahi",
     location: "Nairobi, Kenya",
     cohort: 2024,
@@ -299,7 +318,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 30,
+    id: 32,
     name: "Joshua Ayodele Yusuf",
     location: "Ogbomoso, Nigeria",
     cohort: 2023,
@@ -307,7 +326,7 @@ const alumniData: Alumni[] = [
     socialLinks: {},
   },
   {
-    id: 31,
+    id: 33,
     name: "Kojo Nketia",
     location: "Ayawaso West, Botanical Gardens Road, G4489, Ghana",
     cohort: 2023,
@@ -315,7 +334,7 @@ const alumniData: Alumni[] = [
     socialLinks: {},
   },
   {
-    id: 32,
+    id: 34,
     name: "Maryam Abubakar Mohammed",
     location: "Nigeria",
     cohort: 2025,
@@ -323,7 +342,15 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 33,
+    id: 35,
+    name: "Mercy Nathaniel",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "/Assets/Alumni/Mercy_Nathaniel.jpg",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/nathaniel-mercy" }
+  },
+  {
+    id: 36,
     name: "Moses Ayodele Ogunlade",
     location: "Nigeria",
     cohort: 2025,
@@ -331,7 +358,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 34,
+    id: 37,
     name: "Mustapha Abdullahi Muhammad",
     location: "Nigeria",
     cohort: 2025,
@@ -339,7 +366,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 35,
+    id: 38,
     name: "Naabiae B. Goodness",
     location: "Choba Exe Rd, Obi-nkitaSt, PH, Nigeria",
     cohort: 2023,
@@ -347,7 +374,7 @@ const alumniData: Alumni[] = [
     socialLinks: {},
   },
   {
-    id: 36,
+    id: 39,
     name: "Ogunmiluyi Oluwafunmbi Ebenezer",
     location: "Ondo, Nigeria",
     cohort: 2024,
@@ -357,7 +384,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 37,
+    id: 40,
     name: "Olubunmi Abimbola Akinwale",
     location: "Nigeria",
     cohort: 2025,
@@ -365,7 +392,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 38,
+    id: 41,
     name: "Oumayma SOULA",
     location: "Sfax, Tunisia",
     cohort: 2024,
@@ -375,7 +402,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 39,
+    id: 42,
     name: "Ridwan Abdulfatai Ibrahim",
     location: "Nigeria",
     cohort: 2025,
@@ -383,7 +410,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 40,
+    id: 43,
     name: "Rosemary Nwosu",
     location: "Port Harcourt, Rivers State, Nigeria",
     cohort: 2023,
@@ -393,7 +420,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 41,
+    id: 44,
     name: "Sadiya Abubakar Danjuma",
     location: "Nigeria",
     cohort: 2025,
@@ -401,7 +428,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 42,
+    id: 45,
     name: "Samson Ehindero Olorunnado",
     location: "Rwanda",
     cohort: 2024,
@@ -411,7 +438,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 43,
+    id: 46,
     name: "Samuel Adebola Adeyemi",
     location: "Nigeria",
     cohort: 2025,
@@ -419,7 +446,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 44,
+    id: 47,
     name: "Smart Chidi Oparaugo",
     location: "Port Harcourt, Nigeria",
     cohort: 2023,
@@ -429,7 +456,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 45,
+    id: 48,
     name: "Stephen Kiilu",
     location: "Nairobi, Kenya",
     cohort: 2022,
@@ -439,7 +466,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 46,
+    id: 49,
     name: "Sulaiman Adebayo Adebisi",
     location: "Nigeria",
     cohort: 2025,
@@ -447,7 +474,7 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 47,
+    id: 50,
     name: "TSEMO YIMTA GRACE MAIVA",
     location: "Dakar, Senegal",
     cohort: 2023,
@@ -457,7 +484,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 48,
+    id: 51,
     name: "Unshur Ahmed",
     location: "Mogadishu, Somalia",
     cohort: 2024,
@@ -467,7 +494,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 49,
+    id: 52,
     name: "Vicent Balitema",
     location: "Mbarara, Uganda",
     cohort: 2023,
@@ -477,7 +504,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 50,
+    id: 53,
     name: "Zainab Ashimiyu-Abdusalam",
     location: "Lagos, Nigeria",
     cohort: 2023,
@@ -487,7 +514,7 @@ const alumniData: Alumni[] = [
     },
   },
   {
-    id: 51,
+    id: 54,
     name: "Zainab Musa Sulaiman",
     location: "Nigeria",
     cohort: 2025,
@@ -495,15 +522,15 @@ const alumniData: Alumni[] = [
     socialLinks: { linkedin: "" }
   },
   {
-    id: 52,
+    id: 55,
     name: "Mundih Noelar Njohjam",
     location: "Cameroon",
     cohort: 2025,
     photo: "/Assets/Alumni/Mundih.jpg",
     socialLinks: { linkedin: "https://www.linkedin.com/in/mundih-noelar-njohjam-md-msc-5a110a47?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
   },
-   {
-    id: 53,
+  {
+    id: 56,
     name: "Zainab Saleh Sambo",
     location: "Nigeria",
     cohort: 2025,
@@ -516,74 +543,74 @@ const alumniData: Alumni[] = [
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Dr. Sarah Mwangi",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/sarah-mwangi.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Bala Mairiga Abduljalil",
+    organization: "HausaNLP Research Lab.",
+    image: "/Assets/Alumni/Bala_Mairiga_Abduljalil.jpg",
+    quote: "My experience at the African Brain Data Science Academy was exceptional and far beyond my expectations. The program provided intensive, hands-on training in brain data science, covering modalities such as EEG, fNIRS, MRI, and fMRI, guided by world-class experts from University of Nottingham, Lawrence University and we are fortunate to explored first neurosight devices before market by Mendi company, sweden. The mentorship, collaborative environment, and focus on FAIR African brain data strengthened my technical skills, research capacity, and interdisciplinary thinking. The Academy has greatly enhanced my confidence to apply advanced computational approaches to address neuroscience challenges relevant to Africa.",
     rating: 5
   },
   {
     id: 2,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "SOLADOYE Afeez Adekunle ",
+    organization: "Adeleke university Ede and Federal University Oye-Ekiti ",
+    image: "/Assets/Alumni/SOLADOYE.jpg",
+    quote: "I have gained a lot of experience on Brain data. This has also provided me room to network and experience multidisciplinary research as demonstrated in our research on fNIRS where a team of Medical doctor, anatomist, physiologist and ML engineer analysed the brain data and it's relationship on activation of PFC with go/no-go task. Moreover, it provided me the room to understand different brain data formats like EEH, MRI, fMRI and fNIRS as I'm already looking how to apply my computing skills to expand Africa brain data.",
     rating: 5
   },
   {
     id: 3,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Dr Isa Hassan Muhammad ",
+    organization: "Yobe State University Damaturu/BioRTC",
+    image: "/Assets/Alumni/Isa.jpg",
+    quote: "From beginning to end, the organizers performed an outstanding job.  The workshop was extremely well-organized, offering a smooth and interesting educational experience.  The event was a huge success because of their commitment to making sure everything ran smoothly and creating a cooperative atmosphere.  Thanks to their outstanding organizational efforts, we are departing with invaluable new skills and connections.",
     rating: 5
   },
   {
     id: 4,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Mundih Noelar Njohjam ",
+    organization: "",
+    image: "/Assets/Alumni/Mundih.jpg",
+    quote: "The two weeks of training have been an invaluable experience that will continue to save me a lifetime. From learning about  brain data collection techniques like fNIRS to collecting real-time data, the experience has been greatly rewarding. I have learned how to leverage data analysis tools and platforms to analyze and interpret complex and large datasets. These skills and knowledge will greatly inform further training and projects in neuroscience. The sessions were empowering and engaging, facilitators were really good. Thank you for the opportunity to be part of this great network.",
     rating: 5
   },
   {
     id: 5,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Abdulrazaq Zubair",
+    organization: "Federal University of Health Sciences, Azare",
+    image: "/Assets/Alumni/Zubair.png",
+    quote: "Participating in the ABDSA Workshop in Lagos has been a truly transformative experience for me. The workshop has completely reshaped my perception of neuroscience and has significantly deepened my understanding of how to generate, manage, and share data in line with FAIR (Findable, Accessible, Interoperable, and Reusable) principles. Beyond the rich academic and technical training, one of the most rewarding aspects of this workshop has been the opportunity to connect with an incredible community of people. I have met outstanding faculty members and participant colleagues from different countries, all of whom are passionate, supportive, and inspiring. The diversity of perspectives and the spirit of collaboration created a highly enriching learning environment. This workshop has been an unforgettable experience, both professionally and personally. I am deeply grateful for the knowledge gained, the friendships formed, and the networks built. I am committed to sustaining these relationships and fostering meaningful collaborations that will extend well beyond the ABDSA Workshop Lagos, Nigeria 2025.",
     rating: 5
   },
   {
     id: 6,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Zainab Saleh Sambo",
+    organization: "Ahmadu Bello University, Zaria",
+    image: "/Assets/Alumni/zainab_sambo.jpeg",
+    quote: "ABDSA has been one of the best experiences of my life. I have learnt, laughed, and networked with peers. I am grateful for the opportunity to attend.",
     rating: 5
   },
   {
     id: 7,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Abdulhafiz Umar Dabo",
+    organization: "Nigerian Defence Academy",
+    image: "/Assets/Alumni/abdulhafiz.jpg",
+    quote: "It was an incredible experience being a part of the ABDSA 2025. My profound appreciation goes to the entire organizing team, for their professionalism in putting this together. To all the participants, it is my honor to share the space with you for two weeks, considering we all came from different cultural and academic backgrounds. I look forward to leveraging the relationship we have built, and collaboratively producing high quality research.",
     rating: 5
   },
   {
     id: 8,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Cynthia Kahari",
+    organization: "University of Zimbabwe",
+    image: "/Assets/Alumni/Cynthia_Kahari.jpg",
+    quote: "The African Brain Data Science Academy has been eye opening and packed with useful lessons on brain MRI, fMRI, fNIRS, python etc. I am grateful for the opportunity to have spent these 2 weeks learning from experienced neuroimaging and neuroscience researchers, discussing the importance of building FAIR brain datasets in Africa and meeting new potential research collaborators. This is surely one of the awesome things that have happened to me this year and I am excited for the future of neuroimaging beyond this academy.",
     rating: 5
   },
   {
     id: 9,
-    name: "Dr. John Doe",
-    organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
-    quote: "The ABDN program provided me with invaluable skills and connections that have been crucial in advancing neuroscience research in Kenya.",
+    name: "Mercy Nathaniel",
+    organization: "Ahmadu Bello University, Zaria",
+    image: "/Assets/Alumni/Mercy_Nathaniel.jpg",
+    quote: "Attending ABDSA feels like a full circle moment, starting from the first cohort in 2023 where I first came across Neuroimaging techniques and now in 2025 ,I'm sitting in a room I once dreamed about. It's been an intensive and life transforming experience. I like the fact that I'm leaving this academy empowereded with skills and techniques to answer the numerous research questions I've been curious about. Aside the learning experience, the investment made to ensure that every participant is comfortable enough to learn, assimilate lectures and hands-on technical sessions is commendable. The opportunity to meet and collolabrate on projects with participants from interdisciplinary background was really enriching. I'm motivated to drive research and the generation of African brain data forward. Thank you ABDN for this incredible opportunity.",
     rating: 5
   },
   {
@@ -592,6 +619,22 @@ const testimonials: Testimonial[] = [
     organization: "African Institute of Brain Research",
     image: "/images/alumni/john-doe.jpg",
     quote: "My life has not been the same after ABDSN. The things I learnt coupled with the connections I made have propagated my career growth. Through ABDSN, I now have a wonderful mentor (my first since the beginning of my career) whom I've been working with for some time now. I have been featured as a co-author in a paper which will be published very soon. My project colleague and I are also continuing with the project we started in other to publish it. Much is there to be said, but let me just keep that for another day.",
+    rating: 5
+  },
+    {
+    id: 11,
+    name: "Dr Francis Agbaraolorunpo",
+    organization: "University of Lagos",
+    image: "/Assets/Alumni/Dr_Francis_Agbaraolorunpo.jpg",
+    quote: "ABDSA was a unique opportunity to learn, upscale,exploy, network and collaborate.New technologies and techniques in acquiring and analysing brain dataset were learned from  our amazing  scholars and Falculties from the global north. from  different tech companies  inluding Mendi, Brainlife.i.o,MathWorks and  University of Nottingham. Amazing  Neuroscience group Projects with FNIRS and BrainLife  were conducted. On the whole, the entire experience was rewarding, uplifting,  inspiring, impactful, insightful,l memorable and rhapsodious. Extremely thankful and grateful to the sponsors ABDN  and IBRO, and their amazing collaborators ; Mendi, BrainLife, University of Nottingham, Kavli foundation. The hospitality at BWC Hotel  was superlative, tantalizing  and refreshing. It was indeed an amazing experience connecting with Medical doctors, Biomedical Engineers, Biomedical Scientist, Data Scientist, Clinical Radiographers and other experts from all parts of Nigeria and Africa countries- Cameroun, Kenyan, Tanzania, Uganda ,Ghana .What an unforgetable sweet experience",
+    rating: 5
+  },
+   {
+    id: 11,
+    name: "Happiness Inyang",
+    organization: "University of Medical Sciences, Ondo, Nigeria",
+    image: "/Assets/Alumni/Happiness_Inyang.jpg",
+    quote: "ABDSA has been a highly impactful and enriching experience. Through this program, I gained solid knowledge and practical skills in neuroimaging and neurodata analysis. Most importantly, it has brought about a significant and positive shift in my career trajectory as a neuroscience researcher.",
     rating: 5
   },
 ];
@@ -833,8 +876,8 @@ export default function Alumni() {
                   transition={{ duration: 0.5 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-80 bg-amber-100">
-                    {alumni.photo && (
+                  <div className="relative h-40 bg-amber-100">
+                    {/* {alumni.photo && (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <img
                           src={alumni.photo}
@@ -842,7 +885,7 @@ export default function Alumni() {
                           className="w-1/2 aspect-square object-contain rounded-full"
                         />
                       </div>
-                    )}
+                    )} */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-amber-900/50" />
                     <div className="absolute bottom-4 left-4">
                       <h3 className="text-2xl font-bold text-white">{alumni.name}</h3>

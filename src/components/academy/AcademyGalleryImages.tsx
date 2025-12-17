@@ -22,90 +22,98 @@ This year's program deepened our focus on interdisciplinary research and the app
 
 const galleryImages = [
   // 2023 Images
-
-
   {
-    "src": "/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
-    "alt": "Lecture session with Pestilli in Lagos",
-    "title": "Lecture with Pestilli in Lagos",
-    "description": "Insightful lecture on brain imaging research",
-    "year": 2023
+    id: 1,
+    src: "/Assets/Academy_2023/lecture_with_pestilli_in_lagos.jpg",
+    alt: "Lecture session with Pestilli in Lagos",
+    title: "Lecture with Pestilli in Lagos",
+    description: "Insightful lecture on brain imaging research",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/mattew_exposing_participants_to_INCF.jpg",
-    "alt": "Mattew introducing participants to INCF",
-    "title": "Introducing INCF with Mattew",
-    "description": "Introduction to INCF neuroscience frameworks",
-    "year": 2023
+    id: 2,
+    src: "/Assets/Academy_2023/mattew_exposing_participants_to_INCF.jpg",
+    alt: "Mattew introducing participants to INCF",
+    title: "Introducing INCF with Mattew",
+    description: "Introduction to INCF neuroscience frameworks",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/mri_with_pestilli.jpg",
-    "alt": "Pestilli demonstrating MRI imaging techniques",
-    "title": "MRI Imaging with Pestilli",
-    "description": "Live MRI demonstration session with Pestilli",
-    "year": 2023
+    id: 3,
+    src: "/Assets/Academy_2023/mri_with_pestilli.jpg",
+    alt: "Pestilli demonstrating MRI imaging techniques",
+    title: "MRI Imaging with Pestilli",
+    description: "Live MRI demonstration session with Pestilli",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participant_at_Nigeria_researve.jpg",
-    "alt": "Participant at Nigeria Reserve center",
-    "title": "Interactive Session at Nigeria Reserve Center",
-    "description": "Fun and learning at Nigeria reserve",
-    "year": 2023
+    id: 4,
+    src: "/Assets/Academy_2023/participant_at_Nigeria_researve.jpg",
+    alt: "Participant at Nigeria Reserve center",
+    title: "Interactive Session at Nigeria Reserve Center",
+    description: "Fun and learning at Nigeria reserve",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participants_at_panel_discussion.jpg",
-    "alt": "Panel discussion with session participants",
-    "title": "Panel Discussion Insights",
-    "description": "Engaging panel on brain data science",
-    "year": 2023
+    id: 5,
+    src: "/Assets/Academy_2023/participants_at_panel_discussion.jpg",
+    alt: "Panel discussion with session participants",
+    title: "Panel Discussion Insights",
+    description: "Engaging panel on brain data science",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participants_at_the_art_gallery.jpg",
-    "alt": "Participants visiting an art gallery",
-    "title": "Exploring Art and Science",
-    "description": "Gallery visit blending art and science",
-    "year": 2023
+    id: 6,
+    src: "/Assets/Academy_2023/participants_at_the_art_gallery.jpg",
+    alt: "Participants visiting an art gallery",
+    title: "Exploring Art and Science",
+    description: "Gallery visit blending art and science",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participants_at_the_beach.jpg",
-    "alt": "Participants enjoying time at the beach",
-    "title": "Beachside Networking",
-    "description": "Networking session by the ocean breeze",
-    "year": 2023
+    id: 7,
+    src: "/Assets/Academy_2023/participants_at_the_beach.jpg",
+    alt: "Participants enjoying time at the beach",
+    title: "Beachside Networking",
+    description: "Networking session by the ocean breeze",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participants_learning.jpg",
-    "alt": "Participants actively engaged in learning",
-    "title": "Active Learning Session",
-    "description": "Hands-on training in neuroscience methods",
-    "year": 2023
-  },
-
-  {
-    "src": "/Assets/Academy_2023/participants_still_at_the_beach.jpg",
-    "alt": "Participants still enjoying the beach",
-    "title": "Extended Beach Time",
-    "description": "Continued fun time by the beach",
-    "year": 2023
+    id: 8,
+    src: "/Assets/Academy_2023/participants_learning.jpg",
+    alt: "Participants actively engaged in learning",
+    title: "Active Learning Session",
+    description: "Hands-on training in neuroscience methods",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/participants_spare_time.jpg",
-    "alt": "Participants enjoying their spare time",
-    "title": "Relaxation and Interaction",
-    "description": "Participants bonding during spare moments",
-    "year": 2023
+    id: 9,
+    src: "/Assets/Academy_2023/participants_still_at_the_beach.jpg",
+    alt: "Participants still enjoying the beach",
+    title: "Extended Beach Time",
+    description: "Continued fun time by the beach",
+    year: 2023
   },
   {
-    "src": "/Assets/Academy_2023/thank_speach_to_Kavli_foundation.jpg",
-    "alt": "Thank you speech to the Kavli Foundation",
-    "title": "Gratitude to Kavli Foundation",
-    "description": "Appreciation speech to Kavli Foundation team",
-    "year": 2023
+    id: 10,
+    src: "/Assets/Academy_2023/participants_spare_time.jpg",
+    alt: "Participants enjoying their spare time",
+    title: "Relaxation and Interaction",
+    description: "Participants bonding during spare moments",
+    year: 2023
   },
-
+  {
+    id: 11,
+    src: "/Assets/Academy_2023/thank_speach_to_Kavli_foundation.jpg",
+    alt: "Thank you speech to the Kavli Foundation",
+    title: "Gratitude to Kavli Foundation",
+    description: "Appreciation speech to Kavli Foundation team",
+    year: 2023
+  },
 
   // 2024 Images
   {
+    id: 12,
     src: '/Assets/cross_section.jpeg',
     alt: 'Cross Section Training',
     title: 'Cross Section Analysis',
@@ -113,6 +121,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 13,
     src: '/Assets/franco_structural.jpeg',
     alt: 'Structural Analysis',
     title: 'Introduction to MRI Physics',
@@ -120,6 +129,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 14,
     src: '/Assets/Damian_nairobi.jpeg',
     alt: 'NeuroEthics Training',
     title: 'Ethics and Data Governance Training Session',
@@ -127,6 +137,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 15,
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (5).jpeg',
     alt: 'Group presentation',
     title: 'Research Presentation',
@@ -134,15 +145,15 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 16,
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (4).jpeg',
     alt: 'Team Collaboration',
     title: 'Capacity Building among Participants',
     description: 'Team presentation session during the workshop',
     year: 2024,
   },
-
-
   {
+    id: 17,
     src: '/Assets/project_report.jpeg',
     alt: 'Project Presentation',
     title: 'Research Symposium',
@@ -150,6 +161,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 18,
     src: '/Assets/WhatsApp Image 2024-12-17 at 20.17.29 (2).jpeg',
     alt: 'ABDN Workshop Group',
     title: 'Kenya Workshop',
@@ -157,6 +169,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 19,
     src: '/Assets/participant4.jpeg',
     alt: 'Laboratory Session',
     title: 'Participants’ Group Photo',
@@ -164,6 +177,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 20,
     src: '/Assets/participant5.jpeg',
     alt: 'Workshop Session',
     title: 'Group Photo at Workshop',
@@ -171,6 +185,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 21,
     src: '/Assets/participant6.jpeg',
     alt: 'Group Discussion',
     title: 'Team Discussion',
@@ -178,6 +193,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 22,
     src: '/Assets/participant7.jpeg',
     alt: 'Research Presentation',
     title: 'Faculty Support & Guidance',
@@ -185,6 +201,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 23,
     src: '/Assets/participant8.jpeg',
     alt: 'Group Work',
     title: 'Fmri lecture session',
@@ -192,6 +209,7 @@ const galleryImages = [
     year: 2024,
   },
   {
+    id: 24,
     src: '/Assets/Academy_2025/python_neuroimageing.JPG',
     alt: 'Introduction to python for neuroimaging analysis',
     title: 'Introduction to python for neuroimaging analysis',
@@ -199,6 +217,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 25,
     src: '/Assets/Academy_2025/Anita_landscape.JPG',
     alt: 'A landscape photo of Anita',
     title: 'Cross section of students',
@@ -206,6 +225,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 26,
     src: '/Assets/Academy_2025/fnir.jpg',
     alt: 'A section on Fnir',
     title: 'Introduction to Fnirs',
@@ -213,27 +233,31 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 27,
     src: '/Assets/Academy_2025/franco_delogu2025.JPG',
     alt: 'A section on Fnir',
     title: 'Introduction to Fnirs',
     description: 'An introduction to neuroimaging data  collection using research grade equipment(Mendi)',
     year: 2025,
   },
-    {
+  {
+    id: 28,
     src: '/Assets/Academy_2025/group_photo_2025.jpg',
     alt: 'Group photo of participants and Faculty at ABDSA',
     title: 'Group photo of participants and Faculty at ABDSA',
     description: 'Group photo of participants and Faculty at ABDSA',
     year: 2025,
   },
-      {
+  {
+    id: 29,
     src: '/Assets/Academy_2025/kafi_landscape.HEIC',
     alt: 'Group photo of participants and Faculty at ABDSA',
     title: '',
     description: '',
     year: 2025,
   },
-        {
+  {
+    id: 30,
     src: '/Assets/Academy_2025/mustapha_fnir.jpg',
     alt: 'Mustapha fnir',
     title: '',
@@ -241,6 +265,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 31,
     src: '/Assets/Academy_2025/pepita_fnir.jpg',
     alt: 'Mustapha fnir',
     title: '',
@@ -248,6 +273,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 32,
     src: '/Assets/Academy_2025/silke_lecture.png',
     alt: 'Silke presentation',
     title: '',
@@ -255,6 +281,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 33,
     src: '/Assets/Academy_2025/Silke_lecture1.png',
     alt: 'Silke presentation',
     title: '',
@@ -262,6 +289,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 34,
     src: '/Assets/Academy_2025/mustapha_fnirs.jpg',
     alt: 'Mustapha fnirs',
     title: '',
@@ -269,20 +297,15 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 35,
     src: '/Assets/Academy_2025/conservative_center.JPG',
     alt: 'Conservative center',
     title: '',
     description: '',
     year: 2025,
   },
-  // {
-  //   src: '/Assets/Academy_2025/pepita_speech.png',
-  //   alt: 'Pepita speech',
-  //   title: '',
-  //   description: '',
-  //   year: 2025,
-  // },
   {
+    id: 36,
     src: '/Assets/Academy_2025/suleiman_presentation.png',
     alt: 'Suleiman presentation',
     title: '',
@@ -290,6 +313,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 37,
     src: '/Assets/Academy_2025/fnir_presentation.png',
     alt: 'Fnir presentation',
     title: '',
@@ -297,6 +321,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 38,
     src: '/Assets/Academy_2025/pepita_snapshot.png',
     alt: 'Pepita snapshot',
     title: '',
@@ -304,6 +329,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 39,
     src: '/Assets/Academy_2025/fnir_group_presentation.png',
     alt: 'Fnir group presentation',
     title: '',
@@ -311,6 +337,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 40,
     src: '/Assets/Academy_2025/group_presentation2.png',
     alt: 'Group presentation',
     title: '',
@@ -318,20 +345,15 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 41,
     src: '/Assets/Academy_2025/group3.png',
     alt: 'Group presentation',
     title: '',
     description: '',
     year: 2025,
   },
-  // {
-  //   src: '/Assets/Academy_2025/participantgroup.png',
-  //   alt: 'Participant group',
-  //   title: '',
-  //   description: '',
-  //   year: 2025,
-  // },
   {
+    id: 42,
     src: '/Assets/Academy_2025/Chinyem_question.png',
     alt: 'Chinyem question',
     title: '',
@@ -339,6 +361,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 43,
     src: '/Assets/Academy_2025/group_photo.png',
     alt: 'Group photo',
     title: '',
@@ -346,6 +369,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 44,
     src: '/Assets/Academy_2025/moses_lecture.png',
     alt: 'Moses lecture',
     title: '',
@@ -353,6 +377,7 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 45,
     src: '/Assets/Academy_2025/mendy_mustapha.jpg',
     alt: 'Mustapha lecture',
     title: '',
@@ -360,13 +385,13 @@ const galleryImages = [
     year: 2025,
   },
   {
+    id: 46,
     src: '/Assets/Academy_2025/mendy.jpg',
     alt: 'Mustapha lecture',
     title: '',
     description: '',
     year: 2025,
   },
-  
 ];
 
 export default function AcademyGalleryImages() {
@@ -433,7 +458,7 @@ export default function AcademyGalleryImages() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((image, index) => (
             <motion.div
-              key={index}
+              key={image.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

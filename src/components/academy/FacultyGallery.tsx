@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Users, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 
 
@@ -8,6 +8,7 @@ import { ArrowRight, Users, Calendar } from 'lucide-react';
 const combinedData = [
   // Faculty
   {
+    id: 1,
     src: '/Assets/Faculty/pestili.jpg',
     alt: 'Franco Pestilli PhD',
     name: 'Franco Pestilli PhD',
@@ -17,6 +18,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 2,
     src: '/Assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
@@ -26,6 +28,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 3,
     src: '/Assets/Faculty/Melanie.jpg',
     alt: 'Melanie Ganz-Benjaminsen',
     name: 'Melanie Ganz-Benjaminsen',
@@ -34,8 +37,8 @@ const combinedData = [
     profile: 'https://nru.dk/index.php/staff-list/post-docs/62-melanie-ganz-benjaminsen',
     year: 2023,
   },
-
   {
+    id: 4,
     src: '/Assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
     name: 'Ariel Rokem PhD',
@@ -45,6 +48,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 5,
     src: '/Assets/Faculty/lyuba.jpeg',
     alt: 'Lyuba Zehl PhD',
     name: 'Lyuba Zehl PhD',
@@ -54,6 +58,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 6,
     src: '/Assets/Faculty/Matthew.jpg',
     alt: 'Matthew Abrams PhD',
     name: 'Matthew Abrams PhD',
@@ -62,8 +67,8 @@ const combinedData = [
     profile: 'https://www.incf.org/team/mathew-birdsall-abrams',
     year: 2023,
   },
-
   {
+    id: 7,
     src: '/Assets/Faculty/miller.jpg',
     alt: 'Karla L.Miller',
     name: 'Karla L.Miller',
@@ -73,6 +78,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 8,
     src: '/Assets/Faculty/ben_ditcher.jpeg',
     alt: 'Ben Ditcher ',
     name: 'Ben Ditcher',
@@ -82,6 +88,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 9,
     src: '/Assets/Faculty/petra.jpg',
     alt: 'Petra Ritter',
     name: 'Petra Ritter',
@@ -91,6 +98,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 10,
     src: '/Assets/Faculty/nicholas.webp',
     alt: 'Thomas Nicholas ',
     name: 'Thomas Nicholas',
@@ -100,6 +108,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 11,
     src: '/Assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
@@ -108,8 +117,8 @@ const combinedData = [
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2023,
   },
-
   {
+    id: 12,
     src: '/Assets/Faculty/Russ.jpg',
     alt: 'Russ Poldrack PhD',
     name: 'Russ Poldrack PhD',
@@ -119,6 +128,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 13,
     src: '/Assets/Faculty/Moses.jpg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
@@ -130,6 +140,7 @@ const combinedData = [
 
   // 2024 faculty
   {
+    id: 14,
     src: '/Assets/Faculty/pestili.jpg',
     alt: 'Franco Pestilli	PhD',
     name: 'Franco Pestilli	PhD',
@@ -139,6 +150,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 15,
     src: '/Assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
@@ -148,6 +160,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 16,
     src: '/Assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
     name: 'Ariel Rokem PhD',
@@ -157,6 +170,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 17,
     src: '/Assets/Faculty/Matthew.jpg',
     alt: 'Matthew Abrams PhD',
     name: 'Matthew Abrams PhD',
@@ -166,6 +180,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 18,
     src: '/Assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
@@ -174,8 +189,8 @@ const combinedData = [
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2024,
   },
-
   {
+    id: 19,
     src: '/Assets/Faculty/susane.avif',
     alt: 'Susanne Ressl',
     name: 'Susanne Ressl',
@@ -185,6 +200,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 20,
     src: '/Assets/Faculty/Moses.jpg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
@@ -196,8 +212,8 @@ const combinedData = [
 
   // Teaching Assistants 2023
   {
+    id: 21,
     src: 'Assets/Faculty/dheerajbhatia.jpeg',
-
     alt: 'Dheeraj Bhatia',
     name: 'Dheeraj Bhatia',
     role: 'Teaching Assistant',
@@ -206,6 +222,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 22,
     src: 'Assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
@@ -215,6 +232,7 @@ const combinedData = [
     year: 2023,
   },
   {
+    id: 23,
     src: 'Assets/Faculty/Anibal.png',
     alt: 'Annibal Heinsfeld PhD',
     name: 'Annibal Heinsfeld PhD',
@@ -226,6 +244,7 @@ const combinedData = [
 
   // Teaching Assistants 2024
   {
+    id: 24,
     src: 'Assets/Faculty/stephen.jpg',
     alt: 'Stephen',
     name: 'Stephen',
@@ -235,6 +254,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 25,
     src: 'Assets/Faculty/sunaguo.jpg',
     alt: 'Suna Guo',
     name: 'Suna Guo',
@@ -244,6 +264,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 26,
     src: 'Assets/filima.jpeg',
     alt: 'Filima patrick',
     name: 'Filima patrick',
@@ -253,6 +274,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 27,
     src: 'Assets/barisua.jpeg',
     alt: 'Barisua Nsaanee',
     name: 'Barisua Nsaanee',
@@ -262,6 +284,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 28,
     src: 'Assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
@@ -271,6 +294,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 29,
     src: 'Assets/Faculty/Anibal.png',
     alt: 'Annibal Heinsfeld PhD',
     name: 'Annibal Heinsfeld PhD',
@@ -281,6 +305,7 @@ const combinedData = [
   },
 
   {
+    id: 30,
     src: '/Assets/Faculty/Horia.jpeg',
     alt: 'Horia Maior',
     name: 'Horia Maior',
@@ -290,6 +315,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 31,
     src: '/Assets/Faculty/James_kent.jpeg',
     alt: 'James Kent',
     name: 'James Kent',
@@ -299,6 +325,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 32,
     src: '/Assets/Faculty/denisschluppeck.jpg',
     alt: 'Denis Schluppeck',
     name: 'Denis Schluppeck',
@@ -308,6 +335,7 @@ const combinedData = [
     year: 2024,
   },
   {
+    id: 33,
     src: '/Assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
@@ -317,6 +345,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 34,
     src: '/Assets/Faculty/Moses3.jpeg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
@@ -326,6 +355,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 35,
     src: '/Assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
@@ -335,6 +365,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 36,
     src: '/Assets/Faculty/Horia.jpeg',
     alt: 'Horia Maior',
     name: 'Horia Maior',
@@ -344,6 +375,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 37,
     src: '/Assets/Academy_2025/pepita_faculty_pics.png',
     alt: 'Pepita Bernard',
     name: 'Pepita Bernard',
@@ -353,6 +385,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 38,
     src: '/Assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
@@ -363,6 +396,7 @@ const combinedData = [
   },
 
   {
+    id: 39,
     src: '/Assets/Faculty/Mustapha.png',
     alt: 'Mustafa S. Hamada',
     name: 'Mustafa S. Hamada',
@@ -372,6 +406,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 40,
     src: '/Assets/Faculty/Ore.jpeg',
     alt: 'Ore Ogundipe',
     name: 'Ore Ogundipe',
@@ -381,6 +416,7 @@ const combinedData = [
     year: 2025,
   },
   {
+    id: 41,
     src: '/Assets/Faculty/Gilgal.jpeg',
     alt: 'Gilgal J. A.',
     name: 'Gilgal J. A.',
@@ -451,7 +487,7 @@ export default function FacultyGallery() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredMembers.slice(0, visibleMembers).map((member, index) => (
             <motion.div
-              key={index}
+              key={member.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
