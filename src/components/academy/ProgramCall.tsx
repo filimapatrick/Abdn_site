@@ -15,7 +15,7 @@ export default function ProgramCall() {
         >
           <h2 className="text-4xl font-bold text-amber-900 mb-6">ABDS Academy 2025</h2>
           <p className="text-xl text-amber-700 max-w-3xl mx-auto mb-8">
-            Join us for an intensive two-week training program in brain data science
+            The African Brain Data Science Academy (ABDSA) 2025 event is currently ongoing!
           </p>
         </motion.div>
 
@@ -40,7 +40,7 @@ export default function ProgramCall() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-amber-900 mb-2">Key Dates</h4>
-                  <p className="text-amber-700">Applications: 15 Apr 2025 - 15 May 2025</p>
+                  <p className="text-amber-700">Applications: Closed</p>
                   <p className="text-amber-700">Event dates: 8 Dec 2025 - 21 Dec 2025</p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function ProgramCall() {
               whileTap={{ scale: 0.95 }}
               className="mt-8 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-amber-600 hover:to-amber-700 transition-all duration-300 flex items-center justify-center w-fit mx-auto"
             >
-              Apply HERE
+              View Details
               <ArrowRight className="ml-2 h-4 w-4" />
             </motion.a>
           </motion.div>

@@ -167,10 +167,10 @@ const combinedData = [
   },
   {
     src: '/Assets/Faculty/franco_delogu.jpg',
-    alt: 'Dr. Franco Delogu PhD',
-    name: 'Dr. Franco Delogu PhD',
+    alt: 'Prof. Franco Delogu PhD',
+    name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
-    Affiliation: 'University of Texas at Austin, USA',
+    Affiliation: 'Lawrence Technological University, USA',
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
     year: 2024,
   },
@@ -309,8 +309,8 @@ const combinedData = [
   },
   {
     src: '/Assets/Faculty/franco_delogu.jpg',
-    alt: 'Dr. Franco Delogu PhD',
-    name: 'Dr. Franco Delogu PhD',
+    alt: 'Prof. Franco Delogu PhD',
+    name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
     Affiliation: 'University of Texas at Austin, USA',
     profile: 'https://www.researchgate.net/profile/Franco-Delogu',
@@ -344,7 +344,7 @@ const combinedData = [
     year: 2025,
   },
   {
-    src: '',
+    src: '/Assets/Academy_2025/pepita_faculty_pics.png',
     alt: 'Pepita Bernard',
     name: 'Pepita Bernard',
     role: 'Faculty',

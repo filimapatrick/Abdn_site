@@ -120,7 +120,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-amber-100">info@abdn.org</p>
+                      <p className="text-amber-100">africanbraindatanetwork@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
