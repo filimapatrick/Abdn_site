@@ -434,7 +434,7 @@ const founders: Person[] = [
     name: "Damian Eke PhD",
     title: "Director",
     institution: "University of Nottingham, UK",
-    bio: "Dr. Damian Okaibedi Eke is a Research Fellow in the EU Human Brain Project at DMU in the Centre for Computing and Social Responsibility. He is the secretary of the Data Governance Working Group for the Human Brain Project. With a Philosophy background and a Ph.D. in Computer Ethics from DMU, his research interests include responsible governance of biomedical data, neurodata governance, critical ICT research, RRI, technology ethics, data ethics, neuroethics, and ethics of AI systems.",
+    bio: "Damian Eke is a researcher and thought leader in ethics and governance of data and emerging technologies, with a particular focus on decolonial and global perspectives on artificial intelligence. His work critically examines how historical, social, and political power asymmetries shape data practices and AI systems, especially in African and other Global Majority contexts. He has particular expertise in brain data governance, and leads the International Brain Initiative (IBI) Working Group on Data, Tools and Technology Sharing, where he contributes to shaping globally inclusive and ethically grounded approaches to neuroscience data sharing. His scholarship spans data justice, algorithmic governance, and the ethics of emerging technologies, and he is actively involved in interdisciplinary and international research initiatives aimed at making AI development more equitable, accountable, and socially grounded.",
     image: "/Assets/Founders/Damian.jpeg",
     email: "damian.eke@dmu.ac.uk",
     linkedin: "https://www.linkedin.com/in/damian-eke-80742290/",
