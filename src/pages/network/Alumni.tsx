@@ -616,7 +616,7 @@ const testimonials: Testimonial[] = [
     id: 10,
     name: "Anikobs Anita",
     organization: "African Institute of Brain Research",
-    image: "/images/alumni/john-doe.jpg",
+    image: "/Assets/Anita_Esun.JPG",
     quote: "My life has not been the same after ABDSN. The things I learnt coupled with the connections I made have propagated my career growth. Through ABDSN, I now have a wonderful mentor (my first since the beginning of my career) whom I've been working with for some time now. I have been featured as a co-author in a paper which will be published very soon. My project colleague and I are also continuing with the project we started in other to publish it. Much is there to be said, but let me just keep that for another day.",
     rating: 5
   },
@@ -624,7 +624,7 @@ const testimonials: Testimonial[] = [
     id: 11,
     name: "Dr Francis Agbaraolorunpo",
     organization: "University of Lagos",
-    image: "/Assets/Alumni/Dr_Francis_Agbaraolorunpo.jpg",
+    image: "/Assets/Alumni/France - Francis Agbaraolorunpo.png",
     quote: "ABDSA was a unique opportunity to learn, upscale,exploy, network and collaborate.New technologies and techniques in acquiring and analysing brain dataset were learned from  our amazing  scholars and Falculties from the global north. from  different tech companies  inluding Mendi, Brainlife.i.o,MathWorks and  University of Nottingham. Amazing  Neuroscience group Projects with FNIRS and BrainLife  were conducted. On the whole, the entire experience was rewarding, uplifting,  inspiring, impactful, insightful,l memorable and rhapsodious. Extremely thankful and grateful to the sponsors ABDN  and IBRO, and their amazing collaborators ; Mendi, BrainLife, University of Nottingham, Kavli foundation. The hospitality at BWC Hotel  was superlative, tantalizing  and refreshing. It was indeed an amazing experience connecting with Medical doctors, Biomedical Engineers, Biomedical Scientist, Data Scientist, Clinical Radiographers and other experts from all parts of Nigeria and Africa countries- Cameroun, Kenyan, Tanzania, Uganda ,Ghana .What an unforgetable sweet experience",
     rating: 5
   },
