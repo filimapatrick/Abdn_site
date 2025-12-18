@@ -9,7 +9,7 @@ const coreTeam = [
     role: "Director",
     institution: "University of Nottingham",
     image: "/Assets/Damian.jpeg",
-    bio: "Leading expert in bioethics and responsible data sharing",
+    bio: "Leading expert in ethics and governance of brain data and AI",
     socials: {
       linkedin: "#",
       email: "#",
