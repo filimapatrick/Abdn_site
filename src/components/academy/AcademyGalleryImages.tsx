@@ -443,7 +443,7 @@ export default function AcademyGalleryImages() {
             className="mb-16"
           >
             <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-amber-900 mb-6">ABDN {selectedYear}</h3>
+              <h3 className="text-2xl font-bold text-amber-900 mb-6">ABDSA {selectedYear}</h3>
               <div className="prose prose-amber max-w-none">
                 {yearDescriptions[selectedYear].split('\n\n').map((paragraph: string, index: number) => (
                   <p key={index} className="text-amber-700 mb-4">
