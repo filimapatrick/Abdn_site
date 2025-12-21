@@ -684,7 +684,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 10,
-    name: "Anikobs Anita",
+    name: "Esun Anita",
     organization: "African Institute of Brain Research",
     image: "/Assets/Anita_Esun.JPG",
     quote: "My life has not been the same after ABDSN. The things I learnt coupled with the connections I made have propagated my career growth. Through ABDSN, I now have a wonderful mentor (my first since the beginning of my career) whom I've been working with for some time now. I have been featured as a co-author in a paper which will be published very soon. My project colleague and I are also continuing with the project we started in other to publish it. Much is there to be said, but let me just keep that for another day.",
