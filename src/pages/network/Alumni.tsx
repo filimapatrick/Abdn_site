@@ -552,7 +552,7 @@ const alumniData: Alumni[] = [
   {
     id: 69,
     name: "George Wanderi",
-    location: "Nigeria",
+    location: "Kenya",
     cohort: 2023,
     photo: "",
     socialLinks: { linkedin: "" }
