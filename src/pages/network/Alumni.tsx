@@ -40,48 +40,19 @@ const alumniData: Alumni[] = [
     photo: "/Assets/Alumni/Abdulhafiz.jpg",
     socialLinks: { linkedin: "https://www.linkedin.com/in/abdulrazaq-zubair-226746168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
   },
-  {
-    id: 2,
-    name: "Abdulrahman Abdullahi Dalhatu",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 3,
-    name: "Abdulrahman Adesola Belo",
-    location: "Ogun State, Nigeria",
+    name: "Olagunju Abdulrahmon",
+    location: "Nigeria",
     cohort: 2023,
     photo: "/images/alumni/abdulrahman-adesola-belo.jpg",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/abdulrahman-belo-a049781b1",
     },
   },
-  {
-    id: 4,
-    name: "Abdulrahman Sadiq Sadiq",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
-  {
-    id: 5,
-    name: "Abdulrazaq Abdulraheem Ganiyu",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "/Assets/Alumni/Zubair.png",
-    socialLinks: { linkedin: "https://www.linkedin.com/in/abdulrazaq-zubair-226746168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
-  },
-  {
-    id: 6,
-    name: "Adebola Matthew Adebayo",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
+
   {
     id: 7,
     name: "SOLADOYE Afeez Adekunle ",
@@ -188,17 +159,17 @@ const alumniData: Alumni[] = [
   },
   {
     id: 18,
-    name: "Erica Azechum Akanko",
+    name: "Akanko Erica",
     location: "Accra, Ghana",
     cohort: 2023,
-    photo: "/images/alumni/erica-azechum-akanko.jpg",
+    photo: "",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/erica-akanko",
+      linkedin: "",
     },
   },
   {
     id: 19,
-    name: "Ezra Kipngetich Too",
+    name: "Ezra Too",
     location: "Nairobi, Kenya",
     cohort: 2024,
     photo: "",
@@ -206,16 +177,16 @@ const alumniData: Alumni[] = [
       linkedin: "https://www.linkedin.com/in/ezratoo/",
     },
   },
-  {
-    id: 20,
-    name: "Fadiji Olatundun Oluwapelumi",
-    location: "Lagos, Nigeria",
-    cohort: 2024,
-    photo: "",
-    socialLinks: {
-      linkedin: "",
-    },
-  },
+  // {
+  //   id: 20,
+  //   name: "Fadiji Olatundun Oluwapelumi",
+  //   location: "Lagos, Nigeria",
+  //   cohort: 2024,
+  //   photo: "",
+  //   socialLinks: {
+  //     linkedin: "",
+  //   },
+  // },
   {
     id: 21,
     name: "Falonne Tiffany NIAKAM MBOULEUP",
@@ -226,27 +197,8 @@ const alumniData: Alumni[] = [
       linkedin: "https://www.linkedin.com/in/tiffany-falonne-niakam-847171264",
     },
   },
-  {
-    id: 22,
-    name: "Felix Chege Ng'ang'a",
-    location: "10203 Kigumo, Kenya",
-    cohort: 2023,
-    photo: "/images/alumni/felix-chege-nganga.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/chege-nganga",
-    },
-  },
-  {
-    id: 23,
-    name: "Felix Mburu Njoroge",
-    location: "Nairobi, Kenya",
-    cohort: 2023,
-    photo: "/images/alumni/felix-mburu.jpg",
-    socialLinks: {
-      linkedin: "https://shorturl.at/OYjub",
-      website: "https://github.com/FelixMburu",
-    },
-  },
+
+
   {
     id: 24,
     name: "Francis Agbaraolorunpo",
@@ -280,14 +232,7 @@ const alumniData: Alumni[] = [
     photo: "/images/alumni/ibeachu-chinagorom.jpg",
     socialLinks: {},
   },
-  {
-    id: 28,
-    name: "Ibrahim Aliyu Lawal",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 29,
     name: "Jacob Apibilla Ayembilla",
@@ -332,14 +277,7 @@ const alumniData: Alumni[] = [
     photo: "/images/alumni/kojo-nketia.jpg",
     socialLinks: {},
   },
-  {
-    id: 34,
-    name: "Maryam Abubakar Mohammed",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 35,
     name: "Mercy Nathaniel",
@@ -348,17 +286,10 @@ const alumniData: Alumni[] = [
     photo: "/Assets/Alumni/Mercy_Nathaniel.jpg",
     socialLinks: { linkedin: "https://www.linkedin.com/in/nathaniel-mercy" }
   },
-  {
-    id: 36,
-    name: "Moses Ayodele Ogunlade",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 37,
-    name: "Mustapha Abdullahi Muhammad",
+    name: "Bala Masud",
     location: "Nigeria",
     cohort: 2025,
     photo: "",
@@ -374,7 +305,7 @@ const alumniData: Alumni[] = [
   },
   {
     id: 39,
-    name: "Ogunmiluyi Oluwafunmbi Ebenezer",
+    name: "Ogunmiluyi Oluwafunmbi",
     location: "Ondo, Nigeria",
     cohort: 2024,
     photo: "",
@@ -384,9 +315,9 @@ const alumniData: Alumni[] = [
   },
   {
     id: 40,
-    name: "Olubunmi Abimbola Akinwale",
+    name: "Bayo-Olugbami Adedamola",
     location: "Nigeria",
-    cohort: 2025,
+    cohort: 2023,
     photo: "",
     socialLinks: { linkedin: "" }
   },
@@ -400,14 +331,7 @@ const alumniData: Alumni[] = [
       linkedin: "https://linkedin.com/in/oumaïma-soula",
     },
   },
-  {
-    id: 42,
-    name: "Ridwan Abdulfatai Ibrahim",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 43,
     name: "Rosemary Nwosu",
@@ -420,15 +344,15 @@ const alumniData: Alumni[] = [
   },
   {
     id: 44,
-    name: "Sadiya Abubakar Danjuma",
+    name: "Hanwa Safiya",
     location: "Nigeria",
-    cohort: 2025,
+    cohort: 2023,
     photo: "",
     socialLinks: { linkedin: "" }
   },
   {
     id: 45,
-    name: "Samson Ehindero Olorunnado",
+    name: "Samson Olorunnado",
     location: "Rwanda",
     cohort: 2024,
     photo: "",
@@ -436,14 +360,7 @@ const alumniData: Alumni[] = [
       linkedin: "",
     },
   },
-  {
-    id: 46,
-    name: "Samuel Adebola Adeyemi",
-    location: "Nigeria",
-    cohort: 2025,
-    photo: "",
-    socialLinks: { linkedin: "" }
-  },
+
   {
     id: 47,
     name: "Smart Chidi Oparaugo",
@@ -458,7 +375,7 @@ const alumniData: Alumni[] = [
     id: 48,
     name: "Stephen Kiilu",
     location: "Nairobi, Kenya",
-    cohort: 2022,
+    cohort: 2023,
     photo: "/images/alumni/stephen-kiilu.jpg",
     socialLinks: {
       website: "https://orcid.org/401000118"
@@ -466,7 +383,7 @@ const alumniData: Alumni[] = [
   },
   {
     id: 49,
-    name: "Sulaiman Adebayo Adebisi",
+    name: "Suleiman Kwairanga Hamidu",
     location: "Nigeria",
     cohort: 2025,
     photo: "",
@@ -494,7 +411,7 @@ const alumniData: Alumni[] = [
   },
   {
     id: 52,
-    name: "Vicent Balitema",
+    name: "Vicent Baliterma",
     location: "Mbarara, Uganda",
     cohort: 2023,
     photo: "/images/alumni/vicent-balitema.jpg",
@@ -514,7 +431,7 @@ const alumniData: Alumni[] = [
   },
   {
     id: 54,
-    name: "Zainab Musa Sulaiman",
+    name: "Zainab Sambo",
     location: "Nigeria",
     cohort: 2025,
     photo: "",
@@ -530,12 +447,118 @@ const alumniData: Alumni[] = [
   },
   {
     id: 56,
-    name: "Zainab Saleh Sambo",
+    name: "Anita Kerubo",
+    location: "Kenya",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 57,
+    name: "Faith Olusegun",
     location: "Nigeria",
     cohort: 2025,
-    photo: "/Assets/Alumni/zainab_sambo.jpeg",
-    socialLinks: { linkedin: "http://www.linkedin.com/in/zainab-saleh-sambo-769a9813b" }
+    photo: "",
+    socialLinks: { linkedin: "" }
   },
+  {
+    id: 58,
+    name: "Kafilat Aransi-ola",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 59,
+    name: "Obinna Uchewa",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 60,
+    name: "Zubair Abdulrazaq  ",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 61,
+    name: "Irene  Nandutu",
+    location: "Nigeria",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 62,
+    name: "Bayo Fidelis",
+    location: "Nigeria",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 63,
+    name: "Djientcheu Tientcheu",
+    location: "Cameroon",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 64,
+    name: "Jean Philippe",
+    location: "Cameroon",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 65,
+    name: "Kiilu Stephen",
+    location: "Nairobi, Kenya",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 66,
+    name: "Oparaji Kenneth",
+    location: "Nigeria",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 67,
+    name: "Daniel Nsenga",
+    location: "Cameroon",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 68,
+    name: "Divine Ukonu",
+    location: "Nigeria",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 69,
+    name: "George Wanderi",
+    location: "Nigeria",
+    cohort: 2023,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+
+
 ];
 
 // Add testimonials data
@@ -636,6 +659,7 @@ const testimonials: Testimonial[] = [
     quote: "ABDSA has been a highly impactful and enriching experience. Through this program, I gained solid knowledge and practical skills in neuroimaging and neurodata analysis. Most importantly, it has brought about a significant and positive shift in my career trajectory as a neuroscience researcher.",
     rating: 5
   },
+
 ];
 
 // Update TestimonialCard component
