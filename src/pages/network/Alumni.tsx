@@ -557,7 +557,54 @@ const alumniData: Alumni[] = [
     photo: "",
     socialLinks: { linkedin: "" }
   },
-
+  {
+    id: 70,
+    name: "Ummulkhairi",
+    location: "Nigeria",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 71,
+    name: "Sharon Chepkemoi",
+    location: "Nairobi, Kenya",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 72,
+    name: "David Makoko",
+    location: "Tanzania",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 73,
+    name: "Omima Alaa Eldin Hussien",
+    location: "Egypt",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 74,
+    name: "Jean Baptiste Fankam Fankam",
+    location: "Cameroon",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
+  {
+    id: 75,
+    name: "Nadia EL KADMIRI",
+    location: "Morocco",
+    cohort: 2024,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
 
 ];
 
