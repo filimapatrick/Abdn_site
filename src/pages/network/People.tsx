@@ -468,7 +468,7 @@ const founders: Person[] = [
     title: "Member",
     institution: "ABDN Secretariat",
     bio: "Barisua Nsaanee serves as an Administrative Officer in the ABDN Secretariat, providing crucial support in managing the organization's day-to-day operations. Her role involves coordinating various administrative tasks and ensuring effective communication within the network.",
-    image: "/Assets/Team/barisua.jpeg",
+    image: "/Assets/Team/barisua2.jpeg",
     email: "barisua.nsaanee@abdn.org",
     linkedin: "https://linkedin.com/in/barisua-nsaanee",
     twitter: "@BarisuaNsaanee",

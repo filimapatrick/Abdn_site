@@ -17,7 +17,7 @@ export default function Academy() {
     <Layout>
       <main className="pt-20">
         <AcademyHero />
-        <ProgramCall />
+        {/* <ProgramCall /> */}
         <AboutABDNProgram/>
         <CoreOfferings />
         <AcademyGalleryImages />

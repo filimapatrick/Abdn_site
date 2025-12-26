@@ -8,7 +8,7 @@ const AboutABDNProgram = () => {
           About ABDSA Academy
         </h2>
         <p className="text-lg leading-7 mb-4">
-          ABDN 2023 and 2024, was an intensive two-week training program, funded by The Kavli Foundation, designed to enhance capacity in brain data science. The ABDS Academy provided a unique opportunity for researchers in Africa, including those from neuroscience, psychology, computer science, biomedical science, and related fields, to gain a comprehensive understanding of critical computational approaches for processing and managing large-scale brain datasets.
+          ABDN 2023,2024 and 2025, was an intensive two-week training program, funded by The Kavli Foundation, designed to enhance capacity in brain data science. The ABDS Academy provided a unique opportunity for researchers in Africa, including those from neuroscience, psychology, computer science, biomedical science, and related fields, to gain a comprehensive understanding of critical computational approaches for processing and managing large-scale brain datasets.
         </p>
         <p className="text-lg leading-7 mb-4">
           Participants were trained by world-leading experts on novel techniques for brain data collection, processing, analysis, and sharing. The Academy emphasized hands-on training, mentorship, and offered valuable networking and collaboration opportunities to support FAIR (Findable, Accessible, Interoperable, and Reusable) African brain data.

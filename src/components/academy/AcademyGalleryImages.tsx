@@ -392,6 +392,30 @@ const galleryImages = [
     description: '',
     year: 2025,
   },
+    {
+    id: 47,
+    src: '/Assets/Academy_2025/Azeez.png',
+    alt: 'Azeezat',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+     {
+    id: 48,
+    src: '/Assets/Academy_2025/Ebere_lecture.png',
+    alt: 'Ebere lecture',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+     {
+    id: 49,
+    src: '/Assets/Academy_2025/Damian_speech.png',
+    alt: 'Damian lecture',
+    title: '',
+    description: '',
+    year: 2025,
+  },
 ];
 
 export default function AcademyGalleryImages() {

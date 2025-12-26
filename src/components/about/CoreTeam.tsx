@@ -44,7 +44,7 @@ const coreTeam = [
     name: "Barisua Nsaanee",
     role: "Community & Communications Lead",
     institution: "University of Port-Harcourt",
-    image: "/Assets/barisua.jpeg",
+    image: "/Assets/Team/barisua2.jpeg",
     bio: "Specialist in capacity building and community Building",
     socials: {
       linkedin: "https://www.linkedin.com/in/barisua-nsaanee",
