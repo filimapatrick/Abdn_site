@@ -436,9 +436,9 @@ const founders: Person[] = [
     institution: "University of Nottingham, UK",
     bio: "Damian Eke is a researcher and thought leader in ethics and governance of data and emerging technologies, with a particular focus on decolonial and global perspectives on artificial intelligence. His work critically examines how historical, social, and political power asymmetries shape data practices and AI systems, especially in African and other Global Majority contexts. He has particular expertise in brain data governance, and leads the International Brain Initiative (IBI) Working Group on Data, Tools and Technology Sharing, where he contributes to shaping globally inclusive and ethically grounded approaches to neuroscience data sharing. His scholarship spans data justice, algorithmic governance, and the ethics of emerging technologies, and he is actively involved in interdisciplinary and international research initiatives aimed at making AI development more equitable, accountable, and socially grounded.",
     image: "/Assets/Founders/Damian.jpeg",
-    email: "damian.eke@dmu.ac.uk",
+    email: "Damian.Eke@nottingham.ac.uk ",
     linkedin: "https://www.linkedin.com/in/damian-eke-80742290/",
-    twitter: "@DamianEke",
+    twitter: "",
     achievements: []
   },
   {
@@ -449,7 +449,7 @@ const founders: Person[] = [
     image: "/Assets/Founders/ebere1.jpeg",
     email: "eberechi.wogu@uniport.edu.ng",
     linkedin: "https://www.linkedin.com/in/eberechi-wogu-55293819a/",
-    twitter: "@DrEberechiWogu",
+    twitter: "",
     achievements: []
   },
   {
@@ -460,7 +460,7 @@ const founders: Person[] = [
     image: "/Assets/Team/filima.jpeg",
     email: "filimapatrick@gmail.com",
     linkedin: "https://linkedin.com/in/patrickfilima",
-    twitter: "@PatrickFilima",
+    twitter: "",
     achievements: []
   },
   {
@@ -469,9 +469,9 @@ const founders: Person[] = [
     institution: "ABDN Secretariat",
     bio: "Barisua Nsaanee serves as an Administrative Officer in the ABDN Secretariat, providing crucial support in managing the organization's day-to-day operations. Her role involves coordinating various administrative tasks and ensuring effective communication within the network.",
     image: "/Assets/Team/barisua2.jpeg",
-    email: "barisua.nsaanee@abdn.org",
+    email: "bnsaanee7@gmail.com",
     linkedin: "https://linkedin.com/in/barisua-nsaanee",
-    twitter: "@BarisuaNsaanee",
+    twitter: "",
     achievements: []
   },
   {

@@ -1,8 +1,8 @@
 // src/components/Gallery.js
 
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Camera, ZoomIn } from 'lucide-react';
+import { ZoomIn } from 'lucide-react';
 
 const yearDescriptions = {
   '2023': `The year 2023 marked a significant milestone for the African Brain Data Network (ABDN) as we successfully launched our inaugural ABDS Academy. This pioneering initiative brought together 30 talented African scientists from diverse backgrounds, creating a vibrant community of neuroscience researchers.
@@ -416,6 +416,64 @@ const galleryImages = [
     description: '',
     year: 2025,
   },
+  
+     {
+    id: 50,
+    src: '/Assets/Academy_2025/Ebere.png',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+      {
+    id: 51,
+    src: '/Assets/Academy_2025/group_project2.jpg',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  {
+    id: 52,
+    src: '/Assets/Academy_2025/group4.png',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+    {
+    id: 53,
+    src: '/Assets/Academy_2025/eko.jpg',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+      {
+    id: 54,
+    src: '/Assets/Academy_2025/group3.JPG',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+  
+     {
+    id: 56,
+    src: '/Assets/Academy_2025/market.jpg',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
+     {
+    id: 57,
+    src: '/Assets/Academy_2025/group_project1.png',
+    alt: 'Group photo',
+    title: '',
+    description: '',
+    year: 2025,
+  },
 ];
 
 export default function AcademyGalleryImages() {
@@ -425,6 +483,19 @@ export default function AcademyGalleryImages() {
 
   const years = ['2023', '2024', '2025'] as const;
   const filteredImages = galleryImages.filter(image => image.year === Number(selectedYear));
+
+  // Show a subset of cards initially and allow expanding
+  const DEFAULT_VISIBLE = 6;
+  const [visibleCount, setVisibleCount] = useState<number>(DEFAULT_VISIBLE);
+
+  // Reset view when the year changes
+  useEffect(() => {
+    setVisibleCount(DEFAULT_VISIBLE);
+    setSelectedImage(null);
+    setHoveredIndex(null);
+  }, [selectedYear]);
+
+  const displayedImages = filteredImages.slice(0, visibleCount);
 
   return (
     <section className="py-24 bg-gradient-to-br from-amber-50 to-white">
@@ -480,7 +551,7 @@ export default function AcademyGalleryImages() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredImages.map((image, index) => (
+          {displayedImages.map((image, index) => (
             <motion.div
               key={image.id}
               initial={{ opacity: 0, y: 20 }}
@@ -521,6 +592,31 @@ export default function AcademyGalleryImages() {
           ))}
         </div>
 
+        {/* View More / Show Less */}
+        {filteredImages.length > 0 && (
+          <div className="flex justify-center mt-10">
+            {visibleCount < filteredImages.length ? (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setVisibleCount(prev => Math.min(prev + DEFAULT_VISIBLE, filteredImages.length))}
+                className="px-6 py-3 rounded-full bg-amber-500 text-white font-medium shadow-md hover:bg-amber-600 transition-colors"
+              >
+                View More
+              </motion.button>
+            ) : (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setVisibleCount(DEFAULT_VISIBLE)}
+                className="px-6 py-3 rounded-full bg-amber-100 text-amber-800 font-medium shadow-md hover:bg-amber-200 transition-colors"
+              >
+                Show Less
+              </motion.button>
+            )}
+          </div>
+        )}
+
         {filteredImages.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -548,8 +644,8 @@ export default function AcademyGalleryImages() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={filteredImages[selectedImage].src}
-                alt={filteredImages[selectedImage].alt}
+                src={displayedImages[selectedImage].src}
+                alt={displayedImages[selectedImage].alt}
                 className="w-full h-full object-contain"
               />
               <button
