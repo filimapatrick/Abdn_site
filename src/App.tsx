@@ -20,6 +20,7 @@ import Alumni from './pages/network/Alumni';
 import Learning from './pages/network/Learning';
 import ContactDrawer from './components/ContactDrawer';
 import CookiePolicy from './pages/CookiePolicy';
+import NotFound from './pages/NotFound';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/network/alumni" element={<Alumni />} />
         <Route path="/network/learning" element={<Learning />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ContactDrawer isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>

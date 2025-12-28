@@ -84,7 +84,7 @@ export default function CookiePolicy() {
                 If you have any questions about our use of cookies, please contact us at:
               </p>
               <p className="text-amber-700">
-                <strong>Email:</strong> privacy@africandatanetwork.org
+                <strong>Email:</strong> africanbraindatanetwork@gmail.com
               </p>
             </div>
           </motion.div>

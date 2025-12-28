@@ -1,0 +1,11 @@
+# Robots.txt for African Brain Data Network (ABDN)
+# This file tells search engine crawlers which pages they can access
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://africanbraindatanetwork.com/sitemap.xml
+
+# Crawl-delay (optional, uncomment if needed to prevent server overload)
+# Crawl-delay: 10
