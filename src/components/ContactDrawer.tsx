@@ -129,7 +129,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Phone</h3>
-                      <p className="text-amber-100">+234 123 456 7890</p>
+                      <p className="text-amber-100">+234 810 412 5890</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

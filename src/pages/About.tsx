@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 import AboutHero from '../components/about/AboutHero';
 import MissionImpact from '../components/about/MissionImpact';
 import AboutContent from '../components/about/AboutContent';
@@ -10,8 +12,17 @@ import Partners from '../components/about/Partners';
 import AboutTestimonials from '../components/about/AboutTestimonials';
 
 export default function About() {
+  const seo = seoConfig.about;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       <main className="pt-20">
         <AboutHero />
         <MissionImpact />
@@ -22,5 +33,6 @@ export default function About() {
         <AboutTestimonials />
       </main>
     </Layout>
+    </>
   );
 }

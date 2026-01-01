@@ -30,7 +30,7 @@ const coreTeam = [
   },
   {
     name: "Filima Patrick",
-    role: "Technical Lead & Developer",
+    role: "Technical Lead & Research Developer",
     institution: "University of Port-Harcourt",
     image: "/Assets/filima.jpeg",
     bio: "Tech-savvy developer integrating digital solutions in neuroscience",

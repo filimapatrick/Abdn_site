@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, useAnimationFrame } from 'framer-motion';
 import { Linkedin, Globe, MapPin, Calendar, Star } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 interface Alumni {
   id: number;
@@ -605,6 +607,14 @@ const alumniData: Alumni[] = [
     photo: "",
     socialLinks: { linkedin: "" }
   },
+  {
+    id: 76,
+    name: "Mustapha Akajewole MASUD",
+    location: "State University of Zanzibar",
+    cohort: 2025,
+    photo: "",
+    socialLinks: { linkedin: "" }
+  },
 
 ];
 
@@ -704,6 +714,22 @@ const testimonials: Testimonial[] = [
     organization: "University of Medical Sciences, Ondo, Nigeria",
     image: "/Assets/Alumni/Happiness_Inyang.jpg",
     quote: "ABDSA has been a highly impactful and enriching experience. Through this program, I gained solid knowledge and practical skills in neuroimaging and neurodata analysis. Most importantly, it has brought about a significant and positive shift in my career trajectory as a neuroscience researcher.",
+    rating: 5
+  },
+  {
+    id: 12,
+    name: "Kafilat Temidayo Aransi-ola",
+    organization: "Lead City University, Ibadan, Nigeria",
+    image: "/Assets/Alumni/Aransi-ola kafilat.png",
+    quote: "As a neuroscientist-in training and an academic who focuses on neurological disorders' experimental research, the African Brain Data Science Academy 2025 training broadened my knowledge of brain data science and built a background and confidence for me in exploring neuroimaging methods and applying it to my further research on neurological disorders. The balance between theory, practical sessions, and peer interaction made the experience both challenging and rewarding. I leave the program with new tools, perspectives, and valuable professional connections that will shape my future research journey, improve my translational research experience while also enabling me to contribute to the neuroscience community by training upcoming neuroscientists with the diverse techniques I have learned here. ",
+    rating: 4
+  },
+  {
+    id: 13,
+    name: "Mustapha Akajewole MASUD ",
+    organization: "State University of Zanzibar ",
+    image: "/Assets/Alumni/MUSTAPHA MASUD.jpg",
+    quote: "The Africa Brain Data Science Academy (ABDSA) provided high-quality training, and practical experience in neuroscience and nd data science. It broadened my perspective and equipped me with hands-on skills (fNIRS, sMRI, and fMRI) that will continue to support my academic and career growth.",
     rating: 5
   },
 
@@ -808,6 +834,7 @@ const InfiniteScroll = ({ children, direction = 1 }: InfiniteScrollProps) => {
 
 export default function Alumni() {
   const [selectedCohort, setSelectedCohort] = useState<number | null>(null);
+  const seo = seoConfig.alumni;
 
   // Apply the cohort filter
   const filteredAlumni = React.useMemo(() => {
@@ -816,7 +843,14 @@ export default function Alumni() {
   }, [selectedCohort]);
 
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -1074,5 +1108,6 @@ export default function Alumni() {
         </section>
       </main>
     </Layout>
+    </>
   );
 } 

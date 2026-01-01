@@ -105,8 +105,17 @@ export default function Events() {
     );
   }
 
+  const seo = seoConfig.events;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800 overflow-hidden">
@@ -443,5 +452,6 @@ export default function Events() {
       </section>
     </main>
     </Layout>
+    </>
   );
 }

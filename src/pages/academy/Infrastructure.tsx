@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 import {
   Database,
   Server,
@@ -17,8 +19,17 @@ import Layout from '../../components/Layout';
 import InfrastructureContributionForm from '../../components/InfrastructureContributionForm';
 
 export default function Infrastructure() {
+  const seo = seoConfig.infrastructure;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -156,5 +167,6 @@ export default function Infrastructure() {
         </section>
       </main>
     </Layout>
+    </>
   );
 }

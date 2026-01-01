@@ -34,6 +34,7 @@ export default function Collaborations() {
   const [showForm, setShowForm] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const seo = seoConfig.collaborations;
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -71,7 +72,14 @@ export default function Collaborations() {
   };
 
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -1035,5 +1043,6 @@ export default function Collaborations() {
         </AnimatePresence>
     </main>
     </Layout>
+    </>
   );
 }

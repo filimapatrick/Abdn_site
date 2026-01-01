@@ -1,10 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import { seoConfig } from '../config/seo';
 
 export default function CookiePolicy() {
+  const seo = seoConfig.cookiePolicy;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+        noindex={true}
+      />
+      <Layout>
       <main className="pt-28 pb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -91,5 +103,6 @@ export default function CookiePolicy() {
         </div>
       </main>
     </Layout>
+    </>
   );
 } 

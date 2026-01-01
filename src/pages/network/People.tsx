@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Building2, Star, ArrowRight, Mail, Linkedin, Twitter, Link as LinkIcon, X } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 interface PersonDetails {
   affiliations?: string[];
@@ -642,6 +644,7 @@ const Modal = ({ isOpen, onClose, person }: { isOpen: boolean; onClose: () => vo
 export default function People() {
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
   const [showAllCoordinators, setShowAllCoordinators] = useState(false);
+  const seo = seoConfig.people;
 
   // Display initial 6 coordinators or all when showAllCoordinators is true
   const displayedCoordinators = showAllCoordinators
@@ -649,7 +652,14 @@ export default function People() {
     : nationalCoordinators.slice(0, 6);
 
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -883,5 +893,6 @@ export default function People() {
         />
       </main>
     </Layout>
+    </>
   );
 } 

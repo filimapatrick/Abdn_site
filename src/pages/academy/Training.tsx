@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Clock, Award, Brain, Star, ChevronRight, ArrowRight, Target, Beaker, Globe, Video, Laptop, MessageSquare, Calendar, GraduationCap } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 const courses = [
   {
@@ -100,8 +102,17 @@ const trainingFeatures = [
 ];
 
 export default function Training() {
+  const seo = seoConfig.training;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       {/* Hero Section */}
       <section className="relative py-32 md:py-40 bg-gradient-to-br from-amber-950 to-amber-800">
         <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
@@ -469,5 +480,6 @@ export default function Training() {
         </div>
       </section>
     </Layout>
+    </>
   );
 }

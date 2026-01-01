@@ -33,8 +33,16 @@ const mentorshipTracks = [
 
 export default function Mentorship() {
   const [isMentorshipFormOpen, setIsMentorshipFormOpen] = useState(false);
+  const seo = seoConfig.mentorship;
 
   return (
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
     <Layout>
       {/* Hero Section */}
       <section className="relative py-32 md:py-40 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -213,5 +221,6 @@ export default function Mentorship() {
         onClose={() => setIsMentorshipFormOpen(false)}
       />
     </Layout>
+    </>
   );
 }

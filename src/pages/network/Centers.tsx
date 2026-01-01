@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Users, Microscope, Globe, Building2, Network, GraduationCap, Brain } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 interface Center {
   name: string;
@@ -60,8 +62,17 @@ const coordinators: Coordinator[] = [
 ];
 
 export default function Centers() {
+  const seo = seoConfig.centers;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
       {/* Hero Section */}
       <section className="relative py-32 md:py-40 bg-gradient-to-br from-amber-950 to-amber-800">
         <div className="absolute inset-0 bg-grid-white/10 bg-grid-16 [mask-image:linear-gradient(0deg,transparent,black)]" />
@@ -295,5 +306,6 @@ export default function Centers() {
         </div>
       </section>
     </Layout>
+    </>
   );
 }

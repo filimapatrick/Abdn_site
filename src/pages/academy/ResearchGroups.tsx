@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 import { 
   Users, 
   Brain, 
@@ -108,8 +110,17 @@ const researchGroups: ResearchGroup[] = [
 ];
 
 export default function ResearchGroups() {
+  const seo = seoConfig.researchGroups;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -359,5 +370,6 @@ export default function ResearchGroups() {
       </section>
     </main>
     </Layout>
+    </>
   );
 }

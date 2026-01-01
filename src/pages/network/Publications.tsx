@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, BookText, Calendar, User2, ArrowUpRight, Filter, X, Database, FileText } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 interface Publication {
   title: string;
@@ -166,6 +168,7 @@ export default function Publications() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const seo = seoConfig.publications;
   const [selectedType, setSelectedType] = useState<'all' | 'abdn' | 'network'>('all');
 
   const filteredPublications = publications.filter(pub => {
@@ -186,7 +189,14 @@ export default function Publications() {
   const categories = Array.from(new Set(publications.map(p => p.category)));
 
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -369,5 +379,6 @@ export default function Publications() {
       </section>
     </main>
     </Layout>
+    </>
   );
 }

@@ -1,11 +1,31 @@
 # Robots.txt for African Brain Data Network (ABDN)
 # This file tells search engine crawlers which pages they can access
+# Last updated: 2026-01-01
 
+# Allow all search engines to crawl all content
 User-agent: *
 Allow: /
+
+# Disallow admin and private areas (if any exist in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific bots with optimized crawl rates
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://africanbraindatanetwork.com/sitemap.xml
 
-# Crawl-delay (optional, uncomment if needed to prevent server overload)
-# Crawl-delay: 10
+# Additional directives for better indexing
+# Host directive (helps with canonical URLs)
+Host: https://africanbraindatanetwork.com

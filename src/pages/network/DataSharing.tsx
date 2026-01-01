@@ -382,6 +382,7 @@ export default function DataSharing() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedAccess, setSelectedAccess] = useState<string | null>(null);
+  const seo = seoConfig.data;
   const [expandedDataset, setExpandedDataset] = useState<string | null>(null);
   const [selectedDatasetForAccess, setSelectedDatasetForAccess] = useState<Dataset | null>(null);
 
@@ -398,7 +399,14 @@ export default function DataSharing() {
   });
 
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -699,5 +707,6 @@ export default function DataSharing() {
         </AnimatePresence>
     </main>
     </Layout>
+    </>
   );
 }

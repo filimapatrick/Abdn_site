@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, Brain, GraduationCap, Star, Clock, ChevronRight, Award, Target, Beaker, FileCheck, Globe, ArrowRight } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 // const modules = [
 //   {
@@ -120,8 +122,17 @@ const specializations = [
 ];
 
 export default function Curriculum() {
+  const seo = seoConfig.curriculum;
+  
   return (
-    <Layout>
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        url={seo.url}
+      />
+      <Layout>
     <main className="pt-20">
       {/* Hero Section */}
         <section className="relative py-48 bg-gradient-to-br from-amber-950 to-amber-800">
@@ -354,5 +365,6 @@ export default function Curriculum() {
       </section>
     </main>
     </Layout>
+    </>
   );
 }
