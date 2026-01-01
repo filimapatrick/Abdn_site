@@ -20,7 +20,7 @@ const coreTeam = [
     name: "Dr. Eberechi Wogu",
     role: "Deputy Director",
     institution: "Neuroscience Society of Nigeria",
-    image: "/Assets/ebere1.jpeg",
+    image: "/Assets/Team/ebere1.png",
     bio: "Pioneer in neuroimaging research in Nigeria",
     socials: {
       linkedin: "#",
@@ -32,7 +32,7 @@ const coreTeam = [
     name: "Filima Patrick",
     role: "Technical Lead & Research Developer",
     institution: "University of Port-Harcourt",
-    image: "/Assets/filima.jpeg",
+    image: "/Assets/Team/my_pictures.jpeg",
     bio: "Tech-savvy developer integrating digital solutions in neuroscience",
     socials: {
       linkedin: "https://www.linkedin.com/in/patrick-filima-91450817b/",
