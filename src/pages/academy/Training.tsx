@@ -75,7 +75,7 @@ const trainingFeatures = [
     icon: Brain
   },
   {
-    title: "Interactive Learning",
+    title: "",
     description: "Engage in hands-on exercises and real-world case studies",
     icon: Users
   },

@@ -88,6 +88,107 @@ export default function FeaturedClass() {
           </motion.div>
         </div>
 
+        {/* Academy 2023 Highlights Section */}
+        <div className="mt-32">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-amber-500 uppercase tracking-wider font-medium">Highlights</span>
+            <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-900 mt-2">
+              Academy 2023 in Action
+            </h2>
+            <p className="text-amber-700 mt-4 max-w-2xl mx-auto">
+              Faculty and participants engaged in intensive learning sessions during our 2023 Brain Data Academy
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/Assets/Academy_2023/franco_lecture.png"
+                  alt="Faculty lecture at ABDN Academy 2023"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  {/* <p className="text-white p-4 font-medium">Teaching Session</p> */}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/Assets/Academy_2023/Azeezat_lecture.png"
+                  alt="Teaching session at ABDN Academy"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  {/* <p className="text-white p-4 font-medium">Interactive Learning</p> */}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/Assets/Academy_2023/anibal_lecture.png"
+                  alt="Research presentation at ABDN"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  {/* <p className="text-white p-4 font-medium">Research Presentation</p> */}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/Assets/Academy_2023/damian2023.png"
+                  alt="Workshop at ABDN Academy 2023"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  {/* <p className="text-white p-4 font-medium">Hands-on Workshop</p> */}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
         {/* Research Excellence Section */}
         <div className="mt-32 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
