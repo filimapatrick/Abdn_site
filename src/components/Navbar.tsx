@@ -161,7 +161,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             {/* Logo */}
             <Link to="/" onClick={closeMobileMenu}>
               <img
-                src="/Assets/abdn_logo.png"
+                src="/assets/abdn_logo.png"
                 alt="ABDN Logo"
                 className="h-20 w-auto"
               />

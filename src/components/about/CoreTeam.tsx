@@ -8,7 +8,7 @@ const coreTeam = [
     name: "Dr. Damian Eke",
     role: "Director",
     institution: "University of Nottingham",
-    image: "/Assets/Damian.jpeg",
+    image: "/assets/Damian.jpeg",
     bio: "Leading expert in ethics and governance of brain data and AI",
     socials: {
       linkedin: "#",
@@ -20,7 +20,7 @@ const coreTeam = [
     name: "Dr. Eberechi Wogu",
     role: "Deputy Director",
     institution: "Neuroscience Society of Nigeria",
-    image: "/Assets/Team/ebere1.png",
+    image: "/assets/Team/ebere1.png",
     bio: "Pioneer in neuroimaging research in Nigeria",
     socials: {
       linkedin: "#",
@@ -32,7 +32,7 @@ const coreTeam = [
     name: "Filima Patrick",
     role: "Technical Lead & Research Developer",
     institution: "University of Port-Harcourt",
-    image: "/Assets/Team/my_pictures.jpeg",
+    image: "/assets/Team/my_pictures.jpeg",
     bio: "Tech-savvy developer integrating digital solutions in neuroscience",
     socials: {
       linkedin: "https://www.linkedin.com/in/patrick-filima-91450817b/",
@@ -44,7 +44,7 @@ const coreTeam = [
     name: "Barisua Nsaanee",
     role: "Community & Communications Lead",
     institution: "University of Port-Harcourt",
-    image: "/Assets/Team/barisua2.jpeg",
+    image: "/assets/Team/barisua2.jpeg",
     bio: "Specialist in capacity building and community Building",
     socials: {
       linkedin: "https://www.linkedin.com/in/barisua-nsaanee",
@@ -56,7 +56,7 @@ const coreTeam = [
     name: "Chinyem Nkemjika Ighodaro",
     role: "Research Director",
     institution: " University of Benin",
-    image: "/Assets/Team/Chinyem.jpg",
+    image: "/assets/Team/Chinyem.jpg",
     bio: "African neuroimaging, EEG datasets, and physiological mechanisms of neurodegenerative diseases",
     socials: {
       linkedin: "https://www.linkedin.com/in/chinyem-ighodaro-427768a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",

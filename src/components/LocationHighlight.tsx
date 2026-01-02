@@ -36,7 +36,7 @@ export default function LocationHighlight() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <img 
-                src="/Assets/cross_section.jpeg"
+                src="/assets/cross_section.jpeg"
                 alt="2024 Annual Program Participants"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />

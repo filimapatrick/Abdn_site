@@ -138,7 +138,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/incf.jpeg"
+                        src="/assets/Partners/incf.jpeg"
                         alt="INCF"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -178,7 +178,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/CatalystNeuro.png"
+                        src="/assets/Partners/CatalystNeuro.png"
                         alt="Catalyst Neuro"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -218,7 +218,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/BrainLife.png"
+                        src="/assets/Partners/BrainLife.png"
                         alt="Brain Life"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -258,7 +258,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/math.jpeg"
+                        src="/assets/Partners/math.jpeg"
                         alt="MathWorks"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -304,7 +304,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/LifeBridge.png"
+                        src="/assets/Partners/LifeBridge.png"
                         alt="Life Bridge Diagnostics"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -350,7 +350,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/uniport.jpeg"
+                        src="/assets/Partners/uniport.jpeg"
                         alt="University of Port Harcourt"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -390,7 +390,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/luberk.png"
+                        src="/assets/Partners/luberk.png"
                         alt="University of Lübeck"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -430,7 +430,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/University_of_Texas_at_Austin_seal.svg.png"
+                        src="/assets/Partners/University_of_Texas_at_Austin_seal.svg.png"
                         alt="University of Texas"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -470,7 +470,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/Nottingham-Logo.jpg"
+                        src="/assets/Partners/Nottingham-Logo.jpg"
                         alt="University of Nottingham"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -510,7 +510,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/De_Montfort_University.png"
+                        src="/assets/Partners/De_Montfort_University.png"
                         alt="De Montfort University"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -550,7 +550,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/Lawrence-Technological-University.jpg"
+                        src="/assets/Partners/Lawrence-Technological-University.jpg"
                         alt="Lawrence Technological University"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -590,7 +590,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/Radboud_University.avif"
+                        src="/assets/Partners/Radboud_University.avif"
                         alt="Radboud University"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -636,7 +636,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/NSN.jpeg"
+                        src="/assets/Partners/NSN.jpeg"
                         alt="NSN"
                         className="max-h-full max-w-full object-contain"
                   />
@@ -676,7 +676,7 @@ export default function Collaborations() {
                 <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/SONA.jpeg"
+                        src="/assets/Partners/SONA.jpeg"
                         alt="SONA"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -722,7 +722,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/the_kavli_logo.jpg"
+                        src="/assets/Partners/the_kavli_logo.jpg"
                         alt="Kavli Foundation"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -762,7 +762,7 @@ export default function Collaborations() {
                   <div className="p-6">
                     <div className="h-24 flex items-center justify-center mb-6">
                       <img
-                        src="/Assets/Partners/IBRO_logo_main.svg"
+                        src="/assets/Partners/IBRO_logo_main.svg"
                         alt="IBRO"
                         className="max-h-full max-w-full object-contain"
                       />
@@ -854,7 +854,7 @@ export default function Collaborations() {
               className="relative"
             >
               <img
-                  src="/Assets/Academy_2023/mri_with_pestilli.jpg"
+                  src="/assets/Academy_2023/mri_with_pestilli.jpg"
                 alt="Collaboration"
                 className="rounded-xl shadow-lg"
               />

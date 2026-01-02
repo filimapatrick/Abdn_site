@@ -5,7 +5,7 @@ import Globe from './magicui/Globe';
 import OrbitingCircles from './magicui/OrbitingCircles';
 import JoinABDNForm from './forms/JoinABDNForm';
 import { useNavigate } from 'react-router-dom';
-// import t from '../../Assets/lagos_group_picture.jpeg'
+// import t from '../../assets/lagos_group_picture.jpeg'
 
 const africanCountries = [
   { name: 'Nigeria', icon: '🇳🇬' },
@@ -36,7 +36,7 @@ export default function Hero() {
         style={{ opacity }}
       >
         <img
-          src="/Assets/lagos_group_picture.jpeg"
+          src="/assets/lagos_group_picture.jpeg"
           alt="Background"
           className="w-full h-full object-cover"
         />

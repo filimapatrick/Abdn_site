@@ -8,14 +8,14 @@ const testimonials = [
     author: "Oumayma Soula",
     role: "PhD Student",
     institution: "Faculty of medicine of Sax",
-    image: "/Assets/NationalCordinators/Soula.jpg"
+    image: "/assets/NationalCordinators/Soula.jpg"
   },
   {
     quote: "ABDN was the first African network that provided me with solid training and hands-on experience. It sparked my journey into working with fMRI and EEG data, and their continuous support has been invaluable in shaping my growth as a researcher.",
     author: "Eman Khalil",
     role: "Assistant Professor",
     institution: "The American University in Cairo",
-    image: "/Assets/NationalCordinators/Khalil.jpeg"
+    image: "/assets/NationalCordinators/Khalil.jpeg"
   }
 ];
 

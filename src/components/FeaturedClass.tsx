@@ -62,14 +62,14 @@ export default function FeaturedClass() {
             transition={{ duration: 0.6 }}
           >
             <motion.img
-              src="/Assets/franco1.jpeg"
+              src="/assets/franco1.jpeg"
               alt="Brain research"
               className="rounded-lg shadow-lg transform translate-y-8"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
             <motion.img
-              src="/Assets/cross_s.jpeg"
+              src="/assets/cross_s.jpeg"
               alt="Neuroscience research"
               className="rounded-lg shadow-lg"
               whileHover={{ scale: 1.05 }}
@@ -117,7 +117,7 @@ export default function FeaturedClass() {
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <img
-                  src="/Assets/Academy_2023/franco_lecture.png"
+                  src="/assets/Academy_2023/franco_lecture.png"
                   alt="Faculty lecture at ABDN Academy 2023"
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -137,7 +137,7 @@ export default function FeaturedClass() {
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <img
-                  src="/Assets/Academy_2023/Azeezat_lecture.png"
+                  src="/assets/Academy_2023/Azeezat_lecture.png"
                   alt="Teaching session at ABDN Academy"
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -157,7 +157,7 @@ export default function FeaturedClass() {
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <img
-                  src="/Assets/Academy_2023/anibal_lecture.png"
+                  src="/assets/Academy_2023/anibal_lecture.png"
                   alt="Research presentation at ABDN"
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -177,7 +177,7 @@ export default function FeaturedClass() {
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <img
-                  src="/Assets/Academy_2023/damian2023.png"
+                  src="/assets/Academy_2023/damian2023.png"
                   alt="Workshop at ABDN Academy 2023"
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -199,7 +199,7 @@ export default function FeaturedClass() {
             transition={{ duration: 0.6 }}
           >
             <motion.img
-              src="/Assets/project_report.jpeg"
+              src="/assets/project_report.jpeg"
               alt="Research excellence"
               className="rounded-2xl shadow-xl"
               whileHover={{ scale: 1.05 }}

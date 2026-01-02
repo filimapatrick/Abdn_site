@@ -9,7 +9,7 @@ const combinedData = [
   // Faculty
   {
     id: 1,
-    src: '/Assets/Faculty/pestili.jpg',
+    src: '/assets/Faculty/pestili.jpg',
     alt: 'Franco Pestilli PhD',
     name: 'Franco Pestilli PhD',
     role: 'Faculty',
@@ -19,7 +19,7 @@ const combinedData = [
   },
   {
     id: 2,
-    src: '/Assets/Faculty/silke.jpg',
+    src: '/assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
     role: 'Faculty',
@@ -29,7 +29,7 @@ const combinedData = [
   },
   {
     id: 3,
-    src: '/Assets/Faculty/Melanie.jpg',
+    src: '/assets/Faculty/Melanie.jpg',
     alt: 'Melanie Ganz-Benjaminsen',
     name: 'Melanie Ganz-Benjaminsen',
     role: 'Faculty',
@@ -39,7 +39,7 @@ const combinedData = [
   },
   {
     id: 4,
-    src: '/Assets/Faculty/Ariel.jpg',
+    src: '/assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
     name: 'Ariel Rokem PhD',
     role: 'Faculty',
@@ -49,7 +49,7 @@ const combinedData = [
   },
   {
     id: 5,
-    src: '/Assets/Faculty/lyuba.jpeg',
+    src: '/assets/Faculty/lyuba.jpeg',
     alt: 'Lyuba Zehl PhD',
     name: 'Lyuba Zehl PhD',
     role: 'Faculty',
@@ -59,7 +59,7 @@ const combinedData = [
   },
   {
     id: 6,
-    src: '/Assets/Faculty/Matthew.jpg',
+    src: '/assets/Faculty/Matthew.jpg',
     alt: 'Matthew Abrams PhD',
     name: 'Matthew Abrams PhD',
     role: 'Faculty',
@@ -69,7 +69,7 @@ const combinedData = [
   },
   {
     id: 7,
-    src: '/Assets/Faculty/miller.jpg',
+    src: '/assets/Faculty/miller.jpg',
     alt: 'Karla L.Miller',
     name: 'Karla L.Miller',
     role: 'Faculty',
@@ -79,7 +79,7 @@ const combinedData = [
   },
   {
     id: 8,
-    src: '/Assets/Faculty/ben_ditcher.jpeg',
+    src: '/assets/Faculty/ben_ditcher.jpeg',
     alt: 'Ben Ditcher ',
     name: 'Ben Ditcher',
     role: 'Faculty',
@@ -89,7 +89,7 @@ const combinedData = [
   },
   {
     id: 9,
-    src: '/Assets/Faculty/petra.jpg',
+    src: '/assets/Faculty/petra.jpg',
     alt: 'Petra Ritter',
     name: 'Petra Ritter',
     role: 'Faculty',
@@ -99,7 +99,7 @@ const combinedData = [
   },
   {
     id: 10,
-    src: '/Assets/Faculty/nicholas.webp',
+    src: '/assets/Faculty/nicholas.webp',
     alt: 'Thomas Nicholas ',
     name: 'Thomas Nicholas',
     role: 'Faculty',
@@ -109,7 +109,7 @@ const combinedData = [
   },
   {
     id: 11,
-    src: '/Assets/Faculty/franco_delogu.jpg',
+    src: '/assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
@@ -119,7 +119,7 @@ const combinedData = [
   },
   {
     id: 12,
-    src: '/Assets/Faculty/Russ.jpg',
+    src: '/assets/Faculty/Russ.jpg',
     alt: 'Russ Poldrack PhD',
     name: 'Russ Poldrack PhD',
     role: 'Faculty',
@@ -129,7 +129,7 @@ const combinedData = [
   },
   {
     id: 13,
-    src: '/Assets/Faculty/Moses.jpg',
+    src: '/assets/Faculty/Moses.jpg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
     role: 'Faculty',
@@ -141,7 +141,7 @@ const combinedData = [
   // 2024 faculty
   {
     id: 14,
-    src: '/Assets/Faculty/pestili.jpg',
+    src: '/assets/Faculty/pestili.jpg',
     alt: 'Franco Pestilli	PhD',
     name: 'Franco Pestilli	PhD',
     role: 'Faculty',
@@ -151,7 +151,7 @@ const combinedData = [
   },
   {
     id: 15,
-    src: '/Assets/Faculty/silke.jpg',
+    src: '/assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
     role: 'Faculty',
@@ -161,7 +161,7 @@ const combinedData = [
   },
   {
     id: 16,
-    src: '/Assets/Faculty/Ariel.jpg',
+    src: '/assets/Faculty/Ariel.jpg',
     alt: 'Ariel Rokem PhD',
     name: 'Ariel Rokem PhD',
     role: 'Faculty',
@@ -171,7 +171,7 @@ const combinedData = [
   },
   {
     id: 17,
-    src: '/Assets/Faculty/Matthew.jpg',
+    src: '/assets/Faculty/Matthew.jpg',
     alt: 'Matthew Abrams PhD',
     name: 'Matthew Abrams PhD',
     role: 'Faculty',
@@ -181,7 +181,7 @@ const combinedData = [
   },
   {
     id: 18,
-    src: '/Assets/Faculty/franco_delogu.jpg',
+    src: '/assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
@@ -191,7 +191,7 @@ const combinedData = [
   },
   {
     id: 19,
-    src: '/Assets/Faculty/susane.avif',
+    src: '/assets/Faculty/susane.avif',
     alt: 'Susanne Ressl',
     name: 'Susanne Ressl',
     role: 'Faculty',
@@ -201,7 +201,7 @@ const combinedData = [
   },
   {
     id: 20,
-    src: '/Assets/Faculty/Moses.jpg',
+    src: '/assets/Faculty/Moses.jpg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
     role: 'Faculty',
@@ -306,7 +306,7 @@ const combinedData = [
 
   {
     id: 30,
-    src: '/Assets/Faculty/Horia.jpeg',
+    src: '/assets/Faculty/Horia.jpeg',
     alt: 'Horia Maior',
     name: 'Horia Maior',
     role: 'Faculty',
@@ -316,7 +316,7 @@ const combinedData = [
   },
   {
     id: 31,
-    src: '/Assets/Faculty/James_kent.jpeg',
+    src: '/assets/Faculty/James_kent.jpeg',
     alt: 'James Kent',
     name: 'James Kent',
     role: 'Faculty',
@@ -326,7 +326,7 @@ const combinedData = [
   },
   {
     id: 32,
-    src: '/Assets/Faculty/denisschluppeck.jpg',
+    src: '/assets/Faculty/denisschluppeck.jpg',
     alt: 'Denis Schluppeck',
     name: 'Denis Schluppeck',
     role: 'Faculty',
@@ -336,7 +336,7 @@ const combinedData = [
   },
   {
     id: 33,
-    src: '/Assets/Faculty/franco_delogu.jpg',
+    src: '/assets/Faculty/franco_delogu.jpg',
     alt: 'Prof. Franco Delogu PhD',
     name: 'Prof. Franco Delogu PhD',
     role: 'Faculty',
@@ -346,7 +346,7 @@ const combinedData = [
   },
   {
     id: 34,
-    src: '/Assets/Faculty/Moses3.jpeg',
+    src: '/assets/Faculty/Moses3.jpeg',
     alt: 'Moses Sokunbi PhD',
     name: 'Moses Sokunbi PhD',
     role: 'Faculty',
@@ -356,7 +356,7 @@ const combinedData = [
   },
   {
     id: 35,
-    src: '/Assets/Faculty/Azeezat.jpg',
+    src: '/assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
     role: 'Faculty',
@@ -366,7 +366,7 @@ const combinedData = [
   },
   {
     id: 36,
-    src: '/Assets/Faculty/Horia.jpeg',
+    src: '/assets/Faculty/Horia.jpeg',
     alt: 'Horia Maior',
     name: 'Horia Maior',
     role: 'Faculty',
@@ -376,7 +376,7 @@ const combinedData = [
   },
   {
     id: 37,
-    src: '/Assets/Academy_2025/pepita_faculty_pics.png',
+    src: '/assets/Academy_2025/pepita_faculty_pics.png',
     alt: 'Pepita Bernard',
     name: 'Pepita Bernard',
     role: 'Faculty',
@@ -386,7 +386,7 @@ const combinedData = [
   },
   {
     id: 38,
-    src: '/Assets/Faculty/silke.jpg',
+    src: '/assets/Faculty/silke.jpg',
     alt: 'Silke Anders PhD',
     name: 'Silke Anders PhD',
     role: 'Faculty',
@@ -397,7 +397,7 @@ const combinedData = [
 
   {
     id: 39,
-    src: '/Assets/Faculty/Mustapha.png',
+    src: '/assets/Faculty/Mustapha.png',
     alt: 'Mustafa S. Hamada',
     name: 'Mustafa S. Hamada',
     role: 'Faculty',
@@ -407,7 +407,7 @@ const combinedData = [
   },
   {
     id: 40,
-    src: '/Assets/Faculty/Ore.jpeg',
+    src: '/assets/Faculty/Ore.jpeg',
     alt: 'Ore Ogundipe',
     name: 'Ore Ogundipe',
     role: 'Teaching Assistant',
@@ -417,7 +417,7 @@ const combinedData = [
   },
   {
     id: 41,
-    src: '/Assets/Faculty/Gilgal.jpeg',
+    src: '/assets/Faculty/Gilgal.jpeg',
     alt: 'Gilgal J. A.',
     name: 'Gilgal J. A.',
     role: 'Teaching Assistant',

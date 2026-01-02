@@ -22,7 +22,7 @@ const defaultSEO = {
   defaultTitle: 'African Brain Data Network (ABDN) - Neuroscience Research & Training in Africa',
   defaultDescription: 'Building capacity for neuroscience research and data science across Africa through training, mentorship, and collaboration. Join our network of 300+ researchers across 20+ African countries.',
   defaultKeywords: 'African Brain Data Network, ABDN, neuroscience research Africa, brain imaging Africa, MRI training Africa, EEG research Africa, fNIRS Africa, neuroimaging education, brain data sharing, neuroscience capacity building, African brain research, neuroimaging collaboration, brain science education, neuroscience training programs, brain research infrastructure Africa, FAIR data, neuroethics, brain data network',
-  defaultImage: 'https://africanbraindatanetwork.com/Assets/lagos_group_picture.jpeg',
+  defaultImage: 'https://africanbraindatanetwork.com/assets/lagos_group_picture.jpeg',
   siteUrl: 'https://africanbraindatanetwork.com',
   twitterHandle: '@africanbraindn',
 };
@@ -63,7 +63,7 @@ export default function SEO({
     name: defaultSEO.siteName,
     alternateName: 'ABDN',
     url: defaultSEO.siteUrl,
-    logo: `${defaultSEO.siteUrl}/Assets/logo.png`,
+    logo: `${defaultSEO.siteUrl}/assets/logo.png`,
     description: defaultSEO.defaultDescription,
     foundingDate: '2018',
     areaServed: {

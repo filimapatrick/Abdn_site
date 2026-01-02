@@ -179,7 +179,7 @@ export default function Training() {
               </div>
               <div className="relative h-full min-h-[400px] order-1 md:order-2">
                 <img
-                  src="/Assets/Training/kenya_group.jpg"
+                  src="/assets/Training/kenya_group.jpg"
                   alt="ABDN Workshop Session"
                   className="w-full h-full object-cover"
                 />
@@ -291,7 +291,7 @@ export default function Training() {
               </div>
               <div className="relative h-full min-h-[400px] order-1 md:order-2">
                 <img
-                  src="/Assets/Training/Training_lagos.jpg"
+                  src="/assets/Training/Training_lagos.jpg"
                   alt="ABDS Academy 2023 Workshop"
                   className="w-full h-full object-cover"
                 />
@@ -311,7 +311,7 @@ export default function Training() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px] order-1">
                 <img
-                  src="/Assets/Training/kenya_group.jpg"
+                  src="/assets/Training/kenya_group.jpg"
                   alt="ABDS Academy 2024 Workshop"
                   className="w-full h-full object-cover"
                 />
@@ -389,7 +389,7 @@ export default function Training() {
               </div>
               <div className="relative h-full min-h-[400px] order-1 md:order-2">
                 <img
-                  src="/Assets/Events/decision_neuroscience.jpeg"
+                  src="/assets/Events/decision_neuroscience.jpeg"
                   alt="ABDN Webinar Series"
                   className="w-full h-full object-cover"
                 />
@@ -409,7 +409,7 @@ export default function Training() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px] order-1">
                 <img
-                  src="/Assets/Training/WhatsApp Image 2025-03-21 at 20.03.21 (1).jpeg"
+                  src="/assets/Training/WhatsApp Image 2025-03-21 at 20.03.21 (1).jpeg"
                   alt="Brain Awareness Week"
                   className="w-full h-full object-cover"
                 />

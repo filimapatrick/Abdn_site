@@ -4,32 +4,32 @@ import { motion } from 'framer-motion';
 const partners = [
   {
     name: "Sona",
-    logo: "/Assets/Partners/Sona.jpg",
+    logo: "/assets/Partners/Sona.jpg",
     description: "Supporting research and innovation in neuroscience"
   },
   {
     name: "NSN",
-    logo: "/Assets/Partners/nsn.jpg",
+    logo: "/assets/Partners/nsn.jpg",
     description: "Advancing neuroscience education and research in Nigeria"
   },
   {
     name: "Brainlife",
-    logo: "/Assets/Partners/brainlife.jpg",
+    logo: "/assets/Partners/brainlife.jpg",
     description: "Providing cutting-edge neuroimaging data processing tools"
   },
   {
     name: "University of Nottingham",
-    logo: "/Assets/Partners/Nottingham.jpg",
+    logo: "/assets/Partners/Nottingham.jpg",
     description: "Fostering international collaboration in brain science"
   },
   {
     name: "Brain Wellness Initiative",
-    logo: "/Assets/Partners/brain_wellness_initative.jpg",
+    logo: "/assets/Partners/brain_wellness_initative.jpg",
     description: "Promoting brain health and well-being"
   },
   {
     name: "De Montfort University",
-    logo: "/Assets/Partners/dmu-logo.png",
+    logo: "/assets/Partners/dmu-logo.png",
     description: "Fostering international collaboration in brain science"
   }
 ];

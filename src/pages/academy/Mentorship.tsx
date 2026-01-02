@@ -82,7 +82,7 @@ export default function Mentorship() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-full min-h-[400px]">
                 <img
-                  src="/Assets/Training/mentor_ship.jpg"
+                  src="/assets/Training/mentor_ship.jpg"
                   alt="Mentorship Program"
                   className="w-full h-full object-cover lg:w-[600px] lg:h-[500px]"
                 />

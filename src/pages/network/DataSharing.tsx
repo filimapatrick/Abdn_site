@@ -41,7 +41,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Parkinson's Disease", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/parkinsons",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -57,7 +57,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Healthy Controls", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/controls",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -73,7 +73,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Dementia", "T1w", "fMRI", "DTI", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/dementia",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -89,7 +89,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Hydrocephalus", "T1w", "T2w", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/hydrocephalus",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -105,7 +105,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Stroke", "T1w", "DWI", "PWI", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/stroke",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -121,7 +121,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Tumor", "T1w", "T2w", "FLAIR", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/tumor",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -137,7 +137,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Epilepsy", "T1w", "fMRI", "EEG", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/epilepsy",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -153,7 +153,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Multiple Sclerosis", "T1w", "T2w", "FLAIR", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/ms",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -169,7 +169,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024",
     tags: ["Alzheimer's Disease", "T1w", "fMRI", "PET", "Nigeria"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/alzheimers",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -185,7 +185,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024-02-15",
     tags: ["T1w", "fMRI", "DTI", "resting-state"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/abdn-1k",
     requirements: [
       "Institutional Review Board (IRB) approval",
@@ -201,7 +201,7 @@ const datasets: Dataset[] = [
     access: "restricted",
     dateUpdated: "2024-01-20",
     tags: ["T1w", "T2w", "brain atlas", "morphometry"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/abdn-struct"
   },
   {
@@ -212,7 +212,7 @@ const datasets: Dataset[] = [
     access: "controlled",
     dateUpdated: "2024-03-01",
     tags: ["fMRI", "task-based", "resting-state", "BOLD"],
-    image: "/Assets/Academy_2023/data.png",
+    image: "/assets/Academy_2023/data.png",
     documentation: "/docs/abdn-func",
     requirements: [
       "Research Protocol Approval",
