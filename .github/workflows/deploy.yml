@@ -28,6 +28,15 @@ jobs:
       - name: Remove .DS_Store files
         run: find dist -name '.DS_Store' -type f -delete
 
+      - name: Verify only lowercase assets folder exists
+        run: |
+          if [ -d "dist/Assets" ]; then
+            echo "ERROR: Found uppercase Assets folder in dist/"
+            echo "Removing uppercase Assets folder..."
+            rm -rf dist/Assets
+          fi
+          echo "✓ Only lowercase assets folder: $(ls -d dist/assets/)"
+
       - name: Deploy to Hostinger via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -44,3 +53,13 @@ jobs:
             **/.DS_Store
             **/.git*
             **/node_modules/**
+
+      - name: Deployment summary
+        run: |
+          echo "=========================================="
+          echo "✓ Deployment Complete"
+          echo "=========================================="
+          echo "Files deployed to: ${{ secrets.REMOTE_DIR }}"
+          echo "Only lowercase 'assets' folder included"
+          echo "No uppercase 'Assets' folder present"
+          echo "=========================================="
