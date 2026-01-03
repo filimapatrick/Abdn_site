@@ -25,6 +25,9 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
+      - name: Remove .DS_Store files
+        run: find dist -name '.DS_Store' -type f -delete
+
       - name: Deploy to Hostinger via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -36,3 +39,7 @@ jobs:
           local-dir: dist/
           server-dir: ${{ secrets.REMOTE_DIR }}
           dangerous-clean-slate: true
+          exclude: |
+            **/.DS_Store
+            **/.git*
+            **/node_modules/**
