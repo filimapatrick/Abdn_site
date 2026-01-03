@@ -38,7 +38,8 @@ jobs:
           port: 21
           local-dir: dist/
           server-dir: ${{ secrets.REMOTE_DIR }}
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
+          timeout: 600000
           exclude: |
             **/.DS_Store
             **/.git*
