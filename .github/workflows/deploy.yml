@@ -28,17 +28,6 @@ jobs:
       - name: Remove .DS_Store files
         run: find dist -name '.DS_Store' -type f -delete
 
-      - name: Install lftp for FTP operations
-        run: sudo apt-get update && sudo apt-get install -y lftp
-
-      - name: Delete old Assets folder on server (case fix)
-        run: |
-          lftp -c "set ssl:verify-certificate no; \
-          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftps://${{ secrets.FTP_HOST }}; \
-          cd ${{ secrets.REMOTE_DIR }}; \
-          rm -rf Assets; \
-          bye"
-
       - name: Deploy to Hostinger via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
