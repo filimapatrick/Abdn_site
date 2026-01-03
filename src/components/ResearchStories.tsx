@@ -8,21 +8,21 @@ const stories = [
     author: "Dr Moses Sokunbi",
     role: "Senior Lecturer",
     institution: "University of Nottingham",
-    image: "./assets/moses.png"
+    image: "/assets/moses.png"
   },
   {
     quote: "ABDN is a wonderful resource for young, vibrant,talented scientists from  across the continent. The workshop fosters and encourages an environment of collaboration and the development of new ideas. I truly believe that the  future of African neuroimaging is bright. I look forward to seeing what is to come from these brilliant scientists.",
     author: "Azeezat Azeez, PhD",
     role: "Imaging Research Scientist",
     institution: "Stanford School of Medicine",
-    image: "./assets/Faculty/Azeezat.jpg"
+    image: "/assets/Faculty/Azeezat.jpg"
   },
   {
     quote: "I have been collaborating with the African Brain Data Network since the Brain Data Academy in Kenya in 2024, and it has been a truly fascinating and rewarding experience. The network has created an exceptional space for connecting with researchers across many African countries, and facilitating meaningful exchanges of ideas and perspectives. Beyond the high-quality events organised by ABDN, these interactions have sparked new collaborations and important conversations around open, ethical, and more representative neuroscience datasets. Equally memorable have been the experiences surrounding the events themselves, working and learning in Kenya, Nigeria, and Rwanda has been both professionally inspiring and personally enriching. ABDN is not only advancing brain data science in Africa, but also building a vibrant, collaborative, and welcoming research community.",
     author: "Dr Horia Maior",
     role: "Neuroscientist",
     institution: "University of Nothingham",
-    image: "./assets/Faculty/Horia.jpeg"
+    image: "/assets/Faculty/Horia.jpeg"
   }
 ];
 

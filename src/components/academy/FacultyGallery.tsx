@@ -213,7 +213,7 @@ const combinedData = [
   // Teaching Assistants 2023
   {
     id: 21,
-    src: 'Assets/Faculty/dheerajbhatia.jpeg',
+    src: 'assets/Faculty/dheerajbhatia.jpeg',
     alt: 'Dheeraj Bhatia',
     name: 'Dheeraj Bhatia',
     role: 'Teaching Assistant',
@@ -223,7 +223,7 @@ const combinedData = [
   },
   {
     id: 22,
-    src: 'Assets/Faculty/Azeezat.jpg',
+    src: 'assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
     role: 'Teaching Assistant',
@@ -233,7 +233,7 @@ const combinedData = [
   },
   {
     id: 23,
-    src: 'Assets/Faculty/Anibal.png',
+    src: 'assets/Faculty/Anibal.png',
     alt: 'Annibal Heinsfeld PhD',
     name: 'Annibal Heinsfeld PhD',
     role: 'Teaching Assistant',
@@ -245,7 +245,7 @@ const combinedData = [
   // Teaching Assistants 2024
   {
     id: 24,
-    src: 'Assets/Faculty/stephen.jpg',
+    src: 'assets/Faculty/stephen.jpg',
     alt: 'Stephen',
     name: 'Stephen',
     role: 'Teaching Assistant',
@@ -255,7 +255,7 @@ const combinedData = [
   },
   {
     id: 25,
-    src: 'Assets/Faculty/sunaguo.jpg',
+    src: 'assets/Faculty/sunaguo.jpg',
     alt: 'Suna Guo',
     name: 'Suna Guo',
     role: 'Teaching Assistant',
@@ -265,7 +265,7 @@ const combinedData = [
   },
   {
     id: 26,
-    src: 'Assets/filima.jpeg',
+    src: 'assets/filima.jpeg',
     alt: 'Filima patrick',
     name: 'Filima patrick',
     role: 'Teaching Assistant',
@@ -275,7 +275,7 @@ const combinedData = [
   },
   {
     id: 27,
-    src: 'Assets/barisua.jpeg',
+    src: 'assets/barisua.jpeg',
     alt: 'Barisua Nsaanee',
     name: 'Barisua Nsaanee',
     role: 'Teaching Assistant',
@@ -285,7 +285,7 @@ const combinedData = [
   },
   {
     id: 28,
-    src: 'Assets/Faculty/Azeezat.jpg',
+    src: 'assets/Faculty/Azeezat.jpg',
     alt: 'Azeezat Azeez PhD',
     name: 'Azeezat Azeez PhD',
     role: 'Teaching Assistant',
@@ -295,7 +295,7 @@ const combinedData = [
   },
   {
     id: 29,
-    src: 'Assets/Faculty/Anibal.png',
+    src: 'assets/Faculty/Anibal.png',
     alt: 'Annibal Heinsfeld PhD',
     name: 'Annibal Heinsfeld PhD',
     role: 'Teaching Assistant',

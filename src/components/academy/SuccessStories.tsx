@@ -8,14 +8,14 @@ const stories = [
     author: "Anita Esi Esun",
     role: "Research Fellow",
     institution: "Kumasi Centre for Collaborative Research in Tropical Medicine",
-    image: "./assets/Anita_Esun.JPG"
+    image: "/assets/Anita_Esun.JPG"
   },
   {
     quote: "My story with ABDN is short and inspiring. I was among the lucky few selected to join the inaugural ABDN school in Nigeria in November 2023. I remember being surrounded by people from diverse backgrounds -- medicine, neuroscience, biology, and computer science - - and at first feeling a little lost. Then, the organizers asked me to give a 30-minute presentation about my career journey and what inspires me in neuroscience. That moment turned out to be the presentation that opened doors I never imagined would exist. I began discussing with professors and researchers how my skills in machine learning could be applied in neuroimaging. One professor whose work particularly interested me was Franco Pestilli. His lab applies computational methods to study the human brain, and I immediately felt that my skills and interests aligned with his research. After a highly competitive process, I was fortunate to be accepted into his lab at The University of Texas at Austin in the Department of Psychology. Through ABDN, I am now conducting research in areas I am truly passionate about, applying machine learning methods to better understand the brain. In 2024, I had the privilege of returning as a TA for the second edition of ABDN in Nairobi. In one word, ABDN connects African talent to global opportunities.",
     author: "Stephen Kiilu",
     role: "PhD Student",
     institution: "University of Texas at Austin",
-    image: "./assets/stephen_kiilu.JPG"
+    image: "/assets/stephen_kiilu.JPG"
   }
 ];
 
