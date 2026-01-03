@@ -17,6 +17,8 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 import { submitCollaborationProposal } from '../../services/supportService';
 
 interface Collaborator {

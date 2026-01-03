@@ -54,7 +54,7 @@ export default function EventDetail() {
         <div className="flex flex-col items-center justify-center min-h-screen">
           <h1 className="text-2xl font-bold text-amber-900 mb-4">Event not found</h1>
           <button
-            onClick={() => navigate('/academy/Events')}
+            onClick={() => navigate('/academy/events')}
             className="flex items-center text-amber-600 hover:text-amber-700"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
@@ -83,7 +83,7 @@ export default function EventDetail() {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              onClick={() => navigate('/academy/Events')}
+              onClick={() => navigate('/academy/events')}
               className="mb-8 flex items-center text-amber-100 hover:text-white transition-colors"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />

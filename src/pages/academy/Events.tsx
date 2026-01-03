@@ -5,6 +5,8 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 import { Event } from '../../services/eventsService';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
