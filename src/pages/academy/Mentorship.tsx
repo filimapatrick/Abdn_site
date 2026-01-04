@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Users, Globe, ArrowRight, Handshake, GraduationCap, Target, Brain, BookOpen, BrainCircuit, Lightbulb, ChevronRight } from 'lucide-react';
 import Layout from '../../components/Layout';
 import MentorshipForm from '../../components/MentorshipForm';
+import SEO from '../../components/SEO';
+import { seoConfig } from '../../config/seo';
 
 const mentorshipTracks = [
   {
