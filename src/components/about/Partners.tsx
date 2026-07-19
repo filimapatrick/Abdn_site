@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const partners = [
@@ -31,6 +30,21 @@ const partners = [
     name: "De Montfort University",
     logo: "/assets/Partners/dmu-logo.png",
     description: "Fostering international collaboration in brain science"
+  },
+   {
+    name: "African Neurodata Lab",
+    logo: "/assets/Partners/ANRlogo.png",
+    description: "Advancing open neurodata infrastructure and collaborative brain research in Africa"
+  },
+   {
+    name: "Mendi",
+    logo: "/assets/Partners/mendi.png",
+    description: "Supporting neurofeedback technology and brain health innovation"
+  },
+     {
+    name: "gtec",
+    logo: "/assets/Partners/gtec_logo.svg",
+    description: "Providing EEG and neurotechnology solutions for neuroscience research"
   }
 ];
 

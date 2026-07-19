@@ -13,6 +13,7 @@ import Stats from '../components/Stats';
 import ResearchStories from '../components/ResearchStories';
 import CallToAction from '../components/CallToAction';
 import SupportABDN from '../components/SupportABDN';
+import FeaturedTools from '../components/FeaturedTools';
 
 export default function Home() {
   const seo = seoConfig.home;
@@ -30,6 +31,7 @@ export default function Home() {
         <Hero />
         <Introduction />
         <Features />
+        <FeaturedTools />
         <LocationHighlight />
         <FeaturedClass />
         {/* <PopularCourses /> */}

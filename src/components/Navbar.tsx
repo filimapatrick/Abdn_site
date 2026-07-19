@@ -286,6 +286,10 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               </AnimatePresence>
             </div>
 
+            <Link to="/announcements" className="text-lg font-medium text-amber-900 hover:text-amber-600 transition-colors">
+              Announcement
+            </Link>
+
             <Link to="/about" className="text-lg font-medium text-amber-900 hover:text-amber-600 transition-colors">
               About
             </Link>
@@ -400,6 +404,14 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                   )}
                 </AnimatePresence>
               </div>
+
+              <Link 
+                to="/announcements" 
+                className="block text-lg font-medium text-amber-900 hover:text-amber-600"
+                onClick={closeMobileMenu}
+              >
+                Announcement
+              </Link>
 
               <Link 
                 to="/about" 

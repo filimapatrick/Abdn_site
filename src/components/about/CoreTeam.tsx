@@ -19,9 +19,9 @@ const coreTeam = [
   {
     name: "Dr. Eberechi Wogu",
     role: "Deputy Director",
-    institution: "Neuroscience Society of Nigeria",
+    institution: "University of Port-Harcourt, Nigeria",
     image: "/assets/Team/ebere1.png",
-    bio: "Pioneer in neuroimaging research in Nigeria",
+    bio: "Anatomical MRI studies, FAIR African Brain Data, Cognitive Neuroscience",
     socials: {
       linkedin: "#",
       email: "#",
@@ -30,10 +30,10 @@ const coreTeam = [
   },
   {
     name: "Filima Patrick",
-    role: "Technical Lead & Research Developer",
+    role: "Lead Software & Neuroinformatics Engineer",
     institution: "University of Port-Harcourt",
     image: "/assets/Team/my_pictures.jpeg",
-    bio: "Tech-savvy developer integrating digital solutions in neuroscience",
+     bio: "Develops neuroimaging workflows and neuroscience research software",
     socials: {
       linkedin: "https://www.linkedin.com/in/patrick-filima-91450817b/",
       email: "filimapatrick@gmail.com",

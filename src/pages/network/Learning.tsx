@@ -28,7 +28,14 @@ export default function Learning() {
             <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=300&h=300&fit=crop&crop=center" alt="EEG Tutorial" className="w-32 h-32 object-cover rounded-full mb-4" />
             <h2 className="text-2xl font-semibold text-amber-900 mb-2">EEG Learning Space</h2>
             <p className="text-amber-700 mb-4 text-center">Step-by-step guides and video lessons on EEG data acquisition, preprocessing, and analysis.</p>
-            <a href="#" className="text-amber-600 hover:underline font-medium">Browse EEG Space</a>
+            <a 
+              href="https://www.youtube.com/@fieldtriptoolbox" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-amber-600 hover:underline font-medium"
+            >
+              Browse EEG Space
+            </a>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
             <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=300&fit=crop&crop=center" alt="MRI Tutorial" className="w-32 h-32 object-cover rounded-full mb-4" />

@@ -386,9 +386,29 @@ const nationalCoordinators: Person[] = [
         "Member of the Senegal Neurology Society (ASN)"
       ]
     }
+  },
+  {
+    name: "Dr. Eman Khalil",
+    title: "National Coordinator",
+    country: "Egypt",
+    institution: "American University in Cairo (AUC)",
+    email: "emankhalil@aucegypt.edu",
+    image: "/assets/NationalCordinators/Khalil_Linkedin.png",
+    linkedin: "https://www.linkedin.com/in/emankhalil-auc-x0088/",
+    bio: "Dr. Eman Khalil is a Postdoctoral Fellow at the Biology Department, School of Science and Engineering, at the American University in Cairo. She also serves as the National Coordinator for the African Brain Data Network (ABDN). She has been awarded a Neuroscience Training Grant from the International Brain Research Organization (IBRO). Dr. Khalil recently joined our team at MINDIG to initiate a new collaboration focused on EEG analysis and Machine Learning modeling.",
+    details: {
+      interests: [
+        "Neuroimaging",
+        "Neurodegenerative diseases",
+        "Translational neuroscience (Traumatic brain injury (TBI), spinal cord injury, and neurotoxicity)"
+      ],
+      affiliations: [
+        "Founder of the Egyptian Neuroscience Network (ENN)",
+        "Adjunct Assistant Professor at the American University in Cairo (AUC)",
+        "ILAE Neurobiology commission member"
+      ]
+    }
   }
-
-
 ];
 
 const stakeholders: Person[] = [
@@ -447,7 +467,7 @@ const founders: Person[] = [
     name: "Eberechi Wogu PhD",
     title: "Deputy Director",
     institution: "University of Port Harcourt, Nigeria",
-    bio: "Dr. Eberechi Wogu is a Neuroscientist and Lecturer in the Department of Anatomy at UNIPORT. She is the secretary of the Neuroscience Society of Nigeria and treasurer of Women in Neuroscience Nigeria. With a background in Human Anatomy (BSc and MSc) and a Ph.D. in Neurobiology from the University of Calabar, her interests include African human brain imaging, open science, African neuroanthropology, and biological mechanisms of neurodegenerative diseases.",
+    bio: "Dr. Eberechi Wogu is a Neuroscientist and Lecturer in the Department of Anatomy at UNIPORT. She is the  treasurer of Women in Neuroscience Nigeria. With a background in Human Anatomy (BSc and MSc) and a Ph.D. in Neurobiology from the University of Calabar, her interests include African human brain imaging, open science, African neuroanthropology, and biological mechanisms of neurodegenerative diseases.",
     image: "/assets/Founders/ebere1.jpeg",
     email: "eberechi.wogu@uniport.edu.ng",
     linkedin: "https://www.linkedin.com/in/eberechi-wogu-55293819a/",
@@ -778,7 +798,8 @@ export default function People() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                  onClick={() => setSelectedPerson(stakeholder)}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
                 >
                   <div className="relative h-48 bg-amber-100">
                     <img
@@ -795,9 +816,12 @@ export default function People() {
                       <Building2 className="h-4 w-4 mr-1" />
                       <span>{stakeholder.institution}</span>
                     </div>
-                    <p className="text-amber-700 mb-6">{stakeholder.bio}</p>
+                    <p className="text-amber-700 mb-6 line-clamp-3">{stakeholder.bio}</p>
                     <button
-                      onClick={() => setSelectedPerson(stakeholder)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedPerson(stakeholder);
+                      }}
                       className="w-full px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                     >
                       More Info
@@ -828,7 +852,8 @@ export default function People() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                  onClick={() => setSelectedPerson(coordinator)}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
                 >
                   <div className="relative h-48 bg-amber-100">
                     <img
@@ -848,9 +873,12 @@ export default function People() {
                       <Building2 className="h-4 w-4 mr-1" />
                       <span>{coordinator.institution}</span>
                     </div> */}
-                    <p className="text-amber-700 mb-6">{coordinator.bio}</p>
+                    <p className="text-amber-700 mb-6 line-clamp-3">{coordinator.bio}</p>
                     <button
-                      onClick={() => setSelectedPerson(coordinator)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedPerson(coordinator);
+                      }}
                       className="w-full px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
                     >
                       More Info

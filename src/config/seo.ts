@@ -102,5 +102,11 @@ export const seoConfig = {
     keywords: 'cookie policy, privacy policy, data protection, website cookies, user privacy',
     url: 'https://africanbraindatanetwork.com/cookie-policy',
   },
+  announcements: {
+    title: 'Announcements - African Brain Data Network',
+    description: 'Stay updated with the latest announcements, news, calls for applications, and updates from the African Brain Data Network.',
+    keywords: 'neuroscience announcements, ABDN news, calls for applications, neuroscience updates, brain research news Africa',
+    url: 'https://africanbraindatanetwork.com/announcements',
+  },
 };
 

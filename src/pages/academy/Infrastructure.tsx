@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';
 import { seoConfig } from '../../config/seo';
@@ -6,17 +5,14 @@ import {
   Database,
   Server,
   Shield,
-  Users,
-  Heart,
   Building,
   Globe,
-  ChevronRight,
   Mail,
-  Phone,
-  CheckCircle2
+  Phone
 } from 'lucide-react';
 import Layout from '../../components/Layout';
 import InfrastructureContributionForm from '../../components/InfrastructureContributionForm';
+import MendiDevices from '../../components/academy/Mendi_devices';
 
 export default function Infrastructure() {
   const seo = seoConfig.infrastructure;
@@ -50,7 +46,7 @@ export default function Infrastructure() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl text-amber-100 max-w-3xl mx-auto"
               >
-                Building the foundation for African neuroscience data sharing and research (Coming Soon)
+                Building the foundation for African neuroscience data sharing and research 
               </motion.p>
             </div>
           </div>
@@ -90,6 +86,9 @@ export default function Infrastructure() {
             </motion.div>
           </div>
         </section>
+
+        {/* Mendi Devices & Technologies Section */}
+        <MendiDevices />
 
         {/* Support Our Mission Section */}
         <section className="py-24 bg-amber-50">
@@ -136,32 +135,6 @@ export default function Infrastructure() {
                 <h3 className="text-2xl font-bold text-amber-900 mb-6">Make a Contribution</h3>
                 <InfrastructureContributionForm />
               </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-amber-900">Get in Touch</h2>
-              <p className="mt-4 text-xl text-amber-700">
-                Have questions about supporting ABDN? Contact our team directly.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="flex items-center space-x-4 justify-center">
-                <Mail className="h-6 w-6 text-amber-600" />
-                <a href="mailto:africanbraindatanetwork@gmail.com" className="text-amber-700 hover:text-amber-900">
-                  africanbraindatanetwork@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-4 justify-center">
-                <Phone className="h-6 w-6 text-amber-600" />
-                <a href="tel:+1234567890" className="text-amber-700 hover:text-amber-900">
-                  +123 456 7890
-                </a>
-              </div>
             </div>
           </div>
         </section>

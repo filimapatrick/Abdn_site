@@ -21,6 +21,7 @@ import Learning from './pages/network/Learning';
 import ContactDrawer from './components/ContactDrawer';
 import CookiePolicy from './pages/CookiePolicy';
 import NotFound from './pages/NotFound';
+import Announcements from './pages/Announcements';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -51,6 +52,7 @@ function App() {
         <Route path="/network/publications" element={<Publications />} />
         <Route path="/network/alumni" element={<Alumni />} />
         <Route path="/network/learning" element={<Learning />} />
+        <Route path="/announcements" element={<Announcements />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
