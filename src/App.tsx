@@ -18,6 +18,8 @@ import Publications from './pages/network/Publications';
 import People from './pages/network/People';
 import Alumni from './pages/network/Alumni';
 import Learning from './pages/network/Learning';
+import Dashboard from './pages/learning/Dashboard';
+import Onboarding from './pages/learning/Onboarding';
 import ContactDrawer from './components/ContactDrawer';
 import CookiePolicy from './pages/CookiePolicy';
 import NotFound from './pages/NotFound';
@@ -31,9 +33,14 @@ function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  const isDashboard =
+    location.pathname.startsWith('/learning/dashboard') ||
+    location.pathname.startsWith('/network/learning/dashboard') ||
+    location.pathname.startsWith('/learning/onboarding');
+
   return (
     <div className="min-h-screen bg-white">
-      <Navbar onContactClick={() => setIsContactOpen(true)} />
+      {!isDashboard && <Navbar onContactClick={() => setIsContactOpen(true)} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -52,6 +59,9 @@ function App() {
         <Route path="/network/publications" element={<Publications />} />
         <Route path="/network/alumni" element={<Alumni />} />
         <Route path="/network/learning" element={<Learning />} />
+        <Route path="/learning/dashboard" element={<Dashboard />} />
+        <Route path="/network/learning/dashboard" element={<Dashboard />} />
+        <Route path="/learning/onboarding" element={<Onboarding />} />
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="*" element={<NotFound />} />

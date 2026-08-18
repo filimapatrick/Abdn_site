@@ -91,9 +91,9 @@ export const seoConfig = {
     url: 'https://africanbraindatanetwork.com/network/alumni',
   },
   learning: {
-    title: 'Learning Resources - African Brain Data Network',
-    description: 'Access free learning resources, tutorials, guides, and educational materials for neuroscience, brain imaging, and data science. Learn at your own pace.',
-    keywords: 'neuroscience learning, brain imaging tutorials, neuroimaging guides, neuroscience resources, educational materials, neuroscience tutorials, brain research learning',
+    title: 'ABDN NeuroLearning — Learn Brain Data Science with ABDN',
+    description: 'Learn neuroscience and brain-data science through structured courses, practical exercises, real datasets, and expert-led training. Explore MRI, fMRI, EEG, fNIRS, and Electrophysiology fellowship pathways.',
+    keywords: 'ABDN NeuroLearning, neuroscience fellowship Africa, MRI analysis tutorial, fMRI preprocessing, EEG data science, fNIRS optical neuroimaging, electrophysiology spike sorting, African Brain Data Network, learn neuroscience, brain data research',
     url: 'https://africanbraindatanetwork.com/network/learning',
   },
   cookiePolicy: {

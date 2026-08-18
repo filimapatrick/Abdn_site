@@ -14,9 +14,12 @@ import {
   Building2,
   Network,
   Database,
-  BookText
+  BookText,
+  Sparkles,
+  LayoutDashboard
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAuth } from '../context/AuthContext';
 
 const academyItems = [
   {
@@ -110,12 +113,12 @@ const networkItems = [
     icon: BookText,
     gradient: "from-amber-500/10 to-amber-600/10"
   },
-    {
-    title: "learning",
-    description: "Browse research publications from our network members",
-    buttonText: "Read Papers",
+  {
+    title: "NeuroLearning Hub",
+    description: "Explore structured pathways, practical datasets, and hands-on brain data science courses",
+    buttonText: "Start Learning",
     path: "/network/learning",
-    icon: BookText,
+    icon: Sparkles,
     gradient: "from-amber-500/10 to-amber-600/10"
   },
 ];
@@ -125,6 +128,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onContactClick }: NavbarProps) {
+  const { isLoggedIn, userProfile } = useAuth();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
@@ -295,8 +299,18 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             </Link>
           </div>
 
-          {/* Right side: Contact and Mobile Menu */}
-          <div className="flex-1 flex items-center justify-end space-x-4">
+          {/* Right side: Contact, Dashboard, and Mobile Menu */}
+          <div className="flex-1 flex items-center justify-end space-x-3 sm:space-x-4">
+            {isLoggedIn && (
+              <Link
+                to="/learning/dashboard"
+                className="hidden md:flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold text-sm shadow-sm transition-all"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span>My Dashboard</span>
+              </Link>
+            )}
+
             {/* Desktop Contact Button */}
             <button
               onClick={onContactClick}
@@ -333,6 +347,16 @@ export default function Navbar({ onContactClick }: NavbarProps) {
             style={{ top: "5rem" }}
           >
             <div className="px-4 py-6 space-y-6">
+              {isLoggedIn && (
+                <Link 
+                  to="/learning/dashboard" 
+                  className="block text-lg font-bold text-amber-800 hover:text-amber-600 bg-amber-50 p-3 rounded-xl border border-amber-200"
+                  onClick={closeMobileMenu}
+                >
+                  ⚡ My Learning Dashboard
+                </Link>
+              )}
+
               <Link 
                 to="/academy" 
                 className="block text-lg font-medium text-amber-900 hover:text-amber-600"
