@@ -55,14 +55,14 @@ By mapping every interaction stage—from account registration to lesson executi
 * **User Actions:**
   1. Fellow receives an email invitation or navigates to the ABDN platform.
   2. Clicks "Sign In / Register".
-  3. Enters full name, email, password, and selects primary institution/cohort (`ABDN-2026`).
+  3. Authenticates seamlessly via 1-click Google Single Sign-On.
 * **System Behavior:**
   * Firebase Auth creates user credential (`uid`).
   * `authService.ts` synchronizes profile record in `elearning_users` collection.
   * System directs user to the Onboarding Welcome Screen.
 * **Friction & Mitigation:**
-  * *Risk:* Fellow forgets password or struggles with email verification.
-  * *Mitigation:* Clear password reset triggers and persistent session tokens via Firebase Auth.
+  * *Risk:* Popup window closed prematurely during OAuth.
+  * *Mitigation:* Clear retry triggers and persistent Google OAuth session tokens via Firebase Auth.
 
 ---
 

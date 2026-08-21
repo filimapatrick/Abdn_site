@@ -61,7 +61,12 @@ async function writeUserDocDual(uid: string, data: any, merge: boolean = true) {
 
   try {
     const backupRef = doc(db, BACKUP_USERS_COLLECTION, uid);
-    await setDoc(backupRef, data, { merge });
+    // Ensure role field exists on users collection doc (default to 'user' if not specified)
+    const backupData = {
+      role: 'user',
+      ...data,
+    };
+    await setDoc(backupRef, backupData, { merge });
   } catch (err) {
     console.warn(`Error writing to ${BACKUP_USERS_COLLECTION}:`, err);
   }

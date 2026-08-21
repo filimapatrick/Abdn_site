@@ -255,7 +255,7 @@ Firebase
 ## 9. Firestore Data Model
 
 ### 9.1 Users
-Collection: `users/{uid}`
+Collection: `users/{uid}` (Shared Firestore User Collection across ABDN Site & ABDN Dashboard)
 
 ```json
 {
@@ -851,7 +851,11 @@ The platform should monitor:
 
 ## 39. Authorization
 
-Roles should be explicitly represented: `fellow`, `faculty`, `admin`.
+Roles should be explicitly represented in `users/{uid}`: `user` (default learner), `fellow`, `faculty`, `admin`.
+
+* **Super Admin (`admin`)**: ABDN Core Team. Has full access across all ABDN Dashboard modules (Analytics, Events, Members, People, ABDSA, Infrastructure, and Content Management).
+* **Teaching Assistant / Faculty (`ta` / `faculty` / default dashboard user)**: Course TAs and Instructors who log into `Abdn_dashboard` to schedule sessions, publish lectures, upload Zoom recordings, slides, and Colab lab snippets.
+* **Participant / Fellow (`fellow` / `student`)**: Learners who access the main E-learning portal (`Abdn_2024_site`) to view published lectures, study materials, and watch recordings.
 
 A fellow should **not** be able to:
 * publish lessons

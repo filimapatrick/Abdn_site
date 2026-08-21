@@ -229,7 +229,7 @@ GitHub Unavailable  ──►  Display "Materials temporarily unavailable" messa
 ## 13. Firebase Testing
 
 QA must validate:
-* Authentication flow (email/password, session persistence, password reset)
+* Authentication flow (Google Single Sign-On, OAuth popup handling, session persistence)
 * Firestore read/write performance
 * Security rules enforcement (fellow vs. admin write permissions)
 * Real-time progress persistence
@@ -269,7 +269,7 @@ Idempotency:      Repeated clicks    ──►  No duplicate progress records cr
 
 ## 16. Authentication & Authorization Testing
 
-* **Registration:** Valid email format, duplicate account handling, password strength rules.
+* **Registration:** 1-click Google OAuth authentication, profile synchronization across ABDN portals.
 * **Authentication:** Valid/invalid login credentials, session persistence across tab reloads, clean logout.
 * **Authorization:** Direct URL manipulation (e.g., attempting to access `/admin/publish` as a fellow) must redirect to unauthorized access page.
 

@@ -353,7 +353,7 @@ CONTENT READINESS HEALTH
 users/{uid}
   ├── displayName: string
   ├── email: string
-  ├── role: "fellow" | "faculty" | "admin"
+  ├── role: "admin" (Super Admin - Core Team) | "ta" / "faculty" (Teaching Assistant - Content Uploader in Dashboard) | "fellow" (Participant - Content Viewer in E-learning Portal)
   ├── cohort: string
   ├── enrolledModalities: string[]
   └── createdAt / lastActiveAt: timestamp
