@@ -175,3 +175,44 @@ To support fellows accessing the platform across various African regions:
 * **Bandwidth Optimization:** Slide decks (`.pdf`) and notes load on-demand; heavy video streams use adaptive bitrate Zoom playback.
 * **Keyboard Accessibility:** Complete Tab key focus support and high-contrast color scheme for visually impaired users.
 * **Offline Resilience:** LocalStorage and IndexedDB caching ensure progress updates are never lost during network drops.
+
+---
+
+## 7. Teaching Assistant (TA) Onboarding & Scoped Cohort Management Journey
+
+```text
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
+│ STAGE 1                 │     │ STAGE 2                 │     │ STAGE 3                 │     │ STAGE 4                 │
+│ Google SSO & TA Profile │ ──► │ Cohort Modality         │ ──► │ Scoped Roster & Metrics │ ──► │ TA Notes & Performance  │
+│ Setup (Pre-filled Name) │     │ Selection               │     │ Portal Access           │     │ Check-ins               │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+```
+
+### Stage 1 & 2 — Google SSO & TA Profile Setup
+* **User Goal:** Authenticate into `Abdn_dashboard` and set up TA display credentials & assigned cohort track.
+* **User Actions:**
+  1. TA signs in using Google Single Sign-On.
+  2. TA receives the **TA Profile Setup Modal**.
+  3. Pre-filled Google display name *(e.g., "Patrick Filima")* is displayed; TA can edit or add academic title *(e.g., "Dr. Patrick Filima")*.
+  4. TA selects their designated fellowship track modality (`MRI/fMRI`, `fNIRS`, `EEG`, or `Electrophysiology`).
+  5. Clicks "Confirm Profile & Enter Portal".
+* **System Behavior:**
+  * System updates Firestore `users/{uid}` and `elearning_users/{uid}` with `assignedModality` and `displayName`.
+  * System redirects TA to `/e-learning`.
+
+### Stage 3 — Scoped Cohort Roster & Metrics
+* **User Goal:** Inspect participant progress and attendance for fellows in their specific modality track.
+* **User Actions:**
+  1. TA views the TA Performance Hub (`TAStudentRoster.tsx`).
+  2. System automatically scopes student tables and metric cards (Total Fellows, Active, At Risk, Attendance Rate) to the TA's assigned modality.
+  3. TAs supporting multiple tracks use the header **Cohort Switcher** dropdown to update active view on demand.
+* **Super Admin Override:** Super Admin accounts (`role == "admin"`) bypass modality restrictions, maintaining global network visibility with an interactive multi-modality selector.
+
+### Stage 4 — Private Feedback Notes & Learner Check-ins
+* **User Goal:** Record private TA evaluation feedback and send progress check-ins to fellows.
+* **User Actions:**
+  1. TA opens a fellow detail drawer.
+  2. Reviews session-by-session video attendance and quiz progress.
+  3. Enters private feedback notes saved directly to Firestore.
+  4. Triggers email check-ins directly to the fellow.
+

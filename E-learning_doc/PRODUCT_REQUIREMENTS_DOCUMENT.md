@@ -290,6 +290,16 @@ $$\text{Overall Progress} = \frac{\text{Total Completed Lessons Across Enrolled 
 ### FR-19 — Admin Lesson Management
 * Administrators shall be able to create, update, and manage lesson records via the Admin Dashboard.
 
+### FR-19b — Teaching Assistant Onboarding & Profile Setup
+* Upon Google Single Sign-On, Teaching Assistants whose profile lacks an assigned cohort shall be presented with an interactive TA Profile Setup Modal.
+* The setup modal shall pre-fill the TA's display name from Google SSO (fully editable) and prompt for selection of their assigned fellowship track modality (`MRI/fMRI`, `fNIRS`, `EEG`, or `Electrophysiology`).
+* TA profile updates persist to `users/{uid}` and `elearning_users/{uid}` in Firestore.
+
+### FR-19c — TA Modality Cohort Scoping & Access Control
+* Teaching Assistant accounts in the ABDN Admin Dashboard (`Abdn_dashboard`) shall have their participant performance roster and metric aggregations (Total Fellows, Active, At Risk, Avg Attendance Rate) automatically scoped to fellows enrolled in their assigned modality cohort.
+* Super Admin accounts (`role == "admin"`) retain global network visibility across all fellows with interactive multi-modality filtering.
+* TAs supporting multiple tracks shall be provided with an active Cohort Switcher in the dashboard header to update their assigned view on demand.
+
 ### FR-20 — Lesson Lifecycle State Machine
 $$\text{DRAFT} \quad\longrightarrow\quad \text{READY} \quad\longrightarrow\quad \text{PUBLISHED} \quad\longrightarrow\quad \text{ARCHIVED}$$
 
@@ -351,10 +361,11 @@ CONTENT READINESS HEALTH
 
 ```text
 users/{uid}
-  ├── displayName: string
+  ├── displayName: string (Pre-filled from Google SSO, editable by TA during setup)
   ├── email: string
-  ├── role: "admin" (Super Admin - Core Team) | "ta" / "faculty" (Teaching Assistant - Content Uploader in Dashboard) | "fellow" (Participant - Content Viewer in E-learning Portal)
-  ├── cohort: string
+  ├── role: "admin" (Super Admin - Core Team) | "ta" / "faculty" (Teaching Assistant - Scoped Cohort Manager in Dashboard) | "fellow" (Participant - Content Viewer in E-learning Portal)
+  ├── assignedModality: string (e.g. "MRI/fMRI", "fNIRS", "EEG", "Electrophysiology")
+  ├── cohort: string (e.g. "ABDN-2026")
   ├── enrolledModalities: string[]
   └── createdAt / lastActiveAt: timestamp
 

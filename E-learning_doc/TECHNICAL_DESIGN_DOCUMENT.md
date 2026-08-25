@@ -849,18 +849,21 @@ The platform should monitor:
 
 ---
 
-## 39. Authorization
+## 39. Authorization & TA Scoping Architecture
 
-Roles should be explicitly represented in `users/{uid}`: `user` (default learner), `fellow`, `faculty`, `admin`.
+Roles and assigned cohorts are explicitly represented in `users/{uid}` and `elearning_users/{uid}`: `user` (default learner), `fellow`, `ta`, `faculty`, `admin`.
 
-* **Super Admin (`admin`)**: ABDN Core Team. Has full access across all ABDN Dashboard modules (Analytics, Events, Members, People, ABDSA, Infrastructure, and Content Management).
-* **Teaching Assistant / Faculty (`ta` / `faculty` / default dashboard user)**: Course TAs and Instructors who log into `Abdn_dashboard` to schedule sessions, publish lectures, upload Zoom recordings, slides, and Colab lab snippets.
+* **Super Admin (`admin`)**: ABDN Core Team. Has full global access across all ABDN Dashboard modules (Analytics, Events, Members, People, ABDSA, Infrastructure, and Content Management) and unrestricted visibility into all fellow cohorts across all modalities.
+* **Teaching Assistant / Faculty (`ta` / `faculty` / default dashboard user)**: Course TAs and Instructors who log into `Abdn_dashboard`.
+  * **Onboarding & Setup:** Upon Google SSO sign-in, if `assignedModality` is unset, the user is presented with a Setup Modal to confirm their pre-filled Google display name (fully editable) and select their assigned track (`MRI/fMRI`, `fNIRS`, `EEG`, or `Electrophysiology`).
+  * **Modality-Based Data Scoping:** The TA Roster (`TAStudentRoster.tsx`) and metrics engine automatically scope participant tables and attendance statistics strictly to fellows registered under the TA's `assignedModality`.
+  * **Cohort Switcher:** TAs supporting multiple tracks can dynamically switch their active assigned modality via the header dropdown, updating Firestore state in real time.
 * **Participant / Fellow (`fellow` / `student`)**: Learners who access the main E-learning portal (`Abdn_2024_site`) to view published lectures, study materials, and watch recordings.
 
 A fellow should **not** be able to:
 * publish lessons
 * modify another learner's progress
-* access administrative records
+* access administrative records or TA roster views
 * modify video-access configuration
 
 ---
