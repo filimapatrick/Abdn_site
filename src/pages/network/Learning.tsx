@@ -358,46 +358,6 @@ const featuredPrograms = [
   },
 ];
 
-// --- Inside Products Data ---
-const whatsInsideItems = [
-  {
-    icon: '🎥',
-    title: 'Expert Lessons',
-    description: 'Recorded sessions, step-by-step masterclasses, and live workshops led by ABDN instructors, fellows, and international faculty.',
-    tag: 'Video & Lecture Series',
-  },
-  {
-    icon: '📚',
-    title: 'Guided Courses',
-    description: 'Structured, progressive learning pathways with clear milestones instead of disconnected tutorials or scattered videos.',
-    tag: 'Structured Curricula',
-  },
-  {
-    icon: '🧪',
-    title: 'Practical Exercises',
-    description: 'Apply concepts immediately through interactive Jupyter notebooks, guided code walkthroughs, and automated tests.',
-    tag: 'Hands-on Coding Labs',
-  },
-  {
-    icon: '🧠',
-    title: 'Neuroscience Datasets',
-    description: 'Learn using real, curated African and global neuroimaging repositories (EEG, MRI, fNIRS, DTI) ready for analysis.',
-    tag: 'FAIR Open Data',
-  },
-  {
-    icon: '✓',
-    title: 'Assessments & Quizzes',
-    description: 'Test your understanding, receive automated milestone feedback, and benchmark your computational competencies.',
-    tag: 'Competency Checkpoints',
-  },
-  {
-    icon: '🔬',
-    title: 'Research Projects',
-    description: 'Move from coursework toward practical research capstones, reproducible pipelines, and co-authored publications.',
-    tag: 'Publication-Ready Capstones',
-  },
-];
-
 // --- Community Personas Data ---
 const personaItems = [
   {
@@ -430,18 +390,6 @@ const personaItems = [
   },
 ];
 
-// --- Learning Journey Pipeline Steps ---
-const journeySteps = [
-  { step: '01', title: 'Discover', description: 'Explore modalities & identify learning goals.' },
-  { step: '02', title: 'Choose Path', description: 'Select a structured modality curriculum.' },
-  { step: '03', title: 'Learn', description: 'Master concepts with expert video lectures.' },
-  { step: '04', title: 'Practice', description: 'Code hands-on with real brain datasets.' },
-  { step: '05', title: 'Assess', description: 'Validate competency with milestone checks.' },
-  { step: '06', title: 'Build Project', description: 'Execute a reproducible capstone pipeline.' },
-  { step: '07', title: 'Demonstrate', description: 'Earn verified skill credentials & code portfolio.' },
-  { step: '08', title: 'Research Community', description: 'Collaborate with the African Brain Data Network.' },
-];
-
 export default function Learning() {
   const seo = seoConfig.learning;
   const navigate = useNavigate();
@@ -458,6 +406,9 @@ export default function Learning() {
 
   // Filter state for modalities
   const [filterLevel, setFilterLevel] = useState<string>('all');
+
+  // Curriculum Hub Tab State ('pathways' | 'programs')
+  const [curriculumTab, setCurriculumTab] = useState<'pathways' | 'programs'>('pathways');
 
   // Interactive hero simulation states (5 Fellowship Modalities)
   const [activeHeroTab, setActiveHeroTab] = useState<'mri' | 'fmri' | 'eeg' | 'fnirs' | 'electrophysiology'>('mri');
@@ -792,19 +743,19 @@ export default function Learning() {
           </section>
 
           {/* ========================================================================= */}
-          {/* 2. HOW IT WORKS SECTION (LEARN · PRACTICE · BUILD) */}
+          {/* 2. PLATFORM FEATURES & METHODOLOGY */}
           {/* ========================================================================= */}
           <section className="py-20 bg-white border-b border-stone-200/80">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+              <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <span>Product Philosophy</span>
+                  <span>Learning Environment</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  Learn. Practice. Build.
+                  Learn by Doing, Not Just Watching
                 </h2>
                 <p className="text-base sm:text-lg text-stone-600">
-                  A structured methodology engineered to transform raw curiosity into proven brain-data research competency.
+                  ABDN NeuroLearning is an active workspace engineered to transform curiosity into verified research competency.
                 </p>
               </div>
 
@@ -817,14 +768,14 @@ export default function Learning() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900">
-                        01 — LEARN
+                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900 uppercase">
+                        01 · Expert Masterclasses
                       </span>
                       <span className="text-3xl">🎥</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-stone-900">Learn from experts</h3>
+                    <h3 className="text-2xl font-bold text-stone-900">Structured Curricula</h3>
                     <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                      Access structured lessons, recorded fellowship sessions, tutorials, and curated learning resources from ABDN researchers and global instructors.
+                      Follow step-by-step video lessons and live workshops led by ABDN researchers and global neuroscience faculty.
                     </p>
                   </div>
                   <div className="pt-6 border-t border-stone-200/60 mt-6 text-xs text-amber-800 font-semibold flex items-center space-x-1.5">
@@ -841,19 +792,19 @@ export default function Learning() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900">
-                        02 — PRACTICE
+                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900 uppercase">
+                        02 · Real Datasets & Code
                       </span>
                       <span className="text-3xl">🧪</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-stone-900">Work with real data</h3>
+                    <h3 className="text-2xl font-bold text-stone-900">Interactive Jupyter Labs</h3>
                     <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                      Apply what you learn through hands-on exercises, interactive coding tutorials, and authentic African neuroscience datasets.
+                      Apply concepts directly using curated African neuroimaging cohorts (EEG, MRI, fNIRS) in ready-to-run notebooks.
                     </p>
                   </div>
                   <div className="pt-6 border-t border-stone-200/60 mt-6 text-xs text-amber-800 font-semibold flex items-center space-x-1.5">
                     <CheckCircle2 className="w-4 h-4 text-amber-600" />
-                    <span>Interactive Jupyter & Python pipelines</span>
+                    <span>Interactive Python & FAIR data pipelines</span>
                   </div>
                 </motion.div>
 
@@ -865,19 +816,19 @@ export default function Learning() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900">
-                        03 — BUILD
+                      <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-900 uppercase">
+                        03 · Research Capstones
                       </span>
                       <span className="text-3xl">🔬</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-stone-900">Develop research skills</h3>
+                    <h3 className="text-2xl font-bold text-stone-900">Verified Credentials</h3>
                     <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                      Complete practical capstone projects and build verifiable evidence of your neuroscience and brain-data capabilities.
+                      Complete practical research capstones, generate reproducible code portfolios, and benchmark your computational competencies.
                     </p>
                   </div>
                   <div className="pt-6 border-t border-stone-200/60 mt-6 text-xs text-amber-800 font-semibold flex items-center space-x-1.5">
                     <CheckCircle2 className="w-4 h-4 text-amber-600" />
-                    <span>Publication-ready reproducible scripts</span>
+                    <span>Publication-ready capstone portfolios</span>
                   </div>
                 </motion.div>
               </div>
@@ -885,351 +836,233 @@ export default function Learning() {
           </section>
 
           {/* ========================================================================= */}
-          {/* 3. EXPLORE LEARNING PATHWAYS */}
+          {/* 3. CURRICULUM HUB (PATHWAYS & FELLOWSHIP PROGRAMS) */}
           {/* ========================================================================= */}
-          <section id="pathways" className="py-24 bg-gradient-to-b from-stone-50 via-amber-50/30 to-stone-50 border-b border-stone-200">
+          <section id="pathways" className="py-20 bg-gradient-to-b from-stone-50 via-amber-50/30 to-stone-50 border-b border-stone-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
-              {/* Section Header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                <div className="space-y-3 max-w-2xl">
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                    <span>Curriculum Catalog</span>
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                    Explore Learning Pathways
-                  </h2>
-                  <p className="text-base sm:text-lg text-stone-600">
-                    Choose a modality and start building practical brain-data skills. Each pathway features a 3-level progression from foundations to advanced research.
-                  </p>
+              {/* Main Tab Switcher Header */}
+              <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
+                  <span>Curriculum Catalog</span>
                 </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                  Choose Your Learning Path
+                </h2>
+                <p className="text-base sm:text-lg text-stone-600">
+                  Select a structured modality pathway or explore our intensive fellowship programs.
+                </p>
 
-                {/* Filter Pills */}
-                <div className="flex items-center space-x-2 bg-white p-1.5 rounded-2xl border border-stone-200 shadow-sm self-start md:self-auto">
-                  {[
-                    { id: 'all', label: 'All Modalities' },
-                    { id: 'beginner', label: 'Beginner' },
-                    { id: 'intermediate', label: 'Intermediate' },
-                    { id: 'advanced', label: 'Advanced' },
-                  ].map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setFilterLevel(tab.id)}
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-                        filterLevel === tab.id
-                          ? 'bg-amber-700 text-white shadow-sm'
-                          : 'text-stone-600 hover:text-stone-950 hover:bg-stone-100'
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
+                {/* Primary Category Switcher: Modality Pathways vs Fellowship Programs */}
+                <div className="inline-flex items-center p-1.5 bg-stone-200/80 rounded-2xl border border-stone-300 shadow-inner mt-2">
+                  <button
+                    onClick={() => setCurriculumTab('pathways')}
+                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
+                      curriculumTab === 'pathways'
+                        ? 'bg-amber-700 text-white shadow-md'
+                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
+                    }`}
+                  >
+                    <span>🧠 Modality Pathways ({pathwaysData.length})</span>
+                  </button>
+                  <button
+                    onClick={() => setCurriculumTab('programs')}
+                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
+                      curriculumTab === 'programs'
+                        ? 'bg-amber-700 text-white shadow-md'
+                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
+                    }`}
+                  >
+                    <span>⭐ Fellowship Programs ({featuredPrograms.length})</span>
+                  </button>
                 </div>
               </div>
 
-              {/* Pathways Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPathways.map((pathway) => (
-                  <motion.div
-                    key={pathway.id}
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="bg-white rounded-3xl p-7 border border-stone-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all flex flex-col justify-between group"
-                  >
-                    <div>
-                      {/* Top Header Row */}
-                      <div className="flex items-start justify-between mb-5">
-                        <div className="text-4xl p-3 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-110 transition-transform">
-                          {pathway.icon}
+              {/* TAB 1: MODALITY PATHWAYS */}
+              {curriculumTab === 'pathways' && (
+                <div>
+                  {/* Level Filter Pills */}
+                  <div className="flex justify-center mb-8">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 bg-white p-1.5 rounded-2xl border border-stone-200 shadow-sm">
+                      {[
+                        { id: 'all', label: 'All Modalities' },
+                        { id: 'beginner', label: 'Beginner' },
+                        { id: 'intermediate', label: 'Intermediate' },
+                        { id: 'advanced', label: 'Advanced' },
+                      ].map((tab) => (
+                        <button
+                          key={tab.id}
+                          onClick={() => setFilterLevel(tab.id)}
+                          className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                            filterLevel === tab.id
+                              ? 'bg-stone-900 text-white shadow-sm'
+                              : 'text-stone-600 hover:text-stone-950 hover:bg-stone-100'
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Pathways Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredPathways.map((pathway) => (
+                      <motion.div
+                        key={pathway.id}
+                        whileHover={{ y: -6 }}
+                        transition={{ duration: 0.2 }}
+                        className="bg-white rounded-3xl p-7 border border-stone-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all flex flex-col justify-between group"
+                      >
+                        <div>
+                          {/* Top Header Row */}
+                          <div className="flex items-start justify-between mb-5">
+                            <div className="text-4xl p-3 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-110 transition-transform">
+                              {pathway.icon}
+                            </div>
+                            <div className="flex flex-col items-end space-y-1.5">
+                              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold uppercase tracking-wider">
+                                {pathway.category}
+                              </span>
+                              <span className="text-[11px] text-stone-500 font-medium">
+                                {pathway.duration}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Title & Tagline */}
+                          <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-amber-700 transition-colors">
+                            {pathway.name}
+                          </h3>
+                          <p className="text-sm text-stone-600 leading-relaxed mb-6">
+                            {pathway.tagline}
+                          </p>
+
+                          {/* Tools preview */}
+                          <div className="mb-6">
+                            <div className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold mb-2">
+                              Key Tools & Libraries
+                            </div>
+                            <div className="flex flex-wrap gap-1.5">
+                              {pathway.tools.map((tool, idx) => (
+                                <span
+                                  key={idx}
+                                  className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-xs font-mono"
+                                >
+                                  {tool}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex flex-col items-end space-y-1.5">
-                          <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold uppercase tracking-wider">
-                            {pathway.category}
+
+                        {/* Footer Action */}
+                        <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
+                          <span className="text-xs font-semibold text-amber-800">
+                            {pathway.level}
                           </span>
-                          <span className="text-[11px] text-stone-500 font-medium">
-                            {pathway.duration}
+                          <button
+                            onClick={() => setActivePathwayModal(pathway)}
+                            className="px-4 py-2 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-xs transition-all flex items-center space-x-1.5 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
+                          >
+                            <span>Explore Path</span>
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: FELLOWSHIP PROGRAMS */}
+              {curriculumTab === 'programs' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {featuredPrograms.map((prog, idx) => (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ y: -4 }}
+                      transition={{ duration: 0.2 }}
+                      className="p-8 rounded-3xl bg-white border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+                    >
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <span className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${prog.badgeColor}`}>
+                            {prog.badge}
                           </span>
+                          <Sparkles className="w-5 h-5 text-amber-600" />
                         </div>
-                      </div>
 
-                      {/* Title & Tagline */}
-                      <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-amber-700 transition-colors">
-                        {pathway.name}
-                      </h3>
-                      <p className="text-sm text-stone-600 leading-relaxed mb-6">
-                        {pathway.tagline}
-                      </p>
+                        <h3 className="text-2xl font-bold text-stone-900">
+                          {prog.title}
+                        </h3>
 
-                      {/* Structured Pathway Metrics */}
-                      <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200/80 mb-6 grid grid-cols-3 gap-2 text-center">
-                        <div>
-                          <div className="text-sm font-bold text-stone-900">{pathway.modulesCount}</div>
-                          <div className="text-[10px] text-stone-500 uppercase tracking-wider">Modules</div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-bold text-stone-900">{pathway.lessonsCount}</div>
-                          <div className="text-[10px] text-stone-500 uppercase tracking-wider">Lessons</div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-bold text-stone-900">{pathway.exercisesCount}</div>
-                          <div className="text-[10px] text-stone-500 uppercase tracking-wider">Labs</div>
-                        </div>
-                      </div>
+                        <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
+                          {prog.description}
+                        </p>
 
-                      {/* Tools preview */}
-                      <div className="mb-6">
-                        <div className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold mb-2">
-                          Key Tools & Libraries
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {pathway.tools.map((tool, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-xs font-mono"
-                            >
-                              {tool}
-                            </span>
+                        <div className="pt-2 space-y-2">
+                          {prog.features.map((feat, fIdx) => (
+                            <div key={fIdx} className="flex items-center space-x-2 text-xs text-stone-700">
+                              <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                              <span>{feat}</span>
+                            </div>
                           ))}
                         </div>
                       </div>
-                    </div>
 
-                    {/* Footer Action */}
-                    <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                      <span className="text-xs font-semibold text-amber-800">
-                        {pathway.level}
-                      </span>
-                      <button
-                        onClick={() => setActivePathwayModal(pathway)}
-                        className="px-4 py-2 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-xs transition-all flex items-center space-x-1.5 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
-                      >
-                        <span>Explore Path</span>
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
-          </section>
-
-          {/* ========================================================================= */}
-          {/* 4. FEATURED LEARNING PROGRAMS */}
-          {/* ========================================================================= */}
-          <section className="py-24 bg-white border-b border-stone-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <span>Fellowships & Cohorts</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  Featured Learning Programs
-                </h2>
-                <p className="text-base sm:text-lg text-stone-600">
-                  Comprehensive initiatives supporting self-paced learners, intensive fellowship cohorts, and institutional data stewards.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {featuredPrograms.map((prog, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-8 rounded-3xl bg-gradient-to-br from-stone-50 via-white to-amber-50/30 border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
-                  >
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${prog.badgeColor}`}>
-                          {prog.badge}
-                        </span>
-                        <Sparkles className="w-5 h-5 text-amber-600" />
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-stone-900">
-                        {prog.title}
-                      </h3>
-
-                      <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                        {prog.description}
-                      </p>
-
-                      <div className="pt-2 space-y-2">
-                        {prog.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-center space-x-2 text-xs text-stone-700">
-                            <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="pt-8 mt-6 border-t border-stone-200/80 flex items-center justify-between">
-                      <button
-                        onClick={() => openAuth('signup', prog.pathwayRef)}
-                        className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold text-sm shadow-md shadow-amber-700/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2"
-                      >
-                        <span>{prog.actionText}</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
-          </section>
-
-          {/* ========================================================================= */}
-          {/* 5. WHAT'S INSIDE SECTION */}
-          {/* ========================================================================= */}
-          <section className="py-24 bg-gradient-to-b from-stone-900 via-stone-900 to-stone-950 text-white border-b border-stone-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-                  <span>Product Components</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                  Everything you need to learn by doing
-                </h2>
-                <p className="text-base sm:text-lg text-stone-300">
-                  ABDN NeuroLearning is engineered as an active workspace with curated real-world tools, not just a passive video player.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {whatsInsideItems.map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-7 rounded-3xl bg-stone-800/60 hover:bg-stone-800 border border-stone-700/70 hover:border-amber-400/50 shadow-lg transition-all space-y-4 flex flex-col justify-between"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-3xl p-2.5 rounded-2xl bg-white/5 border border-white/10">
-                          {item.icon}
-                        </span>
-                        <span className="text-[11px] font-mono text-amber-300 uppercase tracking-wider bg-amber-950/80 px-2.5 py-0.5 rounded-md border border-amber-800/50">
-                          {item.tag}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white pt-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-stone-300 leading-relaxed font-light">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-stone-700/50 flex items-center text-xs text-amber-400 font-semibold space-x-1">
-                      <span>Integrated in all pathways</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
-          </section>
-
-          {/* ========================================================================= */}
-          {/* 6. WHO IS THIS FOR? SECTION */}
-          {/* ========================================================================= */}
-          <section className="py-24 bg-white border-b border-stone-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <span>Community Alignment</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  Built for the African neuroscience community
-                </h2>
-                <p className="text-base sm:text-lg text-stone-600">
-                  Whether you are writing your first line of code or analyzing multi-terabyte neuroimaging cohorts.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {personaItems.map((persona, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-6 rounded-3xl bg-stone-50 border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
-                  >
-                    <div className="space-y-3">
-                      <div className="text-4xl mb-2">{persona.icon}</div>
-                      <h3 className="text-xl font-bold text-stone-900">{persona.role}</h3>
-                      <div className="text-xs font-semibold text-amber-800">{persona.target}</div>
-                      <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                        {persona.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 mt-4 border-t border-stone-200 text-xs text-stone-700 font-medium">
-                      🎯 {persona.benefit}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-            </div>
-          </section>
-
-          {/* ========================================================================= */}
-          {/* 7. YOUR LEARNING JOURNEY VISUAL */}
-          {/* ========================================================================= */}
-          <section className="py-24 bg-gradient-to-b from-stone-50 via-amber-50/40 to-stone-50 border-b border-stone-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <span>Structured Roadmap</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  From your first lesson to your next research project
-                </h2>
-                <p className="text-base sm:text-lg text-stone-600">
-                  How a learner progresses from initial discovery to active participation in high-impact African brain research.
-                </p>
-              </div>
-
-              {/* Journey Stepper Pipeline */}
-              <div className="relative">
-                <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-800 -translate-y-1/2 z-0" />
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                  {journeySteps.map((step, idx) => (
-                    <motion.div
-                      key={idx}
-                      whileHover={{ scale: 1.02 }}
-                      className="p-6 rounded-3xl bg-white border border-stone-200 shadow-md space-y-3 flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="w-9 h-9 rounded-full bg-amber-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-md">
-                            {step.step}
-                          </span>
-                          <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-700">
-                            Stage {idx + 1}
-                          </span>
-                        </div>
-                        <h4 className="text-lg font-bold text-stone-900">
-                          {step.title}
-                        </h4>
-                        <p className="text-xs text-stone-600 leading-relaxed mt-1">
-                          {step.description}
-                        </p>
+                      <div className="pt-8 mt-6 border-t border-stone-200/80 flex items-center justify-between">
+                        <button
+                          onClick={() => openAuth('signup', prog.pathwayRef)}
+                          className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold text-sm shadow-md shadow-amber-700/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+                        >
+                          <span>{prog.actionText}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
                       </div>
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              )}
 
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* 4. COMPACT AUDIENCE / PERSONAS SECTION */}
+          {/* ========================================================================= */}
+          <section className="py-16 bg-white border-b border-stone-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-8 bg-stone-50 rounded-3xl p-8 border border-stone-200">
+                <div className="space-y-2 text-center lg:text-left lg:max-w-md">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
+                    <span>Community Alignment</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-stone-900">
+                    Who is ABDN NeuroLearning for?
+                  </h3>
+                  <p className="text-sm text-stone-600">
+                    Tailored pathways engineered for every stage of your research journey.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:max-w-2xl">
+                  {personaItems.map((persona, idx) => (
+                    <div
+                      key={idx}
+                      className="p-4 rounded-2xl bg-white border border-stone-200 shadow-sm flex items-start space-x-3"
+                    >
+                      <div className="text-2xl p-2 rounded-xl bg-amber-50 border border-amber-100 flex-shrink-0">
+                        {persona.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-stone-900">{persona.role}</h4>
+                        <p className="text-xs text-stone-600 mt-0.5 leading-snug">{persona.target}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 

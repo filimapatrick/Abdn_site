@@ -113,21 +113,6 @@ export default function PathwayModal({
               </div>
             </div>
 
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6 pt-4 border-t border-white/15 text-center">
-              <div className="bg-black/15 backdrop-blur-sm py-2 px-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-bold text-white">{pathway.modulesCount}</div>
-                <div className="text-[11px] uppercase tracking-wider text-amber-200">Modules</div>
-              </div>
-              <div className="bg-black/15 backdrop-blur-sm py-2 px-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-bold text-white">{pathway.lessonsCount}</div>
-                <div className="text-[11px] uppercase tracking-wider text-amber-200">Lessons</div>
-              </div>
-              <div className="bg-black/15 backdrop-blur-sm py-2 px-3 rounded-xl border border-white/10">
-                <div className="text-lg sm:text-xl font-bold text-white">{pathway.exercisesCount}</div>
-                <div className="text-[11px] uppercase tracking-wider text-amber-200">Hands-on Labs</div>
-              </div>
-            </div>
           </div>
 
           {/* Scrollable Content Body */}
@@ -236,24 +221,24 @@ export default function PathwayModal({
 
           {/* Fixed Footer CTA */}
           <div className="p-4 sm:p-6 bg-stone-50 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 flex-shrink-0">
-            <div className="text-xs text-stone-600 text-center sm:text-left">
+            <div className="text-xs text-stone-600 text-center sm:text-left flex-1 max-w-md">
               <span className="font-semibold text-stone-800">Ready to start?</span> Enrollment grants free lifetime access to notebooks, datasets, and mentor office hours.
             </div>
-            <div className="flex items-center space-x-3 w-full sm:w-auto">
+            <div className="flex items-center space-x-3 flex-shrink-0">
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 font-medium text-sm transition-colors"
+                className="px-4 sm:px-5 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-200/60 text-stone-700 font-semibold text-xs sm:text-sm transition-all shadow-sm whitespace-nowrap"
               >
                 Back to Pathways
               </button>
               <button
                 type="button"
                 onClick={() => onStartPathway(pathway.name)}
-                className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-medium text-sm shadow-md shadow-amber-700/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+                className="px-5 sm:px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-bold text-xs sm:text-sm shadow-md shadow-amber-800/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2 whitespace-nowrap"
               >
                 <span>Start This Path</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 flex-shrink-0" />
               </button>
             </div>
           </div>
