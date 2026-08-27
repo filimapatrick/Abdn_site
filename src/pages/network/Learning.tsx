@@ -379,7 +379,7 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-6',
     name: 'Anita Esi Eshun',
-    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
     id: 'ta-7',
