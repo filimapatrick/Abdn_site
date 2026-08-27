@@ -194,12 +194,12 @@ export default function Dashboard() {
     const baseModalities = [
       {
         id: 'mri',
-        name: 'MRI',
-        fullName: 'Structural MRI Analysis',
+        name: 'MRI / fMRI',
+        fullName: 'MRI & fMRI Analysis',
         icon: '🧠',
         modalityType: 'MRI/fMRI' as ModalityType,
-        tagline: 'Structural T1w/T2w Scans, VBM, Tissue Segmentation & FreeSurfer.',
-        overview: 'Master structural T1w/T2w volumetric analysis, tissue segmentation, automated cortical reconstruction with FreeSurfer, and voxel-based morphometry (VBM) calibrated on African population cohorts.',
+        tagline: 'Structural T1w/T2w Scans, VBM, fMRIPrep & FreeSurfer.',
+        overview: 'Master structural T1w/T2w volumetric analysis, BOLD fMRI preprocessing with fMRIPrep, FreeSurfer cortical reconstruction, and connectomics calibrated on African population cohorts.',
         duration: '16.5 Hours',
         badgeColor: 'text-amber-400 bg-amber-400/10 border-amber-400/30',
         tools: ['FreeSurfer', 'ANTs', 'CAT12', 'BIDS / HeuDiConv', 'MRIQC', 'FSL'],

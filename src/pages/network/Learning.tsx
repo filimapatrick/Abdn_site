@@ -40,96 +40,42 @@ import PathwayModal, { PathwayDetail } from '../../components/learning/PathwayMo
 import { useAuth } from '../../context/AuthContext';
 import { enrollInPathway } from '../../services/authService';
 
-// --- Pathway Data Definition (5 Fellowship Modalities) ---
+// --- Pathway Data Definition (4 Fellowship Modalities) ---
 const pathwaysData: PathwayDetail[] = [
   {
     id: 'mri',
-    name: 'Structural MRI Analysis',
-    category: 'Structural Imaging',
+    name: 'MRI & fMRI Analysis',
+    category: 'Structural & Functional Neuroimaging',
     icon: '🧠',
-    level: 'Beginner → Advanced',
-    duration: '8 Weeks · 5 hrs/wk',
-    modulesCount: 8,
-    lessonsCount: 32,
-    exercisesCount: 4,
-    tagline: 'Learn structural T1w/T2w acquisition, voxel-based morphometry, cortical thickness and tissue segmentation.',
-    overview:
-      'Master anatomical brain imaging from raw DICOM to NIfTI volumes. Learn automated skull stripping, volumetric segmentation (GM, WM, CSF), FreeSurfer cortical surface reconstruction, and multi-site brain age estimation on African cohorts.',
-    curriculum: [
-      {
-        level: 'Level 1',
-        title: 'MRI Physics & Structural Anatomy',
-        description: 'Understand nuclear magnetic resonance physics, contrast weighting, and neuroanatomy.',
-        topics: [
-          'MRI physics, T1, T2, and FLAIR contrast weighting',
-          'DICOM organization to NIfTI & BIDS standardization',
-          'Sulcal & gyral anatomical landmarks identification',
-          'Quality control & structural artifact recognition',
-        ],
-      },
-      {
-        level: 'Level 2',
-        title: 'Volumetric Preprocessing & FreeSurfer',
-        description: 'Execute automated cortical reconstruction and tissue segmentation.',
-        topics: [
-          'Skull stripping & B1 field inhomogeneity correction',
-          'FreeSurfer automated cortical reconstruction pipeline',
-          'Tissue segmentation (Gray Matter, White Matter, CSF)',
-          'Voxel-Based Morphometry (VBM) in SPM12 & CAT12',
-        ],
-      },
-      {
-        level: 'Level 3',
-        title: 'Morphometry & Clinical Research Capstone',
-        description: 'Extract anatomical biomarkers and publish reproducible structural analyses.',
-        topics: [
-          'Vertex-wise cortical thickness & surface curvature',
-          'Subcortical volumetric & hippocampal subfield modeling',
-          'Multi-site brain age estimation benchmark on African cohorts',
-          'Automated structural quality reporting with MRIQC',
-        ],
-      },
-    ],
-    tools: ['FreeSurfer', 'SPM12', 'FSL', 'NiLearn', 'MRIQC'],
-    datasets: ['ABDN Nigerian Parkinson’s T1w Dataset', 'OASIS-3', 'ADNI'],
-    skillsGained: ['Cortical Thickness Mapping', 'VBM Morphometry', 'Tissue Segmentation', 'FreeSurfer Pipelines'],
-    badgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
-    gradient: 'from-amber-800 via-stone-900 to-amber-950',
-  },
-  {
-    id: 'fmri',
-    name: 'Functional MRI (fMRI) Analysis',
-    category: 'Functional Neuroimaging',
-    icon: '🔴',
     level: 'Beginner → Advanced',
     duration: '10 Weeks · 6 hrs/wk',
     modulesCount: 10,
     lessonsCount: 40,
     exercisesCount: 6,
-    tagline: 'Learn BOLD signal dynamics, fMRIPrep preprocessing, task GLMs, and resting-state networks.',
+    tagline: 'Learn structural T1w/T2w imaging, FreeSurfer morphometry, BOLD signal dynamics, fMRIPrep pipelines, and connectomics.',
     overview:
-      'Explore dynamic brain function through Blood-Oxygen-Level-Dependent (BOLD) contrast. Execute automated preprocessing with fMRIPrep, perform first- and second-level statistical parametric mapping, and compute resting-state functional connectomes.',
+      'Master anatomical and functional brain imaging from raw DICOM to NIfTI volumes, structural morphometry (VBM, FreeSurfer), BOLD fMRI preprocessing with fMRIPrep, task GLM modeling, and resting-state functional connectomics.',
     curriculum: [
       {
         level: 'Level 1',
-        title: 'BOLD Physics & Experimental Design',
-        description: 'Hemodynamic response modeling and functional neuroimaging protocols.',
+        title: 'MRI Physics & Structural Morphometry',
+        description: 'Understand nuclear magnetic resonance physics, structural T1w/T2w imaging, and FreeSurfer pipelines.',
         topics: [
-          'Neurovascular coupling & the BOLD hemodynamic response',
-          'Task paradigms (block, event-related) vs. resting-state fMRI',
-          'TR, TE, temporal resolution, and 4D time series structures',
-          'fMRI BIDS standard metadata organization',
+          'MRI physics, T1, T2, FLAIR contrast & BIDS standardization',
+          'FreeSurfer automated cortical reconstruction & tissue segmentation',
+          'Voxel-Based Morphometry (VBM) & cortical thickness mapping',
+          'Structural quality control & artifact recognition with MRIQC',
         ],
       },
       {
         level: 'Level 2',
-        title: 'Automated Preprocessing Pipelines (fMRIPrep)',
-        description: 'Standardize 4D functional volumes into standard template spaces.',
+        title: 'BOLD Dynamics & Automated Preprocessing (fMRIPrep)',
+        description: 'Standardize 4D functional volumes and model hemodynamic signals.',
         topics: [
-          'Slice timing correction & 6-DOF rigid-body motion realignment',
-          'Spatial co-registration to anatomical T1w & MNI152 normalization',
-          'Confound regression (motion parameters, CompCor, framewise displacement)',
-          'ICA-AROMA automated motion artifact removal',
+          'Neurovascular coupling & BOLD hemodynamic response modeling',
+          'Task paradigms (block, event-related) vs. resting-state fMRI',
+          'fMRIPrep automated preprocessing (slice timing, motion realignment, MNI normalization)',
+          'Confound regression (CompCor, ICA-AROMA, framewise displacement)',
         ],
       },
       {
@@ -144,11 +90,11 @@ const pathwaysData: PathwayDetail[] = [
         ],
       },
     ],
-    tools: ['fMRIPrep', 'NiLearn', 'SPM12', 'FSL FEAT', 'BrainNet Viewer'],
-    datasets: ['ABDN Resting-State fMRI Cohort', 'HCP 1200 Resting-State', 'OpenNeuro ds000201'],
-    skillsGained: ['fMRIPrep Orchestration', 'Task GLM Modeling', 'Resting-State Networks', 'Functional Connectomics'],
+    tools: ['FreeSurfer', 'fMRIPrep', 'NiLearn', 'SPM12', 'FSL', 'MRIQC'],
+    datasets: ['ABDN Nigerian Parkinson’s T1w & fMRI Dataset', 'HCP 1200 Resting-State', 'OASIS-3'],
+    skillsGained: ['Cortical Thickness Mapping', 'fMRIPrep Orchestration', 'Task GLM Modeling', 'Functional Connectomics'],
     badgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
-    gradient: 'from-amber-700 via-amber-900 to-stone-950',
+    gradient: 'from-amber-800 via-stone-900 to-amber-950',
   },
   {
     id: 'eeg',
@@ -410,8 +356,8 @@ export default function Learning() {
   // Curriculum Hub Tab State ('pathways' | 'programs')
   const [curriculumTab, setCurriculumTab] = useState<'pathways' | 'programs'>('pathways');
 
-  // Interactive hero simulation states (5 Fellowship Modalities)
-  const [activeHeroTab, setActiveHeroTab] = useState<'mri' | 'fmri' | 'eeg' | 'fnirs' | 'electrophysiology'>('mri');
+  // Interactive hero simulation states (4 Fellowship Modalities)
+  const [activeHeroTab, setActiveHeroTab] = useState<'mri' | 'eeg' | 'fnirs' | 'electrophysiology'>('mri');
 
   const openAuth = (mode: 'signup' | 'signin', pathwayName?: string) => {
     setAuthMode(mode);
@@ -613,9 +559,9 @@ export default function Learning() {
                       </span>
                     </div>
 
-                    {/* Interactive Modality Tabs (5 Fellowship Modalities) */}
-                    <div className="grid grid-cols-5 gap-1 my-4 bg-stone-950 p-1 rounded-xl border border-stone-800 text-xs">
-                      {(['mri', 'fmri', 'eeg', 'fnirs', 'electrophysiology'] as const).map((tab) => (
+                    {/* Interactive Modality Tabs (4 Fellowship Modalities) */}
+                    <div className="grid grid-cols-4 gap-1 my-4 bg-stone-950 p-1 rounded-xl border border-stone-800 text-xs">
+                      {(['mri', 'eeg', 'fnirs', 'electrophysiology'] as const).map((tab) => (
                         <button
                           key={tab}
                           onClick={() => setActiveHeroTab(tab)}
@@ -625,7 +571,7 @@ export default function Learning() {
                               : 'text-stone-400 hover:text-white hover:bg-stone-900'
                           }`}
                         >
-                          {tab === 'electrophysiology' ? 'E-Phys' : tab.toUpperCase()}
+                          {tab === 'mri' ? 'MRI & fMRI' : tab === 'electrophysiology' ? 'E-Phys' : tab.toUpperCase()}
                         </button>
                       ))}
                     </div>
@@ -638,15 +584,14 @@ export default function Learning() {
                             Fellowship Learning Track
                           </div>
                           <div className="text-base font-bold text-white mt-0.5">
-                            {activeHeroTab === 'mri' && 'Structural MRI Analysis'}
-                            {activeHeroTab === 'fmri' && 'Functional MRI (fMRI) Analysis'}
+                            {activeHeroTab === 'mri' && 'MRI & fMRI Analysis'}
                             {activeHeroTab === 'eeg' && 'EEG Data Science'}
                             {activeHeroTab === 'fnirs' && 'fNIRS Optical Neuroimaging'}
                             {activeHeroTab === 'electrophysiology' && 'Electrophysiological Dynamics'}
                           </div>
                         </div>
                         <span className="px-2 py-1 rounded-md bg-stone-900 text-stone-300 text-[10px] font-mono border border-stone-700">
-                          {activeHeroTab === 'fmri' ? 'Module 04 / 10' : 'Module 03 / 08'}
+                          Module 03 / 08
                         </span>
                       </div>
 
@@ -655,8 +600,7 @@ export default function Learning() {
                         <div className="flex justify-between text-xs text-stone-300 mb-1.5">
                           <span>Pathway Progress</span>
                           <span className="font-mono font-bold text-amber-400">
-                            {activeHeroTab === 'mri' && '75% Completed'}
-                            {activeHeroTab === 'fmri' && '68% Completed'}
+                            {activeHeroTab === 'mri' && '72% Completed'}
                             {activeHeroTab === 'eeg' && '82% Completed'}
                             {activeHeroTab === 'fnirs' && '54% Completed'}
                             {activeHeroTab === 'electrophysiology' && '60% Completed'}
@@ -668,9 +612,7 @@ export default function Learning() {
                             style={{
                               width:
                                 activeHeroTab === 'mri'
-                                  ? '75%'
-                                  : activeHeroTab === 'fmri'
-                                  ? '68%'
+                                  ? '72%'
                                   : activeHeroTab === 'eeg'
                                   ? '82%'
                                   : activeHeroTab === 'fnirs'
@@ -689,8 +631,7 @@ export default function Learning() {
                           </div>
                           <div>
                             <div className="font-semibold text-stone-200">
-                              {activeHeroTab === 'mri' && 'Lab 2: FreeSurfer Cortical Reconstruction'}
-                              {activeHeroTab === 'fmri' && 'Lab 3: fMRIPrep Confound Regression & GLM'}
+                              {activeHeroTab === 'mri' && 'Lab 2: FreeSurfer & fMRIPrep Preprocessing'}
                               {activeHeroTab === 'eeg' && 'Lab 2: ICA Ocular Artifact Filtering'}
                               {activeHeroTab === 'fnirs' && 'Lab 2: Short-Channel Hemodynamic Regression'}
                               {activeHeroTab === 'electrophysiology' && 'Lab 2: Kilosort Spike Sorting & LFPs'}
@@ -715,11 +656,7 @@ export default function Learning() {
                       </div>
                       <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-stone-300 py-1">
                         <span className="px-2.5 py-1 rounded-full bg-stone-800 border border-stone-700 text-amber-300 font-mono text-[11px]">
-                          ● MRI
-                        </span>
-                        <span className="text-stone-600">↔</span>
-                        <span className="px-2.5 py-1 rounded-full bg-stone-800 border border-stone-700 text-amber-300 font-mono text-[11px]">
-                          ● fMRI
+                          ● MRI / fMRI
                         </span>
                         <span className="text-stone-600">↔</span>
                         <span className="px-2.5 py-1 rounded-full bg-stone-800 border border-stone-700 text-amber-300 font-mono text-[11px]">
