@@ -341,6 +341,7 @@ const personaItems = [
 interface FellowshipTA {
   id: string;
   name: string;
+  image?: string;
   teams: { label: string; color: string }[];
 }
 
@@ -353,6 +354,7 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-2',
     name: 'Raphael Brefo Takyi',
+    image: '/assets/Fellowship_2026/Rapael.png',
     teams: [
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
       { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
@@ -361,6 +363,7 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-3',
     name: 'Nada Osama Salah',
+    image: '/assets/Fellowship_2026/Nade.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
@@ -379,11 +382,13 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-6',
     name: 'Anita Esi Eshun',
+    image: '/assets/Anita_Esun.JPG',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
     id: 'ta-7',
     name: 'Nicole Vissers',
+    image: '/assets/Fellowship_2026/Nicole.png',
     teams: [{ label: 'Electrophysiology', color: 'bg-rose-100 text-rose-950 border-rose-300' }],
   },
   {
@@ -398,6 +403,18 @@ const taTeamData: FellowshipTA[] = [
       { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
     ],
+  },
+  {
+    id: 'ta-10',
+    name: 'Huimin',
+    image: '/assets/Fellowship_2026/Huimin.png',
+    teams: [{ label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' }],
+  },
+  {
+    id: 'ta-11',
+    name: 'Sude',
+    image: '/assets/Fellowship_2026/Sude.png',
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
 ];
 
@@ -1018,9 +1035,17 @@ export default function Learning() {
                     transition={{ duration: 0.2 }}
                     className="flex flex-col items-center text-center group"
                   >
-                    {/* Circular Avatar Placeholder */}
+                    {/* Circular Photo / Avatar Placeholder */}
                     <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
-                      <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
+                      {ta.image ? (
+                        <img
+                          src={ta.image}
+                          alt={ta.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
+                      )}
                     </div>
 
                     {/* TA Name */}
