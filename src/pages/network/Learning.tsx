@@ -350,9 +350,6 @@ export default function Learning() {
   // Enrollment notification toast
   const [enrollmentNotification, setEnrollmentNotification] = useState<string | null>(null);
 
-  // Filter state for modalities
-  const [filterLevel, setFilterLevel] = useState<string>('all');
-
   // Curriculum Hub Tab State ('pathways' | 'programs')
   const [curriculumTab, setCurriculumTab] = useState<'pathways' | 'programs'>('pathways');
 
@@ -385,14 +382,6 @@ export default function Learning() {
     await refreshProfile();
     navigate('/learning/dashboard');
   };
-
-  const filteredPathways = pathwaysData.filter((path) => {
-    if (filterLevel === 'all') return true;
-    if (filterLevel === 'beginner') return path.level.toLowerCase().includes('beginner');
-    if (filterLevel === 'intermediate') return path.level.toLowerCase().includes('intermediate');
-    if (filterLevel === 'advanced') return path.level.toLowerCase().includes('advanced');
-    return true;
-  });
 
   return (
     <>
@@ -816,33 +805,9 @@ export default function Learning() {
               {/* TAB 1: MODALITY PATHWAYS */}
               {curriculumTab === 'pathways' && (
                 <div>
-                  {/* Level Filter Pills */}
-                  <div className="flex justify-center mb-8">
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 bg-white p-1.5 rounded-2xl border border-stone-200 shadow-sm">
-                      {[
-                        { id: 'all', label: 'All Modalities' },
-                        { id: 'beginner', label: 'Beginner' },
-                        { id: 'intermediate', label: 'Intermediate' },
-                        { id: 'advanced', label: 'Advanced' },
-                      ].map((tab) => (
-                        <button
-                          key={tab.id}
-                          onClick={() => setFilterLevel(tab.id)}
-                          className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-                            filterLevel === tab.id
-                              ? 'bg-stone-900 text-white shadow-sm'
-                              : 'text-stone-600 hover:text-stone-950 hover:bg-stone-100'
-                          }`}
-                        >
-                          {tab.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
                   {/* Pathways Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPathways.map((pathway) => (
+                    {pathwaysData.map((pathway) => (
                       <motion.div
                         key={pathway.id}
                         whileHover={{ y: -6 }}
