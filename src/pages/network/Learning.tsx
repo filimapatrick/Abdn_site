@@ -583,7 +583,7 @@ export default function Learning() {
                     className="pt-2 text-xs sm:text-sm text-stone-500 flex items-center justify-center lg:justify-start space-x-2"
                   >
                     <ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                    <span>Free to explore · Learn at your own pace · Built by the African Brain Data Network</span>
+                    <span>Free to explore · Learn at your own pace · Built for the African Brain Data Network</span>
                   </motion.div>
                 </div>
 
@@ -850,10 +850,10 @@ export default function Learning() {
                   Choose Your Learning Path
                 </h2>
                 <p className="text-base sm:text-lg text-stone-600">
-                  Select a structured modality pathway or explore our intensive fellowship programs.
+                  Select a structured modality pathway or explore our featured programs.
                 </p>
 
-                {/* Primary Category Switcher: Modality Pathways vs Fellowship Programs */}
+                {/* Primary Category Switcher: Modality Pathways vs Featured Programs */}
                 <div className="inline-flex items-center p-1.5 bg-stone-200/80 rounded-2xl border border-stone-300 shadow-inner mt-2">
                   <button
                     onClick={() => setCurriculumTab('pathways')}
@@ -866,14 +866,12 @@ export default function Learning() {
                     <span>🧠 Modality Pathways ({pathwaysData.length})</span>
                   </button>
                   <button
-                    onClick={() => setCurriculumTab('programs')}
-                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
-                      curriculumTab === 'programs'
-                        ? 'bg-amber-700 text-white shadow-md'
-                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
-                    }`}
+                    disabled
+                    title="Featured Programs navigation disabled"
+                    className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 text-stone-400 opacity-60 cursor-not-allowed"
                   >
-                    <span>⭐ Fellowship Programs ({featuredPrograms.length})</span>
+                    <span>⭐ Featured Programs ({featuredPrograms.length})</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-300/80 text-stone-600 font-semibold uppercase tracking-wider">Soon</span>
                   </button>
                 </div>
               </div>
