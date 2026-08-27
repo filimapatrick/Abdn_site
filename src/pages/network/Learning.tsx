@@ -333,6 +333,9 @@ const personaItems = [
     target: 'University faculty & research supervisors',
     description: 'Access standardized, open-access curricula, slide decks, and interactive coding labs to train students in your department.',
     benefit: 'Equip African institutions with modern neuroinformatics pedagogy.',
+  },
+];
+
 // --- 2026 Fellowship Teaching Assistants Data (5 Cohorts - Placeholders) ---
 interface FellowshipTA {
   id: string;
