@@ -993,8 +993,8 @@ export default function Learning() {
                     transition={{ duration: 0.2 }}
                     className="flex flex-col items-center text-center group"
                   >
-                    {/* Portrait Photo Frame */}
-                    <div className={`w-full aspect-square rounded-3xl ${ta.imageBg} border flex items-center justify-center text-6xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300 mb-5 overflow-hidden relative`}>
+                    {/* Circular Portrait Photo Frame */}
+                    <div className={`w-44 h-44 sm:w-48 sm:h-48 rounded-full ${ta.imageBg} border flex items-center justify-center text-6xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300 mb-5 overflow-hidden relative mx-auto`}>
                       <span className="select-none">{ta.avatar}</span>
                     </div>
 
