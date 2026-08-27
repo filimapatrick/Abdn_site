@@ -336,74 +336,43 @@ const personaItems = [
   },
 ];
 
-// --- 2026 Fellowship Teaching Assistants Data (5 Cohorts - Placeholders) ---
+// --- 2026 Fellowship Teaching Assistants Data (4 Cohorts - Placeholders) ---
 interface FellowshipTA {
   id: string;
-  name: string;
   role: string;
-  cohort: string;
-  cohortBadgeColor: string;
+  name: string;
   avatar: string;
-  institution: string;
-  bio: string;
-  specialties: string[];
+  imageBg: string;
 }
 
 const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-mri',
-    name: 'TA Specialist (MRI & fMRI)',
-    role: 'Teaching Assistant · MRI/fMRI Cohort',
-    cohort: 'MRI & fMRI Cohort',
-    cohortBadgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
+    role: 'MRI & fMRI TA',
+    name: 'TA Mentor Name',
     avatar: '🧠',
-    institution: 'ABDN Fellowship Mentor',
-    bio: 'Guides fellows through structural morphometry, FreeSurfer cortical surface reconstruction, and BOLD fMRIPrep processing pipelines.',
-    specialties: ['Structural MRI', 'fMRIPrep', 'FreeSurfer', 'BIDS Standards'],
+    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
   },
   {
     id: 'ta-eeg',
-    name: 'TA Specialist (EEG Data Science)',
-    role: 'Teaching Assistant · EEG Cohort',
-    cohort: 'EEG Data Science Cohort',
-    cohortBadgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
+    role: 'EEG Data Science TA',
+    name: 'TA Mentor Name',
     avatar: '⚡',
-    institution: 'ABDN Fellowship Mentor',
-    bio: 'Facilitates live coding sessions in MNE-Python, ICA artifact cleaning, time-frequency wavelets, and ERP modeling.',
-    specialties: ['MNE-Python', 'ICA Filtering', 'ERP Modeling', 'Seizure Biomarkers'],
+    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
   },
   {
     id: 'ta-fnirs',
-    name: 'TA Specialist (fNIRS Optical)',
-    role: 'Teaching Assistant · fNIRS Cohort',
-    cohort: 'fNIRS Optical Cohort',
-    cohortBadgeColor: 'bg-rose-100 text-rose-900 border-rose-300',
+    role: 'fNIRS Optical TA',
+    name: 'TA Mentor Name',
     avatar: '🔆',
-    institution: 'ABDN Fellowship Mentor',
-    bio: 'Assists fellows with optode montage design, short-channel regression, MBLL conversions, and Homer3/MNE-NIRS workflows.',
-    specialties: ['MNE-NIRS', 'Homer3', 'Optode Mapping', 'Field Deployments'],
+    imageBg: 'bg-rose-100/70 text-rose-900 border-rose-200',
   },
   {
     id: 'ta-ephys',
-    name: 'TA Specialist (Electrophysiology)',
-    role: 'Teaching Assistant · E-Phys Cohort',
-    cohort: 'Electrophysiology Cohort',
-    cohortBadgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
+    role: 'Electrophysiology TA',
+    name: 'TA Mentor Name',
     avatar: '🔬',
-    institution: 'ABDN Fellowship Mentor',
-    bio: 'Leads code walkthroughs for extracellular microelectrode arrays, automated Kilosort spike sorting, and LFP spectral coherence.',
-    specialties: ['SpikeInterface', 'Kilosort', 'LFP Dynamics', 'Spike Sorting'],
-  },
-  {
-    id: 'ta-data',
-    name: 'TA Specialist (Neuroinformatics)',
-    role: 'Teaching Assistant · Data Science Cohort',
-    cohort: 'Neuroinformatics Cohort',
-    cohortBadgeColor: 'bg-emerald-100 text-emerald-900 border-emerald-300',
-    avatar: '💻',
-    institution: 'ABDN Fellowship Mentor',
-    bio: 'Supports FAIR data governance, Jupyter environment orchestration, HPC compute execution, and open-source GitHub workflows.',
-    specialties: ['FAIR Data', 'JupyterLab', 'HPC Computing', 'Git & GitHub'],
+    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
   },
 ];
 
@@ -465,7 +434,7 @@ export default function Learning() {
 
       <Layout>
         <div className="bg-stone-50 text-stone-900 min-h-screen selection:bg-amber-500 selection:text-stone-950 font-sans">
-          
+
           {/* ========================================================================= */}
           {/* 1. HERO / VALUE PROPOSITION SECTION */}
           {/* ========================================================================= */}
@@ -476,7 +445,7 @@ export default function Learning() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
+
                 {/* Left Column: Value Prop & CTAs */}
                 <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
                   {/* Descriptive Badge / User Session */}
@@ -625,11 +594,10 @@ export default function Learning() {
                         <button
                           key={tab}
                           onClick={() => setActiveHeroTab(tab)}
-                          className={`py-1.5 px-1.5 rounded-lg font-semibold uppercase tracking-wider text-[10px] sm:text-[11px] transition-all truncate ${
-                            activeHeroTab === tab
+                          className={`py-1.5 px-1.5 rounded-lg font-semibold uppercase tracking-wider text-[10px] sm:text-[11px] transition-all truncate ${activeHeroTab === tab
                               ? 'bg-amber-600 text-white shadow-sm'
                               : 'text-stone-400 hover:text-white hover:bg-stone-900'
-                          }`}
+                            }`}
                         >
                           {tab === 'mri' ? 'MRI & fMRI' : tab === 'electrophysiology' ? 'E-Phys' : tab.toUpperCase()}
                         </button>
@@ -674,10 +642,10 @@ export default function Learning() {
                                 activeHeroTab === 'mri'
                                   ? '72%'
                                   : activeHeroTab === 'eeg'
-                                  ? '82%'
-                                  : activeHeroTab === 'fnirs'
-                                  ? '54%'
-                                  : '60%',
+                                    ? '82%'
+                                    : activeHeroTab === 'fnirs'
+                                      ? '54%'
+                                      : '60%',
                             }}
                           />
                         </div>
@@ -837,7 +805,7 @@ export default function Learning() {
           {/* ========================================================================= */}
           <section id="pathways" className="py-20 bg-gradient-to-b from-stone-50 via-amber-50/30 to-stone-50 border-b border-stone-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
+
               {/* Main Tab Switcher Header */}
               <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-4">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
@@ -854,11 +822,10 @@ export default function Learning() {
                 <div className="inline-flex items-center p-1.5 bg-stone-200/80 rounded-2xl border border-stone-300 shadow-inner mt-2">
                   <button
                     onClick={() => setCurriculumTab('pathways')}
-                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${
-                      curriculumTab === 'pathways'
+                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${curriculumTab === 'pathways'
                         ? 'bg-amber-700 text-white shadow-md'
                         : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
-                    }`}
+                      }`}
                   >
                     <span>🧠 Modality Pathways ({pathwaysData.length})</span>
                   </button>
@@ -1000,89 +967,46 @@ export default function Learning() {
           </section>
 
           {/* ========================================================================= */}
-          {/* 3B. 2026 FELLOWSHIP TEACHING ASSISTANTS & MENTORS SECTION */}
+          {/* 3B. 2026 FELLOWSHIP TEACHING ASSISTANTS GALLERY SECTION */}
           {/* ========================================================================= */}
-          <section className="py-20 bg-stone-900 text-white border-b border-stone-800 relative overflow-hidden">
-            {/* Background ambient glow */}
-            <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-700/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider">
-                  <Users className="w-3.5 h-3.5 text-amber-400" />
-                  <span>2026 Fellowship Faculty & TA Team</span>
+          <section className="py-20 bg-white border-b border-stone-200">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
+                  <Users className="w-3.5 h-3.5 text-amber-700" />
+                  <span>2026 Fellowship Faculty & TAs</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                  Meet Your 2026 Teaching Assistants
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                  2026 Fellowship Teaching Assistants
                 </h2>
-                <p className="text-base sm:text-lg text-stone-300 leading-relaxed">
-                  Our dedicated Teaching Assistants (TAs) lead weekly live coding labs, host 1-on-1 office hours, review Jupyter notebooks, and mentor capstones across all 5 fellowship cohorts.
+                <p className="text-base text-stone-600">
+                  Dedicated mentors leading weekly live coding labs, office hours, and capstones across our cohorts.
                 </p>
               </div>
 
-              {/* TA Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* TA Gallery Grid: 4 items per row matching reference design */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
                 {taTeamData.map((ta) => (
                   <motion.div
                     key={ta.id}
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.2 }}
-                    className="bg-stone-800/80 rounded-3xl p-6 border border-stone-700 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group relative"
+                    className="flex flex-col items-center text-center group"
                   >
-                    <div>
-                      {/* Card Header: Avatar & Cohort Badge */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-14 h-14 rounded-2xl bg-stone-900 border border-stone-700 flex items-center justify-center text-3xl shadow-inner group-hover:scale-105 transition-transform">
-                          {ta.avatar}
-                        </div>
-                        <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border ${ta.cohortBadgeColor}`}>
-                          {ta.cohort}
-                        </span>
-                      </div>
-
-                      {/* Name & Role */}
-                      <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                        {ta.name}
-                      </h3>
-                      <div className="text-xs text-amber-400 font-semibold mb-1">
-                        {ta.role}
-                      </div>
-                      <div className="text-xs text-stone-400 mb-4 flex items-center space-x-1">
-                        <GraduationCap className="w-3.5 h-3.5 text-stone-400" />
-                        <span>{ta.institution}</span>
-                      </div>
-
-                      {/* Bio */}
-                      <p className="text-xs text-stone-300 leading-relaxed mb-5">
-                        {ta.bio}
-                      </p>
-
-                      {/* Key Specialties */}
-                      <div className="mb-4">
-                        <div className="text-[10px] uppercase tracking-wider text-stone-400 font-mono mb-2">
-                          Specialty & Mentorship Focus
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {ta.specialties.map((spec, sIdx) => (
-                            <span
-                              key={sIdx}
-                              className="px-2 py-0.5 rounded bg-stone-900 border border-stone-700 text-stone-300 text-[11px] font-mono"
-                            >
-                              {spec}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    {/* Portrait Photo Frame */}
+                    <div className={`w-full aspect-square rounded-3xl ${ta.imageBg} border flex items-center justify-center text-6xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300 mb-5 overflow-hidden relative`}>
+                      <span className="select-none">{ta.avatar}</span>
                     </div>
 
-                    {/* Card Footer Badge */}
-                    <div className="pt-4 border-t border-stone-700/60 flex items-center justify-between text-xs text-stone-400">
-                      <div className="flex items-center space-x-1.5 text-amber-400/90 text-[11px]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                        <span>Live Office Hours & Jupyter Reviews</span>
-                      </div>
-                    </div>
+                    {/* Role Title (Navy/Bold matching reference) */}
+                    <h3 className="text-lg font-extrabold text-amber-950 tracking-tight mb-1">
+                      {ta.role}
+                    </h3>
+
+                    {/* Name Subtitle */}
+                    <p className="text-sm font-semibold text-stone-700">
+                      {ta.name}
+                    </p>
                   </motion.div>
                 ))}
               </div>
