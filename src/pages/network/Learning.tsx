@@ -12,6 +12,7 @@ import {
   Microscope,
   GraduationCap,
   Users,
+  User,
   Compass,
   FileCheck2,
   Globe2,
@@ -336,43 +337,67 @@ const personaItems = [
   },
 ];
 
-// --- 2026 Fellowship Teaching Assistants Data (4 Cohorts - Placeholders) ---
+// --- 2026 Fellowship Teaching Assistants Data ---
 interface FellowshipTA {
   id: string;
-  role: string;
   name: string;
-  avatar: string;
-  imageBg: string;
+  teams: { label: string; color: string }[];
 }
 
 const taTeamData: FellowshipTA[] = [
   {
-    id: 'ta-mri',
-    role: 'MRI & fMRI TA',
-    name: 'TA Mentor Name',
-    avatar: '🧠',
-    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
+    id: 'ta-1',
+    name: 'Ahabwe Agnes Lynn',
+    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
   },
   {
-    id: 'ta-eeg',
-    role: 'EEG Data Science TA',
-    name: 'TA Mentor Name',
-    avatar: '⚡',
-    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
+    id: 'ta-2',
+    name: 'Raphael Brefo Takyi',
+    teams: [
+      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+      { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
+    ],
   },
   {
-    id: 'ta-fnirs',
-    role: 'fNIRS Optical TA',
-    name: 'TA Mentor Name',
-    avatar: '🔆',
-    imageBg: 'bg-rose-100/70 text-rose-900 border-rose-200',
+    id: 'ta-3',
+    name: 'Nada Osama Salah',
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
-    id: 'ta-ephys',
-    role: 'Electrophysiology TA',
-    name: 'TA Mentor Name',
-    avatar: '🔬',
-    imageBg: 'bg-amber-100/70 text-amber-900 border-amber-200',
+    id: 'ta-4',
+    name: 'Happiness Eric Aigbogun',
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
+  },
+  {
+    id: 'ta-5',
+    name: 'Rubén Herzog Amunátegui',
+    teams: [
+      { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
+      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+    ],
+  },
+  {
+    id: 'ta-6',
+    name: 'Anita Esi Eshun',
+    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
+  },
+  {
+    id: 'ta-7',
+    name: 'Nicole Vissers',
+    teams: [{ label: 'Electrophysiology', color: 'bg-rose-100 text-rose-950 border-rose-300' }],
+  },
+  {
+    id: 'ta-8',
+    name: 'Rodas Ghilom Bogatsion',
+    teams: [{ label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' }],
+  },
+  {
+    id: 'ta-9',
+    name: 'Abdulrazaq Zubair A',
+    teams: [
+      { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
+      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+    ],
   },
 ];
 
@@ -985,7 +1010,7 @@ export default function Learning() {
               </div>
 
               {/* TA Gallery Grid: 4 items per row matching reference design */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                 {taTeamData.map((ta) => (
                   <motion.div
                     key={ta.id}
@@ -993,20 +1018,27 @@ export default function Learning() {
                     transition={{ duration: 0.2 }}
                     className="flex flex-col items-center text-center group"
                   >
-                    {/* Circular Portrait Photo Frame */}
-                    <div className={`w-44 h-44 sm:w-48 sm:h-48 rounded-full ${ta.imageBg} border flex items-center justify-center text-6xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300 mb-5 overflow-hidden relative mx-auto`}>
-                      <span className="select-none">{ta.avatar}</span>
+                    {/* Circular Avatar Placeholder */}
+                    <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
+                      <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
                     </div>
 
-                    {/* Role Title (Navy/Bold matching reference) */}
-                    <h3 className="text-lg font-extrabold text-amber-950 tracking-tight mb-1">
-                      {ta.role}
+                    {/* TA Name */}
+                    <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-2 group-hover:text-amber-800 transition-colors">
+                      {ta.name}
                     </h3>
 
-                    {/* Name Subtitle */}
-                    <p className="text-sm font-semibold text-stone-700">
-                      {ta.name}
-                    </p>
+                    {/* Team Badges */}
+                    <div className="flex flex-wrap justify-center gap-1.5">
+                      {ta.teams.map((t, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider border ${t.color}`}
+                        >
+                          {t.label}
+                        </span>
+                      ))}
+                    </div>
                   </motion.div>
                 ))}
               </div>
