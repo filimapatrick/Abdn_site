@@ -826,26 +826,9 @@ export default function Learning() {
                           <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
                             {pathway.name}
                           </h3>
-                          <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                          <p className="text-xs text-stone-600 leading-relaxed mb-2">
                             {pathway.tagline}
                           </p>
-
-                          {/* Tools preview */}
-                          <div className="mb-4">
-                            <div className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold mb-1.5">
-                              Key Tools & Libraries
-                            </div>
-                            <div className="flex flex-wrap gap-1">
-                              {pathway.tools.map((tool, idx) => (
-                                <span
-                                  key={idx}
-                                  className="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700 text-[11px] font-mono"
-                                >
-                                  {tool}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
                         </div>
 
                         {/* Footer Action */}
