@@ -457,7 +457,7 @@ const taTeamData: FellowshipTA[] = [
     affiliation:'',
     researchInterest:'',
     bio:'',
-    image:'',
+    image:'/assets/Fellowship_2026/lynn.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
 ];
