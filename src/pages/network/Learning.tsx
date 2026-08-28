@@ -379,8 +379,8 @@ const taTeamData: FellowshipTA[] = [
     bio: 'Physician-scientist with a strong foundation in both patient care and biomedical science research. Experienced in academic teaching and deeply committed to impacting the next generation through knowledge-sharing. Passionate about advancing the field of neurology by using advanced neuroimaging to improve patient care especially in neurodegenerative diseases and stroke. Proficient in neuroimaging techniques (SPM, FSL, FreeSurfer), Python and R programming, and statistical modeling, with a focus on improving diagnostics and outcomes in neurological disorders.',
     image: '/assets/Fellowship_2026/Rapael.png',
     teams: [
+  { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
-      { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
     ],
   },
   {
@@ -439,7 +439,7 @@ const taTeamData: FellowshipTA[] = [
     image: '/assets/Fellowship_2026/Eric.jpeg',
     teams: [
       { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
-      { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
+      // { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
     ],
   },
   {
@@ -454,7 +454,11 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-ahabwe',
     name: 'Ahabwe Agnes Lynn',
-    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
+    affiliation:'',
+    researchInterest:'',
+    bio:'',
+    image:'',
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
 ];
 
