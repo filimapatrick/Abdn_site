@@ -797,49 +797,49 @@ export default function Learning() {
               {/* TAB 1: MODALITY PATHWAYS */}
               {curriculumTab === 'pathways' && (
                 <div>
-                  {/* Pathways Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Pathways Grid: 4 items on a row for lg screens */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     {pathwaysData.map((pathway) => (
                       <motion.div
                         key={pathway.id}
-                        whileHover={{ y: -6 }}
+                        whileHover={{ y: -5 }}
                         transition={{ duration: 0.2 }}
-                        className="bg-white rounded-3xl p-7 border border-stone-200 shadow-sm hover:shadow-2xl hover:border-amber-400 transition-all flex flex-col justify-between group"
+                        className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between group"
                       >
                         <div>
                           {/* Top Header Row */}
-                          <div className="flex items-start justify-between mb-5">
-                            <div className="text-4xl p-3 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-110 transition-transform">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="text-3xl p-2.5 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-105 transition-transform flex-shrink-0">
                               {pathway.icon}
                             </div>
-                            <div className="flex flex-col items-end space-y-1.5">
-                              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold uppercase tracking-wider">
+                            <div className="flex flex-col items-end space-y-1 text-right pl-2">
+                              <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold uppercase tracking-wider leading-none">
                                 {pathway.category}
                               </span>
-                              <span className="text-[11px] text-stone-500 font-medium">
+                              <span className="text-[10px] text-stone-500 font-medium mt-0.5">
                                 {pathway.duration}
                               </span>
                             </div>
                           </div>
 
                           {/* Title & Tagline */}
-                          <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-amber-700 transition-colors">
+                          <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
                             {pathway.name}
                           </h3>
-                          <p className="text-sm text-stone-600 leading-relaxed mb-6">
+                          <p className="text-xs text-stone-600 leading-relaxed mb-4">
                             {pathway.tagline}
                           </p>
 
                           {/* Tools preview */}
-                          <div className="mb-6">
-                            <div className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold mb-2">
+                          <div className="mb-4">
+                            <div className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold mb-1.5">
                               Key Tools & Libraries
                             </div>
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap gap-1">
                               {pathway.tools.map((tool, idx) => (
                                 <span
                                   key={idx}
-                                  className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-xs font-mono"
+                                  className="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700 text-[11px] font-mono"
                                 >
                                   {tool}
                                 </span>
@@ -849,16 +849,16 @@ export default function Learning() {
                         </div>
 
                         {/* Footer Action */}
-                        <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                          <span className="text-xs font-semibold text-amber-800">
+                        <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
+                          <span className="text-[11px] font-semibold text-amber-800">
                             {pathway.level}
                           </span>
                           <button
                             onClick={() => setActivePathwayModal(pathway)}
-                            className="px-4 py-2 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-xs transition-all flex items-center space-x-1.5 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
+                            className="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-[11px] transition-all flex items-center space-x-1 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
                           >
                             <span>Explore Path</span>
-                            <ChevronRight className="w-4 h-4" />
+                            <ChevronRight className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       </motion.div>
