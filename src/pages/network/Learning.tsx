@@ -341,19 +341,42 @@ const personaItems = [
 interface FellowshipTA {
   id: string;
   name: string;
+  email?: string;
+  affiliation?: string;
+  researchInterest?: string;
+  bio?: string;
   image?: string;
   teams: { label: string; color: string }[];
 }
 
 const taTeamData: FellowshipTA[] = [
   {
-    id: 'ta-1',
-    name: 'Ahabwe Agnes Lynn',
-    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
+    id: 'ta-nicole',
+    name: 'Nicole Vissers',
+    email: 'n.vissers@ucl.ac.uk',
+    affiliation: 'Sainsbury Wellcome Centre, UCL, UK',
+    researchInterest: 'Systems Neuroscience, Inhibition, Neuropeptides, Neuromodulation',
+    bio: 'Nicole Vissers is completing her PhD at the Sainsbury Wellcome Centre in London, UK, where she focusses on how different inhibitory cell-types in the ventral lateral geniculate nucleus of the thalamus contribute to visually guided defensive behaviours. Nicole is passionate about making science more inclusive and aims to create environments where everyone feels valued, encouraged to follow their curiosity, and empowered to learn and grow. As a TA for ABDN, she is excited to support students, share her knowledge, and help foster a welcoming scientific community.',
+    image: '/assets/Fellowship_2026/Nicole.png',
+    teams: [{ label: 'Electrophysiology', color: 'bg-rose-100 text-rose-950 border-rose-300' }],
   },
   {
-    id: 'ta-2',
+    id: 'ta-sude',
+    name: 'Sude Umac',
+    email: 'msuneuro22@hotmail.com',
+    affiliation: 'University of Cambridge',
+    researchInterest: 'Neurotechnology / Epilepsy / Memory',
+    bio: 'I am a neuroscience and AI researcher with a BSc in Medical Neuroscience and an MSc in AI and Adaptive Systems from the University of Sussex. Currently a Fellow at Cambridge NeuroWorks, my research focuses on neurotechnology, epilepsy, and AI-driven brain monitoring systems, with interests spanning seizure prediction, closed-loop neuromodulation, brain-computer interfaces, and computational neuroscience.',
+    image: '/assets/Fellowship_2026/Sude.png',
+    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
+  },
+  {
+    id: 'ta-raphael',
     name: 'Raphael Brefo Takyi',
+    email: 'raphaeltakyi@gmail.com',
+    affiliation: 'Institute of Psychiatry and Neuroscience of Paris',
+    researchInterest: 'Neuroimaging, Stroke, Motor recovery',
+    bio: 'Physician-scientist with a strong foundation in both patient care and biomedical science research. Experienced in academic teaching and deeply committed to impacting the next generation through knowledge-sharing. Passionate about advancing the field of neurology by using advanced neuroimaging to improve patient care especially in neurodegenerative diseases and stroke. Proficient in neuroimaging techniques (SPM, FSL, FreeSurfer), Python and R programming, and statistical modeling, with a focus on improving diagnostics and outcomes in neurological disorders.',
     image: '/assets/Fellowship_2026/Rapael.png',
     teams: [
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
@@ -361,49 +384,45 @@ const taTeamData: FellowshipTA[] = [
     ],
   },
   {
-    id: 'ta-3',
+    id: 'ta-nada',
     name: 'Nada Osama Salah',
+    email: 'nada.salah@ejust.edu.eg',
+    affiliation: 'Egypt-Japan University of Science and Technology',
+    researchInterest: 'Cognitive and Computational Neuroscience',
+    bio: 'Nada Salah is a researcher in computational neuroscience and neuroengineering. She graduated with a BSc in Biomedical Engineering from Egypt-Japan University of Science and Technology. Her interests lie in EEG, signal processing, cognition, and neural computation, mainly in understanding how neural activity gives rise to cognition and behaviour. She has worked on projects involving EEG analysis, neural decoding, speech-based cognitive assessment and is further interested in the intersection of brain science and neurotechnology.',
     image: '/assets/Fellowship_2026/Nade.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
-    id: 'ta-4',
-    name: 'Happiness Eric Aigbogun',
-    image: '/assets/Fellowship_2026/Eric.jpeg',
-    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
-  },
-  // {
-  //   id: 'ta-5',
-  //   name: 'Rubén Herzog Amunátegui',
-  //   teams: [
-  //     { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
-  //     { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
-  //   ],
-  // },
-  {
-    id: 'ta-6',
-    name: 'Anita Esi Eshun',
-    image: '/assets/Anita_Esun.JPG',
-    teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
+    id: 'ta-huimin',
+    name: 'Huimin Tang',
+    email: 'huimin1019@outlook.com',
+    affiliation: 'University of Nottingham Ningbo China',
+    researchInterest: 'Mental workload, fNIRS, HCI, Information searching',
+    bio: "I am a PhD student at the University of Nottingham Ningbo China (UNNC) and a team member of the Brain and Physiological Data Group at the University of Nottingham. My main research interests are in the field of Human Computer Interaction (HCI). I am particularly interested in understanding users' preferences and current mental workload through their physiological feedback (specifically brain activity). My research currently focuses on exploring the correlation between users' Cognitive Style and their fNIRS data in the Information Retrieval process.",
+    image: '/assets/Fellowship_2026/Huimin.png',
+    teams: [{ label: 'fNIRS', color: 'bg-rose-100 text-rose-950 border-rose-300' }],
   },
   {
-    id: 'ta-7',
-    name: 'Nicole Vissers',
-    image: '/assets/Fellowship_2026/Nicole.png',
-    teams: [{ label: 'Electrophysiology', color: 'bg-rose-100 text-rose-950 border-rose-300' }],
-  },
-  {
-    id: 'ta-8',
-    name: 'Rodas Ghilom Bogatsion',
-    image: '/assets/Fellowship_2026/Rodas.png',
+    id: 'ta-obed',
+    name: 'Obed Apochi',
+    email: 'apochiobed@gmail.com',
+    affiliation: 'Ruhr University Bochum, Germany',
+    researchInterest: "Alzheimer's disease, Neuromodulation, Neurostimulation, Brain imaging (fMRI, MRI), Aging, Spatial Navigation",
+    bio: 'Apochi Obed Okwoli is a DAAD-funded PhD researcher in Neuroscience at Ruhr University Bochum, Germany. His work focuses on Alzheimer’s disease, memory, neuroimaging, spatial navigation, and non-invasive brain stimulation. He is passionate about scientific innovation, mentorship, and advancing neuroscience research in Africa.',
+    image: '/assets/Fellowship_2026/Obed.png',
     teams: [
       { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
     ],
-  },      
+  },
   {
-    id: 'ta-9',
-    name: 'Abdulrazaq Zubair A',
+    id: 'ta-zubair',
+    name: 'Abdulrazaq A. Zubair',
+    email: 'abdulrazaq.zubair@fuhsa.edu.ng',
+    affiliation: 'Federal University of Health Sciences, Azare (FUHSA)',
+    researchInterest: 'AI in medical imaging, MRI safety, Stroke, Glioma & Dementia',
+    bio: 'An MRI specialist radiographer, educator, and researcher with over nine years of experience across clinical radiography, MRI, ultrasound, and CT. Held academic and clinical leadership roles in Nigeria, training medical radiography students and coordinating advanced imaging and neuroimaging services. Currently pursuing a Ph.D. in Medical Radiography at Bayero University Kano.',
     image: '/assets/Fellowship_2026/Zubair.png',
     teams: [
       { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
@@ -411,25 +430,28 @@ const taTeamData: FellowshipTA[] = [
     ],
   },
   {
-    id: 'ta-10',
-    name: 'Huimin',
-    image: '/assets/Fellowship_2026/Huimin.png',
-    teams: [{ label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' }],
+    id: 'ta-eric',
+    name: 'Happiness Eric Aigbogun',
+    email: 'aigbogunerichappiness@gmail.com',
+    affiliation: 'UPMC Karikari Lab, University of Pittsburgh',
+    researchInterest: "Data Science, AI & Alzheimer's Disease Biomarkers",
+    bio: 'Happiness Eric Aigbogun is a Data Coordinator and Analyst at the UPMC Karikari Lab, University of Pittsburgh, where she supports Alzheimer\'s disease biomarker research. With a BSc in Computer Science and a Master of Data Science in progress, she works at the intersection of data science, bioinformatics, and neuroscience. She is also the creator and lead of ResurchIn, a free research training and mentorship initiative.',
+    image: '/assets/Fellowship_2026/Eric.jpeg',
+    teams: [
+      { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
+      { label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' },
+    ],
   },
   {
-    id: 'ta-11',
-    name: 'Sude',
-    image: '/assets/Fellowship_2026/Sude.png',
+    id: 'ta-anita',
+    name: 'Anita Esi Eshun',
+    image: '/assets/Anita_Esun.JPG',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
-    id: 'ta-12',
-    name: 'Obed',
-    image: '/assets/Fellowship_2026/Obed.png',
-    teams: [
-      { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
-      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
-    ],
+    id: 'ta-ahabwe',
+    name: 'Ahabwe Agnes Lynn',
+    teams: [{ label: 'Data Science', color: 'bg-purple-100 text-purple-950 border-purple-300' }],
   },
 ];
 
@@ -446,6 +468,9 @@ export default function Learning() {
 
   // Enrollment notification toast
   const [enrollmentNotification, setEnrollmentNotification] = useState<string | null>(null);
+
+  // TA Profile Modal state
+  const [selectedTaModal, setSelectedTaModal] = useState<FellowshipTA | null>(null);
 
   // Curriculum Hub Tab State ('pathways' | 'programs')
   const [curriculumTab, setCurriculumTab] = useState<'pathways' | 'programs'>('pathways');
@@ -938,12 +963,13 @@ export default function Learning() {
                 {taTeamData.map((ta) => (
                   <motion.div
                     key={ta.id}
-                    whileHover={{ y: -4 }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-col items-center text-center group"
+                    onClick={() => setSelectedTaModal(ta)}
+                    className="flex flex-col items-center text-center group cursor-pointer p-4 rounded-3xl hover:bg-stone-50/80 transition-all border border-transparent hover:border-amber-200/60"
                   >
                     {/* Circular Photo / Avatar Placeholder */}
-                    <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
+                    <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border-2 border-stone-200/80 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
                       {ta.image ? (
                         <img
                           src={ta.image}
@@ -956,26 +982,142 @@ export default function Learning() {
                     </div>
 
                     {/* TA Name */}
-                    <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-2 group-hover:text-amber-800 transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 group-hover:text-amber-800 transition-colors">
                       {ta.name}
                     </h3>
 
+                    {/* Short Affiliation */}
+                    {ta.affiliation && (
+                      <p className="text-[11px] font-medium text-stone-500 line-clamp-1 mb-2 max-w-[200px]">
+                        {ta.affiliation}
+                      </p>
+                    )}
+
                     {/* Team Badges */}
-                    <div className="flex flex-wrap justify-center gap-1.5">
+                    <div className="flex flex-wrap justify-center gap-1.5 mb-2">
                       {ta.teams.map((t, tIdx) => (
                         <span
                           key={tIdx}
-                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider border ${t.color}`}
+                          className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${t.color}`}
                         >
                           {t.label}
                         </span>
                       ))}
                     </div>
+
+                    {/* View Profile Indicator */}
+                    <span className="text-[11px] font-semibold text-amber-700 group-hover:text-amber-800 flex items-center space-x-0.5 opacity-90 group-hover:opacity-100 transition-all">
+                      <span>View Bio</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
                   </motion.div>
                 ))}
               </div>
             </div>
           </section>
+
+          {/* ========================================================================= */}
+          {/* TA PROFILE BIO MODAL OVERLAY */}
+          {/* ========================================================================= */}
+          <AnimatePresence>
+            {selectedTaModal && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+                onClick={() => setSelectedTaModal(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0, y: 15 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.95, opacity: 0, y: 15 }}
+                  transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                  className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-stone-200 relative overflow-hidden my-8"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Close button */}
+                  <button
+                    onClick={() => setSelectedTaModal(null)}
+                    className="absolute top-5 right-5 p-2 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors z-10"
+                    aria-label="Close modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
+                    {/* Large Circular Avatar */}
+                    <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-stone-100 border-2 border-amber-300 flex items-center justify-center shadow-md overflow-hidden flex-shrink-0 relative">
+                      {selectedTaModal.image ? (
+                        <img
+                          src={selectedTaModal.image}
+                          alt={selectedTaModal.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <User className="w-16 h-16 text-stone-400" />
+                      )}
+                    </div>
+
+                    <div className="text-center sm:text-left space-y-2 flex-1">
+                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 mb-1">
+                        {selectedTaModal.teams.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider border ${t.color}`}
+                          >
+                            {t.label}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+                        {selectedTaModal.name}
+                      </h3>
+
+                      {selectedTaModal.affiliation && (
+                        <div className="text-sm font-semibold text-amber-800 flex items-center justify-center sm:justify-start space-x-1.5">
+                          <GraduationCap className="w-4 h-4 text-amber-700 flex-shrink-0" />
+                          <span>{selectedTaModal.affiliation}</span>
+                        </div>
+                      )}
+
+                      {selectedTaModal.email && (
+                        <div className="text-xs text-stone-500 font-mono pt-0.5">
+                          ✉️ {selectedTaModal.email}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Research Focus */}
+                  {selectedTaModal.researchInterest && (
+                    <div className="mb-5 bg-amber-50/70 rounded-2xl p-4 border border-amber-200/80">
+                      <div className="text-xs font-bold uppercase tracking-wider text-amber-900 mb-1 flex items-center space-x-1.5">
+                        <Microscope className="w-3.5 h-3.5 text-amber-700" />
+                        <span>Research Focus & Specialization</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
+                        {selectedTaModal.researchInterest}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Bio */}
+                  {selectedTaModal.bio && (
+                    <div className="space-y-2">
+                      <div className="text-xs font-bold uppercase tracking-wider text-stone-400 font-mono">
+                        About & Biography
+                      </div>
+                      <p className="text-sm text-stone-600 leading-relaxed max-h-60 overflow-y-auto pr-1 font-normal">
+                        {selectedTaModal.bio}
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* ========================================================================= */}
           {/* 4. COMPACT AUDIENCE / PERSONAS SECTION */}
