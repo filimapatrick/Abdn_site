@@ -372,14 +372,14 @@ const taTeamData: FellowshipTA[] = [
     image: '/assets/Fellowship_2026/Eric.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
-  {
-    id: 'ta-5',
-    name: 'Rubén Herzog Amunátegui',
-    teams: [
-      { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
-      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
-    ],
-  },
+  // {
+  //   id: 'ta-5',
+  //   name: 'Rubén Herzog Amunátegui',
+  //   teams: [
+  //     { label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' },
+  //     { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+  //   ],
+  // },
   {
     id: 'ta-6',
     name: 'Anita Esi Eshun',
