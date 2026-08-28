@@ -369,7 +369,7 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-4',
     name: 'Happiness Eric Aigbogun',
-    image: '/assets/Fellowship_2026/Eric.png',
+    image: '/assets/Fellowship_2026/Eric.jpeg',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   // {
@@ -396,8 +396,11 @@ const taTeamData: FellowshipTA[] = [
     id: 'ta-8',
     name: 'Rodas Ghilom Bogatsion',
     image: '/assets/Fellowship_2026/Rodas.png',
-    teams: [{ label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' }],
-  },
+    teams: [
+      { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
+      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+    ],
+  },      
   {
     id: 'ta-9',
     name: 'Abdulrazaq Zubair A',
@@ -418,6 +421,15 @@ const taTeamData: FellowshipTA[] = [
     name: 'Sude',
     image: '/assets/Fellowship_2026/Sude.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
+  },
+  {
+    id: 'ta-12',
+    name: 'Obed',
+    image: '/assets/Fellowship_2026/Obed.png',
+    teams: [
+      { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
+      { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
+    ],
   },
 ];
 
