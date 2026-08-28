@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain,
@@ -478,6 +478,26 @@ export default function Learning() {
 
   // TA Profile Modal state
   const [selectedTaModal, setSelectedTaModal] = useState<FellowshipTA | null>(null);
+
+  // Lock body scroll & dismiss on Escape when any modal is open
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedTaModal(null);
+        setActivePathwayModal(null);
+      }
+    };
+    if (selectedTaModal || activePathwayModal) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedTaModal, activePathwayModal]);
 
   // Curriculum Hub Tab State ('pathways' | 'programs')
   const [curriculumTab, setCurriculumTab] = useState<'pathways' | 'programs'>('pathways');
@@ -977,15 +997,21 @@ export default function Learning() {
                   >
                     {/* Circular Photo / Avatar Placeholder */}
                     <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border-2 border-stone-200/80 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
-                      {ta.image ? (
+                      {ta.image && (
                         <img
                           src={ta.image}
                           alt={ta.name}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('.avatar-fallback');
+                            if (fallback) (fallback as HTMLElement).classList.remove('hidden');
+                          }}
                         />
-                      ) : (
-                        <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
                       )}
+                      <div className={`avatar-fallback ${ta.image ? 'hidden' : 'flex'} items-center justify-center w-full h-full`}>
+                        <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
+                      </div>
                     </div>
 
                     {/* TA Name */}
@@ -1055,15 +1081,21 @@ export default function Learning() {
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                     {/* Large Circular Avatar */}
                     <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-stone-100 border-2 border-amber-300 flex items-center justify-center shadow-md overflow-hidden flex-shrink-0 relative">
-                      {selectedTaModal.image ? (
+                      {selectedTaModal.image && (
                         <img
                           src={selectedTaModal.image}
                           alt={selectedTaModal.name}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('.avatar-modal-fallback');
+                            if (fallback) (fallback as HTMLElement).classList.remove('hidden');
+                          }}
                         />
-                      ) : (
-                        <User className="w-16 h-16 text-stone-400" />
                       )}
+                      <div className={`avatar-modal-fallback ${selectedTaModal.image ? 'hidden' : 'flex'} items-center justify-center w-full h-full`}>
+                        <User className="w-16 h-16 text-stone-400" />
+                      </div>
                     </div>
 
                     <div className="text-center sm:text-left space-y-2 flex-1">
