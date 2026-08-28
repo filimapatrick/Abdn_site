@@ -369,6 +369,7 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-4',
     name: 'Happiness Eric Aigbogun',
+    image: '/assets/Fellowship_2026/Eric.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
@@ -394,11 +395,13 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-8',
     name: 'Rodas Ghilom Bogatsion',
+    image: '/assets/Fellowship_2026/Rodas.png',
     teams: [{ label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' }],
   },
   {
     id: 'ta-9',
     name: 'Abdulrazaq Zubair A',
+    image: '/assets/Fellowship_2026/Zubair.png',
     teams: [
       { label: 'MRI', color: 'bg-emerald-100 text-emerald-950 border-emerald-300' },
       { label: 'fMRI', color: 'bg-sky-100 text-sky-950 border-sky-300' },
