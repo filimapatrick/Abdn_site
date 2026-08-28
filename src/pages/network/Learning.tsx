@@ -445,6 +445,9 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-anita',
     name: 'Anita Esi Eshun',
+    affiliation: 'Kumasi Centre for Collaborative Research in Tropical Medicine (KCCR), Ghana',
+    researchInterest: 'Neuroimaging Analysis, Python & Tropical Medicine Research',
+    bio: 'Anita Esi Eshun is a Research Fellow at the Kumasi Centre for Collaborative Research in Tropical Medicine (KCCR) in Ghana. She is an alumnus of ABDN, specializing in Python for neuroimaging analysis, open-source neuroscience tools, and guiding research fellows in computational brain science.',
     image: '/assets/Anita_Esun.JPG',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
