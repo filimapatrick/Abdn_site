@@ -5,96 +5,94 @@
 * **Role:** Product Lead / Technical Program Manager
 * **Organization:** African Brain Data Network (ABDN)
 * **Product:** ABDN Fellowship Learning Platform
-* **Version:** 1.0
-* **Status:** Proposed
+* **Version:** 2.0
+* **Status:** Approved & Active
 
 ---
 
 ## 1. Executive Summary & Strategic Vision
 
-The **ABDN Fellowship Learning Platform Product Roadmap** defines the multi-phase strategic evolution of ABDN's digital learning infrastructure.
+The **ABDN Fellowship Learning Platform Product Roadmap** defines a streamlined **Two-Phase Execution Strategy** for ABDN's digital learning infrastructure.
 
-Rather than attempting a monolithic software release, the roadmap adopts a phased, progressive execution model. It balances near-term operational delivery (V1 MVP core learning loop) with long-term strategic capabilities (assessments, capstone projects, automated certifications, and multi-cohort scaling).
+Phase 1 establishes the operational core learning experience (V1 MVP), while Phase 2 consolidates AI-driven mentorship, bio-ethical governance, data sovereignty, automated assessment, and multi-cohort scaling into modular sub-implementations for post-MVP grant funding.
 
 ```text
-Phase 0: Alignment  ──►  Phase 1: V1 MVP  ──►  Phase 2: Engagement  ──►  Phase 3: Assessment  ──►  Phase 4: Outcomes & Scale
+Phase 1: V1 MVP (Completed / Live)  ──►  Phase 2: Scale, AI Engine, Governance & Impact (Next Implementation Horizon)
 ```
 
 ---
 
-## 2. Strategic Horizon Map
+## 2. Two-Phase Strategic Horizon Map
 
 | Horizon Phase | Focus | Core Deliverable | Target Timeline | Status |
 | :--- | :--- | :--- | :---: | :---: |
-| **Phase 0** | **Discovery & Alignment** | PRD, TDD, Data Models, RAID Log, RACI Matrix | Month 1 | ✅ Completed |
-| **Phase 1** | **V1 MVP (Learn)** | Auth, Dashboard, Lessons, Zoom Launcher, GitHub Parser, Progress | Months 2 – 3 | 🟢 Active Sprint |
-| **Phase 2** | **Engagement (Track)** | In-App Notifications, Continue Learning Widget, Activity Timelines | Months 4 – 5 | 🟡 Planned |
-| **Phase 3** | **Assessment (Practice)** | In-Lesson Quizzes, Assignment Submission Tracking, Capstone Milestones | Months 6 – 8 | 🔵 Future |
-| **Phase 4** | **Outcomes (Scale)** | Automated Certificates, Portfolio Showcase, Multi-Cohort Scaling | Months 9 – 12 | 🔵 Future |
+| **Phase 1** | **V1 MVP: Core Learning Loop** | Auth, Pathways, Learning Hub, TA Gallery & Bio Modals, Lesson Player, Firestore Engine | Months 1 – 3 | ✅ Completed / Live |
+| **Phase 2** | **Scale, AI Engine & Data Governance** | Sub 2.1: SynapseAI Copilot<br>Sub 2.2: CARE Data Sovereignty<br>Sub 2.3: NeuroBench AI Auditor<br>Sub 2.4: Notifications & Analytics<br>Sub 2.5: Certificates & Scale | Months 4 – 12 | 🟢 Next Horizon |
 
 ---
 
-## 3. Phase 0 — Discovery, Governance & Technical Alignment
+## 3. Phase 1 — V1 MVP: Core Learning Loop (Completed / Live)
 
-* **Objective:** Establish formal product requirements, technical contracts, database schemas, and stakeholder governance.
-* **Key Milestone:** M1 (PRD Approved) & M2 (TDD Approved).
-* **Deliverables:**
-  * Product Requirements Document (PRD) specifying FR-01 through FR-22
-  * Technical Design Document (TDD) defining Firebase, GitHub, and Zoom schemas
-  * Risk Register & RAID Log with quantitative risk scoring
-  * Stakeholder Communication Plan & RACI Matrix
-
----
-
-## 4. Phase 1 — V1 MVP: Core Learning Loop
-
-* **Objective:** Establish a seamless, reliable learner experience connecting course outlines to session recordings and lecture code.
-* **Key Milestone:** M3 (Foundation) through M7 (MVP Complete) & M8 (Pilot Launch).
+* **Objective:** Establish a seamless, reliable learner experience connecting modality tracks to session recordings, Jupyter notebooks, and TA mentorship profiles.
+* **Status:** ✅ Fully Built & Live in Production Codebase.
 
 ```text
 Discover Track  ──►  Enroll Pathway  ──►  View Week  ──►  Open Lesson Player  ──►  Watch Recording  ──►  Access Slides/Notebooks  ──►  Mark Complete  ──►  Progress Persisted
 ```
 
-### Key Capabilities Delivered in V1 MVP
-* **Authentication & Enrollment:** Firebase Auth, user profiles, modality pathway selection (MRI/fMRI, EEG, fNIRS, Electrophysiology).
-* **Dynamic Learning Hub:** Dashboard displaying enrolled tracks, current fellowship week, and lesson cards.
-* **Admin Publishing Workflow:** Admin Dashboard tools to create lessons, configure metadata, attach Zoom recording references, and toggle publish state (`draft`/`published`).
-* **Interactive Lesson Player Modal:** Secure Zoom recording launcher, slide viewer (`.pdf`), notes viewer, Google Colab launcher (`.ipynb`), and assignment links.
-* **Progress Engine:** Real-time lesson completion persistence (`users/{uid}/progress/{lessonId}`) and aggregated progress formulas.
+### Core Capabilities Delivered in Phase 1
+* **Authentication & Enrollment:** Firebase Auth, user profile management, modality selection (`MRI & fMRI`, `EEG Data Science`, `fNIRS Optical`, `Electrophysiology`).
+* **Dynamic Learning Hub (`Learning.tsx`)**:
+  * Hero Section with interactive modality preview widget.
+  * 4-on-a-row responsive Curriculum Pathways grid.
+  * Interactive **Pathway Detail Modal (`PathwayModal.tsx`)** breaking down modules, topics, datasets, and skills gained.
+  * **2026 Fellowship TA Gallery**: Clean light theme gallery with 4-in-a-row circular photos, actual 2026 TA photos (*Raphael, Nada, Eric, Nicole, Rodas, Zubair, Huimin, Sude, Obed, Anita, Lynn*), color-coded team tags, and interactive **TA Profile Bio Modals**.
+* **Learner Dashboard (`Dashboard.tsx`)**: Enrolled pathways overview, week-by-week progress indicators, and course status.
+* **Content Management & Infrastructure (`elearningService.ts`, `Admin.tsx`)**: Firestore schemas, lesson metadata, publish/unpublish toggles, video access configuration, and GitHub material parser setup.
 
 ---
 
-## 5. Phase 2 — Learner Engagement & Notifications
+## 4. Phase 2 — Scale, AI Engine, Governance & Impact (Next Implementation Horizon)
 
-* **Objective:** Transition the application from a static content portal into an interactive, habit-forming learning environment.
-* **Key Milestone:** M9 (Pilot Validation) & M10 (Production Launch).
-* **Deliverables:**
-  * **In-App Notification Engine:** Real-time alerts for newly published session recordings, slide deck additions, and assignment deadlines.
-  * **"Continue Learning" Recommender:** Smart dashboard widget suggesting the fellow's next logical uncompleted lesson.
-  * **Learning Activity Timeline:** Visual history of completed lessons, notebook executions, and resource access events.
-  * **Upcoming Session Reminders:** Integrated countdown badges for live fellowship webinars.
+* **Objective:** Elevate the platform into an **AI-Native, Bio-Ethically Governed Neuroinformatics Ecosystem** designed for multi-cohort scaling and major grant funding (*Chan Zuckerberg Initiative, Wellcome Trust, NIH DS-I Africa, Gates Foundation*).
 
----
+Phase 2 is structured into 5 high-impact **sub-implementations**:
 
-## 6. Phase 3 — Assessments & Capstone Projects
+```text
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                              PHASE 2 SUB-IMPLEMENTATION MAP                            │
+├───────────────────────────────────┬────────────────────────────────────────────────────┤
+│ Sub 2.1: SynapseAI Socratic Tutor │ Context-Aware AI NeuroTutor & In-Notebook Debugger │
+│ Sub 2.2: CARE Data Sovereignty    │ African Bioethics, Privacy & Algorithmic Guardrails│
+│ Sub 2.3: NeuroBench AI Auditor    │ Automated FAIR Code Inspector & TA Grading CoPilot │
+│ Sub 2.4: Engagement Telemetry     │ Notifications, Recommender & Activity Timelines    │
+│ Sub 2.5: Outcomes & Scale         │ Cryptographic Certificates & Multi-Cohort Scaling  │
+└───────────────────────────────────┴────────────────────────────────────────────────────┘
+```
 
-* **Objective:** Shift focus from content consumption to formal learning validation and skill demonstration.
-* **Deliverables:**
-  * **In-Lesson Comprehension Quizzes:** Short formative knowledge checks following lecture video streams.
-  * **Assignment Submission Tracking:** Integration with GitHub repository submissions to track practical code exercise completions.
-  * **Capstone Project Milestones:** Structured submission tracking for fellow neuro-imaging capstone research projects.
-  * **Faculty Review Portal:** Dedicated admin workflow for faculty to review, grade, and provide qualitative feedback on fellow submissions.
+### Sub-Implementation 2.1 — SynapseAI Socratic Copilot & In-Notebook Mentorship
+* **Context-Aware Socratic Debugger:** Embedded AI assistant in Jupyter notebooks that reads MNE-Python, fMRIPrep, or FreeSurfer stack traces and asks guiding questions to teach signal processing principles.
+* **Math-to-Code Explainer:** Interactive AI explainer translating Fourier transforms, wavelet formulas, and BOLD signal contrast into step-by-step Python code.
+* **24/7 Fellow Mentorship:** Fills the regional faculty shortage by providing continuous code guidance without replacing TA human touch.
 
----
+### Sub-Implementation 2.2 — BioEthical AI & CARE African Data Sovereignty Framework
+* **CARE Principles Enforcement:** Technical guardrails enforcing Collective Benefit, Authority to Control, Responsibility, and Ethics for African brain data.
+* **Algorithmic Bias Inspector:** Module allowing fellows to benchmark AI models trained on Western brain datasets (*e.g., UK Biobank*) against African population cohorts to detect population bias.
+* **Data Privacy Guardrails:** Automatic compliance checks for cross-border data protection (*NDPR, POPIA, GDPR*) and participant de-identification.
 
-## 7. Phase 4 — Certification, Analytics & Scale
+### Sub-Implementation 2.3 — NeuroBench AI (Automated FAIR Code & Capstone Inspector)
+* **FAIR Code Auditor:** Automated evaluation engine checking fellow Jupyter notebook submissions for reproducibility, set random seeds, clean filtering ranges, and FAIR annotations.
+* **TA Co-Pilot:** Generates draft qualitative feedback notes for TAs to review and approve with 1 click, reducing TA grading workload by 80%.
 
-* **Objective:** Deliver institutional recognition and scale the platform across multi-institutional cohorts.
-* **Deliverables:**
-  * **Automated Fellowship Certificates:** Verification engine checking completion thresholds ($\ge 90\%$ lessons, capstone project approved) to generate cryptographic completion certificates.
-  * **Research Portfolio Showcase:** Public fellow profiles highlighting completed capstone projects, GitHub code repos, and fellowship credentials.
-  * **Executive Cohort Analytics:** Advanced multi-cohort comparative reports for ABDN Leadership tracking retention, engagement, and modality effectiveness.
-  * **Multi-Cohort Scalability:** Supporting concurrent fellowship cohorts (`ABDN-2026`, `ABDN-2027`, `ABDN-2028`) without software redeployment.
+### Sub-Implementation 2.4 — Engagement Telemetry & Notification Engine
+* **In-App Notification Engine:** Real-time alerts for newly published session recordings, slide additions, and assignment deadlines.
+* **"Continue Learning" Recommender:** Smart dashboard widget suggesting the fellow's next logical uncompleted lesson.
+* **Learning Activity Timeline:** Visual history of completed lessons, notebook executions, and resource access events.
+
+### Sub-Implementation 2.5 — Cryptographic Certification & Multi-Cohort Scale
+* **Automated Fellowship Certificates:** Verification engine checking completion thresholds ($\ge 90\%$ lessons, capstone project approved) to issue cryptographic certificates.
+* **Research Portfolio Showcase:** Public fellow profiles highlighting completed capstone projects, GitHub code repos, and fellowship credentials.
+* **Multi-Cohort Scalability:** Multi-tenant architecture supporting concurrent fellowship cohorts (`ABDN-2026`, `ABDN-2027`, `ABDN-2028`) seamlessly.
 
 ---
 

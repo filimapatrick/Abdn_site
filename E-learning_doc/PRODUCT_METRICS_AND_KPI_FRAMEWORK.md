@@ -19,7 +19,7 @@ The **ABDN Fellowship Learning Platform Product Metrics & KPI Framework** establ
 > Simply measuring login counts or page views does not prove educational value. The platform measures meaningful learning actions—watching lecture streams, running Colab notebooks, completing practical assignments, and advancing modality progress.
 
 ```text
-Product Instrumentation  ──►  Client Event Telemetry  ──►  Metrics Aggregation  ──►  Operational Dashboards  ──►  Program Optimization
+Product Instru mentation  ──►  Client Event Telemetry  ──►  Metrics Aggregation  ──►  Operational Dashboards  ──►  Program Optimization
 ```
 
 ---

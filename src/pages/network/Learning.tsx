@@ -975,7 +975,7 @@ export default function Learning() {
               <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
                   <Users className="w-3.5 h-3.5 text-amber-700" />
-                  <span>2026 Fellowship Faculty & TAs</span>
+                  <span>2026 Fellowship TAs</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
                   2026 Fellowship Teaching Assistants
@@ -1045,6 +1045,98 @@ export default function Learning() {
                     </span>
                   </motion.div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* 3C. PHASE 2 AI ENGINE & BIO-ETHICAL DATA GOVERNANCE PREVIEW */}
+          {/* ========================================================================= */}
+          <section className="py-20 bg-gradient-to-b from-stone-900 via-amber-950/40 to-stone-900 text-white relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Phase 2 Implementation Horizon</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                  Ethical AI & African Data Sovereignty Engine
+                </h2>
+                <p className="text-base sm:text-lg text-amber-100/80 leading-relaxed">
+                  Next-generation AI mentorship, Socratic code debugging, and CARE bioethics guardrails engineered to scale African computational neuroscience.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {/* 01 SynapseAI */}
+                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+                        Sub-Impl 2.1
+                      </span>
+                      <Brain className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                      SynapseAI Socratic Tutor
+                    </h3>
+                    <p className="text-xs text-stone-300 leading-relaxed">
+                      Embedded in-notebook AI assistant providing 24/7 Socratic debugging, signal processing math explanations, and code error resolution.
+                    </p>
+                  </div>
+                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-amber-400/90 font-mono flex items-center space-x-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                    <span>In-Notebook Debugging & Mentorship</span>
+                  </div>
+                </div>
+
+                {/* 02 CARE Data Sovereignty */}
+                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
+                        Sub-Impl 2.2
+                      </span>
+                      <ShieldCheck className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                      CARE African Data Sovereignty
+                    </h3>
+                    <p className="text-xs text-stone-300 leading-relaxed">
+                      Technical bioethics guardrails enforcing Collective Benefit, Authority to Control, Responsibility, and Ethics for African brain data.
+                    </p>
+                  </div>
+                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-emerald-400/90 font-mono flex items-center space-x-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>NDPR, POPIA & Bioethics Compliance</span>
+                  </div>
+                </div>
+
+                {/* 03 NeuroBench AI */}
+                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 uppercase tracking-wider">
+                        Sub-Impl 2.3
+                      </span>
+                      <Award className="w-6 h-6 text-sky-400 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                      NeuroBench FAIR Auditor
+                    </h3>
+                    <p className="text-xs text-stone-300 leading-relaxed">
+                      Automated code inspector verifying reproducibility, random seed consistency, and FAIR standards before capstone journal submission.
+                    </p>
+                  </div>
+                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-sky-400/90 font-mono flex items-center space-x-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                    <span>Reproducibility & Journal Readiness</span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
