@@ -1052,7 +1052,7 @@ export default function Learning() {
           {/* ========================================================================= */}
           {/* 3C. PHASE 2 AI ENGINE & BIO-ETHICAL DATA GOVERNANCE PREVIEW */}
           {/* ========================================================================= */}
-          <section className="py-20 bg-gradient-to-b from-stone-900 via-amber-950/40 to-stone-900 text-white relative overflow-hidden">
+         <section className="py-20 bg-gradient-to-b from-stone-900 via-amber-950/40 to-stone-900 text-white relative overflow-hidden">
             {/* Ambient glows */}
             <div className="absolute top-0 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -1061,7 +1061,7 @@ export default function Learning() {
               <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Phase 2 Implementation Horizon</span>
+                  <span>Upcoming Features</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
                   Ethical AI & African Data Sovereignty Engine
