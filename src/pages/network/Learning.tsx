@@ -445,18 +445,18 @@ const taTeamData: FellowshipTA[] = [
   {
     id: 'ta-anita',
     name: 'Anita Esi Eshun',
-    affiliation: 'Kumasi Centre for Collaborative Research in Tropical Medicine (KCCR), Ghana',
+    affiliation: 'Global Health and Infectious Disease - Kumasi Centre for Collaborative Research in Tropical Medicine, KNUST',
     researchInterest: 'Neuroimaging Analysis, Python & Tropical Medicine Research',
-    bio: 'Anita Esi Eshun is a Research Fellow at the Kumasi Centre for Collaborative Research in Tropical Medicine (KCCR) in Ghana. She is an alumnus of ABDN, specializing in Python for neuroimaging analysis, open-source neuroscience tools, and guiding research fellows in computational brain science.',
+    bio: "Anita Esi Eshun is a data scientist, statistician, computational neuroscience educator with expertise in machine learning, deep learning, data analytics, and statistical modeling. She holds a Bachelor's degree in Statistics from Kwame Nkrumah University of Science and Technology (KNUST) and a Master's degree in Data Science from the African Institute for Mathematical Sciences (AIMS).\n\nHer work lies at the intersection of mathematics, computational learning, healthcare, and neuroscience, where she develops data-driven solutions to address complex real-world challenges. Her research interests include computational neuroscience, global health, brain imaging, and trustworthy AI for healthcare.\n\nAnita currently serves as a Data Scientist under the Global Health and Infectious Disease Group at the Kumasi Centre for Collaborative Research in Tropical Medicine (KCCR), where she develops and implements statistical and computational methodologies to address research questions in Global Health.",
     image: '/assets/Anita_Esun.JPG',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
   {
     id: 'ta-ahabwe',
     name: 'Ahabwe Agnes Lynn',
-    affiliation:'',
-    researchInterest:'',
-    bio:'',
+    affiliation:'Sungkyunkwan University',
+    researchInterest:'NeuroAI',
+    bio:'An AI engineer interested in neuroAI, biophysically realistic constrained ML pipelines of high dimensional brain data, and closed-loop neural decoding, to be concise. Lynn is interested in using AI to revolutionise healthcare, and drive inclusion through technology.',
     image:'/assets/Fellowship_2026/lynn.png',
     teams: [{ label: 'EEG', color: 'bg-lime-100 text-lime-950 border-lime-300' }],
   },
@@ -1240,7 +1240,7 @@ export default function Learning() {
                       <div className="text-xs font-bold uppercase tracking-wider text-stone-400 font-mono">
                         About & Biography
                       </div>
-                      <p className="text-sm text-stone-600 leading-relaxed max-h-60 overflow-y-auto pr-1 font-normal">
+                      <p className="text-sm text-stone-600 leading-relaxed max-h-60 overflow-y-auto pr-1 font-normal whitespace-pre-line">
                         {selectedTaModal.bio}
                       </p>
                     </div>
