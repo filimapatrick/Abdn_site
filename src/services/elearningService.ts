@@ -50,6 +50,10 @@ export interface Lesson {
   durationMinutes?: number;
   topics?: string[];
 
+  // Optional Live Attendance tracking by TAs
+  attendedEmails?: string[];
+  attendedUserIds?: string[];
+
   // GitHub Repository & Learning Materials (Explicit Lesson Contract)
   githubRepo?: string; // e.g. "African-Brain-Data-Network/ABDN_2026_FELLOWSHIP_COHORT"
   githubPath?: string; // e.g. "lectures/mri_fmri/week_02"

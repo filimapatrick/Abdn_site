@@ -250,6 +250,18 @@ Firebase
 └── Security Rules
 ```
 
+### 8.1 Pre-Approved Roster & Superadmin Access Control Architecture
+
+To ensure platform security and limit access exclusively to verified fellowship participants and leadership:
+
+* **Superadmin Whitelist (`SUPERADMIN_EMAILS`)**: Hardcoded & Firestore-backed whitelist containing executive administrators (`filimapatrick@gmail.com`, `africanbraindatanetwork@gmail.com`, `eberechi.wogu@uniport.edu.ng`, `chinyemighodaro@gmail.com`, `bnsaanee7@gmail.com`).
+* **Fellowship Participant Roster (`APPROVED_FELLOWSHIP_EMAILS`)**: Pre-approved whitelist covering all 60+ admitted 2026 fellowship fellows, TAs, and faculty members across fMRI, EEG, fNIRS, and Electrophysiology tracks.
+* **Firestore Dynamic Roster (`approved_fellows`)**: Secondary Firestore collection allowing administrators to add or modify participant eligibility dynamically in real-time.
+* **Enforcement & Revocation Engine**:
+  * On `signUpWithEmail`, `signInWithEmail`, and `signInWithGoogle`: `isEmailApprovedFellow(email)` is evaluated.
+  * If an unapproved email attempts login, Firebase Auth immediately executes `signOut(auth)`, revokes the token session, and displays an explicit access restriction message.
+  * In `AuthContext.tsx`: `onAuthStateChanged` re-evaluates roster eligibility on every page load and token restoration to prevent unauthorized session retention.
+
 ---
 
 ## 9. Firestore Data Model
@@ -291,10 +303,30 @@ Collection: `lessons/{lessonId}`
   "videoAccessId": "VIDEO-MRI-001",
   "githubPath": "lectures/mri_fmri/week_03",
   "assignmentPath": "assignments/mri_fmri/week_03",
+  "attendedEmails": [
+    "petera@aims.ac.za",
+    "ayaeyad87@gmail.com"
+  ],
+  "attendedUserIds": [
+    "uid_12345",
+    "uid_67890"
+  ],
   "createdAt": "...",
   "updatedAt": "..."
 }
 ```
+
+### 10.1 TA Live Session Attendance & Progress Calculation Engine
+
+1. **TA Attendance Marking (`Abdn_dashboard`)**:
+   * During or after live Zoom sessions, TAs create/edit lesson entries in `Abdn_dashboard`.
+   * Selecting a modality loads the enrolled fellows for that track. TAs check off attending fellows, which writes `attendedEmails[]` to the lesson document in Firestore.
+2. **Attendance & Progress Rate Formula**:
+   * Progress & attendance percentages are computed dynamically based on total curriculum topics/sessions:
+   $$\text{Attendance Rate (\%)} = \left( \frac{\text{Sessions Attended}}{\text{Total Curriculum Sessions in Modality}} \right) \times 100$$
+3. **Student Portal Synchronization (`Abdn_2024_site`)**:
+   * `calculateProgressMetrics()` evaluates both explicit video completions (`status === 'completed'`) and TA live attendance matches (`attendedEmails.includes(currentUser.email)`).
+   * Updates student progress milestone cards in real-time.
 
 ---
 

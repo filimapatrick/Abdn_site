@@ -165,8 +165,8 @@ export default function Dashboard() {
 
   // Compute live fellowship & modality metrics from source-of-truth progress records
   const progressMetrics = useMemo(() => {
-    return calculateProgressMetrics(publishedLessons, userProgressMap);
-  }, [publishedLessons, userProgressMap]);
+    return calculateProgressMetrics(publishedLessons, userProgressMap, currentUser?.email);
+  }, [publishedLessons, userProgressMap, currentUser?.email]);
 
   // Auto-redirect to ABDN public website if user logs out
   useEffect(() => {

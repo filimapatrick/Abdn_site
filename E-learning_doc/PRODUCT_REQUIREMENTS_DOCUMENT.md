@@ -140,12 +140,12 @@ The MVP is intentionally bounded to avoid scope expansion. The following feature
 ## 8. Product Scope
 
 The V1 MVP consists of six core functional modules:
-1. **Authentication & Profile Management**
+1. **Authentication & Profile Management** (Restricted to verified 2026 Fellowship Roster & Superadmins)
 2. **Learning Hub (Track Discovery)**
-3. **Personalized Learning Dashboard**
-4. **Interactive Lesson Player Experience**
-5. **Progress & Completion Engine**
-6. **Admin Dashboard & Telemetry Analytics**
+3. **Personalized Learning Dashboard** (Including Live Notifications Dropdown & Milestone Metrics)
+4. **Interactive Lesson Player Experience** (Integrated Passcode Security & Live GitHub Directory View)
+5. **Progress, Attendance & Completion Engine** (Automated video completion + TA live Zoom attendance tracking)
+6. **Admin Dashboard, TA Portal & Telemetry Analytics** (Lesson Entry Attendance Checklist & Cohort Telemetry)
 
 ---
 

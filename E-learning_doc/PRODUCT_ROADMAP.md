@@ -41,13 +41,24 @@ Discover Track  ──►  Enroll Pathway  ──►  View Week  ──►  Open
 ```
 
 ### Core Capabilities Delivered in Phase 1
-* **Authentication & Enrollment:** Firebase Auth, user profile management, modality selection (`MRI & fMRI`, `EEG Data Science`, `fNIRS Optical`, `Electrophysiology`).
+* **Authentication & Closed Fellowship Access Control (`approvedEmails.ts`, `authService.ts`, `AuthContext.tsx`)**:
+  * Enforced **Pre-Approved Roster Whitelist (Strategy 1)** restricting platform login exclusively to verified 2026 fellowship fellows and superadmins.
+  * Superadmin Whitelist (`filimapatrick@gmail.com`, `africanbraindatanetwork@gmail.com`, `eberechi.wogu@uniport.edu.ng`, `chinyemighodaro@gmail.com`, `bnsaanee7@gmail.com`).
+  * Automatic Firebase Auth token session revocation (`signOut(auth)`) for unauthorized logins.
+* **TA Live Session Attendance & Progress Engine (`elearningService.ts`, `progressService.ts`)**:
+  * Optional `attendedEmails[]` schema contract supporting TA live session attendance ticking in `Abdn_dashboard`.
+  * Dynamic Attendance & Progress Percentage calculation formula:
+    $$\text{Attendance Rate (\%)} = \left( \frac{\text{Sessions Attended}}{\text{Total Curriculum Sessions in Modality}} \right) \times 100$$
+  * Real-time synchronization between TA attendance entries and student learner dashboards.
 * **Dynamic Learning Hub (`Learning.tsx`)**:
   * Hero Section with interactive modality preview widget.
   * 4-on-a-row responsive Curriculum Pathways grid.
   * Interactive **Pathway Detail Modal (`PathwayModal.tsx`)** breaking down modules, topics, datasets, and skills gained.
   * **2026 Fellowship TA Gallery**: Clean light theme gallery with 4-in-a-row circular photos, actual 2026 TA photos (*Raphael, Nada, Eric, Nicole, Rodas, Zubair, Huimin, Sude, Obed, Anita, Lynn*), color-coded team tags, and interactive **TA Profile Bio Modals**.
-* **Learner Dashboard (`Dashboard.tsx`)**: Enrolled pathways overview, week-by-week progress indicators, and course status.
+* **Learner Dashboard & UI Experience (`Dashboard.tsx`, `DashboardTopNav.tsx`, `index.css`)**:
+  * Enrolled pathways overview, week-by-week progress indicators, and course status.
+  * **Scrollable Live Notifications Dropdown**: Viewport max-height constraints (`max-h-[calc(100vh-5rem)]`), flex header/footer layout, and custom dark mode scrollbars.
+  * Standardized telemetry event tracking (`material_view`, `video_start`, `video_complete`).
 * **Content Management & Infrastructure (`elearningService.ts`, `Admin.tsx`)**: Firestore schemas, lesson metadata, publish/unpublish toggles, video access configuration, and GitHub material parser setup.
 
 ---

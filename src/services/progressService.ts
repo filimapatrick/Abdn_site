@@ -217,7 +217,8 @@ function updateLocalCache(userId: string | undefined | null, lessonId: string, d
  */
 export function calculateProgressMetrics(
   lessons: LessonWithVideoAccess[],
-  progressMap: Record<string, UserLessonProgress>
+  progressMap: Record<string, UserLessonProgress>,
+  userEmail?: string | null
 ): ProgressMetrics {
   const totalLessons = lessons.length;
   let completedCount = 0;
@@ -243,7 +244,14 @@ export function calculateProgressMetrics(
     }
     modalityMap[modalityKey].total += 1;
 
-    if (progress?.status === 'completed') {
+    const isAttendedByEmail = Boolean(
+      userEmail &&
+      lesson.attendedEmails &&
+      Array.isArray(lesson.attendedEmails) &&
+      lesson.attendedEmails.some((e) => e.toLowerCase() === userEmail.toLowerCase())
+    );
+
+    if (progress?.status === 'completed' || isAttendedByEmail) {
       completedCount += 1;
       modalityMap[modalityKey].completed += 1;
     } else if (progress?.status === 'in_progress') {
