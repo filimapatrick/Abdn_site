@@ -475,7 +475,7 @@ export default function Dashboard() {
         url="https://africanbraindatanetwork.com/learning/dashboard"
       />
 
-      <div className="h-screen max-h-screen bg-stone-950 text-stone-100 font-sans flex flex-col overflow-hidden selection:bg-amber-500 selection:text-stone-950">
+      <div className="h-screen max-h-screen bg-[#FAF8F5] text-stone-900 font-sans flex flex-col overflow-hidden selection:bg-amber-600 selection:text-white">
         
         {/* ========================================================================= */}
         {/* 1. TOP NAVIGATION BAR */}
@@ -512,7 +512,7 @@ export default function Dashboard() {
           </div>
 
           {/* Mobile Tab Switcher */}
-          <div className="md:hidden bg-stone-900 border-b border-stone-800 p-2 flex items-center space-x-2 overflow-x-auto flex-shrink-0">
+          <div className="md:hidden bg-white border-b border-[#EBE4D8] p-2 flex items-center space-x-2 overflow-x-auto flex-shrink-0">
             {[
               { id: 'dashboard', label: 'Dashboard' },
               { id: 'learning', label: `My Learning (${myEnrolledModalities.length})` },
@@ -523,8 +523,8 @@ export default function Dashboard() {
                 onClick={() => setActiveTab(tab.id as DashboardTabId)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   activeTab === tab.id
-                    ? 'bg-amber-600 text-white'
-                    : 'text-stone-400 hover:text-white bg-stone-950'
+                    ? 'bg-amber-700 text-white font-bold'
+                    : 'text-stone-700 hover:text-stone-950 bg-[#FAF7F0] border border-[#E2D9C7]'
                 }`}
               >
                 {tab.label}
@@ -533,16 +533,16 @@ export default function Dashboard() {
           </div>
 
           {/* Main Content Workspace (Scrolls independently) */}
-          <main className="flex-1 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-8 bg-stone-950 min-h-0">
+          <main className="flex-1 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-8 bg-[#FAF8F5] text-stone-900 min-h-0">
             {/* ===================================================================== */}
             {/* VIEW 1: 🏠 DASHBOARD (THE HEART OF ABDN NEUROLEARNING) */}
             {/* ===================================================================== */}
             {activeTab === 'dashboard' && (
               <div className="max-w-6xl mx-auto space-y-8 relative">
                 
-                {/* Ambient NeuroTech Lighting Effects */}
-                <div className="absolute -top-10 -right-10 w-96 h-96 bg-gradient-to-tr from-amber-500/15 via-orange-500/10 to-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute top-1/2 -left-20 w-96 h-96 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+                {/* Ambient Warm ABDN Lighting Effects */}
+                <div className="absolute -top-10 -right-10 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute top-1/2 -left-20 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
 
                 {/* 1. Electrifying Greeting & Live Stats Header */}
                 <div className="relative z-10 space-y-4">
@@ -550,19 +550,19 @@ export default function Dashboard() {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 rounded-2xl bg-gradient-to-r from-amber-950/80 via-stone-900 to-amber-950/60 border border-amber-500/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs shadow-lg shadow-amber-500/10"
+                      className="p-4 rounded-2xl bg-gradient-to-r from-amber-100 via-amber-50 to-orange-100 border border-amber-300/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs shadow-md shadow-amber-900/5"
                     >
-                      <div className="flex items-center space-x-3 text-amber-200">
-                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 ring-1 ring-amber-400/30 animate-pulse">
+                      <div className="flex items-center space-x-3 text-amber-900">
+                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-700 shrink-0 ring-1 ring-amber-400/40 animate-pulse">
                           <Sparkles className="w-4 h-4" />
                         </div>
-                        <span className="font-medium">
+                        <span className="font-semibold">
                           You haven't customized your fellowship plan yet. Select your target modalities and research goals!
                         </span>
                       </div>
                       <Link
                         to="/learning/onboarding"
-                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold flex-shrink-0 transition-all shadow-md shadow-amber-500/30 hover:scale-105"
+                        className="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold flex-shrink-0 transition-all shadow-md shadow-amber-900/20 hover:scale-105"
                       >
                         Personalize Plan →
                       </Link>
@@ -571,42 +571,42 @@ export default function Dashboard() {
 
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                     <div className="space-y-1.5">
-                      <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                        <span className="tracking-wide">2026 ABDN NEUROIMAGING FELLOWSHIP</span>
+                      <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-300/80 text-amber-900 text-xs font-bold font-mono tracking-wider">
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
+                        <span className="uppercase">2026 ABDN NEUROIMAGING FELLOWSHIP</span>
                       </div>
-                      <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white flex items-center space-x-2.5">
+                      <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-stone-900 flex items-center space-x-2.5">
                         <span>{getGreeting()},</span>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-800 via-amber-700 to-amber-900">
                           {displayName}
                         </span>
                         <span className="inline-block animate-bounce">👋</span>
                       </h1>
-                      <p className="text-sm text-stone-300 font-normal">
-                        Your high-performance computational neuroscience workspace and live lecture academy.
+                      <p className="text-sm text-stone-600 font-normal">
+                        Your computational neuroscience workspace and live fellowship lecture hub.
                       </p>
                     </div>
 
                     {/* Quick Stats Pills Ticker */}
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <div className="px-3.5 py-2 rounded-xl bg-stone-900/80 border border-stone-800 text-xs flex items-center space-x-2 shadow-sm">
-                        <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
-                        <span className="text-stone-400 font-mono text-[11px]">STREAK:</span>
-                        <span className="font-bold text-amber-400 font-mono">
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
+                        <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
+                        <span className="text-stone-500 font-mono text-[11px]">STREAK:</span>
+                        <span className="font-bold text-amber-800 font-mono">
                           {progressMetrics.completedCount > 0 ? Math.min(progressMetrics.completedCount * 2 + 1, 14) : 0} Days
                         </span>
                       </div>
 
-                      <div className="px-3.5 py-2 rounded-xl bg-stone-900/80 border border-stone-800 text-xs flex items-center space-x-2 shadow-sm">
-                        <BookOpen className="w-4 h-4 text-emerald-400" />
-                        <span className="text-stone-400 font-mono text-[11px]">TRACKS:</span>
-                        <span className="font-bold text-white font-mono">{myEnrolledModalities.length} Active</span>
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
+                        <BookOpen className="w-4 h-4 text-emerald-600" />
+                        <span className="text-stone-500 font-mono text-[11px]">TRACKS:</span>
+                        <span className="font-bold text-stone-900 font-mono">{myEnrolledModalities.length} Active</span>
                       </div>
 
-                      <div className="px-3.5 py-2 rounded-xl bg-stone-900/80 border border-stone-800 text-xs flex items-center space-x-2 shadow-sm">
-                        <Trophy className="w-4 h-4 text-yellow-400" />
-                        <span className="text-stone-400 font-mono text-[11px]">ATTENDANCE:</span>
-                        <span className="font-bold text-amber-400 font-mono">{progressMetrics.overallPercent}%</span>
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
+                        <Trophy className="w-4 h-4 text-amber-600" />
+                        <span className="text-stone-500 font-mono text-[11px]">ATTENDANCE:</span>
+                        <span className="font-bold text-amber-800 font-mono">{progressMetrics.overallPercent}%</span>
                       </div>
                     </div>
                   </div>
@@ -626,34 +626,33 @@ export default function Dashboard() {
                     <motion.div
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="relative rounded-3xl bg-gradient-to-br from-stone-900 via-stone-900/95 to-amber-950/40 p-6 sm:p-8 border border-amber-500/30 shadow-2xl overflow-hidden group hover:border-amber-500/50 transition-all"
+                      className="relative rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-white to-[#FAF4E8] p-6 sm:p-8 border border-[#E3D9C3] shadow-xl shadow-amber-900/5 overflow-hidden group hover:border-amber-400 transition-all"
                     >
                       {/* Cinema Background Glow */}
-                      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/20 via-orange-500/10 to-transparent rounded-full blur-3xl pointer-events-none group-hover:opacity-100 transition-opacity opacity-70" />
-                      <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-amber-600/10 rounded-full blur-2xl pointer-events-none" />
+                      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none group-hover:opacity-100 transition-opacity opacity-70" />
 
                       <div className="relative z-10 space-y-6">
                         
                         {/* Top Header Row */}
-                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-800/80 pb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EBE2D0] pb-4">
                           <div className="flex items-center space-x-2.5">
-                            <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-black uppercase tracking-wider font-mono shadow-sm flex items-center space-x-1.5">
-                              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                            <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-black uppercase tracking-wider font-mono shadow-sm flex items-center space-x-1.5">
+                              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
                               <span>{isInProgress ? 'RESUME SESSION' : isCompleted ? 'REWATCH SESSION' : 'CONTINUE LEARNING'}</span>
                             </span>
                             {isCompleted ? (
-                              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-extrabold uppercase flex items-center gap-1">
+                              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-extrabold uppercase flex items-center gap-1">
                                 <Check size={10} className="stroke-[3]" /> Completed
                               </span>
                             ) : isInProgress ? (
-                              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-extrabold uppercase flex items-center gap-1">
+                              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-extrabold uppercase flex items-center gap-1">
                                 <Clock size={10} /> In Progress
                               </span>
                             ) : null}
                           </div>
 
                           <div className="flex items-center space-x-2">
-                            <span className="px-3 py-1 rounded-xl bg-stone-950/90 text-stone-300 text-xs font-mono font-bold border border-stone-800 shadow-inner">
+                            <span className="px-3 py-1 rounded-xl bg-white text-stone-800 text-xs font-mono font-bold border border-[#E3D9C3] shadow-sm">
                               {activeSession.weekTitle || `Week ${activeSession.weekNumber || 1}`} · {activeSession.contentId}
                             </span>
                           </div>
@@ -663,31 +662,31 @@ export default function Dashboard() {
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                           <div className="lg:col-span-8 space-y-3">
                             <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-2xl shadow-inner">
+                              <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-2xl shadow-sm">
                                 🧠
                               </div>
-                              <span className="px-2.5 py-0.5 rounded-md bg-stone-800 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider border border-stone-700">
+                              <span className="px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-800 text-xs font-mono font-bold uppercase tracking-wider border border-stone-200">
                                 {activeSession.modality}
                               </span>
                             </div>
-                            <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight group-hover:text-amber-200 transition-colors">
+                            <h2 className="text-2xl sm:text-3xl font-black text-stone-900 leading-tight group-hover:text-amber-800 transition-colors">
                               {activeSession.title}
                             </h2>
-                            <p className="text-xs sm:text-sm text-stone-300 font-light leading-relaxed line-clamp-3">
+                            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed line-clamp-3">
                               {activeSession.description}
                             </p>
                           </div>
 
                           {/* Action & Metadata Box */}
-                          <div className="lg:col-span-4 p-5 rounded-2xl bg-stone-950/80 border border-stone-800/80 space-y-4 flex flex-col justify-between shadow-inner">
+                          <div className="lg:col-span-4 p-5 rounded-2xl bg-[#FBF9F4] border border-[#EBE3D3] space-y-4 flex flex-col justify-between shadow-inner">
                             <div className="space-y-2">
                               <div className="flex justify-between text-xs font-mono">
-                                <span className="text-stone-400">Attendance & Progress</span>
-                                <span className="font-extrabold text-amber-400">{progressMetrics.overallPercent}%</span>
+                                <span className="text-stone-600">Attendance & Progress</span>
+                                <span className="font-extrabold text-amber-800">{progressMetrics.overallPercent}%</span>
                               </div>
-                              <div className="h-2.5 w-full bg-stone-900 rounded-full overflow-hidden p-0.5 border border-stone-800">
+                              <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                                 <div
-                                  className="h-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 rounded-full transition-all duration-500 shadow-sm shadow-amber-500/50"
+                                  className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
                                   style={{ width: `${Math.max(progressMetrics.overallPercent, progressMetrics.completedCount > 0 ? 8 : 0)}%` }}
                                 />
                               </div>
@@ -699,7 +698,7 @@ export default function Dashboard() {
 
                             <button
                               onClick={() => handleWatchFellowshipSession(activeSession)}
-                              className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-stone-950 font-black text-sm shadow-xl shadow-amber-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2"
+                              className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-black text-sm shadow-md shadow-amber-900/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2"
                             >
                               <Play className="w-4 h-4 fill-current" />
                               <span>
@@ -707,8 +706,8 @@ export default function Dashboard() {
                               </span>
                             </button>
 
-                            <div className="text-[10px] text-stone-400 font-mono text-center truncate">
-                              Instructor: <strong className="text-stone-200">{activeSession.instructor || 'ABDN Specialist'}</strong>
+                            <div className="text-[10px] text-stone-500 font-mono text-center truncate">
+                              Instructor: <strong className="text-stone-800">{activeSession.instructor || 'ABDN Specialist'}</strong>
                             </div>
                           </div>
                         </div>
@@ -719,16 +718,16 @@ export default function Dashboard() {
                 })()}
 
                 {/* 3. VIBRANT MODALITY TRACK CARDS ("MY LEARNING PATHS") */}
-                <div className="space-y-4 pt-4 border-t border-stone-800/80">
+                <div className="space-y-4 pt-4 border-t border-[#E8DFC9]">
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
-                      <h3 className="text-xl font-extrabold text-white flex items-center space-x-2">
+                      <h3 className="text-xl font-extrabold text-stone-900 flex items-center space-x-2">
                         <span>My Learning Paths</span>
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 font-mono border border-amber-500/20">
+                        <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-mono font-bold border border-amber-300">
                           {myEnrolledModalities.length} Enrolled
                         </span>
                       </h3>
-                      <p className="text-xs text-stone-400">
+                      <p className="text-xs text-stone-600">
                         Your personalized neuroimaging fellowship modalities and dataset processing tracks.
                       </p>
                     </div>
@@ -736,13 +735,13 @@ export default function Dashboard() {
                     <div className="flex items-center space-x-3">
                       <Link
                         to="/learning/onboarding"
-                        className="text-xs text-stone-400 hover:text-amber-300 transition-colors hidden sm:block font-medium"
+                        className="text-xs text-stone-600 hover:text-amber-800 transition-colors hidden sm:block font-semibold"
                       >
                         Adjust Goals
                       </Link>
                       <button
                         onClick={() => setActiveTab('learning')}
-                        className="text-xs text-amber-400 hover:text-amber-300 font-bold flex items-center space-x-1 bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20 transition-all hover:bg-amber-500/20"
+                        className="text-xs text-amber-900 hover:text-amber-800 font-bold flex items-center space-x-1 bg-amber-100/80 px-3 py-1.5 rounded-xl border border-amber-300 transition-all hover:bg-amber-200/80 shadow-sm"
                       >
                         <span>Explore Library</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -756,52 +755,44 @@ export default function Dashboard() {
                       const isEeg = modality.id === 'eeg';
                       const isFnirs = modality.id === 'fnirs';
 
-                      const glowBorder = isMri
-                        ? 'hover:border-amber-500/50 hover:shadow-amber-500/10'
-                        : isEeg
-                        ? 'hover:border-cyan-400/50 hover:shadow-cyan-400/10'
-                        : isFnirs
-                        ? 'hover:border-rose-500/50 hover:shadow-rose-500/10'
-                        : 'hover:border-yellow-400/50 hover:shadow-yellow-400/10';
-
                       const progressColor = isMri
-                        ? 'bg-amber-500'
+                        ? 'bg-amber-600'
                         : isEeg
-                        ? 'bg-cyan-400'
+                        ? 'bg-emerald-600'
                         : isFnirs
-                        ? 'bg-rose-500'
-                        : 'bg-yellow-400';
+                        ? 'bg-rose-600'
+                        : 'bg-amber-700';
 
                       return (
                         <motion.div
                           key={modality.id}
                           whileHover={{ y: -4 }}
-                          className={`p-5 rounded-2xl bg-gradient-to-b from-stone-900 to-stone-950 border border-stone-800 transition-all flex flex-col justify-between space-y-4 shadow-lg group ${glowBorder}`}
+                          className="p-5 rounded-2xl bg-white border border-[#EBE4D8] hover:border-amber-500 shadow-md shadow-stone-900/5 hover:shadow-xl hover:shadow-amber-900/10 transition-all flex flex-col justify-between space-y-4 group"
                         >
                           <div className="space-y-3">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2.5">
-                                <div className="w-10 h-10 rounded-xl bg-stone-800/80 border border-stone-700 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                                   {modality.icon}
                                 </div>
                                 <div>
-                                  <h4 className="font-bold text-sm text-white group-hover:text-amber-300 transition-colors">
+                                  <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-800 transition-colors">
                                     {modality.name}
                                   </h4>
-                                  <span className="text-[10px] font-mono text-stone-400">{modality.duration}</span>
+                                  <span className="text-[10px] font-mono text-stone-500">{modality.duration}</span>
                                 </div>
                               </div>
 
-                              <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                              <span className="text-xs font-mono font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
                                 {modality.progress > 0 ? `${modality.progress}%` : 'Active'}
                               </span>
                             </div>
 
-                            <p className="text-xs text-stone-400 leading-snug line-clamp-2">{modality.tagline}</p>
+                            <p className="text-xs text-stone-600 leading-snug line-clamp-2">{modality.tagline}</p>
 
                             {/* Dynamic Progress Bar */}
                             <div className="space-y-1">
-                              <div className="h-2 w-full bg-stone-950 rounded-full overflow-hidden p-0.5 border border-stone-800/80">
+                              <div className="h-2 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                                 <div
                                   className={`h-full ${progressColor} rounded-full transition-all duration-500`}
                                   style={{ width: `${Math.max(modality.progress, 5)}%` }}
@@ -815,7 +806,7 @@ export default function Dashboard() {
                               setSelectedModalityCourse(modality.id);
                               setActiveTab('learning');
                             }}
-                            className="pt-2.5 text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center justify-between border-t border-stone-800/80 group-hover:translate-x-0.5 transition-transform"
+                            className="pt-2.5 text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center justify-between border-t border-[#F0E9DC] group-hover:translate-x-0.5 transition-transform"
                           >
                             <span>Open Track Workspace</span>
                             <ArrowRight className="w-4 h-4" />
@@ -827,18 +818,18 @@ export default function Dashboard() {
                 </div>
 
                 {/* 4. DYNAMIC FELLOWSHIP WEEKLY SESSIONS & RECORDED LECTURES */}
-                <div className="space-y-6 pt-6 border-t border-stone-800/80">
+                <div className="space-y-6 pt-6 border-t border-[#E8DFC9]">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                       <div className="flex items-center space-x-2.5">
-                        <span className="px-2.5 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-mono uppercase font-black">
+                        <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono uppercase font-black">
                           Firebase Live Stream
                         </span>
-                        <h3 className="text-xl font-extrabold text-white">
+                        <h3 className="text-xl font-extrabold text-stone-900">
                           Fellowship Weekly Sessions & Recorded Lectures
                         </h3>
                       </div>
-                      <p className="text-xs text-stone-400 mt-1">
+                      <p className="text-xs text-stone-600 mt-1">
                         Dynamic multi-modality fellowship sessions managed directly from the ABDN Admin Dashboard. Grouped by Month → Week → Modality.
                       </p>
                     </div>
@@ -846,16 +837,16 @@ export default function Dashboard() {
                     <button
                       onClick={loadLessonsData}
                       disabled={loadingLessons}
-                      className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-200 text-xs font-bold transition-all shadow-sm self-start md:self-auto"
+                      className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-white hover:bg-stone-50 border border-stone-300 text-stone-800 text-xs font-bold transition-all shadow-sm self-start md:self-auto"
                       title="Refresh from Firebase"
                     >
-                      <RefreshCw className={`w-3.5 h-3.5 text-amber-400 ${loadingLessons ? 'animate-spin' : ''}`} />
+                      <RefreshCw className={`w-3.5 h-3.5 text-amber-700 ${loadingLessons ? 'animate-spin' : ''}`} />
                       <span>{loadingLessons ? 'Syncing...' : 'Sync Lessons'}</span>
                     </button>
                   </div>
 
                   {/* Filter & Search Bar */}
-                  <div className="p-4 sm:p-5 rounded-3xl bg-stone-900/90 border border-stone-800 space-y-4 shadow-xl">
+                  <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#EBE4D8] space-y-4 shadow-lg shadow-stone-900/5">
                     
                     {/* Top Row: Search + Month Selector */}
                     <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -868,21 +859,21 @@ export default function Dashboard() {
                           placeholder="Search sessions by title, topic, content ID, or instructor..."
                           value={sessionSearchQuery}
                           onChange={(e) => setSessionSearchQuery(e.target.value)}
-                          className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-stone-950 border border-stone-800 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-amber-500 transition-colors"
+                          className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-900 placeholder-stone-500 focus:outline-none focus:border-amber-600 transition-colors"
                         />
                       </div>
 
                       {/* Month Filter */}
                       <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0">
-                        <span className="text-[11px] text-stone-400 font-mono uppercase mr-1 hidden sm:inline">Month:</span>
+                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1 hidden sm:inline">Month:</span>
                         {['All', ...availableMonths].map((month) => (
                           <button
                             key={month}
                             onClick={() => setSessionMonthFilter(month)}
                             className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                               sessionMonthFilter === month
-                                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
-                                : 'bg-stone-950 text-stone-400 hover:text-white border border-stone-800'
+                                ? 'bg-amber-700 text-white shadow-md shadow-amber-900/20'
+                                : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
                             }`}
                           >
                             {month}
@@ -892,17 +883,17 @@ export default function Dashboard() {
                     </div>
 
                     {/* Bottom Row: Week & Modality Filters */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-stone-800/80 text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#EBE2D0] text-xs">
                       
                       {/* Week Selectors */}
                       <div className="flex items-center space-x-1.5">
-                        <span className="text-[11px] text-stone-400 font-mono uppercase mr-1">Week:</span>
+                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Week:</span>
                         <button
                           onClick={() => setSessionWeekFilter('All')}
                           className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
                             sessionWeekFilter === 'All'
-                              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                              : 'bg-stone-950 text-stone-400 hover:text-stone-200 border border-stone-800/60'
+                              ? 'bg-amber-100 text-amber-900 border border-amber-300 font-bold'
+                              : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
                           }`}
                         >
                           All Weeks
@@ -913,8 +904,8 @@ export default function Dashboard() {
                             onClick={() => setSessionWeekFilter(`Week ${wk}`)}
                             className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
                               sessionWeekFilter === `Week ${wk}`
-                                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                                : 'bg-stone-950 text-stone-400 hover:text-stone-200 border border-stone-800/60'
+                                ? 'bg-amber-100 text-amber-900 border border-amber-300 font-bold'
+                                : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
                             }`}
                           >
                             Week {wk}
@@ -924,7 +915,7 @@ export default function Dashboard() {
 
                       {/* Modality Chips */}
                       <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="text-[11px] text-stone-400 font-mono uppercase mr-1">Modality:</span>
+                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Modality:</span>
                         {[
                           { id: 'All', label: 'All Modalities' },
                           { id: 'MRI/fMRI', label: 'MRI / fMRI' },
@@ -937,8 +928,8 @@ export default function Dashboard() {
                             onClick={() => setSessionModalityFilter(m.id)}
                             className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
                               sessionModalityFilter === m.id
-                                ? 'bg-stone-800 text-amber-300 border border-amber-500/50 shadow-sm'
-                                : 'bg-stone-950 text-stone-400 hover:text-stone-300 border border-stone-800/60'
+                                ? 'bg-amber-800 text-white border border-amber-900 shadow-sm'
+                                : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
                             }`}
                           >
                             {m.label}
@@ -951,15 +942,15 @@ export default function Dashboard() {
 
                   {/* Sessions Grouped Listing */}
                   {loadingLessons ? (
-                    <div className="p-12 text-center rounded-3xl bg-stone-900/50 border border-stone-800 space-y-3">
-                      <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto" />
-                      <div className="text-xs text-stone-400 font-mono">Loading published fellowship sessions from Firebase...</div>
+                    <div className="p-12 text-center rounded-3xl bg-white border border-[#EBE4D8] space-y-3">
+                      <div className="w-8 h-8 border-2 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto" />
+                      <div className="text-xs text-stone-600 font-mono">Loading published fellowship sessions from Firebase...</div>
                     </div>
                   ) : groupedSessions.length === 0 ? (
-                    <div className="p-12 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
+                    <div className="p-12 text-center rounded-3xl bg-white border border-[#EBE4D8] space-y-3">
                       <div className="text-3xl">🔍</div>
-                      <h4 className="font-bold text-sm text-stone-200">No matching fellowship sessions found</h4>
-                      <p className="text-xs text-stone-400 max-w-sm mx-auto">
+                      <h4 className="font-bold text-sm text-stone-900">No matching fellowship sessions found</h4>
+                      <p className="text-xs text-stone-600 max-w-sm mx-auto">
                         Try adjusting your search query, month, or modality filter to discover available sessions.
                       </p>
                       <button
@@ -969,7 +960,7 @@ export default function Dashboard() {
                           setSessionModalityFilter('All');
                           setSessionSearchQuery('');
                         }}
-                        className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-xs font-bold text-white shadow-sm"
+                        className="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-xs font-bold text-white shadow-sm"
                       >
                         Reset All Filters
                       </button>
@@ -980,12 +971,12 @@ export default function Dashboard() {
                         <div key={group.month} className="space-y-6">
                           
                           {/* Month Header Banner */}
-                          <div className="flex items-center space-x-3 border-b border-stone-800 pb-3">
-                            <Calendar className="w-4 h-4 text-amber-400" />
-                            <h4 className="text-lg font-black text-white uppercase tracking-wider">
+                          <div className="flex items-center space-x-3 border-b border-[#E8DFC9] pb-3">
+                            <Calendar className="w-4 h-4 text-amber-700" />
+                            <h4 className="text-lg font-black text-stone-900 uppercase tracking-wider">
                               {group.month} Fellowship Schedule
                             </h4>
-                            <span className="text-xs font-mono text-stone-400 font-semibold bg-stone-900 px-2 py-0.5 rounded border border-stone-800">
+                            <span className="text-xs font-mono text-amber-900 font-semibold bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
                               {group.weeks.reduce((acc, w) => acc + w.lessons.length, 0)} Sessions
                             </span>
                           </div>
@@ -995,21 +986,21 @@ export default function Dashboard() {
                             {group.weeks.map((week) => (
                               <div
                                 key={`${group.month}-week-${week.weekNumber}`}
-                                className="p-5 sm:p-6 rounded-3xl bg-stone-900/70 border border-stone-800 space-y-4 shadow-md"
+                                className="p-5 sm:p-6 rounded-3xl bg-[#FAF7F2] border border-[#E5DDD0] space-y-4 shadow-sm"
                               >
                                 {/* Week Header */}
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E0D7C7] pb-3">
                                   <div className="flex items-center space-x-3">
-                                    <span className="px-3 py-1 rounded-xl bg-amber-500/20 text-amber-300 font-mono font-black text-xs border border-amber-500/30">
+                                    <span className="px-3 py-1 rounded-xl bg-amber-100 text-amber-900 font-mono font-black text-xs border border-amber-300">
                                       {week.weekTitle}
                                     </span>
                                     {week.weekEnding && (
-                                      <span className="text-xs text-stone-400">
-                                        Week Ending: <strong className="text-stone-200">{formatWeekEndingDisplay(week.weekEnding)}</strong>
+                                      <span className="text-xs text-stone-600">
+                                        Week Ending: <strong className="text-stone-900">{formatWeekEndingDisplay(week.weekEnding)}</strong>
                                       </span>
                                     )}
                                   </div>
-                                  <span className="text-[11px] text-stone-400 font-mono">
+                                  <span className="text-[11px] text-stone-500 font-mono">
                                     {week.lessons.length} Multi-Modality {week.lessons.length === 1 ? 'Session' : 'Sessions'}
                                   </span>
                                 </div>
@@ -1020,9 +1011,9 @@ export default function Dashboard() {
                                     const modConfig = modalityConfigs[lesson.modality] || {
                                       name: lesson.modality,
                                       shortCode: 'MOD',
-                                      color: '#d97706',
-                                      badgeBg: 'bg-amber-500/10 border-amber-500/30',
-                                      badgeText: 'text-amber-300'
+                                      color: '#b45309',
+                                      badgeBg: 'bg-amber-100 border-amber-300',
+                                      badgeText: 'text-amber-900'
                                     };
 
                                     const hasValidRecording = lesson.hasRecording || Boolean(lesson.videoAccess?.recordingUrl);
@@ -1034,12 +1025,12 @@ export default function Dashboard() {
                                     return (
                                       <div
                                         key={lesson.id || lesson.contentId}
-                                        className={`p-5 rounded-2xl bg-stone-950 border transition-all flex flex-col justify-between space-y-4 group shadow-md hover:shadow-xl ${
+                                        className={`p-5 rounded-2xl bg-white border transition-all flex flex-col justify-between space-y-4 group shadow-md hover:shadow-xl ${
                                           isSessionCompleted 
-                                            ? 'border-emerald-500/40 bg-stone-950/90'
+                                            ? 'border-emerald-300 bg-emerald-50/30'
                                             : isSessionInProgress
-                                            ? 'border-amber-500/60 bg-stone-950'
-                                            : 'border-stone-800/90 hover:border-amber-500/50'
+                                            ? 'border-amber-400 bg-amber-50/20'
+                                            : 'border-[#EBE4D8] hover:border-amber-500'
                                         }`}
                                       >
                                         <div className="space-y-3">
@@ -1050,22 +1041,22 @@ export default function Dashboard() {
                                               <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${modConfig.badgeBg} ${modConfig.badgeText}`}>
                                                 {lesson.modality}
                                               </span>
-                                              <span className="text-[10px] font-mono bg-stone-900 text-stone-400 px-2 py-0.5 rounded border border-stone-800">
+                                              <span className="text-[10px] font-mono bg-[#F5EFE4] text-stone-700 px-2 py-0.5 rounded border border-[#E5DDD0]">
                                                 {lesson.contentId}
                                               </span>
                                             </div>
 
                                             <div className="flex items-center space-x-1.5">
                                               {isSessionCompleted ? (
-                                                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-black uppercase flex items-center gap-1">
+                                                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-black uppercase flex items-center gap-1">
                                                   <Check size={10} className="stroke-[3]" /> Completed
                                                 </span>
                                               ) : isSessionInProgress ? (
-                                                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-black uppercase flex items-center gap-1">
+                                                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black uppercase flex items-center gap-1">
                                                   <Clock size={10} /> In Progress
                                                 </span>
                                               ) : (
-                                                <span className="text-[10px] font-mono text-stone-400 font-semibold">
+                                                <span className="text-[10px] font-mono text-stone-500 font-semibold">
                                                   {lesson.durationMinutes || 60} mins
                                                 </span>
                                               )}
@@ -1074,19 +1065,19 @@ export default function Dashboard() {
 
                                           {/* Title & Description */}
                                           <div className="space-y-1.5">
-                                            <h5 className="font-extrabold text-sm sm:text-base text-white group-hover:text-amber-300 transition-colors line-clamp-2">
+                                            <h5 className="font-extrabold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-2">
                                               {lesson.title}
                                             </h5>
-                                            <p className="text-xs text-stone-300 font-light leading-relaxed line-clamp-3">
+                                            <p className="text-xs text-stone-600 font-normal leading-relaxed line-clamp-3">
                                               {lesson.description || 'Comprehensive fellowship session covering theoretical physics, pipeline execution, and open dataset processing.'}
                                             </p>
                                           </div>
 
                                           {/* Instructor details */}
-                                          <div className="flex items-center space-x-2 text-xs text-stone-400 pt-1">
-                                            <User className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                                          <div className="flex items-center space-x-2 text-xs text-stone-600 pt-1">
+                                            <User className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" />
                                             <span className="truncate">
-                                              <strong className="text-stone-200">{lesson.instructor || 'ABDN Specialist'}</strong>
+                                              <strong className="text-stone-800">{lesson.instructor || 'ABDN Specialist'}</strong>
                                               {lesson.instructorTitle ? ` · ${lesson.instructorTitle}` : ''}
                                             </span>
                                           </div>
@@ -1097,13 +1088,13 @@ export default function Dashboard() {
                                               {lesson.topics.slice(0, 3).map((topic, tIdx) => (
                                                 <span
                                                   key={tIdx}
-                                                  className="px-2 py-0.5 rounded-md bg-stone-900 border border-stone-800 text-[10px] font-mono text-stone-300"
+                                                  className="px-2 py-0.5 rounded-md bg-[#F4EFE6] border border-[#E3DBCF] text-[10px] font-mono text-stone-700"
                                                 >
                                                   {topic}
                                                 </span>
                                               ))}
                                               {lesson.topics.length > 3 && (
-                                                <span className="text-[10px] font-mono text-stone-400 self-center">
+                                                <span className="text-[10px] font-mono text-stone-500 self-center">
                                                   +{lesson.topics.length - 3} more
                                                 </span>
                                               )}
@@ -1112,16 +1103,16 @@ export default function Dashboard() {
                                         </div>
 
                                         {/* Bottom Action Footer */}
-                                        <div className="pt-3 border-t border-stone-800/80 flex items-center justify-between gap-2 text-xs">
+                                        <div className="pt-3 border-t border-[#EBE2D0] flex items-center justify-between gap-2 text-xs">
                                           {hasValidRecording ? (
                                             <button
                                               onClick={() => handleWatchFellowshipSession(lesson)}
-                                              className={`w-full py-2.5 px-4 rounded-xl text-stone-950 font-black text-xs transition-all flex items-center justify-center space-x-2 shadow-md ${
+                                              className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-sm ${
                                                 isSessionCompleted
-                                                  ? 'bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-700'
+                                                  ? 'bg-stone-900 hover:bg-black text-white font-bold'
                                                   : isSessionInProgress
-                                                  ? 'bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-amber-500/20'
-                                                  : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 shadow-amber-500/20'
+                                                  ? 'bg-amber-700 hover:bg-amber-800 text-white shadow-amber-900/20'
+                                                  : 'bg-amber-600 hover:bg-amber-700 text-white shadow-amber-900/20'
                                               }`}
                                             >
                                               <Play className="w-3.5 h-3.5 fill-current" />
@@ -1131,7 +1122,7 @@ export default function Dashboard() {
                                               <span className="text-[10px] font-normal opacity-80 font-mono">({lesson.durationMinutes || 75}m)</span>
                                             </button>
                                           ) : (
-                                            <div className="w-full py-2 px-3 rounded-xl bg-stone-900 border border-stone-800/80 text-stone-500 text-[11px] font-medium flex items-center justify-center space-x-1.5">
+                                            <div className="w-full py-2 px-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-stone-500 text-[11px] font-medium flex items-center justify-center space-x-1.5">
                                               <Clock className="w-3.5 h-3.5 text-stone-500" />
                                               <span>Recording coming soon/unavailable</span>
                                             </div>
@@ -1154,51 +1145,51 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                   
                   {/* Fellowship Milestone Tracker Card */}
-                  <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 border border-stone-800 space-y-5 flex flex-col justify-between shadow-xl">
+                  <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] space-y-5 flex flex-col justify-between shadow-lg shadow-stone-900/5">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-base font-extrabold text-white flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-amber-400" />
+                        <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
+                          <Sparkles className="w-4 h-4 text-amber-700" />
                           <span>Fellowship Milestone Tracker</span>
                         </h3>
-                        <span className="text-[10px] font-mono text-amber-300 font-bold uppercase bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+                        <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">
                           Cohort 2026
                         </span>
                       </div>
 
-                      <div className="p-4.5 rounded-2xl bg-stone-950 border border-stone-800 space-y-2.5 shadow-inner">
+                      <div className="p-4.5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] space-y-2.5 shadow-inner">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-stone-200 font-bold">Session Attendance & Lecture Progress</span>
-                          <span className="text-amber-400 font-mono font-black">{progressMetrics.overallPercent}%</span>
+                          <span className="text-stone-800 font-bold">Session Attendance & Lecture Progress</span>
+                          <span className="text-amber-800 font-mono font-black">{progressMetrics.overallPercent}%</span>
                         </div>
-                        <div className="h-2.5 w-full bg-stone-900 rounded-full overflow-hidden p-0.5 border border-stone-800">
+                        <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                           <div
-                            className="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-300 rounded-full transition-all duration-500 shadow-sm shadow-amber-500/40"
+                            className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
                             style={{ width: `${progressMetrics.overallPercent}%` }}
                           />
                         </div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono pt-1">
+                        <div className="flex items-center justify-between text-[11px] text-stone-600 font-mono pt-1">
                           <span>{progressMetrics.completedCount} of {publishedLessons.length} sessions attended</span>
                           <span>{myEnrolledModalities.length} active tracks</span>
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-2xl bg-stone-950/80 border border-stone-800/80 text-xs space-y-3">
+                      <div className="p-4 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] text-xs space-y-3">
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
-                            <div className="font-bold text-stone-200 text-xs">Phase 1: Live Lectures & Recordings</div>
-                            <div className="text-[11px] text-stone-400">Watch weekly fellowship sessions and study lecture slides</div>
+                            <div className="font-bold text-stone-900 text-xs">Phase 1: Live Lectures & Recordings</div>
+                            <div className="text-[11px] text-stone-600">Watch weekly fellowship sessions and study lecture slides</div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/30">
+                          <span className="text-[10px] font-mono uppercase font-black text-amber-900 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300">
                             Active
                           </span>
                         </div>
-                        <div className="flex items-center justify-between pt-2 border-t border-stone-800/60">
+                        <div className="flex items-center justify-between pt-2 border-t border-[#E5DEC5]">
                           <div className="space-y-0.5">
-                            <div className="font-bold text-stone-300 text-xs">Phase 2: GitHub Code & Lab Submissions</div>
-                            <div className="text-[11px] text-stone-400">Push weekly Jupyter notebooks to <code className="text-amber-300 font-mono text-[10px]">participants/</code></div>
+                            <div className="font-bold text-stone-800 text-xs">Phase 2: GitHub Code & Lab Submissions</div>
+                            <div className="text-[11px] text-stone-600">Push weekly Jupyter notebooks to <code className="text-amber-900 font-mono text-[10px]">participants/</code></div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded-full border border-cyan-500/30">
+                          <span className="text-[10px] font-mono uppercase font-black text-sky-900 bg-sky-100 px-2 py-0.5 rounded-full border border-sky-300">
                             Hands-on
                           </span>
                         </div>
@@ -1207,7 +1198,7 @@ export default function Dashboard() {
 
                     <button
                       onClick={() => setActiveTab('learning')}
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-amber-500/20"
+                      className="w-full py-3 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-black text-xs transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-amber-900/20"
                     >
                       <BookOpen className="w-4 h-4" />
                       <span>View All Learning Paths →</span>
@@ -1215,49 +1206,49 @@ export default function Dashboard() {
                   </div>
 
                   {/* Profile Summary Card */}
-                  <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 border border-stone-800 space-y-5 flex flex-col justify-between shadow-xl">
+                  <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] space-y-5 flex flex-col justify-between shadow-lg shadow-stone-900/5">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-base font-extrabold text-white flex items-center space-x-2">
-                          <User className="w-4 h-4 text-amber-400" />
+                        <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
+                          <User className="w-4 h-4 text-amber-700" />
                           <span>Researcher Profile</span>
                         </h3>
-                        <span className="text-[10px] font-mono text-amber-300 font-bold uppercase bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+                        <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">
                           2026 ABDN Scholar
                         </span>
                       </div>
 
-                      <div className="flex items-center space-x-4 p-4 rounded-2xl bg-stone-950 border border-stone-800 shadow-inner">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-xl font-black text-stone-950 shadow-md flex-shrink-0">
+                      <div className="flex items-center space-x-4 p-4 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] shadow-inner">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-xl font-black text-white shadow-md flex-shrink-0">
                           {displayName.charAt(0).toUpperCase()}
                         </div>
                         <div className="min-w-0">
-                          <div className="font-extrabold text-sm text-white truncate">{displayName}</div>
-                          <div className="text-xs text-stone-400 truncate">{currentUser?.email}</div>
+                          <div className="font-extrabold text-sm text-stone-900 truncate">{displayName}</div>
+                          <div className="text-xs text-stone-600 truncate">{currentUser?.email}</div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                        <div className="p-3 rounded-xl bg-stone-950 border border-stone-800/80">
-                          <div className="text-[10px] text-stone-400 uppercase">MODALITIES</div>
-                          <div className="font-extrabold text-white text-sm">{myEnrolledModalities.length}</div>
+                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
+                          <div className="text-[10px] text-stone-500 uppercase">MODALITIES</div>
+                          <div className="font-extrabold text-stone-900 text-sm">{myEnrolledModalities.length}</div>
                         </div>
-                        <div className="p-3 rounded-xl bg-stone-950 border border-stone-800/80">
-                          <div className="text-[10px] text-stone-400 uppercase">SESSIONS</div>
-                          <div className="font-extrabold text-white text-sm">{publishedLessons.length}</div>
+                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
+                          <div className="text-[10px] text-stone-500 uppercase">SESSIONS</div>
+                          <div className="font-extrabold text-stone-900 text-sm">{publishedLessons.length}</div>
                         </div>
-                        <div className="p-3 rounded-xl bg-stone-950 border border-stone-800/80">
-                          <div className="text-[10px] text-stone-400 uppercase">COMPLETED</div>
-                          <div className="font-extrabold text-amber-400 text-sm">{progressMetrics.completedCount}</div>
+                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
+                          <div className="text-[10px] text-stone-500 uppercase">COMPLETED</div>
+                          <div className="font-extrabold text-amber-800 text-sm">{progressMetrics.completedCount}</div>
                         </div>
                       </div>
                     </div>
 
                     <button
                       onClick={() => setActiveTab('profile')}
-                      className="w-full py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700 text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm"
+                      className="w-full py-3 rounded-xl bg-[#FAF7F0] hover:bg-[#F3EDE0] text-stone-800 border border-[#E5DEC5] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm"
                     >
-                      <User className="w-4 h-4 text-amber-400" />
+                      <User className="w-4 h-4 text-amber-700" />
                       <span>View Full Profile →</span>
                     </button>
                   </div>
@@ -1301,33 +1292,33 @@ export default function Dashboard() {
                     </div>
 
                     {/* Modality Course Header Banner */}
-                    <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 border border-stone-800 space-y-6 shadow-2xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-white to-[#FAF4E8] border border-[#E3D9C3] space-y-6 shadow-xl shadow-amber-900/5 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
                       
                       <div className="relative z-10 space-y-4">
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <div className="flex items-center space-x-3">
-                            <span className="text-3xl p-2.5 bg-stone-950 rounded-2xl border border-stone-800">
+                            <span className="text-3xl p-2.5 bg-amber-100 rounded-2xl border border-amber-300">
                               {currentCourse.icon}
                             </span>
                             <div>
-                              <div className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+                              <div className="text-[11px] font-mono font-bold text-amber-800 uppercase tracking-widest">
                                 ABDN FELLOWSHIP MODALITY TRACK
                               </div>
-                              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                              <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900">
                                 {currentCourse.fullName}
                               </h2>
                             </div>
                           </div>
 
                           <div className="flex items-center space-x-2">
-                            <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold">
+                            <span className="px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-mono font-bold">
                               {modalitySessions.length} Live Sessions Published
                             </span>
 
                             <button
                               onClick={() => handleUnenrollFromPathway(currentCourse.name, currentCourse.fullName)}
-                              className="px-3 py-1 rounded-full bg-stone-950/80 hover:bg-rose-500/20 text-stone-400 hover:text-rose-300 border border-stone-800 hover:border-rose-500/40 text-xs font-semibold transition-all flex items-center space-x-1.5"
+                              className="px-3 py-1 rounded-full bg-white hover:bg-rose-50 text-stone-600 hover:text-rose-700 border border-[#E2D9C7] hover:border-rose-300 text-xs font-semibold transition-all flex items-center space-x-1.5 shadow-sm"
                               title={`Unenroll from ${currentCourse.fullName}`}
                             >
                               <X className="w-3.5 h-3.5" />
@@ -1336,17 +1327,17 @@ export default function Dashboard() {
                           </div>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-light max-w-3xl">
+                        <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal max-w-3xl">
                           {currentCourse.overview}
                         </p>
 
                         {/* Tools / Pipelines Chips */}
                         <div className="flex flex-wrap items-center gap-2 pt-1">
-                          <span className="text-[11px] text-stone-500 font-mono uppercase">Pipelines & Tools:</span>
+                          <span className="text-[11px] text-stone-600 font-mono uppercase font-bold">Pipelines & Tools:</span>
                           {currentCourse.tools.map((t) => (
                             <span
                               key={t}
-                              className="px-2.5 py-0.5 rounded-lg bg-stone-950 border border-stone-800 text-stone-300 text-[11px] font-mono"
+                              className="px-2.5 py-0.5 rounded-lg bg-white border border-[#E2D9C7] text-stone-800 text-[11px] font-mono shadow-sm"
                             >
                               {t}
                             </span>
@@ -1355,18 +1346,18 @@ export default function Dashboard() {
 
                         {/* Quick Watch Top Session CTA */}
                         {modalitySessions.length > 0 && (
-                          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-stone-800/80">
+                          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#EBE4D8]">
                             <div className="space-y-1">
-                              <span className="text-[11px] text-stone-400 font-mono">Latest Published Session:</span>
-                              <div className="text-xs font-bold text-white flex items-center space-x-2">
-                                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                              <span className="text-[11px] text-stone-600 font-mono font-medium">Latest Published Session:</span>
+                              <div className="text-xs font-bold text-stone-900 flex items-center space-x-2">
+                                <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
                                 <span>{modalitySessions[0].title} ({modalitySessions[0].contentId})</span>
                               </div>
                             </div>
 
                             <button
                               onClick={() => handleWatchFellowshipSession(modalitySessions[0])}
-                              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs shadow-lg shadow-amber-900/30 transition-all flex items-center justify-center space-x-2"
+                              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-xs shadow-md shadow-amber-900/20 transition-all flex items-center justify-center space-x-2"
                             >
                               <Play className="w-3.5 h-3.5 fill-white" />
                               <span>Watch Latest Recording →</span>
@@ -1378,20 +1369,20 @@ export default function Dashboard() {
 
                     {/* DYNAMIC FIRESTORE SESSIONS FOR THIS MODALITY */}
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between border-b border-stone-800 pb-3">
+                      <div className="flex items-center justify-between border-b border-[#EBE4D8] pb-3">
                         <div>
-                          <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                            <Video className="w-4 h-4 text-amber-400" />
+                          <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
+                            <Video className="w-4 h-4 text-amber-700" />
                             <span>Live Fellowship Sessions & Recorded Lectures</span>
                           </h3>
-                          <p className="text-xs text-stone-400">
+                          <p className="text-xs text-stone-600">
                             Published sessions for {currentCourse.fullName} from the ABDN content database ({modalitySessions.length} available).
                           </p>
                         </div>
                       </div>
 
                       {modalitySessions.length === 0 ? (
-                        <div className="p-8 text-center rounded-3xl bg-stone-900/40 border border-stone-800 text-xs text-stone-400">
+                        <div className="p-8 text-center rounded-3xl bg-white border border-[#EBE4D8] text-xs text-stone-600 shadow-sm">
                           No live recorded sessions published for this modality yet. Check back soon as new sessions are published weekly.
                         </div>
                       ) : (
@@ -1399,37 +1390,37 @@ export default function Dashboard() {
                           {modalitySessions.map((session) => (
                             <div
                               key={session.id || session.contentId}
-                              className="p-5 rounded-2xl bg-stone-900 border border-stone-800 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4 shadow-md group"
+                              className="p-5 rounded-2xl bg-white border border-[#EBE4D8] hover:border-amber-500 transition-all flex flex-col justify-between space-y-4 shadow-md shadow-stone-900/5 group"
                             >
                               <div className="space-y-3">
                                 <div className="flex items-center justify-between">
                                   <span className="px-2.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-300 font-mono text-[10px] font-bold">
                                     {session.contentId}
                                   </span>
-                                  <span className="text-[11px] font-mono text-stone-400">
+                                  <span className="text-[11px] font-mono text-stone-600 font-medium">
                                     {session.month} • {session.weekTitle || `Week ${session.weekNumber}`}
                                   </span>
                                 </div>
 
                                 <div>
-                                  <h4 className="font-bold text-sm sm:text-base text-white group-hover:text-amber-300 transition-colors line-clamp-2">
+                                  <h4 className="font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-2">
                                     {session.title}
                                   </h4>
-                                  <p className="text-xs text-stone-400 font-light leading-relaxed line-clamp-3 mt-1">
+                                  <p className="text-xs text-stone-600 font-normal leading-relaxed line-clamp-3 mt-1">
                                     {session.description}
                                   </p>
                                 </div>
 
-                                <div className="flex items-center space-x-2 text-xs text-stone-400">
-                                  <User className="w-3.5 h-3.5 text-amber-400" />
+                                <div className="flex items-center space-x-2 text-xs text-stone-600">
+                                  <User className="w-3.5 h-3.5 text-amber-700" />
                                   <span>
-                                    <strong className="text-stone-300">{session.instructor || 'ABDN Specialist'}</strong>
+                                    <strong className="text-stone-800">{session.instructor || 'ABDN Specialist'}</strong>
                                     {session.instructorTitle ? ` · ${session.instructorTitle}` : ''}
                                   </span>
                                 </div>
                               </div>
 
-                              <div className="pt-3 border-t border-stone-800 flex items-center justify-between">
+                              <div className="pt-3 border-t border-[#EBE4D8] flex items-center justify-between">
                                 <button
                                   onClick={() => handleWatchFellowshipSession(session)}
                                   className="w-full py-2.5 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-sm"
@@ -1446,20 +1437,20 @@ export default function Dashboard() {
                     </div>
 
                     {/* MASTER FELLOWSHIP CURRICULUM & SYLLABUS (GITHUB REPO SYNC) */}
-                    <div className="space-y-6 pt-4 border-t border-stone-800">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800 pb-3">
+                    <div className="space-y-6 pt-4 border-t border-[#EBE4D8]">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EBE4D8] pb-3">
                         <div>
                           <div className="flex items-center space-x-2">
-                            <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                              <BookOpen className="w-5 h-5 text-amber-400" />
+                            <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
+                              <BookOpen className="w-5 h-5 text-amber-700" />
                               <span>Official Fellowship Curriculum & Syllabus</span>
                             </h3>
-                            <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[10px] font-mono font-bold uppercase tracking-wider">
+                            <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase tracking-wider">
                               GitHub Live Synced
                             </span>
                           </div>
-                          <p className="text-xs text-stone-400 mt-0.5">
-                            Official 5-month teaching curriculum and weekly learning objectives from <code className="text-amber-300 font-mono">{DEFAULT_CURRICULUM_REPO}</code>.
+                          <p className="text-xs text-stone-600 mt-0.5">
+                            Official 5-month teaching curriculum and weekly learning objectives from <code className="text-amber-900 font-mono">{DEFAULT_CURRICULUM_REPO}</code>.
                           </p>
                         </div>
 
@@ -1469,7 +1460,7 @@ export default function Dashboard() {
                               href={modalityCurriculum.githubUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3.5 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-800 text-amber-400 hover:text-amber-300 text-xs font-semibold flex items-center space-x-1.5 transition-colors shadow-sm"
+                              className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-stone-50 border border-[#E2D9C7] text-amber-800 hover:text-amber-900 text-xs font-bold flex items-center space-x-1.5 transition-colors shadow-sm"
                             >
                               <span>View Raw Curriculum</span>
                               <ExternalLink className="w-3.5 h-3.5" />
@@ -1480,12 +1471,12 @@ export default function Dashboard() {
 
                       {/* Course Objectives / Overview Banner if present */}
                       {modalityCurriculum?.objectives && modalityCurriculum.objectives.length > 0 && (
-                        <div className="p-5 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2.5">
-                          <div className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center space-x-1.5">
-                            <Target className="w-3.5 h-3.5" />
+                        <div className="p-5 rounded-2xl bg-amber-50/80 border border-amber-200 space-y-2.5 shadow-sm">
+                          <div className="text-[11px] font-mono font-bold text-amber-900 uppercase tracking-wider flex items-center space-x-1.5">
+                            <Target className="w-3.5 h-3.5 text-amber-700" />
                             <span>Core Course Learning Objectives</span>
                           </div>
-                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-stone-300">
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-stone-700">
                             {modalityCurriculum.objectives.map((obj, oIdx) => (
                               <li key={oIdx} className="flex items-start space-x-2">
                                 <span className="text-amber-400 font-bold mt-0.5">✓</span>
@@ -2010,22 +2001,22 @@ export default function Dashboard() {
                 <div className="max-w-6xl mx-auto space-y-8">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                      <h2 className="text-2xl font-bold text-white flex items-center space-x-2.5">
+                      <h2 className="text-2xl font-bold text-stone-900 flex items-center space-x-2.5">
                         <span>My Learning Library</span>
-                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono text-xs">
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-mono text-xs font-bold">
                           {myEnrolledModalities.length} Enrolled
                         </span>
                       </h2>
-                      <p className="text-xs sm:text-sm text-stone-400 mt-1">
+                      <p className="text-xs sm:text-sm text-stone-600 mt-1">
                         Your personalized coursework and live fellowship recordings based on your selected modalities.
                       </p>
                     </div>
 
                     <Link
                       to="/learning/onboarding"
-                      className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-white text-xs font-semibold transition-colors self-start sm:self-auto"
+                      className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-50 border border-[#E2D9C7] text-stone-800 hover:text-stone-950 text-xs font-bold transition-colors self-start sm:self-auto shadow-sm"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                      <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                       <span>Adjust Modalities & Goals</span>
                     </Link>
                   </div>
@@ -2279,47 +2270,47 @@ export default function Dashboard() {
             {activeTab === 'profile' && (
               <div className="max-w-4xl mx-auto space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-white">Researcher Profile</h2>
-                  <p className="text-xs sm:text-sm text-stone-400">
+                  <h2 className="text-2xl font-extrabold text-stone-900">Researcher Profile</h2>
+                  <p className="text-xs sm:text-sm text-stone-600">
                     Your public African Brain Data Network academic credentials and pathway progress.
                   </p>
                 </div>
 
-                <div className="p-6 sm:p-8 rounded-3xl bg-stone-900 border border-stone-800 space-y-6">
+                <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#EBE4D8] space-y-6 shadow-lg shadow-stone-900/5">
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-3xl font-extrabold text-white shadow-xl flex-shrink-0">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-700 to-amber-800 flex items-center justify-center text-3xl font-extrabold text-white shadow-xl flex-shrink-0">
                       {displayName.charAt(0).toUpperCase()}
                     </div>
                     <div className="space-y-1 flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <h3 className="text-xl font-bold text-white">{displayName}</h3>
-                        <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-mono font-bold self-center sm:self-auto">
+                        <h3 className="text-xl font-bold text-stone-900">{displayName}</h3>
+                        <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold border border-amber-300 self-center sm:self-auto">
                           Enrolled Fellow
                         </span>
                       </div>
-                      <p className="text-xs text-stone-400">{currentUser?.email}</p>
-                      <p className="text-xs text-stone-300 pt-1">
+                      <p className="text-xs text-stone-600">{currentUser?.email}</p>
+                      <p className="text-xs text-stone-700 pt-1 font-medium">
                         African Brain Data Network 2026 Neuroimaging Fellow · Computational Neuroscience Scholar
                       </p>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                    <div className="p-3 bg-stone-950 rounded-2xl border border-stone-800 text-center">
-                      <div className="text-xs text-stone-400">Modalities</div>
-                      <div className="text-lg font-bold text-white font-mono mt-0.5">{myEnrolledModalities.length}</div>
+                    <div className="p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E2D9C7] text-center">
+                      <div className="text-xs text-stone-600 font-medium">Modalities</div>
+                      <div className="text-lg font-black text-stone-900 font-mono mt-0.5">{myEnrolledModalities.length}</div>
                     </div>
-                    <div className="p-3 bg-stone-950 rounded-2xl border border-stone-800 text-center">
-                      <div className="text-xs text-stone-400">Live Sessions</div>
-                      <div className="text-lg font-bold text-white font-mono mt-0.5">{publishedLessons.length}</div>
+                    <div className="p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E2D9C7] text-center">
+                      <div className="text-xs text-stone-600 font-medium">Live Sessions</div>
+                      <div className="text-lg font-black text-stone-900 font-mono mt-0.5">{publishedLessons.length}</div>
                     </div>
-                    <div className="p-3 bg-stone-950 rounded-2xl border border-stone-800 text-center">
-                      <div className="text-xs text-stone-400">Certificates</div>
-                      <div className="text-lg font-bold text-white font-mono mt-0.5">2</div>
+                    <div className="p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E2D9C7] text-center">
+                      <div className="text-xs text-stone-600 font-medium">Certificates</div>
+                      <div className="text-lg font-black text-stone-900 font-mono mt-0.5">2</div>
                     </div>
-                    <div className="p-3 bg-stone-950 rounded-2xl border border-stone-800 text-center">
-                      <div className="text-xs text-stone-400">Cohort</div>
-                      <div className="text-lg font-bold text-amber-400 font-mono mt-0.5">2026</div>
+                    <div className="p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E2D9C7] text-center">
+                      <div className="text-xs text-stone-600 font-medium">Cohort</div>
+                      <div className="text-lg font-black text-amber-800 font-mono mt-0.5">2026</div>
                     </div>
                   </div>
                 </div>
@@ -2332,27 +2323,27 @@ export default function Dashboard() {
             {activeTab === 'settings' && (
               <div className="max-w-4xl mx-auto space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-white">Account & Preferences</h2>
-                  <p className="text-xs sm:text-sm text-stone-400">
+                  <h2 className="text-2xl font-extrabold text-stone-900">Account & Preferences</h2>
+                  <p className="text-xs sm:text-sm text-stone-600">
                     Manage your email notifications, compute cluster settings, and fellowship preferences.
                   </p>
                 </div>
 
-                <div className="p-6 rounded-3xl bg-stone-900 border border-stone-800 space-y-4">
-                  <div className="flex items-center justify-between py-2 border-b border-stone-800">
+                <div className="p-6 rounded-3xl bg-white border border-[#EBE4D8] space-y-4 shadow-lg shadow-stone-900/5">
+                  <div className="flex items-center justify-between py-2 border-b border-[#EBE4D8]">
                     <div>
-                      <div className="font-bold text-sm text-white">Email Session Notifications</div>
-                      <div className="text-xs text-stone-400">Receive email links when new live recordings are published</div>
+                      <div className="font-bold text-sm text-stone-900">Email Session Notifications</div>
+                      <div className="text-xs text-stone-600">Receive email links when new live recordings are published</div>
                     </div>
-                    <input type="checkbox" defaultChecked className="w-4 h-4 accent-amber-600 rounded" />
+                    <input type="checkbox" defaultChecked className="w-4 h-4 accent-amber-700 rounded" />
                   </div>
 
                   <div className="flex items-center justify-between py-2">
                     <div>
-                      <div className="font-bold text-sm text-white">Google Colab GPU Pre-allocation</div>
-                      <div className="text-xs text-stone-400">Automatically configure GPU runtime for interactive code labs</div>
+                      <div className="font-bold text-sm text-stone-900">Google Colab GPU Pre-allocation</div>
+                      <div className="text-xs text-stone-600">Automatically configure GPU runtime for interactive code labs</div>
                     </div>
-                    <input type="checkbox" defaultChecked className="w-4 h-4 accent-amber-600 rounded" />
+                    <input type="checkbox" defaultChecked className="w-4 h-4 accent-amber-700 rounded" />
                   </div>
                 </div>
               </div>
@@ -2364,22 +2355,22 @@ export default function Dashboard() {
             {activeTab === 'help' && (
               <div className="max-w-4xl mx-auto space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-white">Help & Support</h2>
-                  <p className="text-xs sm:text-sm text-stone-400">
+                  <h2 className="text-2xl font-extrabold text-stone-900">Help & Support</h2>
+                  <p className="text-xs sm:text-sm text-stone-600">
                     Get assistance with computational notebook environments, datasets, or fellowship curricula.
                   </p>
                 </div>
 
-                <div className="p-6 rounded-3xl bg-stone-900 border border-stone-800 space-y-4">
+                <div className="p-6 rounded-3xl bg-white border border-[#EBE4D8] space-y-4 shadow-lg shadow-stone-900/5">
                   <div className="space-y-3">
                     {[
                       { q: 'How do I access live Zoom recording passcodes?', a: 'Click "Watch Session" on any lesson card. If a passcode is required, it will be securely displayed inside the session launcher with a one-click copy button.' },
                       { q: 'How do I submit my fellowship capstone code?', a: 'Navigate to the Projects tab and submit your public or private GitHub repository link for faculty review.' },
                       { q: 'How do I schedule faculty office hours?', a: 'Office hour links and mentor schedules are announced in the weekly cohort updates.' },
                     ].map((faq, fIdx) => (
-                      <div key={fIdx} className="p-4 rounded-2xl bg-stone-950 border border-stone-800/80 space-y-1">
-                        <h4 className="font-bold text-xs sm:text-sm text-white">{faq.q}</h4>
-                        <p className="text-xs text-stone-400 leading-relaxed">{faq.a}</p>
+                      <div key={fIdx} className="p-4 rounded-2xl bg-[#FAF7F0] border border-[#E2D9C7] space-y-1">
+                        <h4 className="font-bold text-xs sm:text-sm text-stone-900">{faq.q}</h4>
+                        <p className="text-xs text-stone-600 leading-relaxed">{faq.a}</p>
                       </div>
                     ))}
                   </div>
