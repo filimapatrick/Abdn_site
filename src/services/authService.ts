@@ -14,6 +14,51 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase/config';
+import {
+  normalizeEmail,
+  isLocallyApprovedFellow,
+  isSuperadminEmail,
+} from '../config/approvedEmails';
+
+/**
+ * Checks whether an email is approved for ABDN Fellowship platform access.
+ * Checks against:
+ * 1. Superadmin whitelist
+ * 2. Pre-approved local roster
+ * 3. Firestore `approved_fellows` collection (doc ID = normalized email)
+ */
+export async function isEmailApprovedFellow(
+  email: string | null | undefined
+): Promise<{ approved: boolean; role?: string }> {
+  const normalized = normalizeEmail(email);
+  if (!normalized) return { approved: false };
+
+  // 1. Check Superadmin
+  if (isSuperadminEmail(normalized)) {
+    return { approved: true, role: 'superadmin' };
+  }
+
+  // 2. Check pre-approved local roster
+  if (isLocallyApprovedFellow(normalized)) {
+    return { approved: true, role: 'fellow' };
+  }
+
+  // 3. Dynamic check in Firestore `approved_fellows` collection
+  try {
+    const docRef = doc(db, 'approved_fellows', normalized);
+    const snap = await getDoc(docRef);
+    if (snap.exists()) {
+      const data = snap.data();
+      if (data?.active !== false) {
+        return { approved: true, role: data?.role || 'fellow' };
+      }
+    }
+  } catch (err) {
+    console.warn('Firestore approved_fellows lookup warning:', err);
+  }
+
+  return { approved: false };
+}
 
 export interface EnrolledPathway {
   pathwayId: string;
@@ -185,6 +230,14 @@ export async function signUpWithEmail(
   role: string = 'researcher',
   selectedPathway: string | null = null
 ): Promise<{ user: FirebaseUser; profile: ElearningUser }> {
+  // 0. Verify fellowship email eligibility before creation
+  const verification = await isEmailApprovedFellow(email);
+  if (!verification.approved) {
+    throw new Error(
+      `Access Restricted: The email address (${email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
+    );
+  }
+
   // 1. Create auth user
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
@@ -197,7 +250,7 @@ export async function signUpWithEmail(
   // 3. Create document in `elearning_users` collection
   const profile = await syncElearningUserDocument(user, {
     displayName: fullName,
-    role,
+    role: verification.role || role,
     selectedPathway,
     authProvider: 'password',
   });
@@ -215,8 +268,19 @@ export async function signInWithEmail(
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
 
+  // Verify fellowship email eligibility
+  const verification = await isEmailApprovedFellow(user.email);
+  if (!verification.approved) {
+    await signOut(auth);
+    throw new Error(
+      `Access Restricted: The email address (${user.email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
+    );
+  }
+
   // Sync / update last login in Firestore
-  const profile = await syncElearningUserDocument(user);
+  const profile = await syncElearningUserDocument(user, {
+    role: verification.role,
+  });
 
   return { user, profile };
 }
@@ -231,9 +295,18 @@ export async function signInWithGoogle(
   const result = await signInWithPopup(auth, googleProvider);
   const user = result.user;
 
+  // Verify fellowship email eligibility
+  const verification = await isEmailApprovedFellow(user.email);
+  if (!verification.approved) {
+    await signOut(auth);
+    throw new Error(
+      `Access Restricted: The email address (${user.email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
+    );
+  }
+
   const profile = await syncElearningUserDocument(user, {
     displayName: user.displayName || 'ABDN Researcher',
-    role,
+    role: verification.role || role,
     selectedPathway,
     authProvider: 'google.com',
   });

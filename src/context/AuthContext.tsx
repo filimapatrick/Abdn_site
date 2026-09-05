@@ -6,6 +6,7 @@ import {
   getElearningUserProfile,
   syncElearningUserDocument,
   signOutUser,
+  isEmailApprovedFellow,
 } from '../services/authService';
 
 interface AuthContextType {
@@ -47,10 +48,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
       if (user) {
+        const verification = await isEmailApprovedFellow(user.email);
+        if (!verification.approved) {
+          console.warn(`Blocking unauthorized user session for ${user.email}`);
+          await signOutUser();
+          setCurrentUser(null);
+          setUserProfile(null);
+          setLoading(false);
+          return;
+        }
+
+        setCurrentUser(user);
         await fetchProfile(user);
       } else {
+        setCurrentUser(null);
         setUserProfile(null);
       }
       setLoading(false);
