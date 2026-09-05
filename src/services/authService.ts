@@ -33,28 +33,23 @@ export async function isEmailApprovedFellow(
   const normalized = normalizeEmail(email);
   if (!normalized) return { approved: false };
 
-  // 1. Check Superadmin
-  if (isSuperadminEmail(normalized)) {
-    return { approved: true, role: 'superadmin' };
-  }
-
-  // 2. Check pre-approved local roster
-  if (isLocallyApprovedFellow(normalized)) {
-    return { approved: true, role: 'fellow' };
-  }
-
-  // 3. Dynamic check in Firestore `approved_fellows` collection
+  // 1. Primary Dynamic check in Firestore `approved_fellows` collection (doc ID = normalized email)
   try {
-    const docRef = doc(db, 'approved_fellows', normalized);
+    const docRef = doc(db, "approved_fellows", normalized);
     const snap = await getDoc(docRef);
     if (snap.exists()) {
       const data = snap.data();
       if (data?.active !== false) {
-        return { approved: true, role: data?.role || 'fellow' };
+        return { approved: true, role: data?.role || "fellow" };
       }
     }
   } catch (err) {
-    console.warn('Firestore approved_fellows lookup warning:', err);
+    console.warn("Firestore approved_fellows lookup warning:", err);
+  }
+
+  // 2. Fallback check for static Superadmins
+  if (isSuperadminEmail(normalized)) {
+    return { approved: true, role: "superadmin" };
   }
 
   return { approved: false };
