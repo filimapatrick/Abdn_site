@@ -1132,64 +1132,71 @@ export default function Dashboard() {
                 <div className="pt-4">
                   
                   {/* Fellowship Milestone Tracker Card */}
-                  <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] space-y-5 flex flex-col justify-between shadow-lg shadow-stone-900/5">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-amber-700" />
-                          <span>Fellowship Milestone Tracker</span>
-                        </h3>
-                        <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">
-                          Cohort 2026
-                        </span>
-                      </div>
+                  <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#EBE4D8] space-y-6 shadow-lg shadow-stone-900/5">
+                    <div className="flex items-center justify-between border-b border-[#EBE4D8] pb-4">
+                      <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
+                        <Sparkles className="w-4 h-4 text-amber-700" />
+                        <span>Fellowship Milestone Tracker</span>
+                      </h3>
+                      <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                        Cohort 2026
+                      </span>
+                    </div>
 
-                      <div className="p-4.5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] space-y-2.5 shadow-inner">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-stone-800 font-bold">Session Attendance & Lecture Progress</span>
-                          <span className="text-amber-800 font-mono font-black">{progressMetrics.overallPercent}%</span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+                      {/* Left: Session Attendance & Progress */}
+                      <div className="p-5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] flex flex-col justify-between space-y-4 shadow-inner">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="text-stone-800 font-bold">Session Attendance & Lecture Progress</span>
+                            <span className="text-amber-800 font-mono font-black">{progressMetrics.overallPercent}%</span>
+                          </div>
+                          <div className="h-3 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
+                            <div
+                              className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
+                              style={{ width: `${progressMetrics.overallPercent}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
-                          <div
-                            className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
-                            style={{ width: `${progressMetrics.overallPercent}%` }}
-                          />
-                        </div>
-                        <div className="flex items-center justify-between text-[11px] text-stone-600 font-mono pt-1">
+
+                        <div className="flex items-center justify-between text-xs text-stone-600 font-mono pt-2 border-t border-[#E5DEC5]">
                           <span>{progressMetrics.completedCount} of {publishedLessons.length} sessions attended</span>
-                          <span>{myEnrolledModalities.length} active tracks</span>
+                          <span className="font-bold text-stone-800">{myEnrolledModalities.length} active tracks</span>
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] text-xs space-y-3">
-                        <div className="flex items-center justify-between">
+                      {/* Right: Fellowship Phases Roadmap */}
+                      <div className="p-5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] text-xs space-y-4 flex flex-col justify-between">
+                        <div className="flex items-center justify-between gap-2">
                           <div className="space-y-0.5">
                             <div className="font-bold text-stone-900 text-xs">Phase 1: Live Lectures & Recordings</div>
                             <div className="text-[11px] text-stone-600">Watch weekly fellowship sessions and study lecture slides</div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-amber-900 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300">
+                          <span className="text-[10px] font-mono uppercase font-black text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300 shrink-0">
                             Active
                           </span>
                         </div>
-                        <div className="flex items-center justify-between pt-2 border-t border-[#E5DEC5]">
+                        <div className="flex items-center justify-between gap-2 pt-3 border-t border-[#E5DEC5]">
                           <div className="space-y-0.5">
                             <div className="font-bold text-stone-800 text-xs">Phase 2: GitHub Code & Lab Submissions</div>
                             <div className="text-[11px] text-stone-600">Push weekly Jupyter notebooks to <code className="text-amber-900 font-mono text-[10px]">participants/</code></div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-sky-900 bg-sky-100 px-2 py-0.5 rounded-full border border-sky-300">
+                          <span className="text-[10px] font-mono uppercase font-black text-sky-900 bg-sky-100 px-2.5 py-0.5 rounded-full border border-sky-300 shrink-0">
                             Hands-on
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => setActiveTab('learning')}
-                      className="w-full py-3 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-black text-xs transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-amber-900/20"
-                    >
-                      <BookOpen className="w-4 h-4" />
-                      <span>View All Learning Paths →</span>
-                    </button>
+                    <div className="pt-2 flex justify-end">
+                      <button
+                        onClick={() => setActiveTab('learning')}
+                        className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-md shadow-amber-900/20"
+                      >
+                        <BookOpen className="w-4 h-4" />
+                        <span>View All Learning Paths →</span>
+                      </button>
+                    </div>
                   </div>
 
                 </div>
