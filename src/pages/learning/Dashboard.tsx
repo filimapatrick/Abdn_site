@@ -48,8 +48,6 @@ import {
   Sliders,
   Send,
   MessageSquare,
-  Lock,
-  TrendingUp,
   RefreshCw,
   Presentation,
   FolderGit2,
@@ -59,7 +57,7 @@ import {
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 import { useAuth } from '../../context/AuthContext';
-import { enrollInPathway, unenrollFromPathway, updateElearningUserProfile } from '../../services/authService';
+import { enrollInPathway, unenrollFromPathway } from '../../services/authService';
 import { recordEngagementEvent } from '../../services/elearningMetricsService';
 import DashboardTopNav from '../../components/learning/DashboardTopNav';
 import DashboardSidebar, { DashboardTabId } from '../../components/learning/DashboardSidebar';
@@ -72,7 +70,6 @@ import {
   modalityConfigs, 
   groupLessonsByMonthAndWeek,
   formatWeekEndingDisplay,
-  FellowshipMonth,
   ModalityType,
   fetchLessonGitHubMaterials,
   GitHubMaterialItem,
@@ -85,12 +82,11 @@ import {
 import { 
   getUserProgressMap, 
   calculateProgressMetrics, 
-  UserLessonProgress, 
-  ProgressMetrics 
+  UserLessonProgress
 } from '../../services/progressService';
 
 export default function Dashboard() {
-  const { currentUser, userProfile, isLoggedIn, loading, logout, refreshProfile } = useAuth();
+  const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
 
   // Active view tab in the dashboard workspace
