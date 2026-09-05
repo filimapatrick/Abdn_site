@@ -84,10 +84,13 @@ import {
   calculateProgressMetrics, 
   UserLessonProgress
 } from '../../services/progressService';
+import { isSuperadminEmail } from '../../config/approvedEmails';
 
 export default function Dashboard() {
   const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
+
+  const isSuperAdmin = isSuperadminEmail(currentUser?.email) || userProfile?.role === 'superadmin';
 
   // Active view tab in the dashboard workspace
   const [activeTab, setActiveTab] = useState<DashboardTabId>('dashboard');
@@ -287,6 +290,11 @@ export default function Dashboard() {
   );
 
   const handleEnrollInNewPathway = async (pathwayFullName: string) => {
+    if (!isSuperAdmin && myEnrolledModalities.length >= 1) {
+      setToastMessage('Cohort Limit: Fellows can only enroll in 1 cohort track. Please unenroll from your active track first to switch.');
+      setTimeout(() => setToastMessage(null), 5000);
+      return;
+    }
     if (currentUser) {
       try {
         await enrollInPathway(currentUser.uid, pathwayFullName);
@@ -303,8 +311,10 @@ export default function Dashboard() {
         await refreshProfile();
         setToastMessage(`Enrolled in ${pathwayFullName}! Added to your learning library.`);
         setTimeout(() => setToastMessage(null), 4000);
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error enrolling:', err);
+        setToastMessage(err?.message || 'Error enrolling in track.');
+        setTimeout(() => setToastMessage(null), 5000);
       }
     } else {
       setToastMessage(`Enrolled in ${pathwayFullName}!`);
@@ -2194,10 +2204,18 @@ export default function Dashboard() {
 
                             <button
                               onClick={() => handleEnrollInNewPathway(modality.fullName)}
-                              className="w-full py-2.5 px-3.5 rounded-xl bg-stone-800 hover:bg-amber-600 text-stone-200 hover:text-white text-xs font-semibold transition-all flex items-center justify-center space-x-1.5 shadow-sm"
+                              className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm ${
+                                !isSuperAdmin && myEnrolledModalities.length >= 1
+                                  ? 'bg-stone-100 text-stone-600 border border-stone-300 hover:bg-stone-200'
+                                  : 'bg-[#FAF7F0] hover:bg-amber-700 text-stone-800 hover:text-white border border-[#E2D9C7]'
+                              }`}
                             >
                               <Plus className="w-3.5 h-3.5" />
-                              <span>Enroll in Pathway</span>
+                              <span>
+                                {!isSuperAdmin && myEnrolledModalities.length >= 1
+                                  ? '1 Cohort Limit (Unenroll Active to Switch)'
+                                  : 'Enroll in Pathway'}
+                              </span>
                             </button>
                           </div>
                         ))}

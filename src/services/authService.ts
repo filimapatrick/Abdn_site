@@ -360,12 +360,19 @@ export async function enrollInPathway(
   pathwayName: string
 ): Promise<void> {
   const profile = await getElearningUserProfile(uid);
+  const isSuperAdmin = isSuperadminEmail(profile?.email) || profile?.role === 'superadmin';
   const currentList = profile?.enrolledPathways || [];
   const exists = currentList.some(
     (p) => p.pathwayName.toLowerCase() === pathwayName.toLowerCase()
   );
 
   if (!exists) {
+    if (!isSuperAdmin && currentList.length >= 1) {
+      throw new Error(
+        'Cohort Limit: ABDN Fellows are limited to enrolling in 1 cohort track. Please unenroll from your active track before joining another.'
+      );
+    }
+
     const newEntry: EnrolledPathway = {
       pathwayId: pathwayName.toLowerCase().replace(/[^a-z0-9]/g, '-'),
       pathwayName,
@@ -442,30 +449,30 @@ export async function saveUserOnboarding(
   }
 ): Promise<void> {
   const profile = await getElearningUserProfile(uid);
-  const existingEnrolled = profile?.enrolledPathways || [];
+  const isSuperAdmin = isSuperadminEmail(profile?.email) || profile?.role === 'superadmin';
 
-  // Construct enrolled pathways for all chosen modalities
-  const newEnrolledList: EnrolledPathway[] = [...existingEnrolled];
+  // Non-superadmins can only enroll in 1 modality track per cohort
+  const modalitiesToSave = (!isSuperAdmin && data.selectedModalities.length > 1)
+    ? data.selectedModalities.slice(0, 1)
+    : data.selectedModalities;
 
-  data.selectedModalities.forEach((modalityName) => {
-    const alreadyExists = newEnrolledList.some(
-      (p) => p.pathwayName.toLowerCase() === modalityName.toLowerCase()
-    );
-    if (!alreadyExists) {
-      newEnrolledList.push({
-        pathwayId: modalityName.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-        pathwayName: modalityName,
-        enrolledAt: new Date().toISOString(),
-        progress: 0,
-        currentLevel: 'Level 1: Foundations',
-        completedLessons: [],
-      });
-    }
+  // Construct enrolled pathways for chosen modalities
+  const newEnrolledList: EnrolledPathway[] = [];
+
+  modalitiesToSave.forEach((modalityName) => {
+    newEnrolledList.push({
+      pathwayId: modalityName.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+      pathwayName: modalityName,
+      enrolledAt: new Date().toISOString(),
+      progress: 0,
+      currentLevel: 'Level 1: Foundations',
+      completedLessons: [],
+    });
   });
 
   const primaryPathway =
-    data.selectedModalities.length > 0
-      ? data.selectedModalities[0]
+    modalitiesToSave.length > 0
+      ? modalitiesToSave[0]
       : 'Brain Data Science Foundations';
 
   await writeUserDocDual(uid, {

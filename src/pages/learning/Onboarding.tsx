@@ -21,10 +21,13 @@ import SEO from '../../components/SEO';
 import { useAuth } from '../../context/AuthContext';
 import { saveUserOnboarding } from '../../services/authService';
 import { recordEngagementEvent } from '../../services/elearningMetricsService';
+import { isSuperadminEmail } from '../../config/approvedEmails';
 
 export default function Onboarding() {
   const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
+
+  const isSuperAdmin = isSuperadminEmail(currentUser?.email) || userProfile?.role === 'superadmin';
 
   React.useEffect(() => {
     if (!loading && !currentUser) {
@@ -32,10 +35,9 @@ export default function Onboarding() {
     }
   }, [loading, currentUser, navigate]);
 
-  // Selected modalities (multi-select)
+  // Selected modalities (1 track for fellows, multi-select for superadmin)
   const [selectedModalities, setSelectedModalities] = useState<string[]>([
     'Structural MRI Analysis',
-    'EEG Data Science',
   ]);
 
   // "Not sure yet" state
@@ -121,12 +123,17 @@ export default function Onboarding() {
 
   const toggleModality = (name: string) => {
     setIsUndecided(false);
-    if (selectedModalities.includes(name)) {
-      if (selectedModalities.length > 1) {
-        setSelectedModalities(selectedModalities.filter((m) => m !== name));
-      }
+    if (!isSuperAdmin) {
+      // Non-superadmin fellows can only enroll in 1 cohort track
+      setSelectedModalities([name]);
     } else {
-      setSelectedModalities([...selectedModalities, name]);
+      if (selectedModalities.includes(name)) {
+        if (selectedModalities.length > 1) {
+          setSelectedModalities(selectedModalities.filter((m) => m !== name));
+        }
+      } else {
+        setSelectedModalities([...selectedModalities, name]);
+      }
     }
   };
 

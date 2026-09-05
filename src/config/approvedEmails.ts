@@ -19,6 +19,7 @@ export const APPROVED_FELLOWSHIP_EMAILS = new Set<string>([
   'eberechi.wogu@uniport.edu.ng',
   'chinyemighodaro@gmail.com',
   'bnsaanee7@gmail.com',
+  'filimapatrick30@gmail.com',
 
   // 2026 Fellowship Participants
   'dkhasowa@gmail.com',
