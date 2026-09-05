@@ -1128,8 +1128,8 @@ export default function Dashboard() {
                   )}
                 </div>
 
-                {/* 5. FELLOWSHIP MILESTONES & PROFILE OVERVIEW */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                {/* 5. FELLOWSHIP MILESTONE TRACKER */}
+                <div className="pt-4">
                   
                   {/* Fellowship Milestone Tracker Card */}
                   <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] space-y-5 flex flex-col justify-between shadow-lg shadow-stone-900/5">
@@ -1189,54 +1189,6 @@ export default function Dashboard() {
                     >
                       <BookOpen className="w-4 h-4" />
                       <span>View All Learning Paths →</span>
-                    </button>
-                  </div>
-
-                  {/* Profile Summary Card */}
-                  <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] space-y-5 flex flex-col justify-between shadow-lg shadow-stone-900/5">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
-                          <User className="w-4 h-4 text-amber-700" />
-                          <span>Researcher Profile</span>
-                        </h3>
-                        <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">
-                          2026 ABDN Scholar
-                        </span>
-                      </div>
-
-                      <div className="flex items-center space-x-4 p-4 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] shadow-inner">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-xl font-black text-white shadow-md flex-shrink-0">
-                          {displayName.charAt(0).toUpperCase()}
-                        </div>
-                        <div className="min-w-0">
-                          <div className="font-extrabold text-sm text-stone-900 truncate">{displayName}</div>
-                          <div className="text-xs text-stone-600 truncate">{currentUser?.email}</div>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
-                          <div className="text-[10px] text-stone-500 uppercase">MODALITIES</div>
-                          <div className="font-extrabold text-stone-900 text-sm">{myEnrolledModalities.length}</div>
-                        </div>
-                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
-                          <div className="text-[10px] text-stone-500 uppercase">SESSIONS</div>
-                          <div className="font-extrabold text-stone-900 text-sm">{publishedLessons.length}</div>
-                        </div>
-                        <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5]">
-                          <div className="text-[10px] text-stone-500 uppercase">COMPLETED</div>
-                          <div className="font-extrabold text-amber-800 text-sm">{progressMetrics.completedCount}</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => setActiveTab('profile')}
-                      className="w-full py-3 rounded-xl bg-[#FAF7F0] hover:bg-[#F3EDE0] text-stone-800 border border-[#E5DEC5] text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm"
-                    >
-                      <User className="w-4 h-4 text-amber-700" />
-                      <span>View Full Profile →</span>
                     </button>
                   </div>
 
