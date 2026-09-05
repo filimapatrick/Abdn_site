@@ -259,9 +259,9 @@ export default function DashboardTopNav({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 mt-2 w-80 sm:w-96 bg-stone-900 rounded-2xl shadow-2xl border border-stone-700 py-3 z-50 overflow-hidden"
+                  className="absolute right-0 mt-2 w-80 sm:w-96 bg-stone-900 rounded-2xl shadow-2xl border border-stone-700 py-3 z-50 overflow-hidden max-h-[calc(100vh-5rem)] flex flex-col"
                 >
-                  <div className="px-4 pb-3 border-b border-stone-800 flex items-center justify-between">
+                  <div className="px-4 pb-3 border-b border-stone-800 flex items-center justify-between flex-shrink-0">
                     <div className="flex items-center space-x-2">
                       <span className="font-bold text-xs text-white uppercase tracking-wider">
                         Live Notifications
@@ -297,7 +297,7 @@ export default function DashboardTopNav({
                     </div>
                   </div>
 
-                  <div className="max-h-80 overflow-y-auto divide-y divide-stone-800/60">
+                  <div className="flex-1 max-h-80 sm:max-h-96 overflow-y-auto custom-scrollbar divide-y divide-stone-800/60 pr-1">
                     {dynamicNotifications.map((item) => (
                       <div
                         key={item.id}
@@ -336,7 +336,7 @@ export default function DashboardTopNav({
                     ))}
                   </div>
 
-                  <div className="pt-2.5 px-4 border-t border-stone-800 flex items-center justify-between text-xs">
+                  <div className="pt-2.5 px-4 border-t border-stone-800 flex items-center justify-between text-xs flex-shrink-0">
                     <span className="text-[10px] text-stone-500 font-mono">
                       Firebase & GitHub live sync
                     </span>

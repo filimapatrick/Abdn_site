@@ -158,9 +158,9 @@ export default function LessonPlayerModal({
       const items = await fetchLessonGitHubMaterials(githubRepo, githubPath);
       setMaterials(items);
       
-      // Telemetry: Record view_materials event to Firestore elearning_metrics
+      // Telemetry: Record material_view event to Firestore elearning_metrics
       recordEngagementEvent({
-        type: 'view_materials',
+        type: 'material_view',
         userId: currentUser?.uid,
         userEmail: currentUser?.email,
         userName: currentUser?.displayName,
