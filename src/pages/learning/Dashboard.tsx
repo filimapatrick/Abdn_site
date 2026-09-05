@@ -268,22 +268,25 @@ export default function Dashboard() {
   // User's enrolled modalities from Firestore (or fallback to onboarding selections)
   const userEnrolledList = userProfile?.enrolledPathways || [];
 
-  const myEnrolledModalities = allFellowshipModalities.filter((modality) => {
-    if (userEnrolledList.length > 0) {
-      return userEnrolledList.some(
-        (p) =>
-          p.pathwayName.toLowerCase().includes(modality.name.toLowerCase()) ||
-          modality.fullName.toLowerCase().includes(p.pathwayName.toLowerCase())
-      );
-    }
-    if (userProfile?.selectedPathway) {
-      return (
-        userProfile.selectedPathway.toLowerCase().includes(modality.name.toLowerCase()) ||
-        modality.fullName.toLowerCase().includes(userProfile.selectedPathway.toLowerCase())
-      );
-    }
-    return modality.id === 'mri' || modality.id === 'eeg';
-  });
+  const myEnrolledModalities = useMemo(() => {
+    const list = allFellowshipModalities.filter((modality) => {
+      if (userEnrolledList.length > 0) {
+        return userEnrolledList.some(
+          (p) =>
+            p.pathwayName.toLowerCase().includes(modality.name.toLowerCase()) ||
+            modality.fullName.toLowerCase().includes(p.pathwayName.toLowerCase())
+        );
+      }
+      if (userProfile?.selectedPathway) {
+        return (
+          userProfile.selectedPathway.toLowerCase().includes(modality.name.toLowerCase()) ||
+          modality.fullName.toLowerCase().includes(userProfile.selectedPathway.toLowerCase())
+        );
+      }
+      return modality.id === 'mri';
+    });
+    return (!isSuperAdmin && list.length > 1) ? list.slice(0, 1) : list;
+  }, [allFellowshipModalities, userEnrolledList, userProfile, isSuperAdmin]);
 
   const availableToEnrollModalities = allFellowshipModalities.filter(
     (modality) => !myEnrolledModalities.some((m) => m.id === modality.id)
@@ -400,6 +403,7 @@ export default function Dashboard() {
 
   // Filtered published lessons from Firestore
   const filteredSessions = useMemo(() => {
+    const fellowTrack = myEnrolledModalities[0];
     return publishedLessons.filter((lesson) => {
       // Month Filter
       if (sessionMonthFilter !== 'All' && lesson.month !== sessionMonthFilter) {
@@ -410,8 +414,19 @@ export default function Dashboard() {
         const weekNum = parseInt(sessionWeekFilter.replace(/[^0-9]/g, ''), 10);
         if (lesson.weekNumber !== weekNum) return false;
       }
-      // Modality Filter
-      if (sessionModalityFilter !== 'All' && lesson.modality !== sessionModalityFilter) {
+      // Modality Filter for Superadmin vs Fellow
+      if (!isSuperAdmin && fellowTrack) {
+        // Non-superadmin fellows strictly see sessions matching their enrolled track
+        const isMatch = 
+          lesson.modality === fellowTrack.modalityType ||
+          lesson.modality === fellowTrack.fullName ||
+          lesson.modality === fellowTrack.name ||
+          (fellowTrack.id === 'mri' && (lesson.modality === 'MRI/fMRI' || lesson.modality?.toLowerCase().includes('mri'))) ||
+          (fellowTrack.id === 'eeg' && lesson.modality === 'EEG') ||
+          (fellowTrack.id === 'fnirs' && lesson.modality === 'fNIRS') ||
+          (fellowTrack.id === 'ephys' && lesson.modality === 'Electrophysiology');
+        if (!isMatch) return false;
+      } else if (isSuperAdmin && sessionModalityFilter !== 'All' && lesson.modality !== sessionModalityFilter) {
         return false;
       }
       // Search Query Filter
@@ -428,7 +443,7 @@ export default function Dashboard() {
       }
       return true;
     });
-  }, [publishedLessons, sessionMonthFilter, sessionWeekFilter, sessionModalityFilter, sessionSearchQuery]);
+  }, [publishedLessons, sessionMonthFilter, sessionWeekFilter, sessionModalityFilter, sessionSearchQuery, isSuperAdmin, myEnrolledModalities]);
 
   // Grouped filtered lessons
   const groupedSessions = useMemo(() => {
@@ -910,29 +925,38 @@ export default function Dashboard() {
                         ))}
                       </div>
 
-                      {/* Modality Chips */}
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Modality:</span>
-                        {[
-                          { id: 'All', label: 'All Modalities' },
-                          { id: 'MRI/fMRI', label: 'MRI / fMRI' },
-                          { id: 'EEG', label: 'EEG' },
-                          { id: 'fNIRS', label: 'fNIRS' },
-                          { id: 'Electrophysiology', label: 'Electrophysiology' },
-                        ].map((m) => (
-                          <button
-                            key={m.id}
-                            onClick={() => setSessionModalityFilter(m.id)}
-                            className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
-                              sessionModalityFilter === m.id
-                                ? 'bg-amber-800 text-white border border-amber-900 shadow-sm'
-                                : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
-                            }`}
-                          >
-                            {m.label}
-                          </button>
-                        ))}
-                      </div>
+                      {/* Modality Chips (Superadmin: full filter bar, Fellow: single track indicator badge) */}
+                      {isSuperAdmin ? (
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Modality:</span>
+                          {[
+                            { id: 'All', label: 'All Modalities' },
+                            { id: 'MRI/fMRI', label: 'MRI / fMRI' },
+                            { id: 'EEG', label: 'EEG' },
+                            { id: 'fNIRS', label: 'fNIRS' },
+                            { id: 'Electrophysiology', label: 'Electrophysiology' },
+                          ].map((m) => (
+                            <button
+                              key={m.id}
+                              onClick={() => setSessionModalityFilter(m.id)}
+                              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                                sessionModalityFilter === m.id
+                                  ? 'bg-amber-800 text-white border border-amber-900 shadow-sm'
+                                  : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
+                              }`}
+                            >
+                              {m.label}
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="flex items-center space-x-2">
+                          <span className="text-[11px] text-stone-500 font-mono uppercase">Enrolled Track:</span>
+                          <span className="px-3 py-1 rounded-lg bg-amber-100 text-amber-900 border border-amber-300 font-bold text-xs font-mono shadow-sm">
+                            {myEnrolledModalities[0]?.fullName || 'ABDN Fellowship Track'}
+                          </span>
+                        </div>
+                      )}
 
                     </div>
                   </div>
