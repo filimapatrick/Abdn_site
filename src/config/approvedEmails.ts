@@ -1,17 +1,10 @@
 /**
  * ABDN Fellowship & Superadmin Email Whitelist Utilities
- * Dynamic whitelist management is controlled via the Firestore `approved_fellows` collection,
+ * Dynamic whitelist management is controlled 100% via the Firestore `approved_fellows` collection,
  * managed via the Superadmin Dashboard.
  */
 
-export const SUPERADMIN_EMAILS = new Set<string>([
-  'filimapatrick@gmail.com',
-  'africanbraindatanetwork@gmail.com',
-  'eberechi.wogu@uniport.edu.ng',
-  'chinyemighodaro@gmail.com',
-  'bnsaanee7@gmail.com',
-  'filimapatrick30@gmail.com',
-]);
+export const SUPERADMIN_EMAILS = new Set<string>([]);
 
 /**
  * Normalizes email address to lowercase and trimmed string
@@ -22,7 +15,8 @@ export function normalizeEmail(email: string | null | undefined): string {
 }
 
 /**
- * Synchronous check for superadmin privileges (Fallback seed)
+ * Legacy static superadmin helper. Primary authorization and role assignment
+ * are managed dynamically via the Firestore `approved_fellows` collection.
  */
 export function isSuperadminEmail(email: string | null | undefined): boolean {
   const normalized = normalizeEmail(email);

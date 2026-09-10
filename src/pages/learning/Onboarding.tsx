@@ -27,7 +27,7 @@ export default function Onboarding() {
   const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
 
-  const isSuperAdmin = isSuperadminEmail(currentUser?.email) || userProfile?.role === 'superadmin';
+  const isSuperAdmin = userProfile?.role === 'superadmin' || userProfile?.role === 'admin' || isSuperadminEmail(currentUser?.email);
 
   React.useEffect(() => {
     if (!loading && !currentUser) {

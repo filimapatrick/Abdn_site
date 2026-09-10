@@ -90,7 +90,7 @@ export default function Dashboard() {
   const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
 
-  const isSuperAdmin = isSuperadminEmail(currentUser?.email) || userProfile?.role === 'superadmin';
+  const isSuperAdmin = userProfile?.role === 'superadmin' || userProfile?.role === 'admin' || isSuperadminEmail(currentUser?.email);
 
   // Active view tab in the dashboard workspace
   const [activeTab, setActiveTab] = useState<DashboardTabId>('dashboard');
@@ -162,10 +162,33 @@ export default function Dashboard() {
     loadUserProgress();
   }, [currentUser]);
 
+  // Extract user's enrolled pathway names
+  const userEnrolledPathwayNames = useMemo(() => {
+    const names: string[] = [];
+    if (userProfile?.enrolledPathways && Array.isArray(userProfile.enrolledPathways)) {
+      userProfile.enrolledPathways.forEach((p: any) => {
+        if (typeof p === 'string') names.push(p);
+        else if (p?.pathwayName) names.push(p.pathwayName);
+      });
+    }
+    if (userProfile?.selectedPathway) {
+      names.push(userProfile.selectedPathway);
+    }
+    if ((userProfile as any)?.assignedModality) {
+      names.push((userProfile as any).assignedModality);
+    }
+    return names;
+  }, [userProfile]);
+
   // Compute live fellowship & modality metrics from source-of-truth progress records
   const progressMetrics = useMemo(() => {
-    return calculateProgressMetrics(publishedLessons, userProgressMap, currentUser?.email);
-  }, [publishedLessons, userProgressMap, currentUser?.email]);
+    return calculateProgressMetrics(
+      publishedLessons,
+      userProgressMap,
+      currentUser?.email,
+      userEnrolledPathwayNames
+    );
+  }, [publishedLessons, userProgressMap, currentUser?.email, userEnrolledPathwayNames]);
 
   // Auto-redirect to ABDN public website if user logs out
   useEffect(() => {
@@ -622,7 +645,7 @@ export default function Dashboard() {
                       <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
                         <Trophy className="w-4 h-4 text-amber-600" />
                         <span className="text-stone-500 font-mono text-[11px]">ATTENDANCE:</span>
-                        <span className="font-bold text-amber-800 font-mono">{progressMetrics.overallPercent}%</span>
+                        <span className="font-bold text-amber-800 font-mono">{progressMetrics.enrolledPercent}%</span>
                       </div>
                     </div>
                   </div>
@@ -694,16 +717,16 @@ export default function Dashboard() {
                             <div className="space-y-2">
                               <div className="flex justify-between text-xs font-mono">
                                 <span className="text-stone-600">Attendance & Progress</span>
-                                <span className="font-extrabold text-amber-800">{progressMetrics.overallPercent}%</span>
+                                <span className="font-extrabold text-amber-800">{progressMetrics.enrolledPercent}%</span>
                               </div>
                               <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                                 <div
                                   className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
-                                  style={{ width: `${Math.max(progressMetrics.overallPercent, progressMetrics.completedCount > 0 ? 8 : 0)}%` }}
+                                  style={{ width: `${Math.max(progressMetrics.enrolledPercent, progressMetrics.enrolledCompletedCount > 0 ? 8 : 0)}%` }}
                                 />
                               </div>
                               <div className="text-[10px] text-stone-500 font-mono flex items-center justify-between pt-0.5">
-                                <span>{progressMetrics.completedCount} of {publishedLessons.length} sessions</span>
+                                <span>{progressMetrics.enrolledCompletedCount} of {progressMetrics.enrolledTotalLessons} enrolled sessions</span>
                                 <span>{activeSession.durationMinutes || 75} mins</span>
                               </div>
                             </div>
@@ -1182,20 +1205,20 @@ export default function Dashboard() {
                       <div className="p-5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] flex flex-col justify-between space-y-4 shadow-inner">
                         <div className="space-y-2">
                           <div className="flex items-center justify-between text-xs">
-                            <span className="text-stone-800 font-bold">Session Attendance & Lecture Progress</span>
-                            <span className="text-amber-800 font-mono font-black">{progressMetrics.overallPercent}%</span>
+                            <span className="text-stone-800 font-bold">Session Attendance & Milestone Progress</span>
+                            <span className="text-amber-800 font-mono font-black">{progressMetrics.enrolledPercent}%</span>
                           </div>
                           <div className="h-3 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                             <div
                               className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
-                              style={{ width: `${progressMetrics.overallPercent}%` }}
+                              style={{ width: `${progressMetrics.enrolledPercent}%` }}
                             />
                           </div>
                         </div>
 
                         <div className="flex items-center justify-between text-xs text-stone-600 font-mono pt-2 border-t border-[#E5DEC5]">
-                          <span>{progressMetrics.completedCount} of {publishedLessons.length} sessions attended</span>
-                          <span className="font-bold text-stone-800">{myEnrolledModalities.length} active tracks</span>
+                          <span>{progressMetrics.enrolledCompletedCount} of {progressMetrics.enrolledTotalLessons} enrolled sessions attended</span>
+                          <span className="font-bold text-stone-800">{myEnrolledModalities.length} active track{myEnrolledModalities.length !== 1 ? 's' : ''}</span>
                         </div>
                       </div>
 

@@ -40,7 +40,9 @@ export async function isEmailApprovedFellow(
     if (snap.exists()) {
       const data = snap.data();
       if (data?.active !== false) {
-        return { approved: true, role: data?.role || "fellow" };
+        const rawRole = (data?.role || "fellow").toLowerCase();
+        const isSuper = rawRole.includes("admin") || rawRole === "superadmin";
+        return { approved: true, role: isSuper ? "superadmin" : (data?.role || "fellow") };
       }
     }
   } catch (err) {
@@ -355,7 +357,7 @@ export async function enrollInPathway(
   pathwayName: string
 ): Promise<void> {
   const profile = await getElearningUserProfile(uid);
-  const isSuperAdmin = isSuperadminEmail(profile?.email) || profile?.role === 'superadmin';
+  const isSuperAdmin = profile?.role === 'superadmin' || profile?.role === 'admin' || isSuperadminEmail(profile?.email);
   const currentList = profile?.enrolledPathways || [];
   const exists = currentList.some(
     (p) => p.pathwayName.toLowerCase() === pathwayName.toLowerCase()
@@ -444,7 +446,7 @@ export async function saveUserOnboarding(
   }
 ): Promise<void> {
   const profile = await getElearningUserProfile(uid);
-  const isSuperAdmin = isSuperadminEmail(profile?.email) || profile?.role === 'superadmin';
+  const isSuperAdmin = profile?.role === 'superadmin' || profile?.role === 'admin' || isSuperadminEmail(profile?.email);
 
   // Non-superadmins can only enroll in 1 modality track per cohort
   const modalitiesToSave = (!isSuperAdmin && data.selectedModalities.length > 1)
