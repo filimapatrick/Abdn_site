@@ -30,7 +30,10 @@ import {
   BarChart3,
   Flame,
   Check,
-  X
+  X,
+  Sun,
+  Star,
+  Mail
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
@@ -47,7 +50,7 @@ const pathwaysData: PathwayDetail[] = [
     id: 'mri',
     name: 'MRI & fMRI Analysis',
     category: 'Structural & Functional Neuroimaging',
-    icon: '🧠',
+    icon: <Brain className="w-6 h-6 text-amber-800" />,
     level: 'Beginner → Advanced',
     duration: '10 Weeks · 6 hrs/wk',
     modulesCount: 10,
@@ -101,7 +104,7 @@ const pathwaysData: PathwayDetail[] = [
     id: 'eeg',
     name: 'EEG Data Science',
     category: 'Scalp Electrophysiology',
-    icon: '⚡',
+    icon: <Zap className="w-6 h-6 text-amber-800" />,
     level: 'Beginner → Advanced',
     duration: '8 Weeks · 5 hrs/wk',
     modulesCount: 8,
@@ -155,7 +158,7 @@ const pathwaysData: PathwayDetail[] = [
     id: 'fnirs',
     name: 'fNIRS Optical Neuroimaging',
     category: 'Optical Neuroimaging',
-    icon: '🔆',
+    icon: <Sun className="w-6 h-6 text-rose-800" />,
     level: 'Beginner → Intermediate',
     duration: '6 Weeks · 4 hrs/wk',
     modulesCount: 6,
@@ -209,7 +212,7 @@ const pathwaysData: PathwayDetail[] = [
     id: 'electrophysiology',
     name: 'Electrophysiological Dynamics',
     category: 'Electrophysiology',
-    icon: '🔬',
+    icon: <Microscope className="w-6 h-6 text-amber-800" />,
     level: 'Intermediate → Advanced',
     duration: '6 Weeks · 5 hrs/wk',
     modulesCount: 6,
@@ -308,28 +311,28 @@ const featuredPrograms = [
 // --- Community Personas Data ---
 const personaItems = [
   {
-    icon: '👩🏾‍🎓',
+    icon: <GraduationCap className="w-6 h-6 text-amber-700" />,
     role: 'Students',
     target: 'Undergraduate, Masters & PhD scholars',
     description: 'Build foundational neuroscience, programming, and data-science skills with zero prior neuroimaging experience required.',
     benefit: 'Establish competitive academic credentials and join research labs.',
   },
   {
-    icon: '🔬',
+    icon: <Microscope className="w-6 h-6 text-amber-700" />,
     role: 'Researchers & Postdocs',
     target: 'Early-career & established investigators',
     description: 'Master reproducible computational pipelines to process your own raw neuroimaging data and accelerate high-impact publications.',
     benefit: 'Adopt FAIR standards and publish world-class African brain data.',
   },
   {
-    icon: '👨🏾‍💻',
+    icon: <Code2 className="w-6 h-6 text-amber-700" />,
     role: 'Data Scientists & Engineers',
     target: 'Bioinformaticians & machine learning specialists',
     description: 'Apply state-of-the-art machine learning, deep neural networks, and signal processing to real biological brain data.',
     benefit: 'Transition data expertise into impactful computational neuroscience.',
   },
   {
-    icon: '🧑🏾‍🏫',
+    icon: <Users className="w-6 h-6 text-amber-700" />,
     role: 'Educators & Mentors',
     target: 'University faculty & research supervisors',
     description: 'Access standardized, open-access curricula, slide decks, and interactive coding labs to train students in your department.',
@@ -557,19 +560,9 @@ export default function Learning() {
 
                 {/* Left Column: Value Prop & CTAs */}
                 <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-                  {/* Descriptive Badge / User Session */}
-                  <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
-                    <motion.div
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300 text-amber-950 text-xs font-semibold uppercase tracking-wider shadow-sm"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
-                      <span>ABDN NeuroLearning · Neuroimaging Learning Hub</span>
-                    </motion.div>
-
-                    {isLoggedIn && (
+                  {/* User Session Badge */}
+                  {isLoggedIn && (
+                    <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -589,8 +582,8 @@ export default function Learning() {
                           Sign Out
                         </button>
                       </motion.div>
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   {/* Main Headline */}
                   <motion.h1
@@ -845,14 +838,16 @@ export default function Learning() {
                         : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
                       }`}
                   >
-                    <span>🧠 Modality Pathways ({pathwaysData.length})</span>
+                    <Brain className="w-4 h-4" />
+                    <span>Modality Pathways ({pathwaysData.length})</span>
                   </button>
                   <button
                     disabled
                     title="Featured Programs navigation disabled"
                     className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 text-stone-400 opacity-60 cursor-not-allowed"
                   >
-                    <span>⭐ Featured Programs ({featuredPrograms.length})</span>
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <span>Featured Programs ({featuredPrograms.length})</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-300/80 text-stone-600 font-semibold uppercase tracking-wider">Soon</span>
                   </button>
                 </div>
@@ -873,7 +868,7 @@ export default function Learning() {
                         <div>
                           {/* Top Header Row */}
                           <div className="flex items-start justify-between mb-4">
-                            <div className="text-3xl p-2.5 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-105 transition-transform flex-shrink-0">
+                            <div className="p-2.5 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-105 transition-transform flex-shrink-0 flex items-center justify-center">
                               {pathway.icon}
                             </div>
                             <div className="flex flex-col items-end space-y-1 text-right pl-2">
@@ -1214,8 +1209,9 @@ export default function Learning() {
                       )}
 
                       {selectedTaModal.email && (
-                        <div className="text-xs text-stone-500 font-mono pt-0.5">
-                          ✉️ {selectedTaModal.email}
+                        <div className="text-xs text-stone-500 font-mono pt-0.5 flex items-center space-x-1.5 justify-center sm:justify-start">
+                          <Mail className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" />
+                          <span>{selectedTaModal.email}</span>
                         </div>
                       )}
                     </div>
@@ -1274,7 +1270,7 @@ export default function Learning() {
                       key={idx}
                       className="p-4 rounded-2xl bg-white border border-stone-200 shadow-sm flex items-start space-x-3"
                     >
-                      <div className="text-2xl p-2 rounded-xl bg-amber-50 border border-amber-100 flex-shrink-0">
+                      <div className="p-2 rounded-xl bg-amber-50 border border-amber-100 flex-shrink-0 flex items-center justify-center">
                         {persona.icon}
                       </div>
                       <div>

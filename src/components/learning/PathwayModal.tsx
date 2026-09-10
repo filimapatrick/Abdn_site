@@ -25,7 +25,7 @@ export interface PathwayDetail {
   id: string;
   name: string;
   category: string;
-  icon: string;
+  icon: React.ReactNode | string;
   level: string;
   duration: string;
   modulesCount: number;
@@ -100,7 +100,7 @@ export default function PathwayModal({
             </div>
 
             <div className="flex items-start space-x-4">
-              <div className="text-4xl p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex-shrink-0">
+              <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex-shrink-0 flex items-center justify-center text-white">
                 {pathway.icon}
               </div>
               <div>
