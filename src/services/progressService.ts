@@ -28,6 +28,9 @@ export interface ProgressMetrics {
   completedCount: number;
   inProgressCount: number;
   overallPercent: number;
+  enrolledTotalLessons: number;
+  enrolledCompletedCount: number;
+  enrolledPercent: number;
   modalityBreakdown: Record<string, { total: number; completed: number; percent: number }>;
   continueLearningLesson: LessonWithVideoAccess | null;
 }
@@ -82,7 +85,7 @@ export async function getUserProgressMap(userId?: string | null): Promise<Record
 
 /**
  * Record that a learner opened / started a lesson:
- * Sets status: 'in_progress' and progressPercent: 10
+ * Sets status: 'in_progress' and progressPercent: 15
  */
 export async function recordLessonStarted(
   userId: string | undefined | null,
@@ -213,16 +216,40 @@ function updateLocalCache(userId: string | undefined | null, lessonId: string, d
 }
 
 /**
+ * Helper to match lesson modality string with user enrolled pathway string
+ */
+export function isEnrolledInModality(lessonModality: string, enrolledList?: string[]): boolean {
+  if (!enrolledList || enrolledList.length === 0) return true;
+  const normLesson = lessonModality.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return enrolledList.some((enrolled) => {
+    const normEnrolled = enrolled.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return (
+      normLesson.includes(normEnrolled) ||
+      normEnrolled.includes(normLesson) ||
+      (normLesson.includes('mri') && normEnrolled.includes('mri')) ||
+      (normLesson.includes('eeg') && normEnrolled.includes('eeg')) ||
+      (normLesson.includes('fnirs') && normEnrolled.includes('fnirs')) ||
+      (normLesson.includes('ephys') && normEnrolled.includes('ephys')) ||
+      (normLesson.includes('electrophysiology') && normEnrolled.includes('electrophysiology'))
+    );
+  });
+}
+
+/**
  * Calculate full fellowship and modality metrics dynamically from source-of-truth progress records
  */
 export function calculateProgressMetrics(
   lessons: LessonWithVideoAccess[],
   progressMap: Record<string, UserLessonProgress>,
-  userEmail?: string | null
+  userEmail?: string | null,
+  userEnrolledModalities?: string[]
 ): ProgressMetrics {
   const totalLessons = lessons.length;
   let completedCount = 0;
   let inProgressCount = 0;
+
+  let enrolledTotalLessons = 0;
+  let enrolledCompletedCount = 0;
 
   const modalityMap: Record<string, { total: number; completed: number; percent: number }> = {
     'MRI/fMRI': { total: 0, completed: 0, percent: 0 },
@@ -233,6 +260,8 @@ export function calculateProgressMetrics(
 
   let inProgressLesson: LessonWithVideoAccess | null = null;
   let firstUnstartedLesson: LessonWithVideoAccess | null = null;
+
+  const hasEnrolledFilter = Boolean(userEnrolledModalities && userEnrolledModalities.length > 0);
 
   lessons.forEach((lesson) => {
     const lessonKey = lesson.id || lesson.contentId;
@@ -251,7 +280,9 @@ export function calculateProgressMetrics(
       lesson.attendedEmails.some((e) => e.toLowerCase() === userEmail.toLowerCase())
     );
 
-    if (progress?.status === 'completed' || isAttendedByEmail) {
+    const isCompleted = progress?.status === 'completed' || isAttendedByEmail;
+
+    if (isCompleted) {
       completedCount += 1;
       modalityMap[modalityKey].completed += 1;
     } else if (progress?.status === 'in_progress') {
@@ -264,6 +295,14 @@ export function calculateProgressMetrics(
         firstUnstartedLesson = lesson;
       }
     }
+
+    // Scoped metrics for enrolled modalities
+    if (!hasEnrolledFilter || isEnrolledInModality(modalityKey, userEnrolledModalities)) {
+      enrolledTotalLessons += 1;
+      if (isCompleted) {
+        enrolledCompletedCount += 1;
+      }
+    }
   });
 
   // Compute percentage per modality
@@ -273,12 +312,16 @@ export function calculateProgressMetrics(
   });
 
   const overallPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+  const enrolledPercent = enrolledTotalLessons > 0 ? Math.round((enrolledCompletedCount / enrolledTotalLessons) * 100) : overallPercent;
 
   return {
     totalLessons,
     completedCount,
     inProgressCount,
     overallPercent,
+    enrolledTotalLessons: enrolledTotalLessons || totalLessons,
+    enrolledCompletedCount: enrolledCompletedCount || completedCount,
+    enrolledPercent,
     modalityBreakdown: modalityMap,
     continueLearningLesson: inProgressLesson || firstUnstartedLesson || lessons[0] || null
   };
