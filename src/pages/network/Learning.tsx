@@ -550,10 +550,9 @@ export default function Learning() {
           {/* ========================================================================= */}
           {/* 1. HERO / VALUE PROPOSITION SECTION */}
           {/* ========================================================================= */}
-          <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-gradient-to-b from-amber-50/70 via-stone-50 to-stone-50 border-b border-amber-100/60">
-            {/* Subtle background ambient glow */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-10 right-10 w-72 h-72 bg-amber-200/20 rounded-full blur-2xl pointer-events-none" />
+          <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-gradient-to-b from-stone-100/80 via-stone-50 to-stone-50 border-b border-stone-200/80">
+            {/* Subtle background dot grid texture */}
+            <div className="absolute inset-0 bg-[radial-gradient(#d6d3d1_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -587,48 +586,48 @@ export default function Learning() {
 
                   {/* Main Headline */}
                   <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]"
+                    transition={{ duration: 0.4 }}
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.12]"
                   >
-                    Build Your <br className="hidden sm:inline" />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-800 via-amber-700 to-amber-900">
-                      Brain Data Skills
+                    Build Your Skills in <br className="hidden sm:inline" />
+                    <span className="text-amber-800 underline decoration-amber-400/60 decoration-4 underline-offset-4">
+                      Brain Data Science
                     </span>
                   </motion.h1>
 
                   {/* Value Proposition */}
                   <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
                     className="text-lg sm:text-xl text-stone-700 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0"
                   >
-                    Learn neuroscience and brain-data science through structured courses, practical exercises, real datasets, and expert-led training.
+                    Learn neuroscience and brain data science through structured courses, practical exercises, open datasets, and expert-led training.
                   </motion.p>
 
                   {/* Secondary Supporting Description */}
                   <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.25 }}
+                    transition={{ duration: 0.4, delay: 0.15 }}
                     className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
                   >
-                    From EEG and MRI to fNIRS, DTI and neuroinformatics, follow structured learning pathways designed to help you move from learning concepts to applying them in research.
+                    From EEG and MRI to fNIRS, electrophysiology and neuroinformatics, follow structured pathways engineered to help you move from concepts to research application.
                   </motion.p>
 
                   {/* Action Buttons */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
                     className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
                   >
                     {isLoggedIn ? (
                       <Link
                         to="/learning/dashboard"
-                        className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-semibold text-base shadow-lg shadow-amber-800/20 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 group"
+                        className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 group"
                       >
                         <span>Go to My Dashboard</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -636,7 +635,7 @@ export default function Learning() {
                     ) : (
                       <button
                         onClick={() => openAuth('signup')}
-                        className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-semibold text-base shadow-lg shadow-amber-800/20 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 group"
+                        className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 group"
                       >
                         <span>Start Learning</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -645,22 +644,11 @@ export default function Learning() {
 
                     <a
                       href="#pathways"
-                      className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-amber-50/50 border border-stone-300 hover:border-amber-400 text-stone-800 font-semibold text-base shadow-sm hover:shadow transition-all flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-amber-50/50 border border-stone-300 hover:border-amber-400 text-stone-800 font-semibold text-base shadow-sm transition-all flex items-center justify-center space-x-2"
                     >
                       <Compass className="w-5 h-5 text-amber-700" />
                       <span>Explore Learning Paths</span>
                     </a>
-                  </motion.div>
-
-                  {/* Trust Badge */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="pt-2 text-xs sm:text-sm text-stone-500 flex items-center justify-center lg:justify-start space-x-2"
-                  >
-                    <ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                    <span>Free to explore · Learn at your own pace · Built for the African Brain Data Network</span>
                   </motion.div>
                 </div>
 
@@ -814,19 +802,16 @@ export default function Learning() {
           {/* ========================================================================= */}
           {/* 3. CURRICULUM HUB (PATHWAYS & FELLOWSHIP PROGRAMS) */}
           {/* ========================================================================= */}
-          <section id="pathways" className="py-20 bg-gradient-to-b from-stone-50 via-amber-50/30 to-stone-50 border-b border-stone-200">
+          <section id="pathways" className="py-20 bg-stone-50 border-b border-stone-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
               {/* Main Tab Switcher Header */}
-              <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <span>Curriculum Catalog</span>
-                </div>
+              <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
                   Choose Your Learning Path
                 </h2>
-                <p className="text-base sm:text-lg text-stone-600">
-                  Select a structured modality pathway or explore our featured programs.
+                <p className="text-base text-stone-600">
+                  Select a structured modality pathway to explore curriculum modules, datasets, and computational tools.
                 </p>
 
                 {/* Primary Category Switcher: Modality Pathways vs Featured Programs */}
@@ -834,7 +819,7 @@ export default function Learning() {
                   <button
                     onClick={() => setCurriculumTab('pathways')}
                     className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${curriculumTab === 'pathways'
-                        ? 'bg-amber-700 text-white shadow-md'
+                        ? 'bg-amber-800 text-white shadow-md'
                         : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
                       }`}
                   >
@@ -846,7 +831,7 @@ export default function Learning() {
                     title="Featured Programs navigation disabled"
                     className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 text-stone-400 opacity-60 cursor-not-allowed"
                   >
-                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <Sparkles className="w-4 h-4 text-amber-600" />
                     <span>Featured Programs ({featuredPrograms.length})</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-300/80 text-stone-600 font-semibold uppercase tracking-wider">Soon</span>
                   </button>
@@ -963,81 +948,89 @@ export default function Learning() {
           </section>
 
           {/* ========================================================================= */}
-          {/* 3B. 2026 FELLOWSHIP TEACHING ASSISTANTS GALLERY SECTION */}
+          {/* 3B. 2026 FELLOWSHIP TEACHING ASSISTANTS SHOWCASE */}
           {/* ========================================================================= */}
           <section className="py-20 bg-white border-b border-stone-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                  <Users className="w-3.5 h-3.5 text-amber-700" />
-                  <span>2026 Fellowship TAs</span>
-                </div>
+              {/* Header */}
+              <div className="text-center max-w-3xl mx-auto mb-12 space-y-2">
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  2026 Fellowship Teaching Assistants
+                  Meet Our Fellowship Teaching Assistants
                 </h2>
                 <p className="text-base text-stone-600">
-                  Dedicated mentors leading weekly live coding labs, office hours, and capstones across our cohorts.
+                  Academic researchers and neuroscientists leading weekly hands-on coding labs and mentorship.
                 </p>
               </div>
 
-              {/* TA Gallery Grid: 4 items per row matching reference design */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {/* TA Gallery Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                 {taTeamData.map((ta) => (
                   <motion.div
                     key={ta.id}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -4 }}
                     transition={{ duration: 0.2 }}
                     onClick={() => setSelectedTaModal(ta)}
-                    className="flex flex-col items-center text-center group cursor-pointer p-4 rounded-3xl hover:bg-stone-50/80 transition-all border border-transparent hover:border-amber-200/60"
+                    className="flex flex-col justify-between group cursor-pointer p-5 rounded-2xl bg-stone-50 hover:bg-amber-50/40 transition-all border border-stone-200/90 hover:border-amber-300 shadow-sm hover:shadow-md"
                   >
-                    {/* Circular Photo / Avatar Placeholder */}
-                    <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-stone-100 border-2 border-stone-200/80 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-amber-400 group-hover:scale-105 transition-all duration-300 mb-4 overflow-hidden relative mx-auto">
-                      {ta.image && (
-                        <img
-                          src={ta.image}
-                          alt={ta.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            const fallback = e.currentTarget.parentElement?.querySelector('.avatar-fallback');
-                            if (fallback) (fallback as HTMLElement).classList.remove('hidden');
-                          }}
-                        />
-                      )}
-                      <div className={`avatar-fallback ${ta.image ? 'hidden' : 'flex'} items-center justify-center w-full h-full`}>
-                        <User className="w-16 h-16 text-stone-400 group-hover:text-amber-600 transition-colors" />
+                    <div>
+                      {/* Avatar */}
+                      <div className="w-24 h-24 rounded-full bg-stone-100 border-2 border-amber-200/90 flex items-center justify-center shadow-sm group-hover:scale-105 transition-all duration-300 mb-3.5 overflow-hidden relative mx-auto">
+                        {ta.image && (
+                          <img
+                            src={ta.image}
+                            alt={ta.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const fallback = e.currentTarget.parentElement?.querySelector('.avatar-fallback');
+                              if (fallback) (fallback as HTMLElement).classList.remove('hidden');
+                            }}
+                          />
+                        )}
+                        <div className={`avatar-fallback ${ta.image ? 'hidden' : 'flex'} items-center justify-center w-full h-full`}>
+                          <User className="w-12 h-12 text-stone-400 group-hover:text-amber-700 transition-colors" />
+                        </div>
                       </div>
+
+                      {/* TA Name */}
+                      <h3 className="text-base font-bold text-stone-900 tracking-tight text-center mb-1 group-hover:text-amber-800 transition-colors">
+                        {ta.name}
+                      </h3>
+
+                      {/* Affiliation */}
+                      {ta.affiliation && (
+                        <p className="text-xs text-stone-500 text-center line-clamp-1 mb-2.5 font-medium">
+                          {ta.affiliation}
+                        </p>
+                      )}
+
+                      {/* Team Badges */}
+                      <div className="flex flex-wrap justify-center gap-1.5 mb-3">
+                        {ta.teams.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${t.color}`}
+                          >
+                            {t.label}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Research Focus Snippet */}
+                      {ta.researchInterest && (
+                        <p className="text-[11px] text-stone-600 line-clamp-2 text-center leading-relaxed pt-2 border-t border-stone-200/60 mb-3">
+                          {ta.researchInterest}
+                        </p>
+                      )}
                     </div>
 
-                    {/* TA Name */}
-                    <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 group-hover:text-amber-800 transition-colors">
-                      {ta.name}
-                    </h3>
-
-                    {/* Short Affiliation */}
-                    {ta.affiliation && (
-                      <p className="text-[11px] font-medium text-stone-500 line-clamp-1 mb-2 max-w-[200px]">
-                        {ta.affiliation}
-                      </p>
-                    )}
-
-                    {/* Team Badges */}
-                    <div className="flex flex-wrap justify-center gap-1.5 mb-2">
-                      {ta.teams.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${t.color}`}
-                        >
-                          {t.label}
-                        </span>
-                      ))}
+                    {/* View Profile Action Link */}
+                    <div className="pt-2 text-center">
+                      <span className="text-xs font-semibold text-amber-800 inline-flex items-center space-x-1 group-hover:translate-x-0.5 transition-transform">
+                        <span>View Profile & Bio</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
                     </div>
-
-                    {/* View Profile Indicator */}
-                    <span className="text-[11px] font-semibold text-amber-700 group-hover:text-amber-800 flex items-center space-x-0.5 opacity-90 group-hover:opacity-100 transition-all">
-                      <span>View Bio</span>
-                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -1045,86 +1038,78 @@ export default function Learning() {
           </section>
 
           {/* ========================================================================= */}
-          {/* 3C. PHASE 2 AI ENGINE & BIO-ETHICAL DATA GOVERNANCE PREVIEW */}
+          {/* 3C. ROADMAP & ETHICAL GOVERNANCE PREVIEW */}
           {/* ========================================================================= */}
-         <section className="py-20 bg-gradient-to-b from-stone-900 via-amber-950/40 to-stone-900 text-white relative overflow-hidden">
-            {/* Ambient glows */}
-            <div className="absolute top-0 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
-
+          <section className="py-20 bg-stone-900 text-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Upcoming Features</span>
-                </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-                  Ethical AI & African Data Sovereignty Engine
+                  Platform Roadmap & Data Governance Engine
                 </h2>
-                <p className="text-base sm:text-lg text-amber-100/80 leading-relaxed">
-                  Next-generation AI mentorship, Socratic code debugging, and CARE bioethics guardrails engineered to scale African computational neuroscience.
+                <p className="text-base text-amber-100/80 leading-relaxed">
+                  Built on FAIR data principles and CARE African data sovereignty guidelines for open computational research.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {/* 01 SynapseAI */}
-                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-amber-500/40 shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
-                        Sub-Impl 2.1
+                        Socratic Assistant
                       </span>
                       <Brain className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                      SynapseAI Socratic Tutor
+                      SynapseAI Code Tutor
                     </h3>
                     <p className="text-xs text-stone-300 leading-relaxed">
-                      Embedded in-notebook AI assistant providing 24/7 Socratic debugging, signal processing math explanations, and code error resolution.
+                      In-notebook assistant providing guided signal processing explanations, parameter tuning feedback, and error diagnosis.
                     </p>
                   </div>
                   <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-amber-400/90 font-mono flex items-center space-x-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                    <span>In-Notebook Debugging & Mentorship</span>
+                    <span>In-Notebook Interactive Mentorship</span>
                   </div>
                 </div>
 
                 {/* 02 CARE Data Sovereignty */}
-                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-emerald-500/40 shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
-                        Sub-Impl 2.2
+                        Data Sovereignty
                       </span>
                       <ShieldCheck className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform" />
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                      CARE African Data Sovereignty
+                      CARE African Bioethics
                     </h3>
                     <p className="text-xs text-stone-300 leading-relaxed">
-                      Technical bioethics guardrails enforcing Collective Benefit, Authority to Control, Responsibility, and Ethics for African brain data.
+                      Bioethics framework enforcing Collective Benefit, Control, Responsibility, and Ethics across open African brain data repositories.
                     </p>
                   </div>
                   <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-emerald-400/90 font-mono flex items-center space-x-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>NDPR, POPIA & Bioethics Compliance</span>
+                    <span>Bioethics & Data Compliance</span>
                   </div>
                 </div>
 
                 {/* 03 NeuroBench AI */}
-                <div className="bg-stone-900/90 rounded-3xl p-7 border border-stone-800 hover:border-amber-500/50 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-sky-500/40 shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 uppercase tracking-wider">
-                        Sub-Impl 2.3
+                        FAIR Code Inspector
                       </span>
                       <Award className="w-6 h-6 text-sky-400 group-hover:scale-110 transition-transform" />
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                      NeuroBench FAIR Auditor
+                      NeuroBench Code Auditor
                     </h3>
                     <p className="text-xs text-stone-300 leading-relaxed">
-                      Automated code inspector verifying reproducibility, random seed consistency, and FAIR standards before capstone journal submission.
+                      Automated code inspector verifying reproducibility, random seed consistency, and FAIR data standards before capstone submission.
                     </p>
                   </div>
                   <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-sky-400/90 font-mono flex items-center space-x-1.5">
@@ -1251,16 +1236,13 @@ export default function Learning() {
           {/* ========================================================================= */}
           <section className="py-16 bg-white border-b border-stone-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-8 bg-stone-50 rounded-3xl p-8 border border-stone-200">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-8 bg-stone-50 rounded-2xl p-8 border border-stone-200">
                 <div className="space-y-2 text-center lg:text-left lg:max-w-md">
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-                    <span>Community Alignment</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-stone-900">
+                  <h3 className="text-2xl font-extrabold text-stone-900">
                     Who is ABDN NeuroLearning for?
                   </h3>
                   <p className="text-sm text-stone-600">
-                    Tailored pathways engineered for every stage of your research journey.
+                    Tailored pathways engineered for every stage of your neuroscience research journey.
                   </p>
                 </div>
 
@@ -1268,9 +1250,9 @@ export default function Learning() {
                   {personaItems.map((persona, idx) => (
                     <div
                       key={idx}
-                      className="p-4 rounded-2xl bg-white border border-stone-200 shadow-sm flex items-start space-x-3"
+                      className="p-4 rounded-xl bg-white border border-stone-200 shadow-sm flex items-start space-x-3"
                     >
-                      <div className="p-2 rounded-xl bg-amber-50 border border-amber-100 flex-shrink-0 flex items-center justify-center">
+                      <div className="p-2 rounded-lg bg-amber-50 border border-amber-200/80 flex-shrink-0 flex items-center justify-center">
                         {persona.icon}
                       </div>
                       <div>
@@ -1287,36 +1269,27 @@ export default function Learning() {
           {/* ========================================================================= */}
           {/* 8. SIGNUP CALL TO ACTION SECTION */}
           {/* ========================================================================= */}
-          <section className="py-24 bg-gradient-to-br from-amber-900 via-amber-800 to-stone-950 text-white relative overflow-hidden">
-            {/* Ambient glows */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-amber-200 text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                <span>Begin Your Learning Journey</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Start building your brain-data skills today
+          <section className="py-20 bg-stone-900 text-white relative overflow-hidden">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-5">
+              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                Start building your brain data skills today
               </h2>
 
               <p className="text-base sm:text-lg text-amber-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-                Create your free ABDN account and get immediate access to structured learning pathways, progress tracking, and practical African neuroscience datasets.
+                Create your ABDN account for access to structured learning pathways, progress tracking, and open African neuroscience datasets.
               </p>
 
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => openAuth('signup')}
-                  className="w-full sm:w-auto px-9 py-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-base shadow-xl shadow-black/30 hover:scale-105 transition-all flex items-center justify-center space-x-2 group"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-base shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center space-x-2 group"
                 >
                   <span>Create Free Account</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-stone-950" />
                 </button>
               </div>
 
-              <div className="pt-3">
+              <div className="pt-2">
                 <p className="text-xs sm:text-sm text-amber-200/80">
                   Already have an account?{' '}
                   <button
