@@ -2061,6 +2061,7 @@ export default function Dashboard() {
                             (modality.id === 'fnirs' && l.modality === 'fNIRS') ||
                             (modality.id === 'ephys' && l.modality === 'Electrophysiology')
                           ).length;
+                          const ModalityIcon = modality.icon;
 
                           return (
                             <div
@@ -2070,8 +2071,8 @@ export default function Dashboard() {
                               <div className="space-y-3.5">
                                 <div className="flex items-start justify-between">
                                   <div className="flex items-center space-x-3">
-                                    <span className="text-3xl p-2.5 bg-stone-950 rounded-2xl border border-stone-800 group-hover:scale-105 transition-transform">
-                                      {modality.icon}
+                                    <span className="p-2.5 bg-stone-950 rounded-2xl border border-stone-800 group-hover:scale-105 transition-transform flex items-center justify-center">
+                                      <ModalityIcon className="w-6 h-6 text-amber-400" />
                                     </span>
                                     <div>
                                       <h3 className="text-base font-bold text-white">{modality.fullName}</h3>
@@ -2133,17 +2134,19 @@ export default function Dashboard() {
                     <div className="space-y-6">
                       {inProgressList.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {inProgressList.map((modality) => (
-                            <div
-                              key={modality.id}
-                              className="p-6 rounded-3xl bg-stone-900 border border-stone-800 space-y-5 flex flex-col justify-between shadow-lg"
-                            >
-                              <div className="space-y-3.5">
-                                <div className="flex items-start justify-between">
-                                  <div className="flex items-center space-x-3">
-                                    <span className="text-3xl p-2.5 bg-stone-950 rounded-2xl border border-stone-800">
-                                      {modality.icon}
-                                    </span>
+                          {inProgressList.map((modality) => {
+                            const ModalityIcon = modality.icon;
+                            return (
+                              <div
+                                key={modality.id}
+                                className="p-6 rounded-3xl bg-stone-900 border border-stone-800 space-y-5 flex flex-col justify-between shadow-lg"
+                              >
+                                <div className="space-y-3.5">
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex items-center space-x-3">
+                                      <span className="p-2.5 bg-stone-950 rounded-2xl border border-stone-800 flex items-center justify-center">
+                                        <ModalityIcon className="w-6 h-6 text-amber-400" />
+                                      </span>
                                     <div>
                                       <h3 className="text-base font-bold text-white">{modality.fullName}</h3>
                                       <div className="text-xs text-stone-400 font-mono">Current Track: {modality.level}</div>
@@ -2185,7 +2188,8 @@ export default function Dashboard() {
                                 </button>
                               </div>
                             </div>
-                          ))}
+                          );
+                        })}
                         </div>
                       ) : (
                         <div className="p-12 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
@@ -2233,16 +2237,18 @@ export default function Dashboard() {
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {availableToEnrollModalities.map((modality) => (
-                          <div
-                            key={modality.id}
-                            className="p-5 rounded-3xl bg-stone-900/60 border border-stone-800/80 hover:border-stone-700 transition-all flex flex-col justify-between space-y-4"
-                          >
-                            <div className="space-y-2.5">
-                              <div className="flex items-center space-x-3">
-                                <span className="text-2xl p-2 bg-stone-950 rounded-xl border border-stone-800">
-                                  {modality.icon}
-                                </span>
+                        {availableToEnrollModalities.map((modality) => {
+                          const ModalityIcon = modality.icon;
+                          return (
+                            <div
+                              key={modality.id}
+                              className="p-5 rounded-3xl bg-stone-900/60 border border-stone-800/80 hover:border-stone-700 transition-all flex flex-col justify-between space-y-4"
+                            >
+                              <div className="space-y-2.5">
+                                <div className="flex items-center space-x-3">
+                                  <span className="p-2 bg-stone-950 rounded-xl border border-stone-800 flex items-center justify-center">
+                                    <ModalityIcon className="w-5 h-5 text-amber-400" />
+                                  </span>
                                 <div>
                                   <h4 className="font-bold text-sm text-white">{modality.fullName}</h4>
                                   <div className="text-[11px] text-amber-400 font-mono">
@@ -2271,7 +2277,8 @@ export default function Dashboard() {
                               </span>
                             </button>
                           </div>
-                        ))}
+                        );
+                      })}
                       </div>
                     </div>
                   )}
