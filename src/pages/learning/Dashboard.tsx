@@ -218,48 +218,48 @@ export default function Dashboard() {
         id: 'mri',
         name: 'MRI / fMRI',
         fullName: 'MRI & fMRI Analysis',
-        icon: '🧠',
+        icon: Brain,
         modalityType: 'MRI/fMRI' as ModalityType,
         tagline: 'Structural T1w/T2w Scans, VBM, fMRIPrep & FreeSurfer.',
         overview: 'Master structural T1w/T2w volumetric analysis, BOLD fMRI preprocessing with fMRIPrep, FreeSurfer cortical reconstruction, and connectomics calibrated on African population cohorts.',
         duration: '16.5 Hours',
-        badgeColor: 'text-amber-400 bg-amber-400/10 border-amber-400/30',
+        badgeColor: 'text-amber-700 bg-amber-100 border-amber-300',
         tools: ['FreeSurfer', 'ANTs', 'CAT12', 'BIDS / HeuDiConv', 'MRIQC', 'FSL'],
       },
       {
         id: 'eeg',
         name: 'EEG',
         fullName: 'EEG Data Science',
-        icon: '⚡',
+        icon: Zap,
         modalityType: 'EEG' as ModalityType,
         tagline: 'Microvolt Scalp Time-Series, ICA Artifact Cleaning & ERP Analysis.',
         overview: 'Explore high-density electroencephalography (EEG), time-frequency wavelet decompositions, independent component analysis (ICA) artifact cleaning, and clinical seizure classification with MNE-Python.',
         duration: '15.0 Hours',
-        badgeColor: 'text-amber-400 bg-amber-400/10 border-amber-400/30',
+        badgeColor: 'text-emerald-700 bg-emerald-100 border-emerald-300',
         tools: ['MNE-Python', 'FastICA', 'EEGLAB', 'BIDS-EEG', 'SciPy', 'Wavelets'],
       },
       {
         id: 'fnirs',
         name: 'fNIRS',
         fullName: 'fNIRS Optical Imaging',
-        icon: '🔴',
+        icon: Activity,
         modalityType: 'fNIRS' as ModalityType,
         tagline: 'Near-Infrared Spectroscopy, Optode Layouts & Hemodynamics.',
         overview: 'Master functional near-infrared spectroscopy (fNIRS), optode calibration on African hair textures, modified Beer-Lambert law calculations, and Homer3/MNE-NIRS pipelines.',
         duration: '12.0 Hours',
-        badgeColor: 'text-rose-400 bg-rose-400/10 border-rose-400/30',
+        badgeColor: 'text-rose-700 bg-rose-100 border-rose-300',
         tools: ['Homer3', 'MNE-NIRS', 'SNIRF', 'AtlasViewer'],
       },
       {
         id: 'ephys',
         name: 'Electrophysiology',
         fullName: 'Cellular & Systems Electrophysiology',
-        icon: '📈',
+        icon: BarChart2,
         modalityType: 'Electrophysiology' as ModalityType,
         tagline: 'Spike Sorting, Microelectrode Arrays & Local Field Potentials.',
         overview: 'Decompose multi-channel extracellular spike waveforms, execute automated clustering with SpikeInterface, and compute local field potential (LFP) spectral coherence.',
         duration: '14.0 Hours',
-        badgeColor: 'text-sky-400 bg-sky-400/10 border-sky-400/30',
+        badgeColor: 'text-sky-700 bg-sky-100 border-sky-300',
         tools: ['SpikeInterface', 'Elephant', 'Neo', 'SciPy'],
       }
     ];
@@ -610,48 +610,51 @@ export default function Dashboard() {
                   )}
 
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                    <div className="space-y-1.5">
-                      <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-300/80 text-amber-900 text-xs font-bold font-mono tracking-wider">
-                        <span className="uppercase">2026 ABDN NEUROIMAGING FELLOWSHIP</span>
+                    <div className="space-y-1">
+                      <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+                        <span>Fellowship Workspace · Cohort 2026</span>
                       </div>
-                      <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-stone-900 flex items-center space-x-2.5">
-                        <span>{getGreeting()},</span>
-                        <span className="text-amber-800">
-                          {displayName}
-                        </span>
-                        <span className="inline-block">👋</span>
+                      <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900">
+                        {getGreeting()}, <span className="text-amber-800">{displayName}</span>
                       </h1>
-                      <p className="text-sm text-stone-600 font-normal">
+                      <p className="text-xs sm:text-sm text-stone-600 font-normal">
                         Your computational neuroscience workspace and live fellowship lecture hub.
                       </p>
                     </div>
 
-                    {/* Quick Stats Pills Ticker */}
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
-                        <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
-                        <span className="text-stone-500 font-mono text-[11px]">STREAK:</span>
-                        <span className="font-bold text-amber-800 font-mono">
-                          {progressMetrics.completedCount > 0 ? Math.min(progressMetrics.completedCount * 2 + 1, 14) : 0} Days
-                        </span>
+                    {/* Quick Stats Summary */}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2.5 shadow-sm">
+                        <Flame className="w-4 h-4 text-amber-700" />
+                        <div>
+                          <div className="text-[10px] text-stone-500 font-medium leading-none">Streak</div>
+                          <div className="font-bold text-stone-900 text-xs mt-0.5">
+                            {progressMetrics.completedCount > 0 ? Math.min(progressMetrics.completedCount * 2 + 1, 14) : 0} Days
+                          </div>
+                        </div>
                       </div>
 
-                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
-                        <BookOpen className="w-4 h-4 text-emerald-600" />
-                        <span className="text-stone-500 font-mono text-[11px]">TRACKS:</span>
-                        <span className="font-bold text-stone-900 font-mono">{myEnrolledModalities.length} Active</span>
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2.5 shadow-sm">
+                        <BookOpen className="w-4 h-4 text-emerald-700" />
+                        <div>
+                          <div className="text-[10px] text-stone-500 font-medium leading-none">Active Tracks</div>
+                          <div className="font-bold text-stone-900 text-xs mt-0.5">{myEnrolledModalities.length} Track{myEnrolledModalities.length !== 1 ? 's' : ''}</div>
+                        </div>
                       </div>
 
-                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2 shadow-sm">
-                        <Trophy className="w-4 h-4 text-amber-600" />
-                        <span className="text-stone-500 font-mono text-[11px]">ATTENDANCE:</span>
-                        <span className="font-bold text-amber-800 font-mono">{progressMetrics.enrolledPercent}%</span>
+                      <div className="px-3.5 py-2 rounded-xl bg-white border border-[#E8DFC9] text-xs flex items-center space-x-2.5 shadow-sm">
+                        <Trophy className="w-4 h-4 text-amber-700" />
+                        <div>
+                          <div className="text-[10px] text-stone-500 font-medium leading-none">Attendance</div>
+                          <div className="font-bold text-amber-800 text-xs mt-0.5">{progressMetrics.enrolledPercent}%</div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* 2. FEATURE CINEMA SHOWCASE CARD (THE HERO CONTINUE LEARNING STAGE) */}
+                {/* 2. CONTINUE LEARNING HERO STAGE */}
                 {(() => {
                   const activeSession = progressMetrics.continueLearningLesson || publishedLessons[0];
                   if (!activeSession) return null;
@@ -665,46 +668,44 @@ export default function Dashboard() {
                     <motion.div
                       initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="relative rounded-3xl bg-white p-6 sm:p-8 border border-[#E3D9C3] shadow-xl shadow-amber-900/5 overflow-hidden group hover:border-amber-400 transition-all"
+                      className="relative rounded-2xl bg-white p-6 sm:p-7 border border-[#E3D9C3] shadow-md shadow-stone-900/5 overflow-hidden group hover:border-amber-400 transition-all"
                     >
-                      <div className="relative z-10 space-y-6">
+                      <div className="relative z-10 space-y-5">
                         
                         {/* Top Header Row */}
-                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EBE2D0] pb-4">
-                          <div className="flex items-center space-x-2.5">
-                            <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-black uppercase tracking-wider font-mono shadow-sm flex items-center space-x-1.5">
-                              <span>{isInProgress ? 'RESUME SESSION' : isCompleted ? 'REWATCH SESSION' : 'CONTINUE LEARNING'}</span>
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EBE2D0] pb-3.5">
+                          <div className="flex items-center space-x-2">
+                            <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300/80 text-xs font-bold flex items-center space-x-1.5">
+                              <span>{isInProgress ? 'Resume Session' : isCompleted ? 'Rewatch Session' : 'Continue Learning'}</span>
                             </span>
                             {isCompleted ? (
-                              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-extrabold uppercase flex items-center gap-1">
-                                <Check size={10} className="stroke-[3]" /> Completed
+                              <span className="px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-semibold flex items-center gap-1">
+                                <Check size={12} className="stroke-[2.5]" /> Completed
                               </span>
                             ) : isInProgress ? (
-                              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-extrabold uppercase flex items-center gap-1">
-                                <Clock size={10} /> In Progress
+                              <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold flex items-center gap-1">
+                                <Clock size={12} /> In Progress
                               </span>
                             ) : null}
                           </div>
 
-                          <div className="flex items-center space-x-2">
-                            <span className="px-3 py-1 rounded-xl bg-white text-stone-800 text-xs font-mono font-bold border border-[#E3D9C3] shadow-sm">
-                              {activeSession.weekTitle || `Week ${activeSession.weekNumber || 1}`} · {activeSession.contentId}
-                            </span>
-                          </div>
+                          <span className="text-xs text-stone-500 font-medium">
+                            {activeSession.weekTitle || `Week ${activeSession.weekNumber || 1}`} · <span className="font-mono text-stone-700">{activeSession.contentId}</span>
+                          </span>
                         </div>
 
                         {/* Middle Content */}
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                          <div className="lg:col-span-8 space-y-3">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-2xl shadow-sm">
-                                🧠
+                          <div className="lg:col-span-8 space-y-2.5">
+                            <div className="flex items-center space-x-2.5">
+                              <div className="w-8 h-8 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800">
+                                <Brain className="w-4 h-4 text-amber-700" />
                               </div>
-                              <span className="px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-800 text-xs font-mono font-bold uppercase tracking-wider border border-stone-200">
+                              <span className="px-2 py-0.5 rounded bg-stone-100 text-stone-700 text-xs font-semibold border border-stone-200">
                                 {activeSession.modality}
                               </span>
                             </div>
-                            <h2 className="text-2xl sm:text-3xl font-black text-stone-900 leading-tight group-hover:text-amber-800 transition-colors">
+                            <h2 className="text-xl sm:text-2xl font-bold text-stone-900 leading-tight group-hover:text-amber-800 transition-colors">
                               {activeSession.title}
                             </h2>
                             <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed line-clamp-3">
@@ -713,35 +714,35 @@ export default function Dashboard() {
                           </div>
 
                           {/* Action & Metadata Box */}
-                          <div className="lg:col-span-4 p-5 rounded-2xl bg-[#FBF9F4] border border-[#EBE3D3] space-y-4 flex flex-col justify-between shadow-inner">
-                            <div className="space-y-2">
-                              <div className="flex justify-between text-xs font-mono">
-                                <span className="text-stone-600">Attendance & Progress</span>
-                                <span className="font-extrabold text-amber-800">{progressMetrics.enrolledPercent}%</span>
+                          <div className="lg:col-span-4 p-4 rounded-xl bg-[#FAF7F0] border border-[#EBE3D3] space-y-3 flex flex-col justify-between">
+                            <div className="space-y-1.5">
+                              <div className="flex justify-between text-xs">
+                                <span className="text-stone-600 font-medium">Attendance & Progress</span>
+                                <span className="font-bold text-amber-800">{progressMetrics.enrolledPercent}%</span>
                               </div>
-                              <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
+                              <div className="h-2 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                                 <div
-                                  className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
+                                  className="h-full bg-amber-700 rounded-full transition-all duration-500"
                                   style={{ width: `${Math.max(progressMetrics.enrolledPercent, progressMetrics.enrolledCompletedCount > 0 ? 8 : 0)}%` }}
                                 />
                               </div>
-                              <div className="text-[10px] text-stone-500 font-mono flex items-center justify-between pt-0.5">
-                                <span>{progressMetrics.enrolledCompletedCount} of {progressMetrics.enrolledTotalLessons} enrolled sessions</span>
+                              <div className="text-[11px] text-stone-500 flex items-center justify-between pt-0.5">
+                                <span>{progressMetrics.enrolledCompletedCount} of {progressMetrics.enrolledTotalLessons} sessions done</span>
                                 <span>{activeSession.durationMinutes || 75} mins</span>
                               </div>
                             </div>
 
                             <button
                               onClick={() => handleWatchFellowshipSession(activeSession)}
-                              className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-black text-sm shadow-md shadow-amber-900/20 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2"
+                              className="w-full py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs shadow-md shadow-amber-900/15 transition-all flex items-center justify-center space-x-2"
                             >
-                              <Play className="w-4 h-4 fill-current" />
+                              <Play className="w-3.5 h-3.5 fill-current" />
                               <span>
                                 {isCompleted ? 'Rewatch Recording →' : isInProgress ? 'Resume Recording →' : 'Watch Recording →'}
                               </span>
                             </button>
 
-                            <div className="text-[10px] text-stone-500 font-mono text-center truncate">
+                            <div className="text-[11px] text-stone-500 text-center truncate">
                               Instructor: <strong className="text-stone-800">{activeSession.instructor || 'ABDN Specialist'}</strong>
                             </div>
                           </div>
@@ -807,9 +808,14 @@ export default function Dashboard() {
                           <div className="space-y-3">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2.5">
-                                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                                  {modality.icon}
-                                </div>
+                                {(() => {
+                                  const ModalityIcon = modality.icon;
+                                  return (
+                                    <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-800 group-hover:scale-105 transition-transform">
+                                      <ModalityIcon className="w-5 h-5 text-amber-700" />
+                                    </div>
+                                  );
+                                })()}
                                 <div>
                                   <h4 className="font-bold text-sm text-stone-900 group-hover:text-amber-800 transition-colors">
                                     {modality.name}
@@ -852,36 +858,31 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                {/* 4. DYNAMIC FELLOWSHIP WEEKLY SESSIONS & RECORDED LECTURES */}
+                {/* 4. FELLOWSHIP SESSIONS & RECORDINGS */}
                 <div className="space-y-6 pt-6 border-t border-[#E8DFC9]">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <div className="flex items-center space-x-2.5">
-                        <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono uppercase font-black">
-                          Firebase Live Stream
-                        </span>
-                        <h3 className="text-xl font-extrabold text-stone-900">
-                          Fellowship Weekly Sessions & Recorded Lectures
-                        </h3>
-                      </div>
+                      <h3 className="text-xl font-bold text-stone-900">
+                        Fellowship Sessions & Recorded Lectures
+                      </h3>
                       <p className="text-xs text-stone-600 mt-1">
-                        Dynamic multi-modality fellowship sessions managed directly from the ABDN Admin Dashboard. Grouped by Month → Week → Modality.
+                        Explore weekly lectures, hands-on dataset processing labs, and recorded specialist talks grouped by schedule.
                       </p>
                     </div>
 
                     <button
                       onClick={loadLessonsData}
                       disabled={loadingLessons}
-                      className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-white hover:bg-stone-50 border border-stone-300 text-stone-800 text-xs font-bold transition-all shadow-sm self-start md:self-auto"
-                      title="Refresh from Firebase"
+                      className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-50 border border-[#E2D9C7] text-stone-800 text-xs font-semibold transition-all shadow-sm self-start md:self-auto"
+                      title="Sync latest sessions"
                     >
                       <RefreshCw className={`w-3.5 h-3.5 text-amber-700 ${loadingLessons ? 'animate-spin' : ''}`} />
-                      <span>{loadingLessons ? 'Syncing...' : 'Sync Lessons'}</span>
+                      <span>{loadingLessons ? 'Syncing...' : 'Sync Sessions'}</span>
                     </button>
                   </div>
 
                   {/* Filter & Search Bar */}
-                  <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#EBE4D8] space-y-4 shadow-lg shadow-stone-900/5">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#EBE4D8] space-y-4 shadow-sm">
                     
                     {/* Top Row: Search + Month Selector */}
                     <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -894,20 +895,20 @@ export default function Dashboard() {
                           placeholder="Search sessions by title, topic, content ID, or instructor..."
                           value={sessionSearchQuery}
                           onChange={(e) => setSessionSearchQuery(e.target.value)}
-                          className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-900 placeholder-stone-500 focus:outline-none focus:border-amber-600 transition-colors"
+                          className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-900 placeholder-stone-500 focus:outline-none focus:border-amber-600 transition-colors font-medium"
                         />
                       </div>
 
                       {/* Month Filter */}
                       <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0">
-                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1 hidden sm:inline">Month:</span>
+                        <span className="text-xs text-stone-500 font-medium mr-1 hidden sm:inline">Month:</span>
                         {['All', ...availableMonths].map((month) => (
                           <button
                             key={month}
                             onClick={() => setSessionMonthFilter(month)}
-                            className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                            className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                               sessionMonthFilter === month
-                                ? 'bg-amber-700 text-white shadow-md shadow-amber-900/20'
+                                ? 'bg-amber-800 text-white shadow-sm font-bold'
                                 : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
                             }`}
                           >
@@ -922,10 +923,10 @@ export default function Dashboard() {
                       
                       {/* Week Selectors */}
                       <div className="flex items-center space-x-1.5">
-                        <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Week:</span>
+                        <span className="text-xs text-stone-500 font-medium mr-1">Week:</span>
                         <button
                           onClick={() => setSessionWeekFilter('All')}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                          className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
                             sessionWeekFilter === 'All'
                               ? 'bg-amber-100 text-amber-900 border border-amber-300 font-bold'
                               : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
@@ -937,7 +938,7 @@ export default function Dashboard() {
                           <button
                             key={wk}
                             onClick={() => setSessionWeekFilter(`Week ${wk}`)}
-                            className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                            className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
                               sessionWeekFilter === `Week ${wk}`
                                 ? 'bg-amber-100 text-amber-900 border border-amber-300 font-bold'
                                 : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
@@ -951,7 +952,7 @@ export default function Dashboard() {
                       {/* Modality Chips (Superadmin: full filter bar, Fellow: single track indicator badge) */}
                       {isSuperAdmin ? (
                         <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="text-[11px] text-stone-500 font-mono uppercase mr-1">Modality:</span>
+                          <span className="text-xs text-stone-500 font-medium mr-1">Modality:</span>
                           {[
                             { id: 'All', label: 'All Modalities' },
                             { id: 'MRI/fMRI', label: 'MRI / fMRI' },
@@ -962,7 +963,7 @@ export default function Dashboard() {
                             <button
                               key={m.id}
                               onClick={() => setSessionModalityFilter(m.id)}
-                              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                              className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
                                 sessionModalityFilter === m.id
                                   ? 'bg-amber-800 text-white border border-amber-900 shadow-sm'
                                   : 'bg-[#FAF7F0] text-stone-700 hover:text-stone-900 border border-[#E2D9C7]'
@@ -974,8 +975,8 @@ export default function Dashboard() {
                         </div>
                       ) : (
                         <div className="flex items-center space-x-2">
-                          <span className="text-[11px] text-stone-500 font-mono uppercase">Enrolled Track:</span>
-                          <span className="px-3 py-1 rounded-lg bg-amber-100 text-amber-900 border border-amber-300 font-bold text-xs font-mono shadow-sm">
+                          <span className="text-xs text-stone-500 font-medium">Enrolled Track:</span>
+                          <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300 font-semibold text-xs shadow-sm">
                             {myEnrolledModalities[0]?.fullName || 'ABDN Fellowship Track'}
                           </span>
                         </div>
@@ -986,13 +987,15 @@ export default function Dashboard() {
 
                   {/* Sessions Grouped Listing */}
                   {loadingLessons ? (
-                    <div className="p-12 text-center rounded-3xl bg-white border border-[#EBE4D8] space-y-3">
-                      <div className="w-8 h-8 border-2 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto" />
-                      <div className="text-xs text-stone-600 font-mono">Loading published fellowship sessions from Firebase...</div>
+                    <div className="p-12 text-center rounded-2xl bg-white border border-[#EBE4D8] space-y-3">
+                      <div className="w-7 h-7 border-2 border-amber-700 border-t-transparent rounded-full animate-spin mx-auto" />
+                      <div className="text-xs text-stone-600 font-medium">Loading published fellowship sessions...</div>
                     </div>
                   ) : groupedSessions.length === 0 ? (
-                    <div className="p-12 text-center rounded-3xl bg-white border border-[#EBE4D8] space-y-3">
-                      <div className="text-3xl">🔍</div>
+                    <div className="p-12 text-center rounded-2xl bg-white border border-[#EBE4D8] space-y-3">
+                      <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center mx-auto">
+                        <Search className="w-5 h-5" />
+                      </div>
                       <h4 className="font-bold text-sm text-stone-900">No matching fellowship sessions found</h4>
                       <p className="text-xs text-stone-600 max-w-sm mx-auto">
                         Try adjusting your search query, month, or modality filter to discover available sessions.
@@ -1004,7 +1007,7 @@ export default function Dashboard() {
                           setSessionModalityFilter('All');
                           setSessionSearchQuery('');
                         }}
-                        className="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-xs font-bold text-white shadow-sm"
+                        className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-xs font-bold text-white shadow-sm"
                       >
                         Reset All Filters
                       </button>
@@ -1017,10 +1020,10 @@ export default function Dashboard() {
                           {/* Month Header Banner */}
                           <div className="flex items-center space-x-3 border-b border-[#E8DFC9] pb-3">
                             <Calendar className="w-4 h-4 text-amber-700" />
-                            <h4 className="text-lg font-black text-stone-900 uppercase tracking-wider">
-                              {group.month} Fellowship Schedule
+                            <h4 className="text-base font-bold text-stone-900">
+                              {group.month} Schedule
                             </h4>
-                            <span className="text-xs font-mono text-amber-900 font-semibold bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
+                            <span className="text-xs text-amber-900 font-semibold bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">
                               {group.weeks.reduce((acc, w) => acc + w.lessons.length, 0)} Sessions
                             </span>
                           </div>
@@ -1030,12 +1033,12 @@ export default function Dashboard() {
                             {group.weeks.map((week) => (
                               <div
                                 key={`${group.month}-week-${week.weekNumber}`}
-                                className="p-5 sm:p-6 rounded-3xl bg-[#FAF7F2] border border-[#E5DDD0] space-y-4 shadow-sm"
+                                className="p-5 sm:p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] space-y-4 shadow-sm"
                               >
                                 {/* Week Header */}
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E0D7C7] pb-3">
                                   <div className="flex items-center space-x-3">
-                                    <span className="px-3 py-1 rounded-xl bg-amber-100 text-amber-900 font-mono font-black text-xs border border-amber-300">
+                                    <span className="px-3 py-1 rounded-xl bg-amber-100 text-amber-900 font-semibold text-xs border border-amber-300">
                                       {week.weekTitle}
                                     </span>
                                     {week.weekEnding && (
@@ -1044,8 +1047,8 @@ export default function Dashboard() {
                                       </span>
                                     )}
                                   </div>
-                                  <span className="text-[11px] text-stone-500 font-mono">
-                                    {week.lessons.length} Multi-Modality {week.lessons.length === 1 ? 'Session' : 'Sessions'}
+                                  <span className="text-xs text-stone-500 font-medium">
+                                    {week.lessons.length} {week.lessons.length === 1 ? 'Session' : 'Sessions'}
                                   </span>
                                 </div>
 
@@ -1069,12 +1072,12 @@ export default function Dashboard() {
                                     return (
                                       <div
                                         key={lesson.id || lesson.contentId}
-                                        className={`p-5 rounded-2xl bg-white border transition-all flex flex-col justify-between space-y-4 group shadow-md hover:shadow-xl ${
+                                        className={`p-5 rounded-xl bg-white border transition-all flex flex-col justify-between space-y-4 group shadow-sm hover:shadow-md ${
                                           isSessionCompleted 
                                             ? 'border-emerald-300 bg-emerald-50/30'
                                             : isSessionInProgress
                                             ? 'border-amber-400 bg-amber-50/20'
-                                            : 'border-[#EBE4D8] hover:border-amber-500'
+                                            : 'border-[#EBE4D8] hover:border-amber-400'
                                         }`}
                                       >
                                         <div className="space-y-3">
@@ -1082,25 +1085,25 @@ export default function Dashboard() {
                                           {/* Top Badges: Modality & Content ID & Progress State */}
                                           <div className="flex items-center justify-between gap-2">
                                             <div className="flex items-center space-x-2">
-                                              <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${modConfig.badgeBg} ${modConfig.badgeText}`}>
+                                              <span className={`px-2 py-0.5 rounded text-xs font-semibold border ${modConfig.badgeBg} ${modConfig.badgeText}`}>
                                                 {lesson.modality}
                                               </span>
-                                              <span className="text-[10px] font-mono bg-[#F5EFE4] text-stone-700 px-2 py-0.5 rounded border border-[#E5DDD0]">
+                                              <span className="text-xs font-mono bg-[#F5EFE4] text-stone-700 px-2 py-0.5 rounded border border-[#E5DDD0]">
                                                 {lesson.contentId}
                                               </span>
                                             </div>
 
                                             <div className="flex items-center space-x-1.5">
                                               {isSessionCompleted ? (
-                                                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-black uppercase flex items-center gap-1">
-                                                  <Check size={10} className="stroke-[3]" /> Completed
+                                                <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-semibold flex items-center gap-1">
+                                                  <Check size={10} className="stroke-[2.5]" /> Completed
                                                 </span>
                                               ) : isSessionInProgress ? (
-                                                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black uppercase flex items-center gap-1">
+                                                <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold flex items-center gap-1">
                                                   <Clock size={10} /> In Progress
                                                 </span>
                                               ) : (
-                                                <span className="text-[10px] font-mono text-stone-500 font-semibold">
+                                                <span className="text-xs text-stone-500 font-medium">
                                                   {lesson.durationMinutes || 60} mins
                                                 </span>
                                               )}
@@ -1109,7 +1112,7 @@ export default function Dashboard() {
 
                                           {/* Title & Description */}
                                           <div className="space-y-1.5">
-                                            <h5 className="font-extrabold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-2">
+                                            <h5 className="font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-2">
                                               {lesson.title}
                                             </h5>
                                             <p className="text-xs text-stone-600 font-normal leading-relaxed line-clamp-3">
@@ -1132,13 +1135,13 @@ export default function Dashboard() {
                                               {lesson.topics.slice(0, 3).map((topic, tIdx) => (
                                                 <span
                                                   key={tIdx}
-                                                  className="px-2 py-0.5 rounded-md bg-[#F4EFE6] border border-[#E3DBCF] text-[10px] font-mono text-stone-700"
+                                                  className="px-2 py-0.5 rounded bg-[#F4EFE6] border border-[#E3DBCF] text-[11px] text-stone-700"
                                                 >
                                                   {topic}
                                                 </span>
                                               ))}
                                               {lesson.topics.length > 3 && (
-                                                <span className="text-[10px] font-mono text-stone-500 self-center">
+                                                <span className="text-[11px] text-stone-500 self-center">
                                                   +{lesson.topics.length - 3} more
                                                 </span>
                                               )}
@@ -1154,21 +1157,19 @@ export default function Dashboard() {
                                               className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-sm ${
                                                 isSessionCompleted
                                                   ? 'bg-stone-900 hover:bg-black text-white font-bold'
-                                                  : isSessionInProgress
-                                                  ? 'bg-amber-700 hover:bg-amber-800 text-white shadow-amber-900/20'
-                                                  : 'bg-amber-600 hover:bg-amber-700 text-white shadow-amber-900/20'
+                                                  : 'bg-amber-800 hover:bg-amber-900 text-white shadow-amber-900/15'
                                               }`}
                                             >
                                               <Play className="w-3.5 h-3.5 fill-current" />
                                               <span>
                                                 {isSessionCompleted ? 'Rewatch Session' : isSessionInProgress ? 'Resume Session' : 'Watch Session'}
                                               </span>
-                                              <span className="text-[10px] font-normal opacity-80 font-mono">({lesson.durationMinutes || 75}m)</span>
+                                              <span className="text-xs font-normal opacity-80">({lesson.durationMinutes || 75}m)</span>
                                             </button>
                                           ) : (
-                                            <div className="w-full py-2 px-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-stone-500 text-[11px] font-medium flex items-center justify-center space-x-1.5">
+                                            <div className="w-full py-2 px-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-stone-500 text-xs font-medium flex items-center justify-center space-x-1.5">
                                               <Clock className="w-3.5 h-3.5 text-stone-500" />
-                                              <span>Recording coming soon/unavailable</span>
+                                              <span>Recording coming soon</span>
                                             </div>
                                           )}
                                         </div>
@@ -1189,47 +1190,47 @@ export default function Dashboard() {
                 <div className="pt-4">
                   
                   {/* Fellowship Milestone Tracker Card */}
-                  <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#EBE4D8] space-y-6 shadow-lg shadow-stone-900/5">
-                    <div className="flex items-center justify-between border-b border-[#EBE4D8] pb-4">
-                      <h3 className="text-base font-extrabold text-stone-900 flex items-center space-x-2">
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white border border-[#EBE4D8] space-y-5 shadow-sm">
+                    <div className="flex items-center justify-between border-b border-[#EBE4D8] pb-3.5">
+                      <h3 className="text-base font-bold text-stone-900 flex items-center space-x-2">
                         <Sparkles className="w-4 h-4 text-amber-700" />
                         <span>Fellowship Milestone Tracker</span>
                       </h3>
-                      <span className="text-[10px] font-mono text-amber-900 font-bold uppercase bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                      <span className="text-xs font-semibold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
                         Cohort 2026
                       </span>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
                       {/* Left: Session Attendance & Progress */}
-                      <div className="p-5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] flex flex-col justify-between space-y-4 shadow-inner">
+                      <div className="p-4 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5] flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
                           <div className="flex items-center justify-between text-xs">
                             <span className="text-stone-800 font-bold">Session Attendance & Milestone Progress</span>
-                            <span className="text-amber-800 font-mono font-black">{progressMetrics.enrolledPercent}%</span>
+                            <span className="text-amber-800 font-bold">{progressMetrics.enrolledPercent}%</span>
                           </div>
-                          <div className="h-3 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
+                          <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                             <div
-                              className="h-full bg-gradient-to-r from-amber-600 to-amber-500 rounded-full transition-all duration-500 shadow-sm"
+                              className="h-full bg-amber-700 rounded-full transition-all duration-500"
                               style={{ width: `${progressMetrics.enrolledPercent}%` }}
                             />
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between text-xs text-stone-600 font-mono pt-2 border-t border-[#E5DEC5]">
+                        <div className="flex items-center justify-between text-xs text-stone-600 pt-2 border-t border-[#E5DEC5]">
                           <span>{progressMetrics.enrolledCompletedCount} of {progressMetrics.enrolledTotalLessons} enrolled sessions attended</span>
-                          <span className="font-bold text-stone-800">{myEnrolledModalities.length} active track{myEnrolledModalities.length !== 1 ? 's' : ''}</span>
+                          <span className="font-semibold text-stone-800">{myEnrolledModalities.length} active track{myEnrolledModalities.length !== 1 ? 's' : ''}</span>
                         </div>
                       </div>
 
                       {/* Right: Fellowship Phases Roadmap */}
-                      <div className="p-5 rounded-2xl bg-[#FAF7F0] border border-[#E5DEC5] text-xs space-y-4 flex flex-col justify-between">
+                      <div className="p-4 rounded-xl bg-[#FAF7F0] border border-[#E5DEC5] text-xs space-y-3 flex flex-col justify-between">
                         <div className="flex items-center justify-between gap-2">
                           <div className="space-y-0.5">
                             <div className="font-bold text-stone-900 text-xs">Phase 1: Live Lectures & Recordings</div>
                             <div className="text-[11px] text-stone-600">Watch weekly fellowship sessions and study lecture slides</div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300 shrink-0">
+                          <span className="text-xs font-semibold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-md border border-amber-300 shrink-0">
                             Active
                           </span>
                         </div>
@@ -1238,7 +1239,7 @@ export default function Dashboard() {
                             <div className="font-bold text-stone-800 text-xs">Phase 2: GitHub Code & Lab Submissions</div>
                             <div className="text-[11px] text-stone-600">Push weekly Jupyter notebooks to <code className="text-amber-900 font-mono text-[10px]">participants/</code></div>
                           </div>
-                          <span className="text-[10px] font-mono uppercase font-black text-sky-900 bg-sky-100 px-2.5 py-0.5 rounded-full border border-sky-300 shrink-0">
+                          <span className="text-xs font-semibold text-sky-900 bg-sky-100 px-2.5 py-0.5 rounded-md border border-sky-300 shrink-0">
                             Hands-on
                           </span>
                         </div>
@@ -1248,7 +1249,7 @@ export default function Dashboard() {
                     <div className="pt-2 flex justify-end">
                       <button
                         onClick={() => setActiveTab('learning')}
-                        className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-md shadow-amber-900/20"
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs transition-all flex items-center justify-center space-x-2 shadow-sm"
                       >
                         <BookOpen className="w-4 h-4" />
                         <span>View All Learning Paths →</span>
@@ -1299,9 +1300,14 @@ export default function Dashboard() {
                       <div className="relative z-10 space-y-4">
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <div className="flex items-center space-x-3">
-                            <span className="text-3xl p-2.5 bg-amber-100 rounded-2xl border border-amber-300">
-                              {currentCourse.icon}
-                            </span>
+                            {(() => {
+                              const CourseIcon = currentCourse.icon;
+                              return (
+                                <div className="p-3 bg-amber-100 rounded-2xl border border-amber-300 flex items-center justify-center text-amber-800">
+                                  <CourseIcon className="w-6 h-6 text-amber-700" />
+                                </div>
+                              );
+                            })()}
                             <div>
                               <div className="text-[11px] font-mono font-bold text-amber-800 uppercase tracking-widest">
                                 ABDN FELLOWSHIP MODALITY TRACK

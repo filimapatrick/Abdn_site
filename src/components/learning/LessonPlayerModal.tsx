@@ -225,45 +225,45 @@ export default function LessonPlayerModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-stone-950/85 backdrop-blur-md"
+          className="fixed inset-0 bg-stone-950/70 backdrop-blur-sm"
         />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-5xl bg-stone-900 text-white rounded-3xl shadow-2xl overflow-hidden z-10 border border-stone-800 my-4 flex flex-col max-h-[90vh]"
+          exit={{ opacity: 0, scale: 0.96, y: 15 }}
+          className="relative w-full max-w-5xl bg-[#FAF8F5] text-stone-900 rounded-2xl shadow-2xl overflow-hidden z-10 border border-[#E3D9C3] my-4 flex flex-col max-h-[90vh]"
         >
           {/* Top Header Bar */}
-          <div className="p-4 sm:p-5 bg-stone-950 border-b border-stone-800 flex items-center justify-between gap-4">
+          <div className="p-4 sm:p-5 bg-white border-b border-[#EBE4D8] flex items-center justify-between gap-4">
             <div className="space-y-1 min-w-0">
-              <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono">
-                <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 font-bold border border-amber-500/20">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span className="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 font-bold border border-amber-300 text-[11px]">
                   {contentId}
                 </span>
-                <span className="text-stone-500">•</span>
-                <span className="text-amber-400 font-semibold">{displayPathway}</span>
-                <span className="text-stone-500">•</span>
-                <span className="text-stone-400">{displayModule}</span>
+                <span className="text-stone-400">•</span>
+                <span className="text-amber-800 font-semibold">{displayPathway}</span>
+                <span className="text-stone-400">•</span>
+                <span className="text-stone-600 font-medium">{displayModule}</span>
                 {lesson?.weekEnding && (
                   <>
-                    <span className="text-stone-500">•</span>
-                    <span className="text-stone-400">Week Ending: {formatWeekEndingDisplay(lesson.weekEnding)}</span>
+                    <span className="text-stone-400">•</span>
+                    <span className="text-stone-500 font-medium">Week Ending: {formatWeekEndingDisplay(lesson.weekEnding)}</span>
                   </>
                 )}
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white leading-tight truncate">
+              <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 leading-tight truncate">
                 {displayTitle}
               </h3>
             </div>
 
-            <div className="flex items-center space-x-3 flex-shrink-0">
+            <div className="flex items-center space-x-2.5 flex-shrink-0">
               {lesson?.slidesUrl && (
                 <a
                   href={lesson.slidesUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 font-semibold text-xs transition-all shadow-sm"
+                  className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 font-semibold text-xs transition-all shadow-sm"
                 >
                   <Presentation className="w-3.5 h-3.5" />
                   <span>Slides Deck</span>
@@ -275,7 +275,7 @@ export default function LessonPlayerModal({
                 href={lesson?.colabUrl || "https://colab.research.google.com/"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs transition-all shadow-sm"
+                className="hidden sm:flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs transition-all shadow-sm"
               >
                 <span>Open Colab</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -283,7 +283,7 @@ export default function LessonPlayerModal({
 
               <button
                 onClick={onClose}
-                className="p-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-300 transition-colors"
+                className="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
@@ -292,7 +292,7 @@ export default function LessonPlayerModal({
           </div>
 
           {/* Navigation Sub-bar */}
-          <div className="px-5 py-2 bg-stone-900 border-b border-stone-800 flex items-center justify-between text-xs overflow-x-auto">
+          <div className="px-5 py-2.5 bg-[#FAF7F0] border-b border-[#EBE2D0] flex items-center justify-between text-xs overflow-x-auto">
             <div className="flex items-center space-x-2">
               {[
                 { id: 'lecture', label: 'Recorded Session & Video', icon: Play },
@@ -305,10 +305,10 @@ export default function LessonPlayerModal({
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-all ${
+                    className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg font-medium whitespace-nowrap transition-all ${
                       activeTab === tab.id
-                        ? 'bg-amber-600 text-white font-semibold shadow-sm'
-                        : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800'
+                        ? 'bg-amber-800 text-white font-bold shadow-sm'
+                        : 'text-stone-600 hover:text-stone-900 hover:bg-white'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -318,8 +318,8 @@ export default function LessonPlayerModal({
               })}
             </div>
 
-            <div className="text-stone-400 font-mono text-[11px] hidden sm:flex items-center space-x-2">
-              <Clock className="w-3.5 h-3.5 text-amber-400" />
+            <div className="text-stone-500 text-xs hidden sm:flex items-center space-x-2 font-medium">
+              <Clock className="w-3.5 h-3.5 text-amber-700" />
               <span>{duration} Mins Duration</span>
             </div>
           </div>
@@ -332,16 +332,16 @@ export default function LessonPlayerModal({
               <div className="space-y-6">
                 
                 {/* Session Hero Banner */}
-                <div className="p-6 rounded-3xl bg-gradient-to-br from-stone-950 via-stone-900 to-amber-950/40 border border-amber-900/40 shadow-xl space-y-5">
+                <div className="p-6 rounded-2xl bg-white border border-[#E5DEC5] shadow-sm space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center space-x-2">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/30">
-                        {lesson?.videoProvider ? `${lesson.videoProvider.toUpperCase()} RECORDING` : 'ZOOM CLOUD RECORDING'}
+                      <span className="px-2 py-0.5 rounded bg-stone-100 text-stone-800 text-xs font-semibold border border-stone-200">
+                        {lesson?.videoProvider ? `${lesson.videoProvider.toUpperCase()} RECORDING` : 'ZOOM RECORDING'}
                       </span>
-                      <span className="text-xs text-stone-400">• {duration} mins</span>
+                      <span className="text-xs text-stone-500">• {duration} mins</span>
                     </div>
 
-                    <div className="flex items-center space-x-2 text-[11px] font-mono text-emerald-400">
+                    <div className="flex items-center space-x-1.5 text-xs text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       <span>Authenticated Fellowship Access</span>
                     </div>
@@ -349,10 +349,10 @@ export default function LessonPlayerModal({
 
                   {/* Video Access State */}
                   {videoAccess?.recordingUrl ? (
-                    <div className="space-y-4 pt-2">
+                    <div className="space-y-4 pt-1">
                       <div className="space-y-1">
-                        <h4 className="text-lg font-bold text-white">Fellowship Recording Available</h4>
-                        <p className="text-stone-300 text-xs leading-relaxed">
+                        <h4 className="text-base font-bold text-stone-900">Fellowship Session Recording</h4>
+                        <p className="text-stone-600 text-xs leading-relaxed">
                           This live session was recorded and archived for enrolled African Brain Data Network fellows. Click below to launch the recording in your browser.
                         </p>
                       </div>
@@ -362,47 +362,47 @@ export default function LessonPlayerModal({
                         href={videoAccess.recordingUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold rounded-2xl shadow-lg shadow-amber-900/30 transition-all text-sm group"
+                        className="inline-flex items-center justify-center gap-2.5 w-full py-3 px-5 bg-amber-800 hover:bg-amber-900 text-white font-bold rounded-xl shadow-md transition-all text-xs sm:text-sm group"
                       >
                         <Play className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
                         <span>Watch Session on {videoAccess.provider === 'zoom' ? 'Zoom' : 'Cloud Player'}</span>
-                        <ExternalLink className="w-4 h-4 opacity-75 ml-1" />
+                        <ExternalLink className="w-4 h-4 opacity-80 ml-1" />
                       </a>
 
                       {/* Secure Recording Passcode Box */}
                       {videoAccess.passcode ? (
-                        <div className="bg-stone-900/90 backdrop-blur-md p-4 rounded-2xl border border-amber-500/30 flex items-center justify-between gap-4">
+                        <div className="p-4 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center justify-between gap-4">
                           <div className="space-y-0.5">
-                            <div className="text-[10px] uppercase tracking-wider text-amber-400 font-bold flex items-center gap-1.5">
-                              <Lock className="w-3 h-3" />
+                            <div className="text-xs text-stone-600 font-medium flex items-center gap-1.5">
+                              <Lock className="w-3.5 h-3.5 text-amber-700" />
                               <span>Recording Passcode</span>
                             </div>
-                            <div className="font-mono font-bold text-base text-white tracking-widest">
+                            <div className="font-mono font-bold text-base text-stone-900 tracking-wider">
                               {videoAccess.passcode}
                             </div>
-                            <div className="text-[10px] text-stone-400">
+                            <div className="text-[11px] text-stone-500">
                               Paste this passcode if prompted on Zoom
                             </div>
                           </div>
 
                           <button
                             onClick={() => handleCopyPasscode(videoAccess.passcode!)}
-                            className="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-semibold text-xs transition-colors flex items-center space-x-1.5 border border-amber-500/40"
+                            className="px-4 py-2 rounded-xl bg-white hover:bg-stone-50 text-stone-800 font-semibold text-xs transition-colors flex items-center space-x-1.5 border border-[#E2D9C7] shadow-sm"
                           >
-                            {copiedPasscode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                            {copiedPasscode ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5 text-stone-600" />}
                             <span>{copiedPasscode ? 'Copied!' : 'Copy Code'}</span>
                           </button>
                         </div>
                       ) : null}
                     </div>
                   ) : (
-                    <div className="py-10 text-center space-y-3">
-                      <div className="w-12 h-12 rounded-full bg-stone-800 flex items-center justify-center mx-auto text-amber-400">
-                        <Clock className="w-6 h-6" />
+                    <div className="py-8 text-center space-y-2.5">
+                      <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mx-auto text-amber-800">
+                        <Clock className="w-5 h-5" />
                       </div>
                       <div className="space-y-1">
-                        <div className="font-bold text-white text-sm">Recording Coming Soon</div>
-                        <p className="text-stone-400 text-xs max-w-md mx-auto">
+                        <div className="font-bold text-stone-900 text-sm">Recording Coming Soon</div>
+                        <p className="text-stone-600 text-xs max-w-md mx-auto">
                           The recording for this fellowship session is currently processing and will be available to all enrolled fellows shortly.
                         </p>
                       </div>
@@ -412,33 +412,33 @@ export default function LessonPlayerModal({
 
                 {/* Faculty & Session Metadata */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="p-4 bg-stone-950 rounded-2xl border border-stone-800 space-y-2">
-                    <div className="text-[10px] uppercase font-mono tracking-wider text-amber-400 font-bold flex items-center space-x-1.5">
-                      <User className="w-3 h-3" />
+                  <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-1.5">
+                    <div className="text-xs text-stone-500 font-medium flex items-center space-x-1.5">
+                      <User className="w-3.5 h-3.5 text-amber-700" />
                       <span>Session Instructor</span>
                     </div>
-                    <div className="font-bold text-white text-sm">{instructor}</div>
-                    <div className="text-stone-400 text-xs">{instructorTitle}</div>
+                    <div className="font-bold text-stone-900 text-sm">{instructor}</div>
+                    <div className="text-stone-600 text-xs">{instructorTitle}</div>
                   </div>
 
-                  <div className="p-4 bg-stone-950 rounded-2xl border border-stone-800 space-y-2">
-                    <div className="text-[10px] uppercase font-mono tracking-wider text-amber-400 font-bold flex items-center space-x-1.5">
-                      <Calendar className="w-3 h-3" />
+                  <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-1.5">
+                    <div className="text-xs text-stone-500 font-medium flex items-center space-x-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-amber-700" />
                       <span>Fellowship Schedule</span>
                     </div>
-                    <div className="font-bold text-white text-sm">{displayPathway}</div>
-                    <div className="text-stone-400 text-xs">
+                    <div className="font-bold text-stone-900 text-sm">{displayPathway}</div>
+                    <div className="text-stone-600 text-xs">
                       {lesson?.month || 'August'} • {lesson?.weekTitle || 'Week 2'}
                     </div>
                   </div>
                 </div>
 
                 {/* Session Description */}
-                <div className="p-5 rounded-2xl bg-stone-950 border border-stone-800 space-y-2">
-                  <h4 className="font-bold text-amber-300 text-xs uppercase tracking-wider">
+                <div className="p-5 rounded-xl bg-white border border-[#EBE4D8] space-y-2">
+                  <h4 className="font-bold text-stone-900 text-xs uppercase tracking-wider">
                     Session Description
                   </h4>
-                  <p className="text-stone-300 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
                     {lesson?.description || 'Foundational introduction to neuroimaging analysis, reproducible pipelines, and hands-on Python computational implementations.'}
                   </p>
                 </div>
@@ -451,17 +451,17 @@ export default function LessonPlayerModal({
               <div className="space-y-6">
                 
                 {/* GitHub Repository Header Banner */}
-                <div className="p-5 rounded-3xl bg-stone-950 border border-stone-800 shadow-xl space-y-4">
+                <div className="p-5 rounded-2xl bg-white border border-[#EBE4D8] space-y-3.5 shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center space-x-3">
-                      <div className="p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                      <div className="p-2.5 rounded-xl bg-amber-100 border border-amber-300 text-amber-800">
                         <GitBranch className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">
+                        <div className="text-xs text-stone-500 font-medium">
                           Central Fellowship Workspace
                         </div>
-                        <div className="text-sm font-bold text-white font-mono flex items-center gap-1.5">
+                        <div className="text-sm font-bold text-stone-900 font-mono flex items-center gap-1.5">
                           <span>{githubRepo}</span>
                         </div>
                       </div>
@@ -471,17 +471,17 @@ export default function LessonPlayerModal({
                       <button
                         onClick={loadMaterials}
                         disabled={loadingMaterials}
-                        className="p-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-400 hover:text-stone-200 border border-stone-800 transition-colors"
+                        className="p-2 rounded-xl bg-white hover:bg-stone-50 text-stone-600 border border-[#E2D9C7] transition-colors"
                         title="Refresh GitHub Directory"
                       >
-                        <RefreshCw className={`w-3.5 h-3.5 ${loadingMaterials ? 'animate-spin text-amber-400' : ''}`} />
+                        <RefreshCw className={`w-3.5 h-3.5 ${loadingMaterials ? 'animate-spin text-amber-700' : ''}`} />
                       </button>
 
                       <a
                         href={`https://github.com/${githubRepo}/tree/main/${githubPath}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs flex items-center space-x-1.5 transition-all shadow-sm"
+                        className="px-3.5 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs flex items-center space-x-1.5 transition-all shadow-sm"
                       >
                         <span>Open in GitHub</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -489,17 +489,17 @@ export default function LessonPlayerModal({
                     </div>
                   </div>
 
-                  <div className="pt-2 border-t border-stone-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-stone-400">
+                  <div className="pt-2.5 border-t border-[#EBE4D8] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-stone-600">
                     <div className="flex items-center space-x-2">
-                      <FolderOpen className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Target Folder: <strong className="text-stone-200">/{githubPath}</strong></span>
+                      <FolderOpen className="w-3.5 h-3.5 text-amber-700" />
+                      <span>Target Folder: <strong className="text-stone-900 font-mono text-xs">/{githubPath}</strong></span>
                     </div>
 
                     <button
                       onClick={handleCopyClone}
-                      className="text-[11px] text-stone-400 hover:text-amber-300 flex items-center space-x-1 bg-stone-900 px-2.5 py-1 rounded-lg border border-stone-800 w-fit"
+                      className="text-xs text-stone-700 hover:text-amber-900 flex items-center space-x-1 bg-[#FAF7F0] px-2.5 py-1 rounded-lg border border-[#E2D9C7] w-fit font-medium"
                     >
-                      <Terminal className="w-3 h-3 text-amber-400" />
+                      <Terminal className="w-3.5 h-3.5 text-amber-700" />
                       <span>{copiedCloneCmd ? 'Copied clone command!' : 'Copy git clone command'}</span>
                     </button>
                   </div>
@@ -507,16 +507,16 @@ export default function LessonPlayerModal({
 
                 {/* Interactive Presentation Deck (Canva / Slides) */}
                 {lesson?.slidesUrl && (
-                  <div className="p-5 rounded-3xl bg-gradient-to-br from-stone-950 via-stone-900 to-amber-950/40 border border-amber-500/30 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 space-y-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-center space-x-2">
-                        <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider border border-amber-500/30">
+                        <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300">
                           Interactive Slides Deck
                         </span>
-                        <span className="text-[11px] text-stone-400">Faculty Presentation</span>
+                        <span className="text-xs text-stone-600">Faculty Presentation</span>
                       </div>
-                      <h4 className="text-base font-bold text-white">Curated Presentation & Keynotes</h4>
-                      <p className="text-xs text-stone-300 max-w-xl leading-relaxed">
+                      <h4 className="text-base font-bold text-stone-900">Curated Presentation & Keynotes</h4>
+                      <p className="text-xs text-stone-600 max-w-xl leading-relaxed">
                         Access high-resolution interactive slide decks, annotated diagrammatic workflows, and mathematical foundations for this session.
                       </p>
                     </div>
@@ -525,7 +525,7 @@ export default function LessonPlayerModal({
                       href={lesson.slidesUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold rounded-2xl text-xs flex items-center space-x-2 shadow-md shadow-amber-900/30 flex-shrink-0"
+                      className="px-4 py-2 bg-amber-800 hover:bg-amber-900 text-white font-bold rounded-xl text-xs flex items-center space-x-2 shadow-sm flex-shrink-0"
                     >
                       <Presentation className="w-4 h-4" />
                       <span>Launch Interactive Slides</span>
@@ -538,13 +538,13 @@ export default function LessonPlayerModal({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   
                   {/* Category 1: Slides & Lecture Assets */}
-                  <div className="p-5 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
+                  <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-3">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <Presentation className="w-4 h-4 text-amber-400" />
+                      <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center space-x-1.5">
+                        <Presentation className="w-4 h-4 text-amber-700" />
                         <span>Lecture Slides & Docs</span>
                       </h4>
-                      <span className="text-[10px] font-mono text-stone-500">
+                      <span className="text-xs text-stone-500 font-medium">
                         {slidesMaterials.length > 0 ? `${slidesMaterials.length} file(s)` : 'Direct Sync'}
                       </span>
                     </div>
@@ -554,11 +554,11 @@ export default function LessonPlayerModal({
                         {slidesMaterials.map((file, fIdx) => (
                           <div
                             key={fIdx}
-                            className="p-3 bg-stone-900 rounded-xl border border-stone-800 flex items-center justify-between gap-3 text-xs"
+                            className="p-3 bg-[#FAF7F0] rounded-xl border border-[#E2D9C7] flex items-center justify-between gap-3 text-xs"
                           >
                             <div className="flex items-center space-x-2.5 min-w-0">
-                              <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                              <span className="text-stone-200 font-medium truncate">{file.name}</span>
+                              <FileText className="w-4 h-4 text-amber-700 flex-shrink-0" />
+                              <span className="text-stone-800 font-medium truncate">{file.name}</span>
                             </div>
                             <div className="flex items-center space-x-1.5 flex-shrink-0">
                               {file.downloadUrl && (
@@ -566,7 +566,7 @@ export default function LessonPlayerModal({
                                   href={file.downloadUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300"
+                                  className="p-1.5 rounded-lg bg-white hover:bg-stone-50 text-stone-700 border border-[#E2D9C7]"
                                   title="Download Raw File"
                                 >
                                   <Download className="w-3.5 h-3.5" />
@@ -576,7 +576,7 @@ export default function LessonPlayerModal({
                                 href={file.htmlUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-2 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-[11px] font-semibold flex items-center space-x-1 border border-amber-500/20"
+                                className="px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold flex items-center space-x-1 border border-amber-300"
                               >
                                 <span>View</span>
                                 <ExternalLink className="w-3 h-3" />
@@ -586,16 +586,16 @@ export default function LessonPlayerModal({
                         ))}
                       </div>
                     ) : (
-                      <div className="p-4 rounded-xl bg-stone-900/60 border border-stone-800/80 text-xs text-stone-400 space-y-1.5">
-                        <div className="font-semibold text-stone-300">GitHub Lecture Folder</div>
-                        <p className="text-[11px] text-stone-400 leading-relaxed">
-                          Files pushed to <code className="text-amber-300">{githubPath}</code> appear here automatically for fellows.
+                      <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-600 space-y-1">
+                        <div className="font-semibold text-stone-900">GitHub Lecture Folder</div>
+                        <p className="text-xs text-stone-600 leading-relaxed">
+                          Files pushed to <code className="text-amber-900 font-mono text-[11px]">/{githubPath}</code> appear here automatically for fellows.
                         </p>
                         <a
                           href={`https://github.com/${githubRepo}/tree/main/${githubPath}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-1 text-[11px] text-amber-400 hover:underline pt-1"
+                          className="inline-flex items-center space-x-1 text-xs text-amber-800 hover:underline pt-1 font-semibold"
                         >
                           <span>Explore lecture files on GitHub</span>
                           <ExternalLink className="w-3 h-3" />
@@ -605,13 +605,13 @@ export default function LessonPlayerModal({
                   </div>
 
                   {/* Category 2: Jupyter Notebooks & Code */}
-                  <div className="p-5 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
+                  <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-3">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-bold text-sky-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <FileCode2 className="w-4 h-4 text-sky-400" />
+                      <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center space-x-1.5">
+                        <FileCode2 className="w-4 h-4 text-emerald-700" />
                         <span>Code & Notebooks</span>
                       </h4>
-                      <span className="text-[10px] font-mono text-stone-500">
+                      <span className="text-xs text-stone-500 font-medium">
                         {codeMaterials.length > 0 ? `${codeMaterials.length} file(s)` : 'Colab Ready'}
                       </span>
                     </div>
@@ -624,11 +624,11 @@ export default function LessonPlayerModal({
                           return (
                             <div
                               key={fIdx}
-                              className="p-3 bg-stone-900 rounded-xl border border-stone-800 flex items-center justify-between gap-3 text-xs"
+                              className="p-3 bg-[#FAF7F0] rounded-xl border border-[#E2D9C7] flex items-center justify-between gap-3 text-xs"
                             >
                               <div className="flex items-center space-x-2.5 min-w-0">
-                                <Code2 className="w-4 h-4 text-sky-400 flex-shrink-0" />
-                                <span className="text-stone-200 font-medium truncate">{file.name}</span>
+                                <Code2 className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+                                <span className="text-stone-800 font-medium truncate">{file.name}</span>
                               </div>
                               <div className="flex items-center space-x-1.5 flex-shrink-0">
                                 {isNotebook && (
@@ -636,7 +636,7 @@ export default function LessonPlayerModal({
                                     href={colabLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-2 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 text-[11px] font-semibold flex items-center space-x-1 border border-sky-500/20"
+                                    className="px-2.5 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-900 text-xs font-bold flex items-center space-x-1 border border-emerald-300"
                                   >
                                     <span>Colab</span>
                                     <ExternalLink className="w-3 h-3" />
@@ -646,7 +646,7 @@ export default function LessonPlayerModal({
                                   href={file.htmlUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300"
+                                  className="p-1.5 rounded-lg bg-white hover:bg-stone-50 text-stone-700 border border-[#E2D9C7]"
                                   title="View on GitHub"
                                 >
                                   <ExternalLink className="w-3.5 h-3.5" />
@@ -657,16 +657,16 @@ export default function LessonPlayerModal({
                         })}
                       </div>
                     ) : (
-                      <div className="p-4 rounded-xl bg-stone-900/60 border border-stone-800/80 text-xs text-stone-400 space-y-1.5">
-                        <div className="font-semibold text-stone-300">Executable Python Notebooks</div>
-                        <p className="text-[11px] text-stone-400 leading-relaxed">
+                      <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-600 space-y-1">
+                        <div className="font-semibold text-stone-900">Executable Python Notebooks</div>
+                        <p className="text-xs text-stone-600 leading-relaxed">
                           Interactive pipelines and scripts for this module are hosted in the cohort GitHub repository.
                         </p>
                         <a
                           href={lesson?.colabUrl || "https://colab.research.google.com/"}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-1 text-[11px] text-sky-400 hover:underline pt-1"
+                          className="inline-flex items-center space-x-1 text-xs text-amber-800 hover:underline pt-1 font-semibold"
                         >
                           <span>Launch Google Colab workspace</span>
                           <ExternalLink className="w-3 h-3" />
@@ -678,16 +678,16 @@ export default function LessonPlayerModal({
                 </div>
 
                 {/* Practical Weekly Assignment Banner */}
-                <div className="p-6 rounded-3xl bg-gradient-to-r from-stone-950 via-stone-900 to-amber-950/30 border border-amber-900/40 shadow-xl space-y-4">
+                <div className="p-5 rounded-2xl bg-white border border-[#EBE4D8] space-y-3.5 shadow-sm">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <div className="flex items-center space-x-2 text-[10px] font-bold text-amber-400 uppercase tracking-wider font-mono">
-                        <Award className="w-3.5 h-3.5" />
+                      <div className="flex items-center space-x-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
+                        <Award className="w-3.5 h-3.5 text-amber-700" />
                         <span>Weekly Fellowship Assignment</span>
                       </div>
-                      <h4 className="text-base font-bold text-white">Hands-on Modality Task & Submission</h4>
-                      <p className="text-xs text-stone-300 max-w-xl leading-relaxed">
-                        Complete this week's analysis notebook and submit your work to your assigned participant folder in GitHub: <code className="text-amber-300">participants/your_name/{lesson?.modality ? lesson.modality.toLowerCase().replace('/', '_') : 'modality'}/week_0{lesson?.weekNumber || 2}</code>.
+                      <h4 className="text-base font-bold text-stone-900">Hands-on Modality Task & Submission</h4>
+                      <p className="text-xs text-stone-600 max-w-xl leading-relaxed">
+                        Complete this week's analysis notebook and submit your work to your assigned participant folder in GitHub: <code className="text-amber-900 font-mono text-[11px]">participants/your_name/{lesson?.modality ? lesson.modality.toLowerCase().replace('/', '_') : 'modality'}/week_0{lesson?.weekNumber || 2}</code>.
                       </p>
                     </div>
 
@@ -695,7 +695,7 @@ export default function LessonPlayerModal({
                       href={`https://github.com/${githubRepo}/tree/main/${assignmentPath}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-3 rounded-2xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center justify-center space-x-2 shadow-lg shadow-amber-950/50 flex-shrink-0 transition-all"
+                      className="px-4 py-2.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs flex items-center justify-center space-x-2 shadow-sm flex-shrink-0 transition-all"
                     >
                       <span>Open Assignment on GitHub</span>
                       <ExternalLink className="w-4 h-4" />
@@ -703,17 +703,17 @@ export default function LessonPlayerModal({
                   </div>
 
                   {/* Submission Steps Helper */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-stone-800/80 text-[11px]">
-                    <div className="p-2.5 rounded-xl bg-stone-950/60 border border-stone-800 flex items-center space-x-2 text-stone-300">
-                      <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-bold flex items-center justify-center text-[10px]">1</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-[#EBE4D8] text-xs">
+                    <div className="p-2.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center space-x-2 text-stone-700">
+                      <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center justify-center text-[10px]">1</span>
                       <span>Read weekly instructions</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-stone-950/60 border border-stone-800 flex items-center space-x-2 text-stone-300">
-                      <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-bold flex items-center justify-center text-[10px]">2</span>
+                    <div className="p-2.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center space-x-2 text-stone-700">
+                      <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center justify-center text-[10px]">2</span>
                       <span>Run notebook in Colab / local</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-stone-950/60 border border-stone-800 flex items-center space-x-2 text-stone-300">
-                      <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 font-bold flex items-center justify-center text-[10px]">3</span>
+                    <div className="p-2.5 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center space-x-2 text-stone-700">
+                      <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center justify-center text-[10px]">3</span>
                       <span>Push PR to cohort repository</span>
                     </div>
                   </div>
@@ -726,26 +726,26 @@ export default function LessonPlayerModal({
             {activeTab === 'notebook' && (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-stone-400">
-                    Dataset: <strong className="text-white">{lesson?.datasetName || 'ABDN African Cohort Preprocessing Workspace'}</strong>
+                  <span className="text-xs text-stone-600 font-medium">
+                    Dataset: <strong className="text-stone-900">{lesson?.datasetName || 'ABDN African Cohort Preprocessing Workspace'}</strong>
                   </span>
                   <a
                     href={lesson?.colabUrl || "https://colab.research.google.com/"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs flex items-center space-x-1.5 shadow-sm"
+                    className="px-3.5 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs flex items-center space-x-1.5 shadow-sm"
                   >
                     <span>Launch in Colab</span>
-                    <ExternalLink className="w-3 h-3" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-stone-950 border border-stone-800 font-mono text-stone-300 space-y-3">
-                  <div className="flex items-center justify-between text-stone-500 border-b border-stone-800/80 pb-2 text-xs">
+                <div className="p-4 rounded-xl bg-stone-950 border border-stone-800 font-mono text-stone-200 space-y-3">
+                  <div className="flex items-center justify-between text-stone-400 border-b border-stone-800 pb-2 text-xs">
                     <span>In [1]: import nibabel as nib; import nilearn as nl; import mne</span>
-                    <span className="text-[10px] text-emerald-400">Python 3.10 · GPU Runtime</span>
+                    <span className="text-emerald-400 font-semibold text-[11px]">Python 3.10 · GPU Runtime</span>
                   </div>
-                  <pre className="text-amber-300/90 text-xs overflow-x-auto whitespace-pre-wrap">
+                  <pre className="text-amber-300 text-xs overflow-x-auto whitespace-pre-wrap">
 {lesson?.labCodeSnippet || `# ABDN Fellowship Session Code Lab
 # Content ID: ${contentId}
 import os
@@ -765,9 +765,9 @@ verify_pipeline()`}
                   </pre>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-stone-800/60 border border-stone-700/60 space-y-2">
-                  <h4 className="font-bold text-amber-300 text-sm">Lab Objectives</h4>
-                  <ul className="list-disc list-inside space-y-1 text-stone-300 text-xs leading-relaxed">
+                <div className="p-4 rounded-xl bg-white border border-[#EBE4D8] space-y-2">
+                  <h4 className="font-bold text-stone-900 text-sm">Lab Objectives</h4>
+                  <ul className="list-disc list-inside space-y-1 text-stone-600 text-xs leading-relaxed">
                     {lesson?.labObjectives && lesson.labObjectives.length > 0 ? (
                       lesson.labObjectives.map((obj, oIdx) => (
                         <li key={oIdx}>{obj}</li>
@@ -786,18 +786,18 @@ verify_pipeline()`}
 
             {/* TAB 4: SESSION NOTES & TOPICS */}
             {activeTab === 'notes' && (
-              <div className="space-y-5 text-stone-300 leading-relaxed">
-                <div className="space-y-2">
-                  <h4 className="font-bold text-white text-base">{displayTitle}</h4>
-                  <p className="text-xs text-stone-400">
+              <div className="space-y-5 text-stone-700 leading-relaxed">
+                <div className="space-y-1">
+                  <h4 className="font-bold text-stone-900 text-base">{displayTitle}</h4>
+                  <p className="text-xs text-stone-600">
                     Comprehensive study notes, reference readings, and key theoretical takeaways.
                   </p>
                 </div>
 
                 {lesson?.studyNotes ? (
-                  <div className="p-4 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
-                    <h5 className="font-bold text-amber-300 text-xs uppercase tracking-wider">Faculty Study Notes</h5>
-                    <div className="text-xs text-stone-300 leading-relaxed whitespace-pre-wrap font-sans">
+                  <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-2.5">
+                    <h5 className="font-bold text-amber-900 text-xs uppercase tracking-wider">Faculty Study Notes</h5>
+                    <div className="text-xs text-stone-700 leading-relaxed whitespace-pre-wrap font-sans">
                       {lesson.studyNotes}
                     </div>
                   </div>
@@ -805,14 +805,14 @@ verify_pipeline()`}
 
                 {topics && topics.length > 0 && (
                   <div className="space-y-2">
-                    <span className="text-[10px] font-mono uppercase text-amber-400 font-bold">
+                    <span className="text-xs font-bold text-stone-700">
                       Key Topics Covered:
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {topics.map((t, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 rounded-xl bg-stone-950 border border-stone-800 text-xs text-stone-300 font-medium"
+                          className="px-3 py-1 rounded-xl bg-white border border-[#E2D9C7] text-xs text-stone-800 font-semibold"
                         >
                           {t}
                         </span>
@@ -821,9 +821,9 @@ verify_pipeline()`}
                   </div>
                 )}
 
-                <div className="p-4 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
-                  <h5 className="font-bold text-stone-200 text-sm">Recommended Next Steps</h5>
-                  <ul className="list-disc list-inside space-y-1.5 text-xs text-stone-400">
+                <div className="p-4 bg-white rounded-xl border border-[#EBE4D8] space-y-2.5">
+                  <h5 className="font-bold text-stone-900 text-sm">Recommended Next Steps</h5>
+                  <ul className="list-disc list-inside space-y-1.5 text-xs text-stone-600">
                     <li>Review the Jupyter notebook and run the pipeline on your sample subject.</li>
                     <li>Participate in the fellow discussion channel for questions regarding artifact rejection.</li>
                     <li>Submit your lab checkpoint report once all cells execute cleanly.</li>
@@ -835,9 +835,9 @@ verify_pipeline()`}
           </div>
 
           {/* Bottom Footer Actions */}
-          <div className="p-4 bg-stone-950 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center space-x-2 text-xs text-stone-400">
-              <CheckCircle2 className={`w-4 h-4 ${isCompleted ? 'text-emerald-400' : 'text-stone-600'}`} />
+          <div className="p-4 bg-white border-t border-[#EBE4D8] flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center space-x-2 text-xs text-stone-600">
+              <CheckCircle2 className={`w-4 h-4 ${isCompleted ? 'text-emerald-700' : 'text-stone-400'}`} />
               <span>{isCompleted ? 'Session marked completed' : 'Status: In Progress'}</span>
             </div>
 
@@ -845,7 +845,7 @@ verify_pipeline()`}
               {!isCompleted ? (
                 <button
                   onClick={handleMarkComplete}
-                  className="flex-1 sm:flex-initial py-2.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2"
+                  className="flex-1 sm:flex-initial py-2.5 px-5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center space-x-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Mark Session Complete</span>
@@ -853,7 +853,7 @@ verify_pipeline()`}
               ) : (
                 <button
                   onClick={onClose}
-                  className="flex-1 sm:flex-initial py-2.5 px-5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center space-x-2"
+                  className="flex-1 sm:flex-initial py-2.5 px-5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center space-x-2"
                 >
                   <span>Close Viewer</span>
                 </button>
