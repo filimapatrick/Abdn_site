@@ -792,160 +792,159 @@ export default function Learning() {
                     </div>
                   </div>
                 </motion.div>
-
               </div>
             </div>
           </section>
 
-
-
           {/* ========================================================================= */}
-          {/* 3. CURRICULUM HUB (PATHWAYS & FELLOWSHIP PROGRAMS) */}
+          {/* 3. CURRICULUM HUB (PATHWAYS & FELLOWSHIP PROGRAMS) - COMMENTED OUT */}
           {/* ========================================================================= */}
-          <section id="pathways" className="py-20 bg-stone-50 border-b border-stone-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {false && (
+            <section id="pathways" className="py-20 bg-stone-50 border-b border-stone-200">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              {/* Main Tab Switcher Header */}
-              <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                  Choose Your Learning Path
-                </h2>
-                <p className="text-base text-stone-600">
-                  Select a structured modality pathway to explore curriculum modules, datasets, and computational tools.
-                </p>
+                {/* Main Tab Switcher Header */}
+                <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 space-y-3">
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                    Choose Your Learning Path
+                  </h2>
+                  <p className="text-base text-stone-600">
+                    Select a structured modality pathway to explore curriculum modules, datasets, and computational tools.
+                  </p>
 
-                {/* Primary Category Switcher: Modality Pathways vs Featured Programs */}
-                <div className="inline-flex items-center p-1.5 bg-stone-200/80 rounded-2xl border border-stone-300 shadow-inner mt-2">
-                  <button
-                    onClick={() => setCurriculumTab('pathways')}
-                    className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${curriculumTab === 'pathways'
-                        ? 'bg-amber-800 text-white shadow-md'
-                        : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
-                      }`}
-                  >
-                    <Brain className="w-4 h-4" />
-                    <span>Modality Pathways ({pathwaysData.length})</span>
-                  </button>
-                  <button
-                    disabled
-                    title="Featured Programs navigation disabled"
-                    className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 text-stone-400 opacity-60 cursor-not-allowed"
-                  >
-                    <Sparkles className="w-4 h-4 text-amber-600" />
-                    <span>Featured Programs ({featuredPrograms.length})</span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-300/80 text-stone-600 font-semibold uppercase tracking-wider">Soon</span>
-                  </button>
+                  {/* Primary Category Switcher: Modality Pathways vs Featured Programs */}
+                  <div className="inline-flex items-center p-1.5 bg-stone-200/80 rounded-2xl border border-stone-300 shadow-inner mt-2">
+                    <button
+                      onClick={() => setCurriculumTab('pathways')}
+                      className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 ${curriculumTab === 'pathways'
+                          ? 'bg-amber-800 text-white shadow-md'
+                          : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
+                        }`}
+                    >
+                      <Brain className="w-4 h-4" />
+                      <span>Modality Pathways ({pathwaysData.length})</span>
+                    </button>
+                    <button
+                      disabled
+                      title="Featured Programs navigation disabled"
+                      className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-2 text-stone-400 opacity-60 cursor-not-allowed"
+                    >
+                      <Sparkles className="w-4 h-4 text-amber-600" />
+                      <span>Featured Programs ({featuredPrograms.length})</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-300/80 text-stone-600 font-semibold uppercase tracking-wider">Soon</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {/* TAB 1: MODALITY PATHWAYS */}
-              {curriculumTab === 'pathways' && (
-                <div>
-                  {/* Pathways Grid: 4 items on a row for lg screens */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    {pathwaysData.map((pathway) => (
-                      <motion.div
-                        key={pathway.id}
-                        whileHover={{ y: -5 }}
-                        transition={{ duration: 0.2 }}
-                        className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between group"
-                      >
-                        <div>
-                          {/* Top Header Row */}
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="p-2.5 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-105 transition-transform flex-shrink-0 flex items-center justify-center">
-                              {pathway.icon}
+                {/* TAB 1: MODALITY PATHWAYS */}
+                {curriculumTab === 'pathways' && (
+                  <div>
+                    {/* Pathways Grid: 4 items on a row for lg screens */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                      {pathwaysData.map((pathway) => (
+                        <motion.div
+                          key={pathway.id}
+                          whileHover={{ y: -5 }}
+                          transition={{ duration: 0.2 }}
+                          className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between group"
+                        >
+                          <div>
+                            {/* Top Header Row */}
+                            <div className="flex items-start justify-between mb-4">
+                              <div className="p-2.5 bg-amber-50 rounded-2xl border border-amber-100 group-hover:scale-105 transition-transform flex-shrink-0 flex items-center justify-center">
+                                {pathway.icon}
+                              </div>
+                              <div className="flex flex-col items-end space-y-1 text-right pl-2">
+                                <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold uppercase tracking-wider leading-none">
+                                  {pathway.category}
+                                </span>
+                                <span className="text-[10px] text-stone-500 font-medium mt-0.5">
+                                  {pathway.duration}
+                                </span>
+                              </div>
                             </div>
-                            <div className="flex flex-col items-end space-y-1 text-right pl-2">
-                              <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold uppercase tracking-wider leading-none">
-                                {pathway.category}
-                              </span>
-                              <span className="text-[10px] text-stone-500 font-medium mt-0.5">
-                                {pathway.duration}
-                              </span>
-                            </div>
+
+                            {/* Title & Tagline */}
+                            <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
+                              {pathway.name}
+                            </h3>
+                            <p className="text-xs text-stone-600 leading-relaxed mb-2">
+                              {pathway.tagline}
+                            </p>
                           </div>
 
-                          {/* Title & Tagline */}
-                          <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-1.5 group-hover:text-amber-700 transition-colors leading-snug">
-                            {pathway.name}
+                          {/* Footer Action */}
+                          <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
+                            <span className="text-[11px] font-semibold text-amber-800">
+                              {pathway.level}
+                            </span>
+                            <button
+                              onClick={() => setActivePathwayModal(pathway)}
+                              className="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-[11px] transition-all flex items-center space-x-1 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
+                            >
+                              <span>Explore Path</span>
+                              <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 2: FELLOWSHIP PROGRAMS */}
+                {curriculumTab === 'programs' && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {featuredPrograms.map((prog, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ y: -4 }}
+                        transition={{ duration: 0.2 }}
+                        className="p-8 rounded-3xl bg-white border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+                      >
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between">
+                            <span className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${prog.badgeColor}`}>
+                              {prog.badge}
+                            </span>
+                            <Sparkles className="w-5 h-5 text-amber-600" />
+                          </div>
+
+                          <h3 className="text-2xl font-bold text-stone-900">
+                            {prog.title}
                           </h3>
-                          <p className="text-xs text-stone-600 leading-relaxed mb-2">
-                            {pathway.tagline}
+
+                          <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
+                            {prog.description}
                           </p>
+
+                          <div className="pt-2 space-y-2">
+                            {prog.features.map((feat, fIdx) => (
+                              <div key={fIdx} className="flex items-center space-x-2 text-xs text-stone-700">
+                                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                                <span>{feat}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        {/* Footer Action */}
-                        <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
-                          <span className="text-[11px] font-semibold text-amber-800">
-                            {pathway.level}
-                          </span>
+                        <div className="pt-8 mt-6 border-t border-stone-200/80 flex items-center justify-between">
                           <button
-                            onClick={() => setActivePathwayModal(pathway)}
-                            className="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-600 text-amber-900 hover:text-white font-semibold text-[11px] transition-all flex items-center space-x-1 group-hover:bg-amber-600 group-hover:text-white shadow-sm"
+                            onClick={() => openAuth('signup', prog.pathwayRef)}
+                            className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold text-sm shadow-md shadow-amber-700/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2"
                           >
-                            <span>Explore Path</span>
-                            <ChevronRight className="w-3.5 h-3.5" />
+                            <span>{prog.actionText}</span>
+                            <ArrowRight className="w-4 h-4" />
                           </button>
                         </div>
                       </motion.div>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* TAB 2: FELLOWSHIP PROGRAMS */}
-              {curriculumTab === 'programs' && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {featuredPrograms.map((prog, idx) => (
-                    <motion.div
-                      key={idx}
-                      whileHover={{ y: -4 }}
-                      transition={{ duration: 0.2 }}
-                      className="p-8 rounded-3xl bg-white border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
-                    >
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <span className={`px-3 py-1 rounded-full text-xs uppercase tracking-wider ${prog.badgeColor}`}>
-                            {prog.badge}
-                          </span>
-                          <Sparkles className="w-5 h-5 text-amber-600" />
-                        </div>
-
-                        <h3 className="text-2xl font-bold text-stone-900">
-                          {prog.title}
-                        </h3>
-
-                        <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                          {prog.description}
-                        </p>
-
-                        <div className="pt-2 space-y-2">
-                          {prog.features.map((feat, fIdx) => (
-                            <div key={fIdx} className="flex items-center space-x-2 text-xs text-stone-700">
-                              <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                              <span>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-8 mt-6 border-t border-stone-200/80 flex items-center justify-between">
-                        <button
-                          onClick={() => openAuth('signup', prog.pathwayRef)}
-                          className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold text-sm shadow-md shadow-amber-700/20 hover:shadow-lg transition-all flex items-center justify-center space-x-2"
-                        >
-                          <span>{prog.actionText}</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-
-            </div>
-          </section>
+              </div>
+            </section>
+          )}
 
           {/* ========================================================================= */}
           {/* 3B. 2026 FELLOWSHIP TEACHING ASSISTANTS SHOWCASE */}

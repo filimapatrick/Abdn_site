@@ -37,8 +37,15 @@ export default function Onboarding() {
 
   // Selected modalities (1 track for fellows, multi-select for superadmin)
   const [selectedModalities, setSelectedModalities] = useState<string[]>([
-    'Structural MRI Analysis',
+    userProfile?.selectedPathway || 'Structural MRI Analysis',
   ]);
+
+  // Sync with user's assigned modality if already set by whitelist
+  React.useEffect(() => {
+    if (userProfile?.selectedPathway) {
+      setSelectedModalities([userProfile.selectedPathway]);
+    }
+  }, [userProfile?.selectedPathway]);
 
   // "Not sure yet" state
   const [isUndecided, setIsUndecided] = useState(false);

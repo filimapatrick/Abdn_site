@@ -21,6 +21,59 @@ import {
 } from '../config/approvedEmails';
 
 /**
+ * Details of an approved fellow from the Firestore `approved_fellows` whitelist
+ */
+export interface ApprovedFellowData {
+  email: string;
+  displayName?: string;
+  role?: string;
+  assignedModality?: string;
+  gender?: string;
+  institution?: string;
+  country?: string;
+  cohortYear?: string;
+  program?: string;
+  active?: boolean;
+}
+
+export interface WhitelistVerificationResult {
+  approved: boolean;
+  role?: string;
+  data?: ApprovedFellowData;
+}
+
+/**
+ * Maps raw or shorthand modality strings to formal ABDN Learning Pathway names
+ */
+export function mapModalityToPathwayName(modality?: string | null): string {
+  if (!modality) return 'Structural MRI Analysis';
+  const m = modality.trim().toLowerCase();
+  if (m.includes('mri') || m.includes('fmri')) {
+    return 'Structural MRI Analysis';
+  }
+  if (m.includes('eeg')) {
+    return 'EEG Data Science';
+  }
+  if (m.includes('fnirs') || m.includes('optical')) {
+    return 'fNIRS Optical Neuroimaging';
+  }
+  if (m.includes('electro') || m.includes('lfp') || m.includes('spike')) {
+    return 'Electrophysiological Dynamics';
+  }
+  return modality;
+}
+
+/**
+ * Utility helper to ensure Firestore promises never hang indefinitely
+ */
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number = 3500, fallback: T): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((resolve) => setTimeout(() => resolve(fallback), timeoutMs)),
+  ]);
+}
+
+/**
  * Checks whether an email is approved for ABDN Fellowship platform access.
  * Checks against:
  * 1. Superadmin whitelist
@@ -29,20 +82,32 @@ import {
  */
 export async function isEmailApprovedFellow(
   email: string | null | undefined
-): Promise<{ approved: boolean; role?: string }> {
+): Promise<WhitelistVerificationResult> {
   const normalized = normalizeEmail(email);
   if (!normalized) return { approved: false };
 
   // 1. Primary Dynamic check in Firestore `approved_fellows` collection (doc ID = normalized email)
   try {
     const docRef = doc(db, "approved_fellows", normalized);
-    const snap = await getDoc(docRef);
-    if (snap.exists()) {
-      const data = snap.data();
+    const snap = await withTimeout(getDoc(docRef), 3500, null as any);
+    if (snap && snap.exists()) {
+      const data = snap.data() as ApprovedFellowData;
       if (data?.active !== false) {
         const rawRole = (data?.role || "fellow").toLowerCase();
         const isSuper = rawRole.includes("admin") || rawRole === "superadmin";
-        return { approved: true, role: isSuper ? "superadmin" : (data?.role || "fellow") };
+        const role = isSuper ? "superadmin" : (data?.role || "fellow");
+        return {
+          approved: true,
+          role,
+          data: {
+            ...data,
+            email: normalized,
+            role,
+            assignedModality: data.assignedModality || 'MRI/fMRI',
+            cohortYear: data.cohortYear || '2026',
+            program: data.program || 'ABDN Fellowship',
+          },
+        };
       }
     }
   } catch (err) {
@@ -51,7 +116,17 @@ export async function isEmailApprovedFellow(
 
   // 2. Fallback check for static Superadmins
   if (isSuperadminEmail(normalized)) {
-    return { approved: true, role: "superadmin" };
+    return {
+      approved: true,
+      role: "superadmin",
+      data: {
+        email: normalized,
+        role: "superadmin",
+        assignedModality: "MRI/fMRI",
+        cohortYear: "2026",
+        program: "ABDN Fellowship",
+      },
+    };
   }
 
   return { approved: false };
@@ -73,6 +148,10 @@ export interface ElearningUser {
   photoURL?: string | null;
   role: string;
   selectedPathway?: string | null;
+  assignedModality?: string | null;
+  gender?: string;
+  cohortYear?: string;
+  program?: string;
   enrolledPathways: EnrolledPathway[];
   completedExercises: string[];
   certificates: string[];
@@ -103,7 +182,6 @@ async function writeUserDocDual(uid: string, data: any, merge: boolean = true) {
 
   try {
     const backupRef = doc(db, BACKUP_USERS_COLLECTION, uid);
-    // Ensure role field exists on users collection doc (default to 'user' if not specified)
     const backupData = {
       role: 'user',
       ...data,
@@ -116,6 +194,7 @@ async function writeUserDocDual(uid: string, data: any, merge: boolean = true) {
 
 /**
  * Creates or updates the user profile document in the `elearning_users` and `users` collections.
+ * Automatically assigns whitelisted modality and completes onboarding when assignedModality is present.
  */
 export async function syncElearningUserDocument(
   user: FirebaseUser,
@@ -123,6 +202,12 @@ export async function syncElearningUserDocument(
     displayName?: string;
     role?: string;
     selectedPathway?: string | null;
+    assignedModality?: string | null;
+    gender?: string;
+    cohortYear?: string;
+    program?: string;
+    institution?: string;
+    country?: string;
     authProvider?: 'password' | 'google.com';
   }
 ): Promise<ElearningUser> {
@@ -138,12 +223,16 @@ export async function syncElearningUserDocument(
     }
   }
 
-  const initialPathway = extraData?.selectedPathway;
-  const initialEnrolled: EnrolledPathway[] = initialPathway
+  // Derive initial assigned pathway from assignedModality or selectedPathway
+  const effectivePathway =
+    extraData?.selectedPathway ||
+    (extraData?.assignedModality ? mapModalityToPathwayName(extraData.assignedModality) : 'Structural MRI Analysis');
+
+  const initialEnrolled: EnrolledPathway[] = effectivePathway
     ? [
         {
-          pathwayId: initialPathway.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-          pathwayName: initialPathway,
+          pathwayId: effectivePathway.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          pathwayName: effectivePathway,
           enrolledAt: new Date().toISOString(),
           progress: 0,
           currentLevel: 'Level 1: Foundations',
@@ -153,19 +242,26 @@ export async function syncElearningUserDocument(
     : [];
 
   if (!userSnapshot.exists()) {
-    // New user in Firestore
+    // New user in Firestore - automatically mark onboarding complete if assigned by whitelist
+    const hasAssignedCohort = Boolean(extraData?.assignedModality || extraData?.selectedPathway);
     const newUserData: ElearningUser = {
       uid: user.uid,
       email: user.email,
       displayName: extraData?.displayName || user.displayName || 'ABDN Scholar',
       photoURL: user.photoURL || null,
-      role: extraData?.role || 'researcher',
-      selectedPathway: initialPathway || null,
+      role: extraData?.role || 'fellow',
+      selectedPathway: effectivePathway,
+      assignedModality: extraData?.assignedModality || null,
+      gender: extraData?.gender || '',
+      cohortYear: extraData?.cohortYear || '2026',
+      program: extraData?.program || 'ABDN Fellowship',
+      institution: extraData?.institution || '',
+      country: extraData?.country || '',
       enrolledPathways: initialEnrolled,
       completedExercises: [],
       certificates: [],
       authProvider: extraData?.authProvider || (user.providerData[0]?.providerId === 'google.com' ? 'google.com' : 'password'),
-      onboardingCompleted: false,
+      onboardingCompleted: hasAssignedCohort,
       createdAt: serverTimestamp(),
       lastLoginAt: serverTimestamp(),
     };
@@ -173,7 +269,7 @@ export async function syncElearningUserDocument(
     await writeUserDocDual(user.uid, newUserData, true);
     return newUserData;
   } else {
-    // Existing user: update last login and optionally add pathway if specified
+    // Existing user: update last login and ensure assigned modality is enrolled
     const existingData = userSnapshot.data() as ElearningUser;
     const updates: Partial<ElearningUser> & { lastLoginAt: any } = {
       lastLoginAt: serverTimestamp(),
@@ -183,31 +279,56 @@ export async function syncElearningUserDocument(
       updates.displayName = extraData.displayName;
     }
 
-    if (initialPathway) {
+    if (extraData?.institution && !existingData.institution) {
+      updates.institution = extraData.institution;
+    }
+
+    if (extraData?.country && !existingData.country) {
+      updates.country = extraData.country;
+    }
+
+    if (extraData?.gender && !existingData.gender) {
+      updates.gender = extraData.gender;
+    }
+
+    if (extraData?.assignedModality && !existingData.assignedModality) {
+      updates.assignedModality = extraData.assignedModality;
+    }
+
+    if (extraData?.role && existingData.role !== extraData.role) {
+      updates.role = extraData.role;
+    }
+
+    if (effectivePathway) {
       const alreadyEnrolled = existingData.enrolledPathways?.some(
-        (p) => p.pathwayName.toLowerCase() === initialPathway.toLowerCase()
+        (p) => p.pathwayName.toLowerCase() === effectivePathway.toLowerCase()
       );
       if (!alreadyEnrolled) {
         const newEntry: EnrolledPathway = {
-          pathwayId: initialPathway.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-          pathwayName: initialPathway,
+          pathwayId: effectivePathway.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          pathwayName: effectivePathway,
           enrolledAt: new Date().toISOString(),
           progress: 0,
           currentLevel: 'Level 1: Foundations',
           completedLessons: [],
         };
         const updatedEnrolled = [...(existingData.enrolledPathways || []), newEntry];
+        updates.enrolledPathways = updatedEnrolled;
+        updates.selectedPathway = effectivePathway;
+        updates.onboardingCompleted = true;
+
         await writeUserDocDual(user.uid, {
           ...updates,
           enrolledPathways: updatedEnrolled,
-          selectedPathway: initialPathway,
+          selectedPathway: effectivePathway,
         }, true);
 
         return {
           ...existingData,
           ...updates,
-          selectedPathway: initialPathway,
+          selectedPathway: effectivePathway,
           enrolledPathways: updatedEnrolled,
+          onboardingCompleted: true,
         };
       }
     }
@@ -218,6 +339,57 @@ export async function syncElearningUserDocument(
 }
 
 /**
+ * Payload for submitting a self-service cohort join request
+ */
+export interface CohortJoinRequestPayload {
+  email: string;
+  displayName?: string;
+  gender?: string;
+  country?: string;
+  institution?: string;
+  requestedPathway: string;
+  experienceLevel?: string;
+  learningGoals?: string[];
+  notes?: string;
+}
+
+/**
+ * Submits a new cohort join request into Firestore `cohort_join_requests` collection
+ */
+export async function submitCohortJoinRequest(
+  payload: CohortJoinRequestPayload
+): Promise<string> {
+  const normalized = normalizeEmail(payload.email);
+  if (!normalized) throw new Error("A valid email address is required.");
+
+  const docId = normalized.replace(/[^a-z0-9]/gi, '_');
+  const docRef = doc(db, 'cohort_join_requests', docId);
+
+  const requestData = {
+    id: docId,
+    email: normalized,
+    displayName: payload.displayName || '',
+    gender: payload.gender || '',
+    country: payload.country || '',
+    institution: payload.institution || '',
+    requestedPathway: payload.requestedPathway || 'Structural MRI Analysis',
+    experienceLevel: payload.experienceLevel || 'beginner',
+    learningGoals: payload.learningGoals || [],
+    notes: payload.notes || '',
+    status: 'pending',
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  };
+
+  try {
+    await withTimeout(setDoc(docRef, requestData, { merge: true }), 3500, undefined);
+  } catch (err) {
+    console.warn('Firestore submitCohortJoinRequest warning:', err);
+  }
+  return docId;
+}
+
+/**
  * Register a new user with Email and Password
  */
 export async function signUpWithEmail(
@@ -225,14 +397,26 @@ export async function signUpWithEmail(
   password: string,
   fullName: string,
   role: string = 'researcher',
-  selectedPathway: string | null = null
-): Promise<{ user: FirebaseUser; profile: ElearningUser }> {
+  selectedPathway: string | null = null,
+  institution: string = '',
+  country: string = ''
+): Promise<{ user: FirebaseUser | null; profile: ElearningUser | null; isUnderReview?: boolean; pendingEmail?: string }> {
   // 0. Verify fellowship email eligibility before creation
   const verification = await isEmailApprovedFellow(email);
   if (!verification.approved) {
-    throw new Error(
-      `Access Restricted: The email address (${email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
-    );
+    // Submit join request so superadmin receives it in Abdn_dashboard
+    try {
+      await submitCohortJoinRequest({
+        email,
+        displayName: fullName,
+        requestedPathway: selectedPathway || 'Structural MRI Analysis',
+        institution,
+        country,
+      });
+    } catch (e) {
+      console.warn('Could not record pending join request:', e);
+    }
+    return { user: null, profile: null, isUnderReview: true, pendingEmail: email };
   }
 
   // 1. Create auth user
@@ -244,15 +428,23 @@ export async function signUpWithEmail(
     await updateProfile(user, { displayName: fullName });
   }
 
-  // 3. Create document in `elearning_users` collection
+  // 3. Create document in `elearning_users` collection with auto-assigned pathway
+  const assignedModality = verification.data?.assignedModality;
+  const targetPathway = selectedPathway || (assignedModality ? mapModalityToPathwayName(assignedModality) : 'Structural MRI Analysis');
+
   const profile = await syncElearningUserDocument(user, {
-    displayName: fullName,
+    displayName: fullName || verification.data?.displayName,
     role: verification.role || role,
-    selectedPathway,
+    selectedPathway: targetPathway,
+    assignedModality: assignedModality,
+    cohortYear: verification.data?.cohortYear,
+    program: verification.data?.program,
+    institution: verification.data?.institution || institution,
+    country: verification.data?.country || country,
     authProvider: 'password',
   });
 
-  return { user, profile };
+  return { user, profile, isUnderReview: false };
 }
 
 /**
@@ -261,25 +453,45 @@ export async function signUpWithEmail(
 export async function signInWithEmail(
   email: string,
   password: string
-): Promise<{ user: FirebaseUser; profile: ElearningUser }> {
+): Promise<{ user: FirebaseUser | null; profile: ElearningUser | null; isUnderReview?: boolean; pendingEmail?: string }> {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
+  const userEmail = user.email || email;
 
   // Verify fellowship email eligibility
-  const verification = await isEmailApprovedFellow(user.email);
+  const verification = await isEmailApprovedFellow(userEmail);
   if (!verification.approved) {
-    await signOut(auth);
-    throw new Error(
-      `Access Restricted: The email address (${user.email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
-    );
+    try {
+      await submitCohortJoinRequest({
+        email: userEmail,
+        displayName: user.displayName || '',
+        requestedPathway: 'Structural MRI Analysis',
+      });
+    } catch (e) {
+      console.warn('Could not record pending join request:', e);
+    }
+    try {
+      await signOut(auth);
+    } catch {}
+    return { user: null, profile: null, isUnderReview: true, pendingEmail: userEmail };
   }
 
-  // Sync / update last login in Firestore
+  const assignedModality = verification.data?.assignedModality;
+  const targetPathway = assignedModality ? mapModalityToPathwayName(assignedModality) : 'Structural MRI Analysis';
+
+  // Sync / update last login in Firestore with auto-assigned modality
   const profile = await syncElearningUserDocument(user, {
+    displayName: user.displayName || verification.data?.displayName,
     role: verification.role,
+    assignedModality: assignedModality,
+    selectedPathway: targetPathway,
+    cohortYear: verification.data?.cohortYear,
+    program: verification.data?.program,
+    institution: verification.data?.institution,
+    country: verification.data?.country,
   });
 
-  return { user, profile };
+  return { user, profile, isUnderReview: false };
 }
 
 /**
@@ -288,27 +500,58 @@ export async function signInWithEmail(
 export async function signInWithGoogle(
   selectedPathway: string | null = null,
   role: string = 'researcher'
-): Promise<{ user: FirebaseUser; profile: ElearningUser }> {
+): Promise<{
+  user: FirebaseUser | null;
+  profile: ElearningUser | null;
+  isUnderReview?: boolean;
+  needsProfileDetails?: boolean;
+  pendingEmail?: string;
+  pendingDisplayName?: string;
+  requestedPathway?: string;
+}> {
   const result = await signInWithPopup(auth, googleProvider);
   const user = result.user;
+  const userEmail = user.email || '';
+  const userDisplayName = user.displayName || '';
+  const targetPathway = selectedPathway || 'Structural MRI Analysis';
 
   // Verify fellowship email eligibility
-  const verification = await isEmailApprovedFellow(user.email);
+  const verification = await isEmailApprovedFellow(userEmail);
   if (!verification.approved) {
-    await signOut(auth);
-    throw new Error(
-      `Access Restricted: The email address (${user.email}) is not registered on the ABDN 2026 Fellowship roster. Please contact africanbraindatanetwork@gmail.com.`
-    );
+    try {
+      await signOut(auth);
+    } catch (signOutErr) {
+      console.warn('Sign out warning:', signOutErr);
+    }
+
+    return {
+      user: null,
+      profile: null,
+      isUnderReview: true,
+      needsProfileDetails: true,
+      pendingEmail: userEmail || undefined,
+      pendingDisplayName: userDisplayName || undefined,
+      requestedPathway: targetPathway,
+    };
   }
 
+  const assignedModality = verification.data?.assignedModality;
+  const effectivePathway = selectedPathway || (assignedModality ? mapModalityToPathwayName(assignedModality) : 'Structural MRI Analysis');
+
   const profile = await syncElearningUserDocument(user, {
-    displayName: user.displayName || 'ABDN Researcher',
+    displayName: userDisplayName || verification.data?.displayName || 'ABDN Researcher',
     role: verification.role || role,
-    selectedPathway,
+    selectedPathway: effectivePathway,
+    assignedModality: assignedModality,
+    gender: verification.data?.gender,
+    cohortYear: verification.data?.cohortYear,
+    program: verification.data?.program,
+    institution: verification.data?.institution,
+    country: verification.data?.country,
     authProvider: 'google.com',
   });
 
-  return { user, profile };
+  return { user, profile, isUnderReview: false };
 }
 
 /**

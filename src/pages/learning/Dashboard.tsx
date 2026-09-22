@@ -86,6 +86,27 @@ import {
 } from '../../services/progressService';
 import { isSuperadminEmail } from '../../config/approvedEmails';
 
+/**
+ * Normalizes any pathway string or shorthand to standard modality catalog ID ('mri' | 'eeg' | 'fnirs' | 'ephys')
+ */
+export function matchModalityToCatalog(pathwayStr?: string | null): 'mri' | 'eeg' | 'fnirs' | 'ephys' | null {
+  if (!pathwayStr) return null;
+  const s = pathwayStr.trim().toLowerCase();
+  if (s.includes('mri') || s.includes('fmri') || s.includes('structural') || s.includes('morphometry')) {
+    return 'mri';
+  }
+  if (s.includes('eeg') || s.includes('erp') || s.includes('scalp')) {
+    return 'eeg';
+  }
+  if (s.includes('fnirs') || s.includes('optical') || s.includes('nirs') || s.includes('spectroscopy')) {
+    return 'fnirs';
+  }
+  if (s.includes('electro') || s.includes('ephys') || s.includes('spike') || s.includes('lfp') || s.includes('cellular')) {
+    return 'ephys';
+  }
+  return null;
+}
+
 export default function Dashboard() {
   const { currentUser, userProfile, loading, refreshProfile } = useAuth();
   const navigate = useNavigate();
@@ -292,22 +313,47 @@ export default function Dashboard() {
   const userEnrolledList = userProfile?.enrolledPathways || [];
 
   const myEnrolledModalities = useMemo(() => {
-    const list = allFellowshipModalities.filter((modality) => {
-      if (userEnrolledList.length > 0) {
-        return userEnrolledList.some(
-          (p) =>
-            p.pathwayName.toLowerCase().includes(modality.name.toLowerCase()) ||
-            modality.fullName.toLowerCase().includes(p.pathwayName.toLowerCase())
-        );
-      }
-      if (userProfile?.selectedPathway) {
-        return (
-          userProfile.selectedPathway.toLowerCase().includes(modality.name.toLowerCase()) ||
-          modality.fullName.toLowerCase().includes(userProfile.selectedPathway.toLowerCase())
-        );
-      }
-      return modality.id === 'mri';
-    });
+    // Collect all candidate pathway strings from user profile
+    const candidateStrings: string[] = [];
+    if (userEnrolledList.length > 0) {
+      userEnrolledList.forEach((p) => {
+        if (typeof p === 'string') candidateStrings.push(p);
+        else if (p?.pathwayName) candidateStrings.push(p.pathwayName);
+      });
+    }
+    if (userProfile?.selectedPathway) {
+      candidateStrings.push(userProfile.selectedPathway);
+    }
+    if ((userProfile as any)?.assignedModality) {
+      candidateStrings.push((userProfile as any).assignedModality);
+    }
+
+    const matchedIds = new Set(
+      candidateStrings
+        .map((str) => matchModalityToCatalog(str))
+        .filter((id): id is 'mri' | 'eeg' | 'fnirs' | 'ephys' => id !== null)
+    );
+
+    let list = allFellowshipModalities.filter((modality) => matchedIds.has(modality.id as any));
+
+    // Fallback if no direct ID matched but candidate strings exist
+    if (list.length === 0 && candidateStrings.length > 0) {
+      list = allFellowshipModalities.filter((modality) =>
+        candidateStrings.some(
+          (str) =>
+            str.toLowerCase().includes(modality.name.toLowerCase()) ||
+            modality.fullName.toLowerCase().includes(str.toLowerCase()) ||
+            modality.id.toLowerCase().includes(str.toLowerCase())
+        )
+      );
+    }
+
+    // Default fallback to MRI if user profile exists but no track assigned yet
+    if (list.length === 0 && (userProfile?.role === 'fellow' || userProfile?.role === 'participant')) {
+      const defaultMod = allFellowshipModalities.find((m) => m.id === 'mri');
+      if (defaultMod) list = [defaultMod];
+    }
+
     return (!isSuperAdmin && list.length > 1) ? list.slice(0, 1) : list;
   }, [allFellowshipModalities, userEnrolledList, userProfile, isSuperAdmin]);
 
@@ -2333,6 +2379,33 @@ export default function Dashboard() {
                     <div className="p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E2D9C7] text-center">
                       <div className="text-xs text-stone-600 font-medium">Cohort</div>
                       <div className="text-lg font-black text-amber-800 font-mono mt-0.5">2026</div>
+                    </div>
+                  </div>
+
+                  {/* Academic Profile Details */}
+                  <div className="pt-4 border-t border-[#EBE4D8] space-y-3">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                      Fellowship Academic Details
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                      <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center justify-between">
+                        <span className="text-stone-600 font-medium">Country:</span>
+                        <span className="font-bold text-stone-900">{userProfile?.country || 'African Region'}</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center justify-between">
+                        <span className="text-stone-600 font-medium">Gender:</span>
+                        <span className="font-bold text-stone-900">{(userProfile as any)?.gender || 'Fellow'}</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center justify-between">
+                        <span className="text-stone-600 font-medium">Institution / University:</span>
+                        <span className="font-bold text-stone-900 truncate max-w-[180px]">{userProfile?.institution || 'ABDN Academic Network'}</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-[#FAF7F0] border border-[#E2D9C7] flex items-center justify-between">
+                        <span className="text-stone-600 font-medium">Assigned Cohort Track:</span>
+                        <span className="font-bold text-amber-800 truncate max-w-[180px]">
+                          {userProfile?.selectedPathway || (userProfile as any)?.assignedModality || 'Structural MRI Analysis'}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
