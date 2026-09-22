@@ -1505,19 +1505,19 @@ export default function Dashboard() {
                           {(modalityCurriculum?.modules || []).map((module) => (
                             <div
                               key={module.number}
-                              className="p-5 sm:p-6 rounded-3xl bg-stone-900/80 border border-stone-800 space-y-4 shadow-sm"
+                              className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E3D9C3] space-y-4 shadow-md shadow-stone-900/5"
                             >
-                              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-stone-800/80 pb-3">
+                              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-[#EBE2D0] pb-3">
                                 <div className="space-y-1">
-                                  <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider">
+                                  <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-wider">
                                     {module.monthName ? module.monthName.toUpperCase() : `MODULE ${module.number}`}
                                   </span>
-                                  <h4 className="font-bold text-sm sm:text-base text-white">
+                                  <h4 className="font-bold text-sm sm:text-base text-stone-900">
                                     {module.title}
                                   </h4>
                                   {module.learningObjective && (
-                                    <div className="text-xs text-stone-300 flex items-start space-x-1.5 pt-0.5">
-                                      <span className="text-amber-400 font-bold flex-shrink-0">🎯 Objective:</span>
+                                    <div className="text-xs text-stone-600 flex items-start space-x-1.5 pt-0.5">
+                                      <span className="text-amber-800 font-bold flex-shrink-0">🎯 Objective:</span>
                                       <span className="font-light leading-relaxed">{module.learningObjective}</span>
                                     </div>
                                   )}
@@ -1529,24 +1529,24 @@ export default function Dashboard() {
                               </div>
 
                               {/* Topics & Weekly Items */}
-                              <div className="divide-y divide-stone-800/60">
+                              <div className="divide-y divide-[#EBE2D0]">
                                 {module.topics.map((topic, tIdx) => (
                                   <div
                                     key={tIdx}
-                                    className="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-stone-950/40 px-2 rounded-xl transition-colors group"
+                                    className="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-[#FAF7F0] px-2 rounded-xl transition-colors group"
                                   >
                                     <div className="flex items-start space-x-3 min-w-0">
-                                      <div className="w-6 h-6 rounded-lg bg-stone-800 group-hover:bg-amber-600/30 text-amber-400 border border-stone-700 flex items-center justify-center flex-shrink-0 text-[10px] font-mono font-bold mt-0.5 transition-colors">
+                                      <div className="w-6 h-6 rounded-lg bg-amber-100 text-amber-900 border border-amber-300 flex items-center justify-center flex-shrink-0 text-[10px] font-mono font-bold mt-0.5 transition-colors">
                                         {topic.weekNumber || tIdx + 1}
                                       </div>
 
                                       <div className="min-w-0 space-y-1">
-                                        <div className="font-semibold text-xs sm:text-sm text-stone-200 group-hover:text-white leading-snug">
+                                        <div className="font-semibold text-xs sm:text-sm text-stone-800 group-hover:text-amber-900 leading-snug">
                                           {topic.title}
                                         </div>
 
                                         {topic.todo && (
-                                          <div className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-mono">
+                                          <div className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-md bg-amber-100 border border-amber-300 text-amber-900 text-[10px] font-mono">
                                             <span className="font-bold uppercase">TO DO:</span>
                                             <span>{topic.todo}</span>
                                           </div>
@@ -1558,7 +1558,7 @@ export default function Dashboard() {
                                     <div className="flex items-center space-x-2 flex-shrink-0 self-end sm:self-auto">
                                       <button
                                         onClick={() => handleStartLesson(topic.title, currentCourse.fullName)}
-                                        className="px-3 py-1 rounded-lg bg-stone-800 hover:bg-amber-600 text-stone-300 hover:text-white text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-sm"
+                                        className="px-3 py-1 rounded-lg bg-[#FAF7F0] hover:bg-amber-700 text-stone-800 hover:text-white border border-[#E2D9C7] text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-sm"
                                       >
                                         <Play className="w-3 h-3 fill-current" />
                                         <span>Study Topic</span>
@@ -1570,8 +1570,8 @@ export default function Dashboard() {
 
                               {/* Extra Module-Level Lecture Materials if present */}
                               {module.lectureMaterials && module.lectureMaterials.length > 0 && (
-                                <div className="pt-3 border-t border-stone-800/80 space-y-2">
-                                  <div className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider">
+                                <div className="pt-3 border-t border-[#EBE2D0] space-y-2">
+                                  <div className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-wider">
                                     Direct Lecture Resources:
                                   </div>
                                   <div className="flex flex-wrap gap-2">
@@ -1581,7 +1581,7 @@ export default function Dashboard() {
                                         href={mat.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-3 py-1 rounded-lg bg-stone-950 hover:bg-stone-900 border border-stone-800 text-stone-300 hover:text-amber-300 text-xs font-semibold flex items-center space-x-1.5 transition-colors"
+                                        className="px-3 py-1 rounded-lg bg-[#FAF7F0] hover:bg-stone-100 border border-[#E2D9C7] text-stone-700 hover:text-stone-900 text-xs font-semibold flex items-center space-x-1.5 transition-colors"
                                       >
                                         <span>{mat.label}</span>
                                         <ExternalLink className="w-3 h-3" />
@@ -1608,21 +1608,21 @@ export default function Dashboard() {
                       const notes = modalityMaterials.filter((m) => m.category === 'notes' || m.name.endsWith('.md') || m.name.endsWith('.docx.pdf'));
 
                       return (
-                        <div className="space-y-6 pt-4 border-t border-stone-800">
+                        <div className="space-y-6 pt-4 border-t border-[#EBE2D0]">
                           {/* Section Header */}
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800 pb-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EBE2D0] pb-3">
                             <div>
                               <div className="flex items-center space-x-2">
-                                <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                                  <FolderGit2 className="w-5 h-5 text-amber-400" />
+                                <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
+                                  <FolderGit2 className="w-5 h-5 text-amber-700" />
                                   <span>Fellowship Learning Materials & Slides</span>
                                 </h3>
-                                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[10px] font-mono font-bold uppercase tracking-wider">
+                                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase tracking-wider">
                                   GitHub Live Sync
                                 </span>
                               </div>
-                              <p className="text-xs text-stone-400 mt-0.5">
-                                Live synchronized lecture slides, PDF presentations, and coding assignments from <code className="text-amber-300 font-mono">/{paths.materialsPath}</code>.
+                              <p className="text-xs text-stone-600 mt-0.5">
+                                Live synchronized lecture slides, PDF presentations, and coding assignments from <code className="text-amber-900 font-mono">/{paths.materialsPath}</code>.
                               </p>
                             </div>
 
@@ -1641,17 +1641,17 @@ export default function Dashboard() {
                                     .finally(() => setLoadingModalityMaterials(false));
                                 }}
                                 disabled={loadingModalityMaterials}
-                                className="p-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-400 hover:text-stone-200 border border-stone-800 transition-colors"
+                                className="p-2 rounded-xl bg-white hover:bg-stone-50 text-stone-600 hover:text-stone-900 border border-[#E2D9C7] transition-colors shadow-sm"
                                 title="Refresh materials from GitHub"
                               >
-                                <RefreshCw className={`w-3.5 h-3.5 ${loadingModalityMaterials ? 'animate-spin text-amber-400' : ''}`} />
+                                <RefreshCw className={`w-3.5 h-3.5 ${loadingModalityMaterials ? 'animate-spin text-amber-700' : ''}`} />
                               </button>
 
                               <a
                                 href={`https://github.com/${DEFAULT_GITHUB_REPO}/tree/main/${paths.materialsPath}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-3.5 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-800 text-amber-400 hover:text-amber-300 text-xs font-semibold flex items-center space-x-1.5 transition-colors shadow-sm"
+                                className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-stone-50 border border-[#E2D9C7] text-amber-800 hover:text-amber-900 text-xs font-semibold flex items-center space-x-1.5 transition-colors shadow-sm"
                               >
                                 <span>Browse on GitHub</span>
                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -1661,25 +1661,25 @@ export default function Dashboard() {
 
                           {/* Loading Skeleton */}
                           {loadingModalityMaterials ? (
-                            <div className="p-8 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
-                              <RefreshCw className="w-6 h-6 text-amber-400 animate-spin mx-auto" />
-                              <div className="text-xs text-stone-400">Loading lecture materials and assignments from GitHub repository...</div>
+                            <div className="p-8 text-center rounded-3xl bg-white/70 border border-[#E3D9C3] space-y-3 shadow-sm">
+                              <RefreshCw className="w-6 h-6 text-amber-700 animate-spin mx-auto" />
+                              <div className="text-xs text-stone-600">Loading lecture materials and assignments from GitHub repository...</div>
                             </div>
                           ) : (
                             <div className="space-y-6">
                               
                               {/* MODULE CARD 1: LECTURE SLIDES & PRESENTATION DECKS */}
-                              <div className="p-5 sm:p-6 rounded-3xl bg-stone-900/80 border border-stone-800 space-y-4 shadow-sm">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
+                              <div className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E3D9C3] space-y-4 shadow-md shadow-stone-900/5">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EBE2D0] pb-3">
                                   <div>
-                                    <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                                    <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1.5">
                                       <Presentation className="w-3.5 h-3.5" />
                                       <span>LECTURE PRESENTATIONS & SLIDES</span>
                                     </span>
-                                    <h4 className="font-bold text-sm sm:text-base text-white mt-0.5">
+                                    <h4 className="font-bold text-sm sm:text-base text-stone-900 mt-0.5">
                                       Official Fellowship Slide Decks & PDFs
                                     </h4>
-                                    <p className="text-xs text-stone-400 font-light mt-0.5">
+                                    <p className="text-xs text-stone-600 font-light mt-0.5">
                                       High-resolution slides, diagrams, and theoretical overviews presented by faculty specialists.
                                     </p>
                                   </div>
@@ -1689,11 +1689,11 @@ export default function Dashboard() {
                                 </div>
 
                                 {slides.length === 0 ? (
-                                  <div className="p-6 text-center rounded-2xl bg-stone-950/40 border border-stone-800/80 text-xs text-stone-400">
+                                  <div className="p-6 text-center rounded-2xl bg-[#FAF7F0] border border-[#E2D9C7] text-xs text-stone-600">
                                     Slides for this track are being synchronized to the repository.
                                   </div>
                                 ) : (
-                                  <div className="divide-y divide-stone-800/60">
+                                  <div className="divide-y divide-[#EBE2D0]">
                                     {slides.map((slide, sIdx) => {
                                       const isCanva = slide.name.toLowerCase().includes('session 10') || slide.name.toLowerCase().includes('session_10');
                                       const canvaUrl = 'https://canva.link/0yy2dkweyjw3oqv';
@@ -1702,24 +1702,24 @@ export default function Dashboard() {
                                       return (
                                         <div
                                           key={sIdx}
-                                          className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-stone-950/40 px-2 rounded-xl transition-colors group"
+                                          className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-[#FAF7F0] px-2 rounded-xl transition-colors group"
                                         >
                                           <div className="flex items-center space-x-3.5 min-w-0">
-                                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                                               <Presentation className="w-4 h-4" />
                                             </div>
 
                                             <div className="min-w-0 space-y-0.5">
-                                              <div className="font-semibold text-xs sm:text-sm text-stone-200 group-hover:text-white truncate flex items-center gap-2">
+                                              <div className="font-semibold text-xs sm:text-sm text-stone-800 group-hover:text-amber-900 truncate flex items-center gap-2">
                                                 <span>{formatFileDisplayName(slide.name)}</span>
                                                 {isCanva && (
-                                                  <span className="px-2 py-0.2 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300 border border-amber-500/30 text-[9px] font-bold uppercase tracking-wider">
+                                                  <span className="px-2 py-0.2 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[9px] font-bold uppercase tracking-wider">
                                                     Canva Deck
                                                   </span>
                                                 )}
                                               </div>
-                                              <div className="text-[10px] text-stone-400 font-mono flex items-center space-x-2">
-                                                <span className="uppercase text-amber-400/80">{isPptx ? 'PowerPoint Presentation' : 'PDF Slide Deck'}</span>
+                                              <div className="text-[10px] text-stone-500 font-mono flex items-center space-x-2">
+                                                <span className="uppercase text-amber-800">{isPptx ? 'PowerPoint Presentation' : 'PDF Slide Deck'}</span>
                                                 {slide.size && slide.size > 0 && (
                                                   <>
                                                     <span>•</span>
@@ -1738,7 +1738,7 @@ export default function Dashboard() {
                                                 href={canvaUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs flex items-center space-x-1.5 shadow-sm transition-all"
+                                                className="px-3 py-1.5 rounded-lg bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs flex items-center space-x-1.5 shadow-sm transition-all"
                                               >
                                                 <Sparkles className="w-3.5 h-3.5" />
                                                 <span>Open Canva</span>
@@ -1751,7 +1751,7 @@ export default function Dashboard() {
                                                 href={slide.downloadUrl}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="p-2 rounded-lg bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+                                                className="p-2 rounded-lg bg-white hover:bg-stone-50 text-stone-600 hover:text-stone-900 border border-[#E2D9C7] transition-colors"
                                                 title="Download raw file"
                                               >
                                                 <Download className="w-3.5 h-3.5" />
@@ -1762,7 +1762,7 @@ export default function Dashboard() {
                                               href={slide.htmlUrl}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="px-3.5 py-1.5 rounded-lg bg-stone-900 hover:bg-stone-800 border border-stone-800 text-amber-300 hover:text-white font-semibold text-xs flex items-center space-x-1.5 transition-colors"
+                                              className="px-3.5 py-1.5 rounded-lg bg-[#FAF7F0] hover:bg-stone-100 border border-[#E2D9C7] text-amber-800 hover:text-amber-950 font-semibold text-xs flex items-center space-x-1.5 transition-colors"
                                             >
                                               <span>View File</span>
                                               <ExternalLink className="w-3 h-3" />
@@ -1777,17 +1777,17 @@ export default function Dashboard() {
 
                               {/* MODULE CARD 2: PRACTICAL ASSIGNMENTS & JUPYTER NOTEBOOKS */}
                               {uniqueAssignments.length > 0 && (
-                                <div className="p-5 sm:p-6 rounded-3xl bg-stone-900/80 border border-stone-800 space-y-4 shadow-sm">
-                                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
+                                <div className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E3D9C3] space-y-4 shadow-md shadow-stone-900/5">
+                                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EBE2D0] pb-3">
                                     <div>
-                                      <span className="text-[10px] font-mono font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                                      <span className="text-[10px] font-mono font-bold text-sky-700 uppercase tracking-wider flex items-center gap-1.5">
                                         <Code2 className="w-3.5 h-3.5" />
                                         <span>HANDS-ON CODING & WEEKLY ASSIGNMENTS</span>
                                       </span>
-                                      <h4 className="font-bold text-sm sm:text-base text-white mt-0.5">
+                                      <h4 className="font-bold text-sm sm:text-base text-stone-900 mt-0.5">
                                         Interactive Jupyter Notebooks & Tasks
                                       </h4>
-                                      <p className="text-xs text-stone-400 font-light mt-0.5">
+                                      <p className="text-xs text-stone-600 font-light mt-0.5">
                                         Executable Python environments with one-click Google Colab integration and sample datasets.
                                       </p>
                                     </div>
@@ -1796,7 +1796,7 @@ export default function Dashboard() {
                                     </span>
                                   </div>
 
-                                  <div className="divide-y divide-stone-800/60">
+                                  <div className="divide-y divide-[#EBE2D0]">
                                     {uniqueAssignments.map((item, aIdx) => {
                                       const isNotebook = item.name.endsWith('.ipynb');
                                       const colabUrl = `https://colab.research.google.com/github/${DEFAULT_GITHUB_REPO}/blob/main/${item.path}`;
@@ -1804,19 +1804,19 @@ export default function Dashboard() {
                                       return (
                                         <div
                                           key={aIdx}
-                                          className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-stone-950/40 px-2 rounded-xl transition-colors group"
+                                          className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-[#FAF7F0] px-2 rounded-xl transition-colors group"
                                         >
                                           <div className="flex items-center space-x-3.5 min-w-0">
-                                            <div className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                            <div className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                                               {isNotebook ? <Code2 className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                                             </div>
 
                                             <div className="min-w-0 space-y-0.5">
-                                              <div className="font-semibold text-xs sm:text-sm text-stone-200 group-hover:text-white truncate">
+                                              <div className="font-semibold text-xs sm:text-sm text-stone-800 group-hover:text-amber-900 truncate">
                                                 {formatFileDisplayName(item.name)}
                                               </div>
-                                              <div className="text-[10px] text-stone-400 font-mono flex items-center space-x-2">
-                                                <span className="uppercase text-sky-400/80">{isNotebook ? 'Jupyter Notebook' : 'Assignment Document'}</span>
+                                              <div className="text-[10px] text-stone-500 font-mono flex items-center space-x-2">
+                                                <span className="uppercase text-sky-700">{isNotebook ? 'Jupyter Notebook' : 'Assignment Document'}</span>
                                                 {item.size && item.size > 0 && (
                                                   <>
                                                     <span>•</span>
@@ -1844,7 +1844,7 @@ export default function Dashboard() {
                                                     lessonTitle: item.name,
                                                   });
                                                 }}
-                                                className="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs flex items-center space-x-1.5 shadow-sm transition-all"
+                                                className="px-3 py-1.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs flex items-center space-x-1.5 shadow-sm transition-all"
                                               >
                                                 <span>Run in Colab</span>
                                                 <ExternalLink className="w-3 h-3" />
@@ -1855,7 +1855,7 @@ export default function Dashboard() {
                                               href={item.htmlUrl}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="px-3.5 py-1.5 rounded-lg bg-stone-900 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-white font-semibold text-xs flex items-center space-x-1.5 transition-colors"
+                                              className="px-3.5 py-1.5 rounded-lg bg-[#FAF7F0] hover:bg-stone-100 border border-[#E2D9C7] text-stone-800 hover:text-stone-950 font-semibold text-xs flex items-center space-x-1.5 transition-colors"
                                             >
                                               <span>GitHub</span>
                                               <ExternalLink className="w-3 h-3" />
@@ -1870,14 +1870,14 @@ export default function Dashboard() {
 
                               {/* MODULE CARD 3: LECTURE NOTES & CURRICULUM DOCS */}
                               {notes.length > 0 && (
-                                <div className="p-5 sm:p-6 rounded-3xl bg-stone-900/80 border border-stone-800 space-y-4 shadow-sm">
-                                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-800/80 pb-3">
+                                <div className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E3D9C3] space-y-4 shadow-md shadow-stone-900/5">
+                                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EBE2D0] pb-3">
                                     <div>
-                                      <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                                      <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1.5">
                                         <FileText className="w-3.5 h-3.5" />
                                         <span>DOCUMENTATION & CURRICULUM GUIDES</span>
                                       </span>
-                                      <h4 className="font-bold text-sm sm:text-base text-white mt-0.5">
+                                      <h4 className="font-bold text-sm sm:text-base text-stone-900 mt-0.5">
                                         Reading Notes & References
                                       </h4>
                                     </div>
@@ -1886,22 +1886,22 @@ export default function Dashboard() {
                                     </span>
                                   </div>
 
-                                  <div className="divide-y divide-stone-800/60">
+                                  <div className="divide-y divide-[#EBE2D0]">
                                     {notes.map((item, nIdx) => (
                                       <div
                                         key={nIdx}
-                                        className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-stone-950/40 px-2 rounded-xl transition-colors group"
+                                        className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-[#FAF7F0] px-2 rounded-xl transition-colors group"
                                       >
                                         <div className="flex items-center space-x-3.5 min-w-0">
-                                          <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                          <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                                             <FileText className="w-4 h-4" />
                                           </div>
                                           <div className="min-w-0 space-y-0.5">
-                                            <div className="font-semibold text-xs sm:text-sm text-stone-200 group-hover:text-white truncate">
+                                            <div className="font-semibold text-xs sm:text-sm text-stone-800 group-hover:text-amber-900 truncate">
                                               {formatFileDisplayName(item.name)}
                                             </div>
-                                            <div className="text-[10px] text-stone-400 font-mono flex items-center space-x-2">
-                                              <span className="uppercase text-amber-400/80">Documentation</span>
+                                            <div className="text-[10px] text-stone-500 font-mono flex items-center space-x-2">
+                                              <span className="uppercase text-amber-800">Documentation</span>
                                               <span>•</span>
                                               <span className="text-stone-500">{item.name}</span>
                                             </div>
@@ -1913,7 +1913,7 @@ export default function Dashboard() {
                                             href={item.htmlUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="px-3.5 py-1.5 rounded-lg bg-stone-900 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-white font-semibold text-xs flex items-center space-x-1.5 transition-colors"
+                                            className="px-3.5 py-1.5 rounded-lg bg-[#FAF7F0] hover:bg-stone-100 border border-[#E2D9C7] text-stone-800 hover:text-stone-950 font-semibold text-xs flex items-center space-x-1.5 transition-colors"
                                           >
                                             <span>Read on GitHub</span>
                                             <ExternalLink className="w-3 h-3" />
@@ -1926,15 +1926,15 @@ export default function Dashboard() {
                               )}
 
                               {/* PRODUCT SURFACE 3: DEDICATED FELLOW SUBMISSIONS & PORTFOLIO HUB */}
-                              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBE4D8] shadow-lg shadow-stone-900/5 space-y-5">
-                                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-stone-800/80 pb-4">
+                              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E3D9C3] shadow-md shadow-stone-900/5 space-y-5">
+                                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-[#EBE2D0] pb-4">
                                   <div className="space-y-1">
-                                    <div className="flex items-center space-x-2 text-[10px] font-bold text-amber-400 uppercase tracking-wider font-mono">
+                                    <div className="flex items-center space-x-2 text-[10px] font-bold text-amber-800 uppercase tracking-wider font-mono">
                                       <GitBranch className="w-3.5 h-3.5" />
                                       <span>FELLOW PORTFOLIO & WORKSPACE</span>
                                     </div>
-                                    <h4 className="text-base sm:text-lg font-bold text-white">Participant Submissions Hub</h4>
-                                    <p className="text-xs text-stone-300 max-w-2xl leading-relaxed">
+                                    <h4 className="text-base sm:text-lg font-bold text-stone-900">Participant Submissions Hub</h4>
+                                    <p className="text-xs text-stone-600 max-w-2xl leading-relaxed">
                                       Keep your weekly Jupyter notebooks, research reports, and lab outputs organized in your personal GitHub directory. Faculty and mentors review submissions directly via GitHub Pull Requests.
                                     </p>
                                   </div>
@@ -1952,7 +1952,7 @@ export default function Dashboard() {
                                           modality: currentCourse.modalityType,
                                         });
                                       }}
-                                      className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center space-x-2 shadow-md transition-all"
+                                      className="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs flex items-center space-x-2 shadow-md shadow-amber-900/15 transition-all"
                                     >
                                       <span>Open Submissions on GitHub</span>
                                       <ExternalLink className="w-3.5 h-3.5" />
@@ -1962,32 +1962,32 @@ export default function Dashboard() {
 
                                 {/* Step-by-Step Submission Rubric */}
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                                  <div className="p-3.5 rounded-2xl bg-stone-950/80 border border-stone-800 space-y-1.5">
-                                    <div className="text-amber-400 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
+                                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-[#E2D9C7] space-y-1.5">
+                                    <div className="text-amber-800 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
                                       <span>Step 1 · Fork & Directory</span>
                                     </div>
-                                    <div className="text-stone-300 font-medium">Create your directory</div>
-                                    <div className="text-[11px] text-stone-400 font-mono bg-stone-900/80 px-2 py-1 rounded border border-stone-800 truncate">
+                                    <div className="text-stone-800 font-semibold">Create your directory</div>
+                                    <div className="text-[11px] text-stone-700 font-mono bg-white px-2 py-1 rounded border border-[#E2D9C7] truncate">
                                       participants/&lt;your_name&gt;/{currentCourse.id}/
                                     </div>
                                   </div>
 
-                                  <div className="p-3.5 rounded-2xl bg-stone-950/80 border border-stone-800 space-y-1.5">
-                                    <div className="text-sky-400 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
+                                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-[#E2D9C7] space-y-1.5">
+                                    <div className="text-sky-700 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
                                       <span>Step 2 · Code & Analysis</span>
                                     </div>
-                                    <div className="text-stone-300 font-medium">Add weekly notebook</div>
-                                    <div className="text-[11px] text-stone-400 font-mono bg-stone-900/80 px-2 py-1 rounded border border-stone-800 truncate">
+                                    <div className="text-stone-800 font-semibold">Add weekly notebook</div>
+                                    <div className="text-[11px] text-stone-700 font-mono bg-white px-2 py-1 rounded border border-[#E2D9C7] truncate">
                                       week_02_preprocessing.ipynb
                                     </div>
                                   </div>
 
-                                  <div className="p-3.5 rounded-2xl bg-stone-950/80 border border-stone-800 space-y-1.5">
-                                    <div className="text-emerald-400 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
+                                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-[#E2D9C7] space-y-1.5">
+                                    <div className="text-emerald-700 font-mono font-bold text-[10px] uppercase flex items-center space-x-1">
                                       <span>Step 3 · Pull Request</span>
                                     </div>
-                                    <div className="text-stone-300 font-medium">Open PR for feedback</div>
-                                    <div className="text-[11px] text-stone-400">
+                                    <div className="text-stone-800 font-semibold">Open PR for feedback</div>
+                                    <div className="text-[11px] text-stone-600">
                                       Mentors & peer fellows review outputs & award assignment completion.
                                     </div>
                                   </div>
@@ -2029,7 +2029,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Filter Tabs */}
-                  <div className="flex items-center space-x-2 border-b border-stone-800 pb-3 overflow-x-auto">
+                  <div className="flex items-center space-x-2 border-b border-[#E8DFC9] pb-3 overflow-x-auto">
                     {[
                       { id: 'all', label: `All Enrolled (${myEnrolledModalities.length})` },
                       { id: 'in_progress', label: `In Progress (${inProgressList.length})` },
@@ -2041,8 +2041,8 @@ export default function Dashboard() {
                         onClick={() => setLearningFilter(filter.id as any)}
                         className={`px-4 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                           learningFilter === filter.id
-                            ? 'bg-amber-600 text-white'
-                            : 'text-stone-400 hover:text-white bg-stone-900'
+                            ? 'bg-amber-800 text-white shadow-sm'
+                            : 'text-stone-700 hover:text-stone-900 bg-white hover:bg-stone-50 border border-[#E2D9C7]'
                         }`}
                       >
                         {filter.label}
@@ -2066,25 +2066,25 @@ export default function Dashboard() {
                           return (
                             <div
                               key={modality.id}
-                              className="p-6 rounded-3xl bg-stone-900 border border-stone-800 hover:border-stone-700 transition-all flex flex-col justify-between space-y-5 shadow-lg group"
+                              className="p-6 rounded-3xl bg-white border border-[#E3D9C3] hover:border-amber-400/80 transition-all flex flex-col justify-between space-y-5 shadow-md shadow-stone-900/5 hover:shadow-xl group"
                             >
                               <div className="space-y-3.5">
                                 <div className="flex items-start justify-between">
                                   <div className="flex items-center space-x-3">
-                                    <span className="p-2.5 bg-stone-950 rounded-2xl border border-stone-800 group-hover:scale-105 transition-transform flex items-center justify-center">
-                                      <ModalityIcon className="w-6 h-6 text-amber-400" />
+                                    <span className="p-2.5 bg-amber-500/10 rounded-2xl border border-amber-400/30 group-hover:scale-105 transition-transform flex items-center justify-center">
+                                      <ModalityIcon className="w-6 h-6 text-amber-800" />
                                     </span>
                                     <div>
-                                      <h3 className="text-base font-bold text-white">{modality.fullName}</h3>
-                                      <div className="text-xs text-amber-400 font-mono">{modality.tagline}</div>
+                                      <h3 className="text-base font-bold text-stone-900">{modality.fullName}</h3>
+                                      <div className="text-xs text-amber-800 font-mono font-semibold">{modality.tagline}</div>
                                     </div>
                                   </div>
-                                  <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 text-[10px] font-mono uppercase font-bold">
+                                  <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300/80 text-[10px] font-mono uppercase font-bold">
                                     Enrolled
                                   </span>
                                 </div>
 
-                                <p className="text-xs text-stone-300 leading-relaxed font-light line-clamp-3">
+                                <p className="text-xs text-stone-600 leading-relaxed font-normal line-clamp-3">
                                   {modality.overview}
                                 </p>
 
@@ -2092,7 +2092,7 @@ export default function Dashboard() {
                                   {modality.tools.map((t) => (
                                     <span
                                       key={t}
-                                      className="px-2 py-0.5 rounded-md bg-stone-950 border border-stone-800 text-[10px] text-stone-400 font-mono"
+                                      className="px-2.5 py-1 rounded-lg bg-[#FAF7F0] border border-[#E8DFC9] text-[10px] text-stone-700 font-mono font-medium"
                                     >
                                       {t}
                                     </span>
@@ -2100,11 +2100,11 @@ export default function Dashboard() {
                                 </div>
                               </div>
 
-                              <div className="pt-4 border-t border-stone-800 flex items-center justify-between text-xs">
+                              <div className="pt-4 border-t border-[#EBE2D0] flex items-center justify-between text-xs">
                                 <div className="flex items-center space-x-2.5">
                                   <button
                                     onClick={() => handleUnenrollFromPathway(modality.name, modality.fullName)}
-                                    className="text-[11px] text-stone-500 hover:text-rose-400 font-semibold transition-colors flex items-center space-x-1 py-1"
+                                    className="text-[11px] text-stone-500 hover:text-rose-600 font-semibold transition-colors flex items-center space-x-1 py-1"
                                     title={`Unenroll from ${modality.fullName}`}
                                   >
                                     <X className="w-3 h-3" />
@@ -2117,7 +2117,7 @@ export default function Dashboard() {
 
                                 <button
                                   onClick={() => setSelectedModalityCourse(modality.id)}
-                                  className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition-colors flex items-center space-x-1.5 shadow-md shadow-amber-900/20"
+                                  className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs transition-colors flex items-center space-x-1.5 shadow-md shadow-amber-900/15"
                                 >
                                   <span>Open Track & Materials</span>
                                   <ArrowRight className="w-3.5 h-3.5" />
@@ -2139,49 +2139,49 @@ export default function Dashboard() {
                             return (
                               <div
                                 key={modality.id}
-                                className="p-6 rounded-3xl bg-stone-900 border border-stone-800 space-y-5 flex flex-col justify-between shadow-lg"
+                                className="p-6 rounded-3xl bg-white border border-[#E3D9C3] space-y-5 flex flex-col justify-between shadow-md shadow-stone-900/5 hover:shadow-xl hover:border-amber-400/80 transition-all"
                               >
                                 <div className="space-y-3.5">
                                   <div className="flex items-start justify-between">
                                     <div className="flex items-center space-x-3">
-                                      <span className="p-2.5 bg-stone-950 rounded-2xl border border-stone-800 flex items-center justify-center">
-                                        <ModalityIcon className="w-6 h-6 text-amber-400" />
+                                      <span className="p-2.5 bg-amber-500/10 rounded-2xl border border-amber-400/30 flex items-center justify-center">
+                                        <ModalityIcon className="w-6 h-6 text-amber-800" />
                                       </span>
                                     <div>
-                                      <h3 className="text-base font-bold text-white">{modality.fullName}</h3>
-                                      <div className="text-xs text-stone-400 font-mono">Current Track: {modality.level}</div>
+                                      <h3 className="text-base font-bold text-stone-900">{modality.fullName}</h3>
+                                      <div className="text-xs text-stone-500 font-mono">Current Track: {modality.level}</div>
                                     </div>
                                   </div>
-                                  <span className="text-xs font-mono font-bold text-amber-400">
+                                  <span className="text-xs font-mono font-bold text-amber-800">
                                     {modality.progress}%
                                   </span>
                                 </div>
 
                                 <div className="space-y-1.5">
-                                  <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
+                                  <div className="flex items-center justify-between text-[11px] text-stone-600 font-mono">
                                     <span>Course Progress</span>
                                     <span>{modality.progress}% Completed</span>
                                   </div>
-                                  <div className="h-2 w-full bg-stone-950 rounded-full overflow-hidden">
+                                  <div className="h-2.5 w-full bg-[#ECE5D8] rounded-full overflow-hidden p-0.5 border border-[#DFD6C3]">
                                     <div
-                                      className="h-full bg-gradient-to-r from-amber-600 to-amber-400 rounded-full"
+                                      className="h-full bg-gradient-to-r from-amber-700 to-amber-500 rounded-full transition-all duration-500"
                                       style={{ width: `${modality.progress}%` }}
                                     />
                                   </div>
                                 </div>
                               </div>
 
-                              <div className="pt-4 border-t border-stone-800 flex items-center justify-between text-xs">
+                              <div className="pt-4 border-t border-[#EBE2D0] flex items-center justify-between text-xs">
                                 <button
                                   onClick={() => setSelectedModalityCourse(modality.id)}
-                                  className="text-stone-400 hover:text-stone-200 font-medium"
+                                  className="text-stone-600 hover:text-amber-800 font-semibold"
                                 >
                                   View Track & Sessions →
                                 </button>
 
                                 <button
                                   onClick={() => setSelectedModalityCourse(modality.id)}
-                                  className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold transition-colors flex items-center space-x-1.5 shadow-md shadow-amber-900/20"
+                                  className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold transition-colors flex items-center space-x-1.5 shadow-md shadow-amber-900/15"
                                 >
                                   <Play className="w-3.5 h-3.5 fill-white" />
                                   <span>Continue Pathway</span>
@@ -2192,10 +2192,10 @@ export default function Dashboard() {
                         })}
                         </div>
                       ) : (
-                        <div className="p-12 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
+                        <div className="p-12 text-center rounded-3xl bg-white/70 border border-[#E3D9C3] space-y-3 shadow-sm">
                           <div className="text-3xl">🎯</div>
-                          <h4 className="font-bold text-sm text-stone-200">No pathways in progress</h4>
-                          <p className="text-xs text-stone-400 max-w-sm mx-auto">
+                          <h4 className="font-bold text-sm text-stone-900">No pathways in progress</h4>
+                          <p className="text-xs text-stone-600 max-w-sm mx-auto">
                             Start any of your enrolled pathways from the All Enrolled tab.
                           </p>
                         </div>
@@ -2204,20 +2204,20 @@ export default function Dashboard() {
                   )}
 
                   {learningFilter === 'completed' && (
-                    <div className="p-12 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
+                    <div className="p-12 text-center rounded-3xl bg-white/70 border border-[#E3D9C3] space-y-3 shadow-sm">
                       <div className="text-3xl">🏆</div>
-                      <h4 className="font-bold text-sm text-stone-200">No completed pathways yet</h4>
-                      <p className="text-xs text-stone-400 max-w-sm mx-auto">
+                      <h4 className="font-bold text-sm text-stone-900">No completed pathways yet</h4>
+                      <p className="text-xs text-stone-600 max-w-sm mx-auto">
                         Complete all modules and checkpoints in a pathway to earn verified ABDN certificates.
                       </p>
                     </div>
                   )}
 
                   {learningFilter === 'saved' && (
-                    <div className="p-12 text-center rounded-3xl bg-stone-900/40 border border-stone-800 space-y-3">
+                    <div className="p-12 text-center rounded-3xl bg-white/70 border border-[#E3D9C3] space-y-3 shadow-sm">
                       <div className="text-3xl">🔖</div>
-                      <h4 className="font-bold text-sm text-stone-200">No bookmarked lessons</h4>
-                      <p className="text-xs text-stone-400 max-w-sm mx-auto">
+                      <h4 className="font-bold text-sm text-stone-900">No bookmarked lessons</h4>
+                      <p className="text-xs text-stone-600 max-w-sm mx-auto">
                         Bookmark lessons or Jupyter notebook labs to access them quickly here.
                       </p>
                     </div>
@@ -2225,13 +2225,13 @@ export default function Dashboard() {
 
                   {/* Explore More Fellowship Modalities */}
                   {availableToEnrollModalities.length > 0 && (
-                    <div className="pt-8 space-y-5 border-t border-stone-800">
+                    <div className="pt-8 space-y-5 border-t border-[#E8DFC9]">
                       <div>
-                        <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-amber-400" />
+                        <h3 className="text-lg font-bold text-stone-900 flex items-center space-x-2">
+                          <Sparkles className="w-4 h-4 text-amber-700" />
                           <span>Explore More Fellowship Modalities</span>
                         </h3>
-                        <p className="text-xs text-stone-400 mt-0.5">
+                        <p className="text-xs text-stone-600 mt-0.5">
                           Expand your computational skills by adding more ABDN neuroimaging pathways to your library.
                         </p>
                       </div>
@@ -2242,21 +2242,21 @@ export default function Dashboard() {
                           return (
                             <div
                               key={modality.id}
-                              className="p-5 rounded-3xl bg-stone-900/60 border border-stone-800/80 hover:border-stone-700 transition-all flex flex-col justify-between space-y-4"
+                              className="p-5 rounded-3xl bg-white border border-[#E3D9C3] hover:border-amber-400/80 transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md"
                             >
                               <div className="space-y-2.5">
                                 <div className="flex items-center space-x-3">
-                                  <span className="p-2 bg-stone-950 rounded-xl border border-stone-800 flex items-center justify-center">
-                                    <ModalityIcon className="w-5 h-5 text-amber-400" />
+                                  <span className="p-2 bg-amber-500/10 rounded-xl border border-amber-400/30 flex items-center justify-center">
+                                    <ModalityIcon className="w-5 h-5 text-amber-800" />
                                   </span>
                                 <div>
-                                  <h4 className="font-bold text-sm text-white">{modality.fullName}</h4>
-                                  <div className="text-[11px] text-amber-400 font-mono">
+                                  <h4 className="font-bold text-sm text-stone-900">{modality.fullName}</h4>
+                                  <div className="text-[11px] text-amber-800 font-mono font-semibold">
                                     {modality.modulesCount} Modules · {modality.lessonsCount} Lessons
                                   </div>
                                 </div>
                               </div>
-                              <p className="text-xs text-stone-400 leading-relaxed font-light line-clamp-2">
+                              <p className="text-xs text-stone-600 leading-relaxed font-normal line-clamp-2">
                                 {modality.tagline}
                               </p>
                             </div>
@@ -2266,7 +2266,7 @@ export default function Dashboard() {
                               className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-sm ${
                                 !isSuperAdmin && myEnrolledModalities.length >= 1
                                   ? 'bg-stone-100 text-stone-600 border border-stone-300 hover:bg-stone-200'
-                                  : 'bg-[#FAF7F0] hover:bg-amber-700 text-stone-800 hover:text-white border border-[#E2D9C7]'
+                                  : 'bg-amber-800 hover:bg-amber-900 text-white shadow-md shadow-amber-900/15'
                               }`}
                             >
                               <Plus className="w-3.5 h-3.5" />
