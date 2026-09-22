@@ -96,6 +96,15 @@ export async function isEmailApprovedFellow(
         const rawRole = (data?.role || "fellow").toLowerCase();
         const isSuper = rawRole.includes("admin") || rawRole === "superadmin";
         const role = isSuper ? "superadmin" : (data?.role || "fellow");
+        const assignedModality =
+          data.assignedModality ||
+          (data as any).modality ||
+          (data as any).cohortTrack ||
+          (data as any).track ||
+          (data as any).pathway ||
+          (data as any).selectedPathway ||
+          '';
+
         return {
           approved: true,
           role,
@@ -103,7 +112,7 @@ export async function isEmailApprovedFellow(
             ...data,
             email: normalized,
             role,
-            assignedModality: data.assignedModality || 'MRI/fMRI',
+            assignedModality: assignedModality || undefined,
             cohortYear: data.cohortYear || '2026',
             program: data.program || 'ABDN Fellowship',
           },
@@ -223,10 +232,10 @@ export async function syncElearningUserDocument(
     }
   }
 
-  // Derive initial assigned pathway from assignedModality or selectedPathway
-  const effectivePathway =
-    extraData?.selectedPathway ||
-    (extraData?.assignedModality ? mapModalityToPathwayName(extraData.assignedModality) : 'Structural MRI Analysis');
+  // Whitelist assigned modality from Dashboard ALWAYS takes top priority for approved fellows
+  const effectivePathway = extraData?.assignedModality
+    ? mapModalityToPathwayName(extraData.assignedModality)
+    : (extraData?.selectedPathway ? mapModalityToPathwayName(extraData.selectedPathway) : 'Structural MRI Analysis');
 
   const initialEnrolled: EnrolledPathway[] = effectivePathway
     ? [
@@ -291,8 +300,9 @@ export async function syncElearningUserDocument(
       updates.gender = extraData.gender;
     }
 
-    if (extraData?.assignedModality && !existingData.assignedModality) {
+    if (extraData?.assignedModality && existingData.assignedModality !== extraData.assignedModality) {
       updates.assignedModality = extraData.assignedModality;
+      updates.selectedPathway = effectivePathway;
     }
 
     if (extraData?.role && existingData.role !== extraData.role) {
@@ -330,6 +340,8 @@ export async function syncElearningUserDocument(
           enrolledPathways: updatedEnrolled,
           onboardingCompleted: true,
         };
+      } else if (existingData.selectedPathway !== effectivePathway) {
+        updates.selectedPathway = effectivePathway;
       }
     }
 
@@ -354,28 +366,22 @@ export interface CohortJoinRequestPayload {
 }
 
 /**
- * Submits a new cohort join request into Firestore `cohort_join_requests` collection
+ * Submit a cohort join request for candidate review
  */
-export async function submitCohortJoinRequest(
-  payload: CohortJoinRequestPayload
-): Promise<string> {
+export async function submitCohortJoinRequest(payload: CohortJoinRequestPayload): Promise<string> {
   const normalized = normalizeEmail(payload.email);
-  if (!normalized) throw new Error("A valid email address is required.");
+  if (!normalized) throw new Error('Valid email is required');
 
-  const docId = normalized.replace(/[^a-z0-9]/gi, '_');
-  const docRef = doc(db, 'cohort_join_requests', docId);
+  const docId = normalized.replace(/[^a-z0-9]/g, '_');
+  const docRef = doc(db, JOIN_REQUESTS_COLLECTION, docId);
 
   const requestData = {
-    id: docId,
     email: normalized,
-    displayName: payload.displayName || '',
-    gender: payload.gender || '',
-    country: payload.country || '',
-    institution: payload.institution || '',
+    displayName: payload.displayName || 'Applicant',
+    gender: payload.gender || 'Not specified',
+    country: payload.country || 'Not specified',
+    institution: payload.institution || 'Not specified',
     requestedPathway: payload.requestedPathway || 'Structural MRI Analysis',
-    experienceLevel: payload.experienceLevel || 'beginner',
-    learningGoals: payload.learningGoals || [],
-    notes: payload.notes || '',
     status: 'pending',
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -430,7 +436,9 @@ export async function signUpWithEmail(
 
   // 3. Create document in `elearning_users` collection with auto-assigned pathway
   const assignedModality = verification.data?.assignedModality;
-  const targetPathway = selectedPathway || (assignedModality ? mapModalityToPathwayName(assignedModality) : 'Structural MRI Analysis');
+  const targetPathway = assignedModality
+    ? mapModalityToPathwayName(assignedModality)
+    : (selectedPathway ? mapModalityToPathwayName(selectedPathway) : 'Structural MRI Analysis');
 
   const profile = await syncElearningUserDocument(user, {
     displayName: fullName || verification.data?.displayName,
@@ -536,13 +544,16 @@ export async function signInWithGoogle(
   }
 
   const assignedModality = verification.data?.assignedModality;
-  const effectivePathway = selectedPathway || (assignedModality ? mapModalityToPathwayName(assignedModality) : 'Structural MRI Analysis');
+  // Whitelist assignedModality is authoritative for approved fellows!
+  const effectivePathway = assignedModality
+    ? mapModalityToPathwayName(assignedModality)
+    : (selectedPathway ? mapModalityToPathwayName(selectedPathway) : 'Structural MRI Analysis');
 
   const profile = await syncElearningUserDocument(user, {
     displayName: userDisplayName || verification.data?.displayName || 'ABDN Researcher',
     role: verification.role || role,
     selectedPathway: effectivePathway,
-    assignedModality: assignedModality,
+    assignedModality: assignedModality || effectivePathway,
     gender: verification.data?.gender,
     cohortYear: verification.data?.cohortYear,
     program: verification.data?.program,

@@ -123,7 +123,9 @@ export default function AuthModal({
     setLoading(true);
 
     try {
-      const result = await signInWithGoogle(selectedTrack, 'fellow');
+      // Pass null if defaultPathway was not explicitly picked so backend uses whitelist assignment directly
+      const pathwayToPass = defaultPathway || null;
+      const result = await signInWithGoogle(pathwayToPass, 'fellow');
       if (result.profile) {
         setSuccessUser(result.profile);
         if (onAuthSuccess) onAuthSuccess(result.profile);
@@ -228,10 +230,15 @@ export default function AuthModal({
                   <p className="text-sm font-medium text-stone-800">
                     Sign in with Google to enter your ABDN Fellowship workspace.
                   </p>
-                  {selectedTrack && (
+                  {defaultPathway ? (
                     <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xs text-amber-800">
                       <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      <span>Cohort Track: <strong>{selectedTrack}</strong></span>
+                      <span>Cohort Track: <strong>{defaultPathway}</strong></span>
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-stone-100 border border-stone-200 rounded-full text-xs text-stone-600">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      <span>Track assigned from Whitelist Roster</span>
                     </div>
                   )}
                 </div>
