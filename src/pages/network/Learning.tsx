@@ -1040,80 +1040,80 @@ export default function Learning() {
           {/* ========================================================================= */}
           {/* 3C. ROADMAP & ETHICAL GOVERNANCE PREVIEW */}
           {/* ========================================================================= */}
-          <section className="py-20 bg-stone-900 text-white relative overflow-hidden">
+          <section className="py-20 bg-gradient-to-br from-amber-50/70 via-amber-50/30 to-white border-y border-amber-200/70 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">
                   Platform Roadmap & Data Governance Engine
                 </h2>
-                <p className="text-base text-amber-100/80 leading-relaxed">
+                <p className="text-base text-stone-600 leading-relaxed font-normal">
                   Built on FAIR data principles and CARE African data sovereignty guidelines for open computational research.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {/* 01 SynapseAI */}
-                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-amber-500/40 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-white rounded-3xl p-7 border border-[#E3D9C3] hover:border-amber-400/80 shadow-md shadow-amber-900/5 hover:shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300/80 uppercase tracking-wider">
                         Socratic Assistant
                       </span>
-                      <Brain className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform" />
+                      <Brain className="w-6 h-6 text-amber-800 group-hover:scale-110 transition-transform" />
                     </div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-xl font-bold text-stone-900 group-hover:text-amber-800 transition-colors">
                       SynapseAI Code Tutor
                     </h3>
-                    <p className="text-xs text-stone-300 leading-relaxed">
+                    <p className="text-xs text-stone-600 leading-relaxed font-normal">
                       In-notebook assistant providing guided signal processing explanations, parameter tuning feedback, and error diagnosis.
                     </p>
                   </div>
-                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-amber-400/90 font-mono flex items-center space-x-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="pt-5 border-t border-[#EBE2D0] mt-5 text-[11px] text-amber-800 font-mono flex items-center space-x-1.5 font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-800" />
                     <span>In-Notebook Interactive Mentorship</span>
                   </div>
                 </div>
 
                 {/* 02 CARE Data Sovereignty */}
-                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-emerald-500/40 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-white rounded-3xl p-7 border border-[#E3D9C3] hover:border-emerald-400/80 shadow-md shadow-amber-900/5 hover:shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300/80 uppercase tracking-wider">
                         Data Sovereignty
                       </span>
-                      <ShieldCheck className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform" />
+                      <ShieldCheck className="w-6 h-6 text-emerald-700 group-hover:scale-110 transition-transform" />
                     </div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-xl font-bold text-stone-900 group-hover:text-emerald-800 transition-colors">
                       CARE African Bioethics
                     </h3>
-                    <p className="text-xs text-stone-300 leading-relaxed">
+                    <p className="text-xs text-stone-600 leading-relaxed font-normal">
                       Bioethics framework enforcing Collective Benefit, Control, Responsibility, and Ethics across open African brain data repositories.
                     </p>
                   </div>
-                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-emerald-400/90 font-mono flex items-center space-x-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <div className="pt-5 border-t border-[#EBE2D0] mt-5 text-[11px] text-emerald-800 font-mono flex items-center space-x-1.5 font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
                     <span>Bioethics & Data Compliance</span>
                   </div>
                 </div>
 
                 {/* 03 NeuroBench AI */}
-                <div className="bg-stone-950/80 rounded-2xl p-7 border border-stone-800 hover:border-sky-500/40 shadow-xl transition-all flex flex-col justify-between group">
+                <div className="bg-white rounded-3xl p-7 border border-[#E3D9C3] hover:border-sky-400/80 shadow-md shadow-amber-900/5 hover:shadow-xl transition-all flex flex-col justify-between group">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 uppercase tracking-wider">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-300/80 uppercase tracking-wider">
                         FAIR Code Inspector
                       </span>
-                      <Award className="w-6 h-6 text-sky-400 group-hover:scale-110 transition-transform" />
+                      <Award className="w-6 h-6 text-sky-700 group-hover:scale-110 transition-transform" />
                     </div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                    <h3 className="text-xl font-bold text-stone-900 group-hover:text-sky-800 transition-colors">
                       NeuroBench Code Auditor
                     </h3>
-                    <p className="text-xs text-stone-300 leading-relaxed">
+                    <p className="text-xs text-stone-600 leading-relaxed font-normal">
                       Automated code inspector verifying reproducibility, random seed consistency, and FAIR data standards before capstone submission.
                     </p>
                   </div>
-                  <div className="pt-5 border-t border-stone-800 mt-5 text-[11px] text-sky-400/90 font-mono flex items-center space-x-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                  <div className="pt-5 border-t border-[#EBE2D0] mt-5 text-[11px] text-sky-800 font-mono flex items-center space-x-1.5 font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-700" />
                     <span>Reproducibility & Journal Readiness</span>
                   </div>
                 </div>
