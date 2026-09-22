@@ -11,6 +11,10 @@ import {
   doc,
   getDoc,
   setDoc,
+  collection,
+  getDocs,
+  query,
+  where,
   serverTimestamp,
 } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase/config';
@@ -57,16 +61,16 @@ export function mapModalityToPathwayName(modality?: string | null): string {
   if (m.includes('fnirs') || m.includes('optical')) {
     return 'fNIRS Optical Neuroimaging';
   }
-  if (m.includes('electro') || m.includes('lfp') || m.includes('spike')) {
+  if (m.includes('electro') || m.includes('lfp') || m.includes('spike') || m.includes('ephys')) {
     return 'Electrophysiological Dynamics';
   }
   return modality;
 }
 
 /**
- * Utility helper to ensure Firestore promises never hang indefinitely
+ * Utility helper to ensure Firestore promises don't block forever while allowing plenty of time for network/auth handshakes
  */
-function withTimeout<T>(promise: Promise<T>, timeoutMs: number = 3500, fallback: T): Promise<T> {
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number = 12000, fallback: T): Promise<T> {
   return Promise.race([
     promise,
     new Promise<T>((resolve) => setTimeout(() => resolve(fallback), timeoutMs)),
@@ -76,9 +80,9 @@ function withTimeout<T>(promise: Promise<T>, timeoutMs: number = 3500, fallback:
 /**
  * Checks whether an email is approved for ABDN Fellowship platform access.
  * Checks against:
- * 1. Superadmin whitelist
- * 2. Pre-approved local roster
- * 3. Firestore `approved_fellows` collection (doc ID = normalized email)
+ * 1. Primary lookup in Firestore `approved_fellows` collection (doc ID = normalized email)
+ * 1b. Fallback query where email == normalized
+ * 2. Static Superadmin configuration fallback
  */
 export async function isEmailApprovedFellow(
   email: string | null | undefined
@@ -89,9 +93,43 @@ export async function isEmailApprovedFellow(
   // 1. Primary Dynamic check in Firestore `approved_fellows` collection (doc ID = normalized email)
   try {
     const docRef = doc(db, "approved_fellows", normalized);
-    const snap = await withTimeout(getDoc(docRef), 3500, null as any);
+    const snap = await withTimeout(getDoc(docRef), 12000, null as any);
     if (snap && snap.exists()) {
       const data = snap.data() as ApprovedFellowData;
+      if (data?.active !== false) {
+        const rawRole = (data?.role || "fellow").toLowerCase();
+        const isSuper = rawRole.includes("admin") || rawRole === "superadmin";
+        const role = isSuper ? "superadmin" : (data?.role || "fellow");
+        const assignedModality =
+          data.assignedModality ||
+          (data as any).modality ||
+          (data as any).cohortTrack ||
+          (data as any).track ||
+          (data as any).pathway ||
+          (data as any).selectedPathway ||
+          '';
+
+        return {
+          approved: true,
+          role,
+          data: {
+            ...data,
+            email: normalized,
+            role,
+            assignedModality: assignedModality || undefined,
+            cohortYear: data.cohortYear || '2026',
+            program: data.program || 'ABDN Fellowship',
+          },
+        };
+      }
+    }
+
+    // 1b. Fallback secondary query in case document ID is different from email
+    const q = query(collection(db, "approved_fellows"), where("email", "==", normalized));
+    const qSnap = await withTimeout(getDocs(q), 12000, null as any);
+    if (qSnap && !qSnap.empty) {
+      const docSnap = qSnap.docs[0];
+      const data = docSnap.data() as ApprovedFellowData;
       if (data?.active !== false) {
         const rawRole = (data?.role || "fellow").toLowerCase();
         const isSuper = rawRole.includes("admin") || rawRole === "superadmin";
