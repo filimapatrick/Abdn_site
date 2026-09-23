@@ -215,6 +215,7 @@ export interface ElearningUser {
 
 const USERS_COLLECTION = 'elearning_users';
 const BACKUP_USERS_COLLECTION = 'users';
+const JOIN_REQUESTS_COLLECTION = 'cohort_join_requests';
 
 /**
  * Helper to write/update user documents across both elearning_users and users collections
@@ -403,6 +404,51 @@ export interface CohortJoinRequestPayload {
   notes?: string;
 }
 
+export interface ExistingCohortJoinRequest {
+  id: string;
+  email: string;
+  displayName?: string;
+  gender?: string;
+  country?: string;
+  institution?: string;
+  requestedPathway?: string;
+  status: 'pending' | 'approved' | 'rejected';
+}
+
+/**
+ * Checks whether an active pending join request exists for the specified email
+ */
+export async function fetchPendingCohortJoinRequest(
+  email: string | null | undefined
+): Promise<ExistingCohortJoinRequest | null> {
+  const normalized = normalizeEmail(email);
+  if (!normalized) return null;
+
+  try {
+    const docId = normalized.replace(/[^a-z0-9]/g, '_');
+    const docRef = doc(db, JOIN_REQUESTS_COLLECTION, docId);
+    const snap = await withTimeout(getDoc(docRef), 4000, null as any);
+    if (snap && snap.exists()) {
+      const data = snap.data();
+      if (data?.status === 'pending') {
+        return {
+          id: snap.id,
+          email: data.email || normalized,
+          displayName: data.displayName || '',
+          gender: data.gender || '',
+          country: data.country || '',
+          institution: data.institution || '',
+          requestedPathway: data.requestedPathway || 'Structural MRI Analysis',
+          status: data.status || 'pending',
+        };
+      }
+    }
+  } catch (err) {
+    console.warn('fetchPendingCohortJoinRequest warning:', err);
+  }
+  return null;
+}
+
 /**
  * Submit a cohort join request for candidate review
  */
@@ -426,7 +472,7 @@ export async function submitCohortJoinRequest(payload: CohortJoinRequestPayload)
   };
 
   try {
-    await withTimeout(setDoc(docRef, requestData, { merge: true }), 3500, undefined);
+    await withTimeout(setDoc(docRef, requestData, { merge: true }), 5000, undefined);
   } catch (err) {
     console.warn('Firestore submitCohortJoinRequest warning:', err);
   }
@@ -570,10 +616,25 @@ export async function signInWithGoogle(
       console.warn('Sign out warning:', signOutErr);
     }
 
+    // Check if candidate already has an active pending application
+    const existingPending = await fetchPendingCohortJoinRequest(userEmail);
+
+    if (existingPending) {
+      return {
+        user: null,
+        profile: null,
+        isUnderReview: true,
+        needsProfileDetails: false,
+        pendingEmail: userEmail || undefined,
+        pendingDisplayName: existingPending.displayName || userDisplayName || undefined,
+        requestedPathway: existingPending.requestedPathway || targetPathway,
+      };
+    }
+
     return {
       user: null,
       profile: null,
-      isUnderReview: true,
+      isUnderReview: false,
       needsProfileDetails: true,
       pendingEmail: userEmail || undefined,
       pendingDisplayName: userDisplayName || undefined,

@@ -7,7 +7,6 @@ import {
   syncElearningUserDocument,
   signOutUser,
   isEmailApprovedFellow,
-  submitCohortJoinRequest,
 } from '../services/authService';
 
 interface AuthContextType {

@@ -139,6 +139,12 @@ export default function AuthModal({
         setCurrentStep('details');
       } else if (result.isUnderReview) {
         setApplicantEmail(result.pendingEmail || 'your Google account');
+        if (result.pendingDisplayName) {
+          setFullName(result.pendingDisplayName);
+        }
+        if (result.requestedPathway) {
+          setSelectedTrack(result.requestedPathway);
+        }
         setCurrentStep('under_review');
       }
     } catch (err: any) {
